@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Viewpoint::EWS::SOAP::EwsSoapFreeBusyResponse - viewpoint-1.0.0 Documentation</title>
+
+<link type="text/css" media="screen" href="../../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../../index.html">Home</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/ews/soap/ews_soap_free_busy_response.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">EwsSoapResponse
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-body">#body</a>
+    
+    <li ><a href="#method-i-calendar_event_array">#calendar_event_array</a>
+    
+    <li ><a href="#method-i-code">#code</a>
+    
+    <li ><a href="#method-i-envelope">#envelope</a>
+    
+    <li ><a href="#method-i-find_in_hash_list">#find_in_hash_list</a>
+    
+    <li ><a href="#method-i-get_user_availability_response">#get_user_availability_response</a>
+    
+    <li ><a href="#method-i-guard_hash">#guard_hash</a>
+    
+    <li ><a href="#method-i-header">#header</a>
+    
+    <li ><a href="#method-i-message">#message</a>
+    
+    <li ><a href="#method-i-response">#response</a>
+    
+    <li ><a href="#method-i-response_class">#response_class</a>
+    
+    <li ><a href="#method-i-response_code">#response_code</a>
+    
+    <li ><a href="#method-i-response_key">#response_key</a>
+    
+    <li ><a href="#method-i-response_message">#response_message</a>
+    
+    <li ><a href="#method-i-response_message_text">#response_message_text</a>
+    
+    <li ><a href="#method-i-simplify-21">#simplify!</a>
+    
+    <li ><a href="#method-i-status">#status</a>
+    
+    <li ><a href="#method-i-success-3F">#success?</a>
+    
+    <li ><a href="#method-i-working_hours">#working_hours</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../../README_md.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../Viewpoint.html">Viewpoint</a>
+  
+    <li><a href="../../../Viewpoint/EWS.html">Viewpoint::EWS</a>
+  
+    <li><a href="../../../Viewpoint/EWS/CalendarAccessors.html">Viewpoint::EWS::CalendarAccessors</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Connection.html">Viewpoint::EWS::Connection</a>
+  
+    <li><a href="../../../Viewpoint/EWS/ConnectionHelper.html">Viewpoint::EWS::ConnectionHelper</a>
+  
+    <li><a href="../../../Viewpoint/EWS/ConvertAccessors.html">Viewpoint::EWS::ConvertAccessors</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Errors.html">Viewpoint::EWS::Errors</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Errors/ResponseError.html">Viewpoint::EWS::Errors::ResponseError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Errors/ServerError.html">Viewpoint::EWS::Errors::ServerError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Errors/SoapResponseError.html">Viewpoint::EWS::Errors::SoapResponseError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Errors/UnauthorizedResponseError.html">Viewpoint::EWS::Errors::UnauthorizedResponseError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Errors/UnhandledResponseError.html">Viewpoint::EWS::Errors::UnhandledResponseError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsBadArgumentError.html">Viewpoint::EWS::EwsBadArgumentError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsCreateItemError.html">Viewpoint::EWS::EwsCreateItemError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsError.html">Viewpoint::EWS::EwsError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsFolderNotFound.html">Viewpoint::EWS::EwsFolderNotFound</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsFrozenObjectError.html">Viewpoint::EWS::EwsFrozenObjectError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsItemNotFound.html">Viewpoint::EWS::EwsItemNotFound</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsLoginError.html">Viewpoint::EWS::EwsLoginError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsMinimalObjectError.html">Viewpoint::EWS::EwsMinimalObjectError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsNotImplemented.html">Viewpoint::EWS::EwsNotImplemented</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsSendItemError.html">Viewpoint::EWS::EwsSendItemError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsServerVersionError.html">Viewpoint::EWS::EwsServerVersionError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsSubscriptionError.html">Viewpoint::EWS::EwsSubscriptionError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsSubscriptionTimeout.html">Viewpoint::EWS::EwsSubscriptionTimeout</a>
+  
+    <li><a href="../../../Viewpoint/EWS/FolderAccessors.html">Viewpoint::EWS::FolderAccessors</a>
+  
+    <li><a href="../../../Viewpoint/EWS/ItemAccessors.html">Viewpoint::EWS::ItemAccessors</a>
+  
+    <li><a href="../../../Viewpoint/EWS/ItemFieldUriMap.html">Viewpoint::EWS::ItemFieldUriMap</a>
+  
+    <li><a href="../../../Viewpoint/EWS/MailboxAccessors.html">Viewpoint::EWS::MailboxAccessors</a>
+  
+    <li><a href="../../../Viewpoint/EWS/MessageAccessors.html">Viewpoint::EWS::MessageAccessors</a>
+  
+    <li><a href="../../../Viewpoint/EWS/PushSubscriptionAccessors.html">Viewpoint::EWS::PushSubscriptionAccessors</a>
+  
+    <li><a href="../../../Viewpoint/EWS/RoomAccessors.html">Viewpoint::EWS::RoomAccessors</a>
+  
+    <li><a href="../../../Viewpoint/EWS/RoomlistAccessors.html">Viewpoint::EWS::RoomlistAccessors</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP.html">Viewpoint::EWS::SOAP</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/CreateAttachmentResponseMessage.html">Viewpoint::EWS::SOAP::CreateAttachmentResponseMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/CreateItemResponseMessage.html">Viewpoint::EWS::SOAP::CreateItemResponseMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/EwsBuilder.html">Viewpoint::EWS::SOAP::EwsBuilder</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/EwsParser.html">Viewpoint::EWS::SOAP::EwsParser</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/EwsResponse.html">Viewpoint::EWS::SOAP::EwsResponse</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/EwsSaxDocument.html">Viewpoint::EWS::SOAP::EwsSaxDocument</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/EwsSoapAvailabilityResponse.html">Viewpoint::EWS::SOAP::EwsSoapAvailabilityResponse</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/EwsSoapFreeBusyResponse.html">Viewpoint::EWS::SOAP::EwsSoapFreeBusyResponse</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/EwsSoapResponse.html">Viewpoint::EWS::SOAP::EwsSoapResponse</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/EwsSoapRoomResponse.html">Viewpoint::EWS::SOAP::EwsSoapRoomResponse</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/EwsSoapRoomlistResponse.html">Viewpoint::EWS::SOAP::EwsSoapRoomlistResponse</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/ExchangeAvailability.html">Viewpoint::EWS::SOAP::ExchangeAvailability</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/ExchangeDataServices.html">Viewpoint::EWS::SOAP::ExchangeDataServices</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/ExchangeNotification.html">Viewpoint::EWS::SOAP::ExchangeNotification</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/ExchangeSynchronization.html">Viewpoint::EWS::SOAP::ExchangeSynchronization</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/ExchangeTimeZones.html">Viewpoint::EWS::SOAP::ExchangeTimeZones</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/ExchangeUserConfiguration.html">Viewpoint::EWS::SOAP::ExchangeUserConfiguration</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/ExchangeWebService.html">Viewpoint::EWS::SOAP::ExchangeWebService</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/FindItemResponseMessage.html">Viewpoint::EWS::SOAP::FindItemResponseMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/GetEventsResponseMessage.html">Viewpoint::EWS::SOAP::GetEventsResponseMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/ResponseMessage.html">Viewpoint::EWS::SOAP::ResponseMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/RootFolder.html">Viewpoint::EWS::SOAP::RootFolder</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/SendNotificationResponseMessage.html">Viewpoint::EWS::SOAP::SendNotificationResponseMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/SubscribeResponseMessage.html">Viewpoint::EWS::SOAP::SubscribeResponseMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/SyncFolderHierarchyResponseMessage.html">Viewpoint::EWS::SOAP::SyncFolderHierarchyResponseMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/SyncFolderItemsResponseMessage.html">Viewpoint::EWS::SOAP::SyncFolderItemsResponseMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SaveFailed.html">Viewpoint::EWS::SaveFailed</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Template.html">Viewpoint::EWS::Template</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Template/CalendarItem.html">Viewpoint::EWS::Template::CalendarItem</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Template/ForwardItem.html">Viewpoint::EWS::Template::ForwardItem</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Template/Message.html">Viewpoint::EWS::Template::Message</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Template/ReplyToItem.html">Viewpoint::EWS::Template::ReplyToItem</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Template/Task.html">Viewpoint::EWS::Template::Task</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types.html">Viewpoint::EWS::Types</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/Attachment.html">Viewpoint::EWS::Types::Attachment</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/Attendee.html">Viewpoint::EWS::Types::Attendee</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/CalendarFolder.html">Viewpoint::EWS::Types::CalendarFolder</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/CalendarItem.html">Viewpoint::EWS::Types::CalendarItem</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/Contact.html">Viewpoint::EWS::Types::Contact</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/ContactsFolder.html">Viewpoint::EWS::Types::ContactsFolder</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/CopiedEvent.html">Viewpoint::EWS::Types::CopiedEvent</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/CreatedEvent.html">Viewpoint::EWS::Types::CreatedEvent</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/DeletedEvent.html">Viewpoint::EWS::Types::DeletedEvent</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/DistributionList.html">Viewpoint::EWS::Types::DistributionList</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/Event.html">Viewpoint::EWS::Types::Event</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/ExportItemsResponseMessage.html">Viewpoint::EWS::Types::ExportItemsResponseMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/FileAttachment.html">Viewpoint::EWS::Types::FileAttachment</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/Folder.html">Viewpoint::EWS::Types::Folder</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/FreeBusyChangedEvent.html">Viewpoint::EWS::Types::FreeBusyChangedEvent</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/GenericFolder.html">Viewpoint::EWS::Types::GenericFolder</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/Item.html">Viewpoint::EWS::Types::Item</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/Item/ClassMethods.html">Viewpoint::EWS::Types::Item::ClassMethods</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/ItemAttachment.html">Viewpoint::EWS::Types::ItemAttachment</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/MailboxUser.html">Viewpoint::EWS::Types::MailboxUser</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/MeetingCancellation.html">Viewpoint::EWS::Types::MeetingCancellation</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/MeetingMessage.html">Viewpoint::EWS::Types::MeetingMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/MeetingRequest.html">Viewpoint::EWS::Types::MeetingRequest</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/MeetingResponse.html">Viewpoint::EWS::Types::MeetingResponse</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/Message.html">Viewpoint::EWS::Types::Message</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/ModifiedEvent.html">Viewpoint::EWS::Types::ModifiedEvent</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/MovedEvent.html">Viewpoint::EWS::Types::MovedEvent</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/NewMailEvent.html">Viewpoint::EWS::Types::NewMailEvent</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/OutOfOffice.html">Viewpoint::EWS::Types::OutOfOffice</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/SearchFolder.html">Viewpoint::EWS::Types::SearchFolder</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/StatusEvent.html">Viewpoint::EWS::Types::StatusEvent</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/Task.html">Viewpoint::EWS::Types::Task</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/TasksFolder.html">Viewpoint::EWS::Types::TasksFolder</a>
+  
+    <li><a href="../../../Viewpoint/EWSClient.html">Viewpoint::EWSClient</a>
+  
+    <li><a href="../../../Viewpoint/StringFormatException.html">Viewpoint::StringFormatException</a>
+  
+    <li><a href="../../../Viewpoint/StringUtils.html">Viewpoint::StringUtils</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Viewpoint::EWS::SOAP::EwsSoapFreeBusyResponse</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(sax_hash)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/ews/soap/ews_soap_free_busy_response.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">sax_hash</span>)
+  <span class="ruby-ivar">@resp</span> = <span class="ruby-identifier">sax_hash</span>
+  <span class="ruby-identifier">simplify!</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-body" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">body</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="body-source">
+            <pre><span class="ruby-comment"># File lib/ews/soap/ews_soap_free_busy_response.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">body</span>
+  <span class="ruby-identifier">envelope</span>[<span class="ruby-value">1</span>][<span class="ruby-value">:body</span>][<span class="ruby-value">:elems</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- body-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- body-method -->
+
+    
+      <div id="method-i-calendar_event_array" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">calendar_event_array</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="calendar_event_array-source">
+            <pre><span class="ruby-comment"># File lib/ews/soap/ews_soap_free_busy_response.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">calendar_event_array</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">find_in_hash_list</span>(<span class="ruby-identifier">get_user_availability_response</span>[<span class="ruby-value">1</span>][<span class="ruby-value">:free_busy_view</span>][<span class="ruby-value">:elems</span>], <span class="ruby-value">:calendar_event_array</span>)
+  <span class="ruby-identifier">result</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">result</span>[<span class="ruby-value">:elems</span>] <span class="ruby-operator">:</span> []
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- calendar_event_array-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- calendar_event_array-method -->
+
+    
+      <div id="method-i-code" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">code</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="EwsSoapFreeBusyResponse.html#method-i-response_code">response_code</a>
+        </div>
+        
+      </div><!-- code-method -->
+
+    
+      <div id="method-i-envelope" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">envelope</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="envelope-source">
+            <pre><span class="ruby-comment"># File lib/ews/soap/ews_soap_free_busy_response.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">envelope</span>
+  <span class="ruby-ivar">@resp</span>[<span class="ruby-value">:envelope</span>][<span class="ruby-value">:elems</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- envelope-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- envelope-method -->
+
+    
+      <div id="method-i-get_user_availability_response" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_user_availability_response</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_user_availability_response-source">
+            <pre><span class="ruby-comment"># File lib/ews/soap/ews_soap_free_busy_response.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_user_availability_response</span>
+  <span class="ruby-identifier">body</span>.<span class="ruby-identifier">first</span>[<span class="ruby-value">:get_user_availability_response</span>][<span class="ruby-value">:elems</span>].<span class="ruby-identifier">first</span>[<span class="ruby-value">:free_busy_response_array</span>][<span class="ruby-value">:elems</span>].<span class="ruby-identifier">first</span>[<span class="ruby-value">:free_busy_response</span>][<span class="ruby-value">:elems</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_user_availability_response-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_user_availability_response-method -->
+
+    
+      <div id="method-i-header" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">header</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="header-source">
+            <pre><span class="ruby-comment"># File lib/ews/soap/ews_soap_free_busy_response.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">header</span>
+  <span class="ruby-identifier">envelope</span>[<span class="ruby-value">0</span>][<span class="ruby-value">:header</span>][<span class="ruby-value">:elems</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- header-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- header-method -->
+
+    
+      <div id="method-i-message" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">message</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="EwsSoapFreeBusyResponse.html#method-i-response_message_text">response_message_text</a>
+        </div>
+        
+      </div><!-- message-method -->
+
+    
+      <div id="method-i-response" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">response</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="response-source">
+            <pre><span class="ruby-comment"># File lib/ews/soap/ews_soap_free_busy_response.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">response</span>
+  <span class="ruby-identifier">body</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- response-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- response-method -->
+
+    
+      <div id="method-i-response_class" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">response_class</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="response_class-source">
+            <pre><span class="ruby-comment"># File lib/ews/soap/ews_soap_free_busy_response.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">response_class</span>
+  <span class="ruby-identifier">response_message</span>[<span class="ruby-value">:attribs</span>][<span class="ruby-value">:response_class</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- response_class-source -->
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="EwsSoapFreeBusyResponse.html#method-i-status">status</a>
+        </div>
+        
+
+        
+      </div><!-- response_class-method -->
+
+    
+      <div id="method-i-response_code" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">response_code</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="response_code-source">
+            <pre><span class="ruby-comment"># File lib/ews/soap/ews_soap_free_busy_response.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">response_code</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">find_in_hash_list</span>(<span class="ruby-identifier">response_message</span>[<span class="ruby-value">:elems</span>], <span class="ruby-value">:response_code</span>)
+  <span class="ruby-identifier">result</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">result</span>[<span class="ruby-value">:text</span>] <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- response_code-source -->
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="EwsSoapFreeBusyResponse.html#method-i-code">code</a>
+        </div>
+        
+
+        
+      </div><!-- response_code-method -->
+
+    
+      <div id="method-i-response_key" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">response_key</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="response_key-source">
+            <pre><span class="ruby-comment"># File lib/ews/soap/ews_soap_free_busy_response.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">response_key</span>
+  <span class="ruby-identifier">response_message</span>[<span class="ruby-value">:elems</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- response_key-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- response_key-method -->
+
+    
+      <div id="method-i-response_message" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">response_message</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="response_message-source">
+            <pre><span class="ruby-comment"># File lib/ews/soap/ews_soap_free_busy_response.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">response_message</span>
+  <span class="ruby-identifier">find_in_hash_list</span>(<span class="ruby-identifier">get_user_availability_response</span>, <span class="ruby-value">:response_message</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- response_message-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- response_message-method -->
+
+    
+      <div id="method-i-response_message_text" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">response_message_text</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="response_message_text-source">
+            <pre><span class="ruby-comment"># File lib/ews/soap/ews_soap_free_busy_response.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">response_message_text</span>
+  <span class="ruby-identifier">guard_hash</span> <span class="ruby-identifier">response_message</span>[<span class="ruby-value">:elems</span>], [<span class="ruby-value">:message_text</span>, <span class="ruby-value">:text</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- response_message_text-source -->
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="EwsSoapFreeBusyResponse.html#method-i-message">message</a>
+        </div>
+        
+
+        
+      </div><!-- response_message_text-method -->
+
+    
+      <div id="method-i-status" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">status</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="EwsSoapFreeBusyResponse.html#method-i-response_class">response_class</a>
+        </div>
+        
+      </div><!-- status-method -->
+
+    
+      <div id="method-i-success-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">success?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="success-3F-source">
+            <pre><span class="ruby-comment"># File lib/ews/soap/ews_soap_free_busy_response.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">success?</span>
+  <span class="ruby-identifier">response_class</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;Success&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- success-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- success-3F-method -->
+
+    
+      <div id="method-i-working_hours" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">working_hours</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="working_hours-source">
+            <pre><span class="ruby-comment"># File lib/ews/soap/ews_soap_free_busy_response.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">working_hours</span>
+  <span class="ruby-identifier">get_user_availability_response</span>[<span class="ruby-value">1</span>][<span class="ruby-value">:free_busy_view</span>][<span class="ruby-value">:elems</span>][<span class="ruby-value">2</span>][<span class="ruby-value">:working_hours</span>][<span class="ruby-value">:elems</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- working_hours-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- working_hours-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-find_in_hash_list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_in_hash_list</span><span
+            class="method-args">(collection, key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Find the first element in a list of hashes or return nil Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">find_in_hash_list</span>([{:<span class="ruby-identifier">foo</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">bar</span>}, {:<span class="ruby-identifier">bar</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">baz</span>}], :<span class="ruby-identifier">foo</span>)
+=<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">bar</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="find_in_hash_list-source">
+            <pre><span class="ruby-comment"># File lib/ews/soap/ews_soap_free_busy_response.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_in_hash_list</span>(<span class="ruby-identifier">collection</span>, <span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">collection</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">hsh</span><span class="ruby-operator">|</span> <span class="ruby-identifier">hsh</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span>) }
+  <span class="ruby-identifier">result</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">result</span>[<span class="ruby-identifier">key</span>] <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- find_in_hash_list-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- find_in_hash_list-method -->
+
+    
+      <div id="method-i-guard_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">guard_hash</span><span
+            class="method-args">(hsh, keys)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>If the keys don&#39;t exist in the Hash return nil @<a
+href="http://Hash">param</a> hsh @<a
+href="http://Array<Symbol,String>“>param</a> keys keys to follow in the
+array @return [Object, nil]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="guard_hash-source">
+            <pre><span class="ruby-comment"># File lib/ews/soap/ews_soap_free_busy_response.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">guard_hash</span>(<span class="ruby-identifier">hsh</span>, <span class="ruby-identifier">keys</span>)
+  <span class="ruby-identifier">key</span> = <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">hsh</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">hsh</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">key</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">hsh</span>[<span class="ruby-identifier">key</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">guard_hash</span> <span class="ruby-identifier">hsh</span>[<span class="ruby-identifier">key</span>], <span class="ruby-identifier">keys</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- guard_hash-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- guard_hash-method -->
+
+    
+      <div id="method-i-simplify-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">simplify!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="simplify-21-source">
+            <pre><span class="ruby-comment"># File lib/ews/soap/ews_soap_free_busy_response.rb, line 87</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">simplify!</span>
+<span class="ruby-comment">#     key = response_key</span>
+<span class="ruby-comment">#     body[0][key] = body[0][key][:elems].inject(:merge)</span>
+<span class="ruby-comment">#     response_message[:elems] = response_message[:elems].inject(:merge)</span>
+    <span class="ruby-keyword">end</span></pre>
+          </div><!-- simplify-21-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- simplify-21-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

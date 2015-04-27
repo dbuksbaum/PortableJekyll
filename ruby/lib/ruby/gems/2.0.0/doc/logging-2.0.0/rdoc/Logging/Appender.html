@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Logging::Appender - logging-2.0.0 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/logging/appender.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-3C-3C">#&lt;&lt;</a>
+    
+    <li ><a href="#method-i-add_filters">#add_filters</a>
+    
+    <li ><a href="#method-i-allow">#allow</a>
+    
+    <li ><a href="#method-i-append">#append</a>
+    
+    <li ><a href="#method-i-close">#close</a>
+    
+    <li ><a href="#method-i-closed-3F">#closed?</a>
+    
+    <li ><a href="#method-i-encoding">#encoding</a>
+    
+    <li ><a href="#method-i-encoding-3D">#encoding=</a>
+    
+    <li ><a href="#method-i-filters-3D">#filters=</a>
+    
+    <li ><a href="#method-i-flush">#flush</a>
+    
+    <li ><a href="#method-i-inspect">#inspect</a>
+    
+    <li ><a href="#method-i-layout-3D">#layout=</a>
+    
+    <li ><a href="#method-i-level-3D">#level=</a>
+    
+    <li ><a href="#method-i-off-3F">#off?</a>
+    
+    <li ><a href="#method-i-reopen">#reopen</a>
+    
+    <li ><a href="#method-i-sync">#sync</a>
+    
+    <li ><a href="#method-i-write">#write</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../History_txt.html">History</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../File.html">File</a>
+  
+    <li><a href="../FileUtils.html">FileUtils</a>
+  
+    <li><a href="../Logging.html">Logging</a>
+  
+    <li><a href="../Logging/Appender.html">Logging::Appender</a>
+  
+    <li><a href="../Logging/Appenders.html">Logging::Appenders</a>
+  
+    <li><a href="../Logging/Appenders/Buffering.html">Logging::Appenders::Buffering</a>
+  
+    <li><a href="../Logging/Appenders/File.html">Logging::Appenders::File</a>
+  
+    <li><a href="../Logging/Appenders/IO.html">Logging::Appenders::IO</a>
+  
+    <li><a href="../Logging/Appenders/RollingFile.html">Logging::Appenders::RollingFile</a>
+  
+    <li><a href="../Logging/Appenders/RollingFile/Roller.html">Logging::Appenders::RollingFile::Roller</a>
+  
+    <li><a href="../Logging/Appenders/Stderr.html">Logging::Appenders::Stderr</a>
+  
+    <li><a href="../Logging/Appenders/Stdout.html">Logging::Appenders::Stdout</a>
+  
+    <li><a href="../Logging/Appenders/StringIo.html">Logging::Appenders::StringIo</a>
+  
+    <li><a href="../Logging/Appenders/Syslog.html">Logging::Appenders::Syslog</a>
+  
+    <li><a href="../Logging/ColorScheme.html">Logging::ColorScheme</a>
+  
+    <li><a href="../Logging/Filter.html">Logging::Filter</a>
+  
+    <li><a href="../Logging/Filters.html">Logging::Filters</a>
+  
+    <li><a href="../Logging/Filters/Level.html">Logging::Filters::Level</a>
+  
+    <li><a href="../Logging/Layout.html">Logging::Layout</a>
+  
+    <li><a href="../Logging/Layouts.html">Logging::Layouts</a>
+  
+    <li><a href="../Logging/Layouts/Basic.html">Logging::Layouts::Basic</a>
+  
+    <li><a href="../Logging/Layouts/Parseable.html">Logging::Layouts::Parseable</a>
+  
+    <li><a href="../Logging/Layouts/Parseable/layout;.html">Logging::Layouts::Parseable::layout;</a>
+  
+    <li><a href="../Logging/Layouts/Pattern.html">Logging::Layouts::Pattern</a>
+  
+    <li><a href="../Logging/Logger.html">Logging::Logger</a>
+  
+    <li><a href="../Logging/Logger.html">Logging::Logger</a>
+  
+    <li><a href="../Logging/MappedDiagnosticContext.html">Logging::MappedDiagnosticContext</a>
+  
+    <li><a href="../Logging/NestedDiagnosticContext.html">Logging::NestedDiagnosticContext</a>
+  
+    <li><a href="../Logging/Proxy.html">Logging::Proxy</a>
+  
+    <li><a href="../Logging/RailsCompat.html">Logging::RailsCompat</a>
+  
+    <li><a href="../Logging/Repository.html">Logging::Repository</a>
+  
+    <li><a href="../Logging/Repository/Singleton.html">Logging::Repository::Singleton</a>
+  
+    <li><a href="../Logging/RootLogger.html">Logging::RootLogger</a>
+  
+    <li><a href="../Logging/logger.html">Logging::logger</a>
+  
+    <li><a href="../Module.html">Module</a>
+  
+    <li><a href="../Object.html">Object</a>
+  
+    <li><a href="../RSpec.html">RSpec</a>
+  
+    <li><a href="../RSpec/Core.html">RSpec::Core</a>
+  
+    <li><a href="../RSpec/Core/Configuration.html">RSpec::Core::Configuration</a>
+  
+    <li><a href="../RSpec/LoggingHelper.html">RSpec::LoggingHelper</a>
+  
+    <li><a href="../RSpec/LoggingHelper.html">RSpec::LoggingHelper</a>
+  
+    <li><a href="../ReentrantMutex.html">ReentrantMutex</a>
+  
+    <li><a href="../Spec.html">Spec</a>
+  
+    <li><a href="../Spec/Runner.html">Spec::Runner</a>
+  
+    <li><a href="../Spec/Runner/Configuration.html">Spec::Runner::Configuration</a>
+  
+    <li><a href="../String.html">String</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Logging::Appender</h1>
+
+  <div id="description" class="description">
+    
+<p>The <code>Appender</code> class is provides methods for appending log
+events to a logging destination. The log events are formatted into strings
+using a <a href="Layout.html">Layout</a>.</p>
+
+<p>All other <a href="Appenders.html">Appenders</a> inherit from this class
+which provides stub methods. Each subclass should provide a
+<code>write</code> method that will write log messages to the logging
+destination.</p>
+
+<p>A private <code>sync</code> method is provided for use by subclasses. It is
+used to synchronize writes to the logging destination, and can be used by
+subclasses to synchronize the closing or flushing of the logging
+destination.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-filters" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">filters</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-layout" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">layout</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-level" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">level</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">name</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            new( name )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            new( name, :layout &rarr; layout )
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new appender using the given name. If no <a
+href="Layout.html">Layout</a> is specified, then a Basic layout will be
+used. Any logging header supplied by the layout will be written to the
+logging destination when the <a href="Appender.html">Appender</a> is
+created.</p>
+
+<p>Options:</p>
+
+<pre class="ruby">:<span class="ruby-identifier">layout</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">layout</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">use</span> <span class="ruby-keyword">when</span> <span class="ruby-identifier">formatting</span> <span class="ruby-identifier">log</span> <span class="ruby-identifier">events</span>
+:<span class="ruby-identifier">level</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">level</span> <span class="ruby-identifier">at</span> <span class="ruby-identifier">which</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">log</span>
+:<span class="ruby-identifier">encoding</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">encoding</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">use</span> <span class="ruby-keyword">when</span> <span class="ruby-identifier">writing</span> <span class="ruby-identifier">messages</span> (<span class="ruby-identifier">defaults</span> <span class="ruby-identifier">to</span> <span class="ruby-constant">UTF</span><span class="ruby-operator">-</span><span class="ruby-value">8</span>)
+:<span class="ruby-identifier">filters</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">filters</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">apply</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">events</span> <span class="ruby-identifier">before</span> <span class="ruby-identifier">processing</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/logging/appender.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>( <span class="ruby-identifier">name</span>, <span class="ruby-identifier">opts</span> = {} )
+  <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span>.<span class="ruby-identifier">init</span> <span class="ruby-keyword">unless</span> <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span>.<span class="ruby-identifier">initialized?</span>
+
+  <span class="ruby-ivar">@name</span>    = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-ivar">@closed</span>  = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@filters</span> = []
+  <span class="ruby-ivar">@mutex</span>   = <span class="ruby-constant">ReentrantMutex</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">layout</span>   = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:layout</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">Layouts</span><span class="ruby-operator">::</span><span class="ruby-constant">Basic</span>.<span class="ruby-identifier">new</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">level</span>    = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:level</span>, <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">encoding</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:encoding</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">encoding</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">filters</span>  = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:filters</span>, <span class="ruby-keyword">nil</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:header</span>, <span class="ruby-keyword">true</span>)
+    <span class="ruby-identifier">header</span> = <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">header</span>
+
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">header</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">header</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-keyword">begin</span>
+        <span class="ruby-identifier">write</span>(<span class="ruby-identifier">header</span>)
+      <span class="ruby-keyword">rescue</span> <span class="ruby-constant">StandardError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">err</span>
+        <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span>.<span class="ruby-identifier">log_internal_error</span>(<span class="ruby-identifier">err</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">Appenders</span>[<span class="ruby-ivar">@name</span>] = <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-3C-3C" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            appender &lt;&lt; string
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Write the given <em>string</em> to the logging destination “as is” – no
+layout formatting will be performed.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="3C-3C-source">
+            <pre><span class="ruby-comment"># File lib/logging/appender.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">&lt;&lt;</span>( <span class="ruby-identifier">str</span> )
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@closed</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">RuntimeError</span>,
+          <span class="ruby-node">&quot;appender &#39;&lt;#{self.class.name}: #{@name}&gt;&#39; is closed&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">off?</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">write</span>(<span class="ruby-identifier">str</span>)
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">StandardError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">err</span>
+      <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span>.<span class="ruby-identifier">log_internal_error</span>(<span class="ruby-identifier">err</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- 3C-3C-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- 3C-3C-method -->
+
+    
+      <div id="method-i-add_filters" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_filters</span><span
+            class="method-args">( *args )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets the filter(s) to be used by this appender. The filters will be applied
+in the order that they are added to the appender.</p>
+
+<p>Examples</p>
+
+<pre>add_filters(Logging::Filters::Level.new(:warn, :error))</pre>
+
+<p>Returns this appender instance.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_filters-source">
+            <pre><span class="ruby-comment"># File lib/logging/appender.rb, line 185</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_filters</span>( <span class="ruby-operator">*</span><span class="ruby-identifier">args</span> )
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">filter</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">filter</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">filter</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">Filter</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-node">&quot;#{filter.inspect} is not a kind of &#39;Logging::Filter&#39;&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@filters</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">filter</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- add_filters-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- add_filters-method -->
+
+    
+      <div id="method-i-allow" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">allow</span><span
+            class="method-args">( event )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Check to see if the event should be processed by the appender. An event
+will be rejected if the event level is lower than the configured level for
+the appender. Or it will be rejected if one of the filters rejects the
+event.</p>
+
+<p>event - The LogEvent to check</p>
+
+<p>Returns the event if it is allowed; returns `nil` if it is not allowed.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="allow-source">
+            <pre><span class="ruby-comment"># File lib/logging/appender.rb, line 299</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">allow</span>( <span class="ruby-identifier">event</span> )
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@level</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">event</span>.<span class="ruby-identifier">level</span>
+  <span class="ruby-ivar">@filters</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">filter</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">event</span> = <span class="ruby-identifier">filter</span>.<span class="ruby-identifier">allow</span>(<span class="ruby-identifier">event</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">event</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- allow-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- allow-method -->
+
+    
+      <div id="method-i-append" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            append( event )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Write the given <em>event</em> to the logging destination. The log event
+will be processed through the <a href="Layout.html">Layout</a> associated
+with the <a href="Appender.html">Appender</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="append-source">
+            <pre><span class="ruby-comment"># File lib/logging/appender.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">append</span>( <span class="ruby-identifier">event</span> )
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@closed</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">RuntimeError</span>,
+          <span class="ruby-node">&quot;appender &#39;&lt;#{self.class.name}: #{@name}&gt;&#39; is closed&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># only append if the event level is less than or equal to the configured</span>
+  <span class="ruby-comment"># appender level and the filter does not disallow it</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">event</span> = <span class="ruby-identifier">allow</span>(<span class="ruby-identifier">event</span>)
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">write</span>(<span class="ruby-identifier">event</span>)
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">StandardError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">err</span>
+      <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span>.<span class="ruby-identifier">log_internal_error</span>(<span class="ruby-identifier">err</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- append-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- append-method -->
+
+    
+      <div id="method-i-close" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            close( footer = true )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Close the appender and writes the layout footer to the logging destination
+if the <em>footer</em> flag is set to <code>true</code>. Log events will no
+longer be written to the logging destination after the appender is closed.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="close-source">
+            <pre><span class="ruby-comment"># File lib/logging/appender.rb, line 204</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">close</span>( <span class="ruby-identifier">footer</span> = <span class="ruby-keyword">true</span> )
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@closed</span>
+  <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">Appenders</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-ivar">@name</span>)
+  <span class="ruby-ivar">@closed</span> = <span class="ruby-keyword">true</span>
+
+  <span class="ruby-identifier">flush</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">footer</span>
+    <span class="ruby-identifier">footer</span> = <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">footer</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">footer</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">footer</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-keyword">begin</span>
+        <span class="ruby-identifier">write</span>(<span class="ruby-identifier">footer</span>)
+      <span class="ruby-keyword">rescue</span> <span class="ruby-constant">StandardError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">err</span>
+        <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span>.<span class="ruby-identifier">log_internal_error</span>(<span class="ruby-identifier">err</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- close-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- close-method -->
+
+    
+      <div id="method-i-closed-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            closed?
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns <code>true</code> if the appender has been closed; returns
+<code>false</code> otherwise. When an appender is closed, no more log
+events can be written to the logging destination.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="closed-3F-source">
+            <pre><span class="ruby-comment"># File lib/logging/appender.rb, line 231</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">closed?</span>
+  <span class="ruby-ivar">@closed</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- closed-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- closed-3F-method -->
+
+    
+      <div id="method-i-encoding" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">encoding</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the current Encoding for the appender or nil if an encoding has not
+been set.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="encoding-source">
+            <pre><span class="ruby-comment"># File lib/logging/appender.rb, line 270</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">encoding</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@encoding</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span> <span class="ruby-ivar">@encoding</span>
+  <span class="ruby-ivar">@encoding</span> = <span class="ruby-constant">Object</span>.<span class="ruby-identifier">const_defined?</span>(<span class="ruby-value">:Encoding</span>) <span class="ruby-operator">?</span> <span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">default_external</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- encoding-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- encoding-method -->
+
+    
+      <div id="method-i-encoding-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">encoding=</span><span
+            class="method-args">( value )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set the appender encoding to the given value. The value can either be an
+Encoding instance or a <a href="../String.html">String</a> or Symbol
+referring to a valid encoding.</p>
+
+<p>This method only applies to Ruby 1.9 or later. The encoding will always be
+nil for older Rubies.</p>
+
+<p>value - The encoding as a <a href="../String.html">String</a>, Symbol, or
+Encoding instance.</p>
+
+<p>Raises ArgumentError if the value is not a valid encoding.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="encoding-3D-source">
+            <pre><span class="ruby-comment"># File lib/logging/appender.rb, line 284</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">encoding=</span>( <span class="ruby-identifier">value</span> )
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-ivar">@encoding</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@encoding</span> = <span class="ruby-constant">Object</span>.<span class="ruby-identifier">const_defined?</span>(<span class="ruby-value">:Encoding</span>) <span class="ruby-operator">?</span> <span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- encoding-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- encoding-3D-method -->
+
+    
+      <div id="method-i-filters-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">filters=</span><span
+            class="method-args">( args )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets the filter(s) to be used by this appender. This method will clear the
+current filter set and add those passed to this setter method.</p>
+
+<p>Examples</p>
+
+<pre>appender.filters = Logging::Filters::Level.new(:warn, :error)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="filters-3D-source">
+            <pre><span class="ruby-comment"># File lib/logging/appender.rb, line 173</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">filters=</span>( <span class="ruby-identifier">args</span> )
+  <span class="ruby-ivar">@filters</span>.<span class="ruby-identifier">clear</span>
+  <span class="ruby-identifier">add_filters</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- filters-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- filters-3D-method -->
+
+    
+      <div id="method-i-flush" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            flush
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Call <code>flush</code> to force an appender to write out any buffered log
+events. Similar to IO#flush, so use in a similar fashion.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="flush-source">
+            <pre><span class="ruby-comment"># File lib/logging/appender.rb, line 250</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">flush</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- flush-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- flush-method -->
+
+    
+      <div id="method-i-inspect" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            inspect    &rarr; string
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns a string representation of the appender.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="inspect-source">
+            <pre><span class="ruby-comment"># File lib/logging/appender.rb, line 259</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inspect</span>
+  <span class="ruby-string">&quot;&lt;%s:0x%x name=\&quot;%s\&quot;&gt;&quot;</span> <span class="ruby-operator">%</span> [
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">/^Logging::/</span>, <span class="ruby-string">&#39;&#39;</span>),
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">object_id</span>,
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">name</span>
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- inspect-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- inspect-method -->
+
+    
+      <div id="method-i-layout-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">layout=</span><span
+            class="method-args">( layout )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>call-seq</p>
+
+<pre>appender.layout = Logging::Layouts::Basic.new</pre>
+
+<p>Sets the layout to be used by this appender.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="layout-3D-source">
+            <pre><span class="ruby-comment"># File lib/logging/appender.rb, line 159</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">layout=</span>( <span class="ruby-identifier">layout</span> )
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">layout</span>.<span class="ruby-identifier">kind_of?</span> <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">Layout</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>,
+          <span class="ruby-node">&quot;#{layout.inspect} is not a kind of &#39;Logging::Layout&#39;&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@layout</span> = <span class="ruby-identifier">layout</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- layout-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- layout-3D-method -->
+
+    
+      <div id="method-i-level-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            level = :all
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Set the level for this appender; log events below this level will be
+ignored by this appender. The level can be either a <code>String</code>, a
+<code>Symbol</code>, or a <code>Fixnum</code>. An
+<code>ArgumentError</code> is raised if this is not the case.</p>
+
+<p>There are two special levels – “all” and “off”. The former will enable
+recording of all log events. The latter will disable the recording of all
+events.</p>
+
+<p>Example:</p>
+
+<pre>appender.level = :debug
+appender.level = &quot;INFO&quot;
+appender.level = 4
+appender.level = &#39;off&#39;
+appender.level = :all</pre>
+
+<p>These produce an <code>ArgumentError</code></p>
+
+<pre>appender.level = Object
+appender.level = -1
+appender.level = 1_000_000_000_000</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="level-3D-source">
+            <pre><span class="ruby-comment"># File lib/logging/appender.rb, line 138</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">level=</span>( <span class="ruby-identifier">level</span> )
+  <span class="ruby-identifier">lvl</span> = <span class="ruby-keyword">case</span> <span class="ruby-identifier">level</span>
+        <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>, <span class="ruby-constant">Symbol</span>; <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-identifier">level_num</span>(<span class="ruby-identifier">level</span>)
+        <span class="ruby-keyword">when</span> <span class="ruby-constant">Fixnum</span>; <span class="ruby-identifier">level</span>
+        <span class="ruby-keyword">when</span> <span class="ruby-keyword">nil</span>; <span class="ruby-value">0</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>,
+                <span class="ruby-string">&quot;level must be a String, Symbol, or Integer&quot;</span>
+        <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">lvl</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">lvl</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">lvl</span> <span class="ruby-operator">&gt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">LEVELS</span>.<span class="ruby-identifier">length</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;unknown level was given &#39;#{level}&#39;&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@level</span> = <span class="ruby-identifier">lvl</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- level-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- level-3D-method -->
+
+    
+      <div id="method-i-off-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">off?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns `true` if the appender has been turned off. This is useful for
+appenders that write data to a remote location (such as syslog or email),
+and that write encounters too many errors. The appender can turn itself off
+to and log an error via the `Logging` logger.</p>
+
+<p>Set the appender&#39;s level to a valid value to turn it back on.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="off-3F-source">
+            <pre><span class="ruby-comment"># File lib/logging/appender.rb, line 313</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">off?</span>
+  <span class="ruby-ivar">@level</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">LEVELS</span>.<span class="ruby-identifier">length</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- off-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- off-3F-method -->
+
+    
+      <div id="method-i-reopen" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reopen</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Reopen the connection to the underlying logging destination. If the
+connection is currently closed then it will be opened. If the connection is
+currently open then it will be closed and immediately opened.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="reopen-source">
+            <pre><span class="ruby-comment"># File lib/logging/appender.rb, line 239</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reopen</span>
+  <span class="ruby-ivar">@closed</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- reopen-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- reopen-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-sync" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            sync { block }
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtains an exclusive lock, runs the block, and releases the lock when the
+block completes. This method is re-entrant so that a single thread can call
+<code>sync</code> multiple times without hanging the thread.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sync-source">
+            <pre><span class="ruby-comment"># File lib/logging/appender.rb, line 339</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sync</span>( <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span> )
+  <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- sync-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- sync-method -->
+
+    
+      <div id="method-i-write" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            write( event )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Writes the given <em>event</em> to the logging destination. Subclasses
+should provide an implementation of this method. The <em>event</em> can be
+either a LogEvent or a <a href="../String.html">String</a>. If a LogEvent,
+then it will be formatted using the layout given to the appender when it
+was created.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="write-source">
+            <pre><span class="ruby-comment"># File lib/logging/appender.rb, line 328</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">write</span>( <span class="ruby-identifier">event</span> )
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- write-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- write-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

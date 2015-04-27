@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Logging::Layouts::Basic - logging-2.0.0 Documentation</title>
+
+<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../index.html">Home</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/logging/layouts/basic.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="../Layout.html">Logging::Layout</a>
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-i-format">#format</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../History_txt.html">History</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../File.html">File</a>
+  
+    <li><a href="../../FileUtils.html">FileUtils</a>
+  
+    <li><a href="../../Logging.html">Logging</a>
+  
+    <li><a href="../../Logging/Appender.html">Logging::Appender</a>
+  
+    <li><a href="../../Logging/Appenders.html">Logging::Appenders</a>
+  
+    <li><a href="../../Logging/Appenders/Buffering.html">Logging::Appenders::Buffering</a>
+  
+    <li><a href="../../Logging/Appenders/File.html">Logging::Appenders::File</a>
+  
+    <li><a href="../../Logging/Appenders/IO.html">Logging::Appenders::IO</a>
+  
+    <li><a href="../../Logging/Appenders/RollingFile.html">Logging::Appenders::RollingFile</a>
+  
+    <li><a href="../../Logging/Appenders/RollingFile/Roller.html">Logging::Appenders::RollingFile::Roller</a>
+  
+    <li><a href="../../Logging/Appenders/Stderr.html">Logging::Appenders::Stderr</a>
+  
+    <li><a href="../../Logging/Appenders/Stdout.html">Logging::Appenders::Stdout</a>
+  
+    <li><a href="../../Logging/Appenders/StringIo.html">Logging::Appenders::StringIo</a>
+  
+    <li><a href="../../Logging/Appenders/Syslog.html">Logging::Appenders::Syslog</a>
+  
+    <li><a href="../../Logging/ColorScheme.html">Logging::ColorScheme</a>
+  
+    <li><a href="../../Logging/Filter.html">Logging::Filter</a>
+  
+    <li><a href="../../Logging/Filters.html">Logging::Filters</a>
+  
+    <li><a href="../../Logging/Filters/Level.html">Logging::Filters::Level</a>
+  
+    <li><a href="../../Logging/Layout.html">Logging::Layout</a>
+  
+    <li><a href="../../Logging/Layouts.html">Logging::Layouts</a>
+  
+    <li><a href="../../Logging/Layouts/Basic.html">Logging::Layouts::Basic</a>
+  
+    <li><a href="../../Logging/Layouts/Parseable.html">Logging::Layouts::Parseable</a>
+  
+    <li><a href="../../Logging/Layouts/Parseable/layout;.html">Logging::Layouts::Parseable::layout;</a>
+  
+    <li><a href="../../Logging/Layouts/Pattern.html">Logging::Layouts::Pattern</a>
+  
+    <li><a href="../../Logging/Logger.html">Logging::Logger</a>
+  
+    <li><a href="../../Logging/Logger.html">Logging::Logger</a>
+  
+    <li><a href="../../Logging/MappedDiagnosticContext.html">Logging::MappedDiagnosticContext</a>
+  
+    <li><a href="../../Logging/NestedDiagnosticContext.html">Logging::NestedDiagnosticContext</a>
+  
+    <li><a href="../../Logging/Proxy.html">Logging::Proxy</a>
+  
+    <li><a href="../../Logging/RailsCompat.html">Logging::RailsCompat</a>
+  
+    <li><a href="../../Logging/Repository.html">Logging::Repository</a>
+  
+    <li><a href="../../Logging/Repository/Singleton.html">Logging::Repository::Singleton</a>
+  
+    <li><a href="../../Logging/RootLogger.html">Logging::RootLogger</a>
+  
+    <li><a href="../../Logging/logger.html">Logging::logger</a>
+  
+    <li><a href="../../Module.html">Module</a>
+  
+    <li><a href="../../Object.html">Object</a>
+  
+    <li><a href="../../RSpec.html">RSpec</a>
+  
+    <li><a href="../../RSpec/Core.html">RSpec::Core</a>
+  
+    <li><a href="../../RSpec/Core/Configuration.html">RSpec::Core::Configuration</a>
+  
+    <li><a href="../../RSpec/LoggingHelper.html">RSpec::LoggingHelper</a>
+  
+    <li><a href="../../RSpec/LoggingHelper.html">RSpec::LoggingHelper</a>
+  
+    <li><a href="../../ReentrantMutex.html">ReentrantMutex</a>
+  
+    <li><a href="../../Spec.html">Spec</a>
+  
+    <li><a href="../../Spec/Runner.html">Spec::Runner</a>
+  
+    <li><a href="../../Spec/Runner/Configuration.html">Spec::Runner::Configuration</a>
+  
+    <li><a href="../../String.html">String</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Logging::Layouts::Basic</h1>
+
+  <div id="description" class="description">
+    
+<p>The <code>Basic</code> layout class provides methods for simple formatting
+of log events. The resulting string follows the format below.</p>
+
+<pre>LEVEL  LoggerName : log message</pre>
+
+<p><em>LEVEL</em> is the log level of the event. <em>LoggerName</em> is the
+name of the logger that generated the event. <em>log message</em> is the
+message or object that was passed to the logger. If multiple message or
+objects were passed to the logger then each will be printed on its own line
+with the format show above.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-format" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            format( event )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns a string representation of the given logging <em>event</em>. See
+the class documentation for details about the formatting used.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="format-source">
+            <pre><span class="ruby-comment"># File lib/logging/layouts/basic.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">format</span>( <span class="ruby-identifier">event</span> )
+  <span class="ruby-identifier">obj</span> = <span class="ruby-identifier">format_obj</span>(<span class="ruby-identifier">event</span>.<span class="ruby-identifier">data</span>)
+  <span class="ruby-identifier">sprintf</span>(<span class="ruby-string">&quot;%*s  %s : %s\n&quot;</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">MAX_LEVEL_LENGTH</span>,
+          <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">LNAMES</span>[<span class="ruby-identifier">event</span>.<span class="ruby-identifier">level</span>], <span class="ruby-identifier">event</span>.<span class="ruby-identifier">logger</span>, <span class="ruby-identifier">obj</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- format-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- format-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

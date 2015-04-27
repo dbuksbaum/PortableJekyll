@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Hashie::Trash - hashie-3.4.1 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/hashie/trash.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="Dash.html">Hashie::Dash</a>
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li class="calls-super" ><a href="#method-c-inherited">::inherited</a>
+    
+    <li ><a href="#method-c-inverse_translations">::inverse_translations</a>
+    
+    <li ><a href="#method-c-permitted_input_keys">::permitted_input_keys</a>
+    
+    <li class="calls-super" ><a href="#method-c-property">::property</a>
+    
+    <li ><a href="#method-c-transformation_exists-3F">::transformation_exists?</a>
+    
+    <li ><a href="#method-c-transformed_property">::transformed_property</a>
+    
+    <li ><a href="#method-c-translation_exists-3F">::translation_exists?</a>
+    
+    <li ><a href="#method-c-translations">::translations</a>
+    
+    <li class="calls-super" ><a href="#method-i-5B-5D-3D">#[]=</a>
+    
+    <li class="calls-super" ><a href="#method-i-initialize_attributes">#initialize_attributes</a>
+    
+    <li ><a href="#method-i-property_exists-3F">#property_exists?</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Hashie.html">Hashie</a>
+  
+    <li><a href="../Hashie/Clash.html">Hashie::Clash</a>
+  
+    <li><a href="../Hashie/Clash/ChainError.html">Hashie::Clash::ChainError</a>
+  
+    <li><a href="../Hashie/CoercionError.html">Hashie::CoercionError</a>
+  
+    <li><a href="../Hashie/Dash.html">Hashie::Dash</a>
+  
+    <li><a href="../Hashie/Extensions.html">Hashie::Extensions</a>
+  
+    <li><a href="../Hashie/Extensions/Coercion.html">Hashie::Extensions::Coercion</a>
+  
+    <li><a href="../Hashie/Extensions/Coercion/ClassMethods.html">Hashie::Extensions::Coercion::ClassMethods</a>
+  
+    <li><a href="../Hashie/Extensions/Coercion/InstanceMethods.html">Hashie::Extensions::Coercion::InstanceMethods</a>
+  
+    <li><a href="../Hashie/Extensions/Dash.html">Hashie::Extensions::Dash</a>
+  
+    <li><a href="../Hashie/Extensions/Dash/IndifferentAccess.html">Hashie::Extensions::Dash::IndifferentAccess</a>
+  
+    <li><a href="../Hashie/Extensions/Dash/IndifferentAccess/ClassMethods.html">Hashie::Extensions::Dash::IndifferentAccess::ClassMethods</a>
+  
+    <li><a href="../Hashie/Extensions/DeepFetch.html">Hashie::Extensions::DeepFetch</a>
+  
+    <li><a href="../Hashie/Extensions/DeepFetch/UndefinedPathError.html">Hashie::Extensions::DeepFetch::UndefinedPathError</a>
+  
+    <li><a href="../Hashie/Extensions/DeepFind.html">Hashie::Extensions::DeepFind</a>
+  
+    <li><a href="../Hashie/Extensions/DeepLocate.html">Hashie::Extensions::DeepLocate</a>
+  
+    <li><a href="../Hashie/Extensions/DeepMerge.html">Hashie::Extensions::DeepMerge</a>
+  
+    <li><a href="../Hashie/Extensions/IgnoreUndeclared.html">Hashie::Extensions::IgnoreUndeclared</a>
+  
+    <li><a href="../Hashie/Extensions/IndifferentAccess.html">Hashie::Extensions::IndifferentAccess</a>
+  
+    <li><a href="../Hashie/Extensions/IndifferentAccess/hash;.html">Hashie::Extensions::IndifferentAccess::hash;</a>
+  
+    <li><a href="../Hashie/Extensions/KeyConversion.html">Hashie::Extensions::KeyConversion</a>
+  
+    <li><a href="../Hashie/Extensions/Mash.html">Hashie::Extensions::Mash</a>
+  
+    <li><a href="../Hashie/Extensions/Mash/SafeAssignment.html">Hashie::Extensions::Mash::SafeAssignment</a>
+  
+    <li><a href="../Hashie/Extensions/MergeInitializer.html">Hashie::Extensions::MergeInitializer</a>
+  
+    <li><a href="../Hashie/Extensions/MethodAccess.html">Hashie::Extensions::MethodAccess</a>
+  
+    <li><a href="../Hashie/Extensions/MethodAccessWithOverride.html">Hashie::Extensions::MethodAccessWithOverride</a>
+  
+    <li><a href="../Hashie/Extensions/MethodOverridingWriter.html">Hashie::Extensions::MethodOverridingWriter</a>
+  
+    <li><a href="../Hashie/Extensions/MethodQuery.html">Hashie::Extensions::MethodQuery</a>
+  
+    <li><a href="../Hashie/Extensions/MethodReader.html">Hashie::Extensions::MethodReader</a>
+  
+    <li><a href="../Hashie/Extensions/MethodWriter.html">Hashie::Extensions::MethodWriter</a>
+  
+    <li><a href="../Hashie/Extensions/Parsers.html">Hashie::Extensions::Parsers</a>
+  
+    <li><a href="../Hashie/Extensions/Parsers/YamlErbParser.html">Hashie::Extensions::Parsers::YamlErbParser</a>
+  
+    <li><a href="../Hashie/Extensions/PrettyInspect.html">Hashie::Extensions::PrettyInspect</a>
+  
+    <li><a href="../Hashie/Extensions/StringifyKeys.html">Hashie::Extensions::StringifyKeys</a>
+  
+    <li><a href="../Hashie/Extensions/StringifyKeys/ClassMethods.html">Hashie::Extensions::StringifyKeys::ClassMethods</a>
+  
+    <li><a href="../Hashie/Extensions/SymbolizeKeys.html">Hashie::Extensions::SymbolizeKeys</a>
+  
+    <li><a href="../Hashie/Extensions/SymbolizeKeys/ClassMethods.html">Hashie::Extensions::SymbolizeKeys::ClassMethods</a>
+  
+    <li><a href="../Hashie/Hash.html">Hashie::Hash</a>
+  
+    <li><a href="../Hashie/Mash.html">Hashie::Mash</a>
+  
+    <li><a href="../Hashie/Rash.html">Hashie::Rash</a>
+  
+    <li><a href="../Hashie/Trash.html">Hashie::Trash</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Hashie::Trash</h1>
+
+  <div id="description" class="description">
+    
+<p>A <a href="Trash.html">Trash</a> is a &#39;translated&#39; <a
+href="Dash.html">Dash</a> where the keys can be remapped from a source
+hash.</p>
+
+<p>Trashes are useful when you need to read data from another application,
+such as a Java api, where the keys are named differently from how we would
+in Ruby.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-c-transforms" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">transforms</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-c-translations_hash" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">translations_hash</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-inherited" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inherited</span><span
+            class="method-args">(klass)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Dash.html#method-c-inherited">Hashie::Dash.inherited</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="inherited-source">
+            <pre><span class="ruby-comment"># File lib/hashie/trash.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">inherited</span>(<span class="ruby-identifier">klass</span>)
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">instance_variable_set</span>(<span class="ruby-string">&#39;@transforms&#39;</span>, <span class="ruby-identifier">transforms</span>.<span class="ruby-identifier">dup</span>)
+  <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">instance_variable_set</span>(<span class="ruby-string">&#39;@translations_hash&#39;</span>, <span class="ruby-identifier">translations_hash</span>.<span class="ruby-identifier">dup</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- inherited-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- inherited-method -->
+
+    
+      <div id="method-c-permitted_input_keys" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">permitted_input_keys</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="permitted_input_keys-source">
+            <pre><span class="ruby-comment"># File lib/hashie/trash.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">permitted_input_keys</span>
+  <span class="ruby-ivar">@permitted_input_keys</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">properties</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">property</span><span class="ruby-operator">|</span> <span class="ruby-identifier">inverse_translations</span>.<span class="ruby-identifier">fetch</span> <span class="ruby-identifier">property</span>, <span class="ruby-identifier">property</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- permitted_input_keys-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- permitted_input_keys-method -->
+
+    
+      <div id="method-c-property" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">property</span><span
+            class="method-args">(property_name, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Defines a property on the <a href="Trash.html">Trash</a>. Options are as
+follows:</p>
+<ul><li>
+<p><code>:default</code> - Specify a default value for this property, to be</p>
+</li></ul>
+
+<p>returned before a value is set on the property in a new <a
+href="Dash.html">Dash</a>.</p>
+<ul><li>
+<p><code>:from</code> - Specify the original key name that will be write only.</p>
+</li><li>
+<p><code>:with</code> - Specify a lambda to be used to convert value.</p>
+</li><li>
+<p><code>:transform_with</code> - Specify a lambda to be used to convert value</p>
+</li></ul>
+
+<p>without using the :from option. It transform the property itself.</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Dash.html#method-c-property">Hashie::Dash.property</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="property-source">
+            <pre><span class="ruby-comment"># File lib/hashie/trash.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">property</span>(<span class="ruby-identifier">property_name</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-keyword">super</span>
+
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:from</span>] = <span class="ruby-identifier">options</span>[<span class="ruby-value">:from</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:from</span>]
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:from</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">property_name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:from</span>]
+      <span class="ruby-identifier">fail</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Property name (#{property_name}) and :from option must not be the same&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">translations_hash</span>[<span class="ruby-identifier">options</span>[<span class="ruby-value">:from</span>]] <span class="ruby-operator">||=</span> {}
+    <span class="ruby-identifier">translations_hash</span>[<span class="ruby-identifier">options</span>[<span class="ruby-value">:from</span>]][<span class="ruby-identifier">property_name</span>] = <span class="ruby-identifier">options</span>[<span class="ruby-value">:with</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:transform_with</span>]
+
+    <span class="ruby-identifier">define_method</span> <span class="ruby-node">&quot;#{options[:from]}=&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">val</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">translations_hash</span>[<span class="ruby-identifier">options</span>[<span class="ruby-value">:from</span>]].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span>, <span class="ruby-identifier">with</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">self</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">with</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">with</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">val</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">val</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:transform_with</span>].<span class="ruby-identifier">respond_to?</span> <span class="ruby-value">:call</span>
+      <span class="ruby-identifier">transforms</span>[<span class="ruby-identifier">property_name</span>] = <span class="ruby-identifier">options</span>[<span class="ruby-value">:transform_with</span>]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- property-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- property-method -->
+
+    
+      <div id="method-c-transformation_exists-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">transformation_exists?</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="transformation_exists-3F-source">
+            <pre><span class="ruby-comment"># File lib/hashie/trash.rb, line 76</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">transformation_exists?</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">transforms</span>.<span class="ruby-identifier">key?</span> <span class="ruby-identifier">name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- transformation_exists-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- transformation_exists-3F-method -->
+
+    
+      <div id="method-c-transformed_property" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">transformed_property</span><span
+            class="method-args">(property_name, value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="transformed_property-source">
+            <pre><span class="ruby-comment"># File lib/hashie/trash.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">transformed_property</span>(<span class="ruby-identifier">property_name</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">transforms</span>[<span class="ruby-identifier">property_name</span>].<span class="ruby-identifier">call</span>(<span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- transformed_property-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- transformed_property-method -->
+
+    
+      <div id="method-c-translation_exists-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">translation_exists?</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="translation_exists-3F-source">
+            <pre><span class="ruby-comment"># File lib/hashie/trash.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">translation_exists?</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">translations_hash</span>.<span class="ruby-identifier">key?</span> <span class="ruby-identifier">name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- translation_exists-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- translation_exists-3F-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="private-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Class Methods</h3>
+
+    
+      <div id="method-c-inverse_translations" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inverse_translations</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="inverse_translations-source">
+            <pre><span class="ruby-comment"># File lib/hashie/trash.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">inverse_translations</span>
+  <span class="ruby-ivar">@inverse_translations</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">h</span> = {}
+    <span class="ruby-identifier">translations_hash</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span>(<span class="ruby-identifier">property_name</span>, <span class="ruby-identifier">property_translations</span>)<span class="ruby-operator">|</span>
+      <span class="ruby-identifier">property_translations</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">h</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-identifier">property_name</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">h</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- inverse_translations-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- inverse_translations-method -->
+
+    
+      <div id="method-c-translations" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">translations</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="translations-source">
+            <pre><span class="ruby-comment"># File lib/hashie/trash.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">translations</span>
+  <span class="ruby-ivar">@translations</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">h</span> = {}
+    <span class="ruby-identifier">translations_hash</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span>(<span class="ruby-identifier">property_name</span>, <span class="ruby-identifier">property_translations</span>)<span class="ruby-operator">|</span>
+      <span class="ruby-identifier">h</span>[<span class="ruby-identifier">property_name</span>] = <span class="ruby-identifier">property_translations</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">property_translations</span>.<span class="ruby-identifier">keys</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">property_translations</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">first</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">h</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- translations-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- translations-method -->
+
+    
+    </section><!-- private-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-5B-5D-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]=</span><span
+            class="method-args">(property, value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set a value on the <a href="Dash.html">Dash</a> in a Hash-like way. Only
+works on pre-existing properties.</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              Hashie::Dash#[]=
+            </div>
+          
+
+          
+          <div class="method-source-code" id="5B-5D-3D-source">
+            <pre><span class="ruby-comment"># File lib/hashie/trash.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]=</span>(<span class="ruby-identifier">property</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">translation_exists?</span> <span class="ruby-identifier">property</span>
+    <span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;#{property}=&quot;</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">transformation_exists?</span> <span class="ruby-identifier">property</span>
+    <span class="ruby-keyword">super</span> <span class="ruby-identifier">property</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">transformed_property</span>(<span class="ruby-identifier">property</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">property_exists?</span> <span class="ruby-identifier">property</span>
+    <span class="ruby-keyword">super</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- 5B-5D-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- 5B-5D-3D-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-initialize_attributes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">initialize_attributes</span><span
+            class="method-args">(attributes)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Deletes any keys that have a translation</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Dash.html#method-i-initialize_attributes">Hashie::Dash#initialize_attributes</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="initialize_attributes-source">
+            <pre><span class="ruby-comment"># File lib/hashie/trash.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize_attributes</span>(<span class="ruby-identifier">attributes</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">attributes</span>
+  <span class="ruby-identifier">attributes_copy</span> = <span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">delete_if</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">translations_hash</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">k</span>)
+      <span class="ruby-keyword">self</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-identifier">v</span>
+      <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">super</span> <span class="ruby-identifier">attributes_copy</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- initialize_attributes-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- initialize_attributes-method -->
+
+    
+      <div id="method-i-property_exists-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">property_exists?</span><span
+            class="method-args">(property)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Raises an NoMethodError if the property doesn&#39;t exist</p>
+          
+          
+
+          
+          <div class="method-source-code" id="property_exists-3F-source">
+            <pre><span class="ruby-comment"># File lib/hashie/trash.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">property_exists?</span>(<span class="ruby-identifier">property</span>)
+  <span class="ruby-identifier">fail_no_property_error!</span>(<span class="ruby-identifier">property</span>) <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">property?</span>(<span class="ruby-identifier">property</span>)
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- property_exists-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- property_exists-3F-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

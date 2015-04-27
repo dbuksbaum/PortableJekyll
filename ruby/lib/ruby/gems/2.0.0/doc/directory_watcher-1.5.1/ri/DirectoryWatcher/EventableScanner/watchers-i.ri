@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"watchers:ETI"0DirectoryWatcher::EventableScanner#watchers;TI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"A Hash of Watcher objects.;T:
+@fileI"/lib/directory_watcher/eventable_scanner.rb;T:0@omit_headings_from_table_of_contents_below0F@I"'DirectoryWatcher::EventableScanner;TcRDoc::NormalClass0

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module Minitest::Parallel::Test::ClassMethods - minitest-5.6.0 Documentation</title>
+
+<link type="text/css" media="screen" href="../../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../../index.html">Home</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/minitest/parallel.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../../History_rdoc.html">History</a>
+  
+    <li class="file"><a href="../../../Manifest_txt.html">Manifest</a>
+  
+    <li class="file"><a href="../../../README_rdoc.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../Kernel.html">Kernel</a>
+  
+    <li><a href="../../../Minitest/AbstractReporter.html">Minitest::AbstractReporter</a>
+  
+    <li><a href="../../../Minitest/Assertion.html">Minitest::Assertion</a>
+  
+    <li><a href="../../../Minitest/Assertions.html">Minitest::Assertions</a>
+  
+    <li><a href="../../../Minitest/BacktraceFilter.html">Minitest::BacktraceFilter</a>
+  
+    <li><a href="../../../Minitest/BenchSpec.html">Minitest::BenchSpec</a>
+  
+    <li><a href="../../../Minitest/Benchmark.html">Minitest::Benchmark</a>
+  
+    <li><a href="../../../Minitest/CompositeReporter.html">Minitest::CompositeReporter</a>
+  
+    <li><a href="../../../Minitest/Expectations.html">Minitest::Expectations</a>
+  
+    <li><a href="../../../Minitest/Guard.html">Minitest::Guard</a>
+  
+    <li><a href="../../../Minitest/Mock.html">Minitest::Mock</a>
+  
+    <li><a href="../../../Minitest/Parallel.html">Minitest::Parallel</a>
+  
+    <li><a href="../../../Minitest/Parallel/Executor.html">Minitest::Parallel::Executor</a>
+  
+    <li><a href="../../../Minitest/Parallel/Test.html">Minitest::Parallel::Test</a>
+  
+    <li><a href="../../../Minitest/Parallel/Test/ClassMethods.html">Minitest::Parallel::Test::ClassMethods</a>
+  
+    <li><a href="../../../Minitest/PrideIO.html">Minitest::PrideIO</a>
+  
+    <li><a href="../../../Minitest/PrideLOL.html">Minitest::PrideLOL</a>
+  
+    <li><a href="../../../Minitest/ProgressReporter.html">Minitest::ProgressReporter</a>
+  
+    <li><a href="../../../Minitest/Reporter.html">Minitest::Reporter</a>
+  
+    <li><a href="../../../Minitest/Runnable.html">Minitest::Runnable</a>
+  
+    <li><a href="../../../Minitest/Skip.html">Minitest::Skip</a>
+  
+    <li><a href="../../../Minitest/Spec.html">Minitest::Spec</a>
+  
+    <li><a href="../../../Minitest/Spec/DSL.html">Minitest::Spec::DSL</a>
+  
+    <li><a href="../../../Minitest/Spec/DSL/InstanceMethods.html">Minitest::Spec::DSL::InstanceMethods</a>
+  
+    <li><a href="../../../Minitest/StatisticsReporter.html">Minitest::StatisticsReporter</a>
+  
+    <li><a href="../../../Minitest/SummaryReporter.html">Minitest::SummaryReporter</a>
+  
+    <li><a href="../../../Minitest/Test.html">Minitest::Test</a>
+  
+    <li><a href="../../../Minitest/Test/LifecycleHooks.html">Minitest::Test::LifecycleHooks</a>
+  
+    <li><a href="../../../Minitest/UnexpectedError.html">Minitest::UnexpectedError</a>
+  
+    <li><a href="../../../MockExpectationError.html">MockExpectationError</a>
+  
+    <li><a href="../../../Module.html">Module</a>
+  
+    <li><a href="../../../Object.html">Object</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module Minitest::Parallel::Test::ClassMethods</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

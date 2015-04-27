@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Mail::Part - mail-2.6.3 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/mail/part.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="Message.html">Mail::Message</a>
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-i-action">#action</a>
+    
+    <li ><a href="#method-i-add_content_id">#add_content_id</a>
+    
+    <li class="calls-super" ><a href="#method-i-add_required_fields">#add_required_fields</a>
+    
+    <li ><a href="#method-i-add_required_message_fields">#add_required_message_fields</a>
+    
+    <li ><a href="#method-i-bounced-3F">#bounced?</a>
+    
+    <li ><a href="#method-i-cid">#cid</a>
+    
+    <li ><a href="#method-i-delivery_status_data">#delivery_status_data</a>
+    
+    <li ><a href="#method-i-delivery_status_report_part-3F">#delivery_status_report_part?</a>
+    
+    <li ><a href="#method-i-diagnostic_code">#diagnostic_code</a>
+    
+    <li ><a href="#method-i-error_status">#error_status</a>
+    
+    <li ><a href="#method-i-final_recipient">#final_recipient</a>
+    
+    <li ><a href="#method-i-get_return_values">#get_return_values</a>
+    
+    <li ><a href="#method-i-has_content_id-3F">#has_content_id?</a>
+    
+    <li ><a href="#method-i-inline-3F">#inline?</a>
+    
+    <li ><a href="#method-i-inline_content_id">#inline_content_id</a>
+    
+    <li ><a href="#method-i-parse_delivery_status_report">#parse_delivery_status_report</a>
+    
+    <li ><a href="#method-i-parse_message">#parse_message</a>
+    
+    <li ><a href="#method-i-remote_mta">#remote_mta</a>
+    
+    <li ><a href="#method-i-retryable-3F">#retryable?</a>
+    
+    <li ><a href="#method-i-url">#url</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../CHANGELOG_rdoc.html">CHANGELOG</a>
+  
+    <li class="file"><a href="../CONTRIBUTING_md.html">CONTRIBUTING</a>
+  
+    <li class="file"><a href="../README_md.html">README</a>
+  
+    <li class="file"><a href="../TODO_rdoc.html">TODO</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/common_rl.html">common.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/date_time_rl.html">date_time.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/address_lists_machine_rb_rl.html">address_lists_machine.rb.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/content_disposition_machine_rb_rl.html">content_disposition_machine.rb.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/content_location_machine_rb_rl.html">content_location_machine.rb.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/content_transfer_encoding_machine_rb_rl.html">content_transfer_encoding_machine.rb.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/content_type_machine_rb_rl.html">content_type_machine.rb.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/date_time_machine_rb_rl.html">date_time_machine.rb.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/envelope_from_machine_rb_rl.html">envelope_from_machine.rb.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/message_ids_machine_rb_rl.html">message_ids_machine.rb.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/mime_version_machine_rb_rl.html">mime_version_machine.rb.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/phrase_lists_machine_rb_rl.html">phrase_lists_machine.rb.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/rb_actions_rl.html">rb_actions.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/received_machine_rb_rl.html">received_machine.rb.rl</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../ActiveSupport.html">ActiveSupport</a>
+  
+    <li><a href="../Mail.html">Mail</a>
+  
+    <li><a href="../Mail/Address.html">Mail::Address</a>
+  
+    <li><a href="../Mail/AddressContainer.html">Mail::AddressContainer</a>
+  
+    <li><a href="../Mail/AddressList.html">Mail::AddressList</a>
+  
+    <li><a href="../Mail/AttachmentsList.html">Mail::AttachmentsList</a>
+  
+    <li><a href="../Mail/BccField.html">Mail::BccField</a>
+  
+    <li><a href="../Mail/Body.html">Mail::Body</a>
+  
+    <li><a href="../Mail/CcField.html">Mail::CcField</a>
+  
+    <li><a href="../Mail/CheckDeliveryParams.html">Mail::CheckDeliveryParams</a>
+  
+    <li><a href="../Mail/CommentsField.html">Mail::CommentsField</a>
+  
+    <li><a href="../Mail/CommonAddress.html">Mail::CommonAddress</a>
+  
+    <li><a href="../Mail/CommonDate.html">Mail::CommonDate</a>
+  
+    <li><a href="../Mail/CommonField.html">Mail::CommonField</a>
+  
+    <li><a href="../Mail/CommonMessageId.html">Mail::CommonMessageId</a>
+  
+    <li><a href="../Mail/Configuration.html">Mail::Configuration</a>
+  
+    <li><a href="../Mail/Constants.html">Mail::Constants</a>
+  
+    <li><a href="../Mail/Constants/Encoding.html">Mail::Constants::Encoding</a>
+  
+    <li><a href="../Mail/ContentDescriptionField.html">Mail::ContentDescriptionField</a>
+  
+    <li><a href="../Mail/ContentDispositionElement.html">Mail::ContentDispositionElement</a>
+  
+    <li><a href="../Mail/ContentDispositionField.html">Mail::ContentDispositionField</a>
+  
+    <li><a href="../Mail/ContentIdField.html">Mail::ContentIdField</a>
+  
+    <li><a href="../Mail/ContentLocationElement.html">Mail::ContentLocationElement</a>
+  
+    <li><a href="../Mail/ContentLocationField.html">Mail::ContentLocationField</a>
+  
+    <li><a href="../Mail/ContentTransferEncodingElement.html">Mail::ContentTransferEncodingElement</a>
+  
+    <li><a href="../Mail/ContentTransferEncodingField.html">Mail::ContentTransferEncodingField</a>
+  
+    <li><a href="../Mail/ContentTypeElement.html">Mail::ContentTypeElement</a>
+  
+    <li><a href="../Mail/ContentTypeField.html">Mail::ContentTypeField</a>
+  
+    <li><a href="../Mail/DateField.html">Mail::DateField</a>
+  
+    <li><a href="../Mail/DateTimeElement.html">Mail::DateTimeElement</a>
+  
+    <li><a href="../Mail/Encodings.html">Mail::Encodings</a>
+  
+    <li><a href="../Mail/Encodings/Base64.html">Mail::Encodings::Base64</a>
+  
+    <li><a href="../Mail/Encodings/Binary.html">Mail::Encodings::Binary</a>
+  
+    <li><a href="../Mail/Encodings/EightBit.html">Mail::Encodings::EightBit</a>
+  
+    <li><a href="../Mail/Encodings/QuotedPrintable.html">Mail::Encodings::QuotedPrintable</a>
+  
+    <li><a href="../Mail/Encodings/SevenBit.html">Mail::Encodings::SevenBit</a>
+  
+    <li><a href="../Mail/Encodings/TransferEncoding.html">Mail::Encodings::TransferEncoding</a>
+  
+    <li><a href="../Mail/Encodings/UnixToUnix.html">Mail::Encodings::UnixToUnix</a>
+  
+    <li><a href="../Mail/Envelope.html">Mail::Envelope</a>
+  
+    <li><a href="../Mail/EnvelopeFromElement.html">Mail::EnvelopeFromElement</a>
+  
+    <li><a href="../Mail/Exim.html">Mail::Exim</a>
+  
+    <li><a href="../Mail/Field.html">Mail::Field</a>
+  
+    <li><a href="../Mail/Field/FieldError.html">Mail::Field::FieldError</a>
+  
+    <li><a href="../Mail/Field/ParseError.html">Mail::Field::ParseError</a>
+  
+    <li><a href="../Mail/Field/SyntaxError.html">Mail::Field::SyntaxError</a>
+  
+    <li><a href="../Mail/FieldList.html">Mail::FieldList</a>
+  
+    <li><a href="../Mail/FileDelivery.html">Mail::FileDelivery</a>
+  
+    <li><a href="../Mail/FromField.html">Mail::FromField</a>
+  
+    <li><a href="../Mail/Header.html">Mail::Header</a>
+  
+    <li><a href="../Mail/IMAP.html">Mail::IMAP</a>
+  
+    <li><a href="../Mail/InReplyToField.html">Mail::InReplyToField</a>
+  
+    <li><a href="../Mail/IndifferentHash.html">Mail::IndifferentHash</a>
+  
+    <li><a href="../Mail/KeywordsField.html">Mail::KeywordsField</a>
+  
+    <li><a href="../Mail/Matchers.html">Mail::Matchers</a>
+  
+    <li><a href="../Mail/Matchers/HasSentEmailMatcher.html">Mail::Matchers::HasSentEmailMatcher</a>
+  
+    <li><a href="../Mail/Message.html">Mail::Message</a>
+  
+    <li><a href="../Mail/MessageIdField.html">Mail::MessageIdField</a>
+  
+    <li><a href="../Mail/MessageIdsElement.html">Mail::MessageIdsElement</a>
+  
+    <li><a href="../Mail/MimeVersionElement.html">Mail::MimeVersionElement</a>
+  
+    <li><a href="../Mail/MimeVersionField.html">Mail::MimeVersionField</a>
+  
+    <li><a href="../Mail/Multibyte.html">Mail::Multibyte</a>
+  
+    <li><a href="../Mail/Multibyte.html">Mail::Multibyte</a>
+  
+    <li><a href="../Mail/Multibyte/Chars.html">Mail::Multibyte::Chars</a>
+  
+    <li><a href="../Mail/Multibyte/EncodingError.html">Mail::Multibyte::EncodingError</a>
+  
+    <li><a href="../Mail/Multibyte/Unicode.html">Mail::Multibyte::Unicode</a>
+  
+    <li><a href="../Mail/Multibyte/Unicode/Codepoint.html">Mail::Multibyte::Unicode::Codepoint</a>
+  
+    <li><a href="../Mail/Multibyte/Unicode/UnicodeDatabase.html">Mail::Multibyte::Unicode::UnicodeDatabase</a>
+  
+    <li><a href="../Mail/OptionalField.html">Mail::OptionalField</a>
+  
+    <li><a href="../Mail/POP3.html">Mail::POP3</a>
+  
+    <li><a href="../Mail/ParameterHash.html">Mail::ParameterHash</a>
+  
+    <li><a href="../Mail/Parsers.html">Mail::Parsers</a>
+  
+    <li><a href="../Mail/Parsers/AddressListsParser.html">Mail::Parsers::AddressListsParser</a>
+  
+    <li><a href="../Mail/Parsers/ContentDispositionParser.html">Mail::Parsers::ContentDispositionParser</a>
+  
+    <li><a href="../Mail/Parsers/ContentLocationParser.html">Mail::Parsers::ContentLocationParser</a>
+  
+    <li><a href="../Mail/Parsers/ContentTransferEncodingParser.html">Mail::Parsers::ContentTransferEncodingParser</a>
+  
+    <li><a href="../Mail/Parsers/ContentTypeParser.html">Mail::Parsers::ContentTypeParser</a>
+  
+    <li><a href="../Mail/Parsers/DateTimeParser.html">Mail::Parsers::DateTimeParser</a>
+  
+    <li><a href="../Mail/Parsers/EnvelopeFromParser.html">Mail::Parsers::EnvelopeFromParser</a>
+  
+    <li><a href="../Mail/Parsers/MessageIdsParser.html">Mail::Parsers::MessageIdsParser</a>
+  
+    <li><a href="../Mail/Parsers/MimeVersionParser.html">Mail::Parsers::MimeVersionParser</a>
+  
+    <li><a href="../Mail/Parsers/PhraseListsParser.html">Mail::Parsers::PhraseListsParser</a>
+  
+    <li><a href="../Mail/Parsers/Ragel.html">Mail::Parsers::Ragel</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/AddressListsMachine.html">Mail::Parsers::Ragel::AddressListsMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/ContentDispositionMachine.html">Mail::Parsers::Ragel::ContentDispositionMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/ContentLocationMachine.html">Mail::Parsers::Ragel::ContentLocationMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/ContentTransferEncodingMachine.html">Mail::Parsers::Ragel::ContentTransferEncodingMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/ContentTypeMachine.html">Mail::Parsers::Ragel::ContentTypeMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/DateTimeMachine.html">Mail::Parsers::Ragel::DateTimeMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/EnvelopeFromMachine.html">Mail::Parsers::Ragel::EnvelopeFromMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/MessageIdsMachine.html">Mail::Parsers::Ragel::MessageIdsMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/MimeVersionMachine.html">Mail::Parsers::Ragel::MimeVersionMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/PhraseListsMachine.html">Mail::Parsers::Ragel::PhraseListsMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/ReceivedMachine.html">Mail::Parsers::Ragel::ReceivedMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/Ruby.html">Mail::Parsers::Ragel::Ruby</a>
+  
+    <li><a href="../Mail/Parsers/ReceivedParser.html">Mail::Parsers::ReceivedParser</a>
+  
+    <li><a href="../Mail/Part.html">Mail::Part</a>
+  
+    <li><a href="../Mail/PartsList.html">Mail::PartsList</a>
+  
+    <li><a href="../Mail/PhraseList.html">Mail::PhraseList</a>
+  
+    <li><a href="../Mail/ReceivedElement.html">Mail::ReceivedElement</a>
+  
+    <li><a href="../Mail/ReceivedField.html">Mail::ReceivedField</a>
+  
+    <li><a href="../Mail/ReferencesField.html">Mail::ReferencesField</a>
+  
+    <li><a href="../Mail/ReplyToField.html">Mail::ReplyToField</a>
+  
+    <li><a href="../Mail/ResentBccField.html">Mail::ResentBccField</a>
+  
+    <li><a href="../Mail/ResentCcField.html">Mail::ResentCcField</a>
+  
+    <li><a href="../Mail/ResentDateField.html">Mail::ResentDateField</a>
+  
+    <li><a href="../Mail/ResentFromField.html">Mail::ResentFromField</a>
+  
+    <li><a href="../Mail/ResentMessageIdField.html">Mail::ResentMessageIdField</a>
+  
+    <li><a href="../Mail/ResentSenderField.html">Mail::ResentSenderField</a>
+  
+    <li><a href="../Mail/ResentToField.html">Mail::ResentToField</a>
+  
+    <li><a href="../Mail/Retriever.html">Mail::Retriever</a>
+  
+    <li><a href="../Mail/ReturnPathField.html">Mail::ReturnPathField</a>
+  
+    <li><a href="../Mail/Ruby18.html">Mail::Ruby18</a>
+  
+    <li><a href="../Mail/Ruby19.html">Mail::Ruby19</a>
+  
+    <li><a href="../Mail/Ruby19/BestEffortCharsetEncoder.html">Mail::Ruby19::BestEffortCharsetEncoder</a>
+  
+    <li><a href="../Mail/Ruby19/StrictCharsetEncoder.html">Mail::Ruby19::StrictCharsetEncoder</a>
+  
+    <li><a href="../Mail/SMTP.html">Mail::SMTP</a>
+  
+    <li><a href="../Mail/SMTPConnection.html">Mail::SMTPConnection</a>
+  
+    <li><a href="../Mail/SenderField.html">Mail::SenderField</a>
+  
+    <li><a href="../Mail/Sendmail.html">Mail::Sendmail</a>
+  
+    <li><a href="../Mail/StructuredField.html">Mail::StructuredField</a>
+  
+    <li><a href="../Mail/SubjectField.html">Mail::SubjectField</a>
+  
+    <li><a href="../Mail/TestMailer.html">Mail::TestMailer</a>
+  
+    <li><a href="../Mail/TestRetriever.html">Mail::TestRetriever</a>
+  
+    <li><a href="../Mail/ToField.html">Mail::ToField</a>
+  
+    <li><a href="../Mail/UnknownEncodingType.html">Mail::UnknownEncodingType</a>
+  
+    <li><a href="../Mail/UnstructuredField.html">Mail::UnstructuredField</a>
+  
+    <li><a href="../Mail/Utilities.html">Mail::Utilities</a>
+  
+    <li><a href="../Mail/VERSION.html">Mail::VERSION</a>
+  
+    <li><a href="../Net.html">Net</a>
+  
+    <li><a href="../Net/SMTP.html">Net::SMTP</a>
+  
+    <li><a href="../NilClass.html">NilClass</a>
+  
+    <li><a href="../Object.html">Object</a>
+  
+    <li><a href="../String.html">String</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Mail::Part</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-action" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">action</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Either returns the action if the message has just a single report, or an
+array of all the actions, one for each report</p>
+          
+          
+
+          
+          <div class="method-source-code" id="action-source">
+            <pre><span class="ruby-comment"># File lib/mail/part.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">action</span>
+  <span class="ruby-identifier">get_return_values</span>(<span class="ruby-string">&#39;action&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- action-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- action-method -->
+
+    
+      <div id="method-i-add_content_id" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_content_id</span><span
+            class="method-args">(content_id_val = '')</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new empty Content-ID field and inserts it in the correct order
+into the <a href="Header.html">Header</a>.  The <a
+href="ContentIdField.html">ContentIdField</a> object will automatically
+generate a unique content ID if you try and encode it or output it to_s
+without specifying a content id.</p>
+
+<p>It will preserve the content ID you specify if you do.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_content_id-source">
+            <pre><span class="ruby-comment"># File lib/mail/part.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_content_id</span>(<span class="ruby-identifier">content_id_val</span> = <span class="ruby-string">&#39;&#39;</span>)
+  <span class="ruby-identifier">header</span>[<span class="ruby-string">&#39;content-id&#39;</span>] = <span class="ruby-identifier">content_id_val</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- add_content_id-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- add_content_id-method -->
+
+    
+      <div id="method-i-add_required_fields" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_required_fields</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Message.html#method-i-add_required_fields">Mail::Message#add_required_fields</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="add_required_fields-source">
+            <pre><span class="ruby-comment"># File lib/mail/part.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_required_fields</span>
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-identifier">add_content_id</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">has_content_id?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">inline?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- add_required_fields-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- add_required_fields-method -->
+
+    
+      <div id="method-i-add_required_message_fields" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_required_message_fields</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add_required_message_fields-source">
+            <pre><span class="ruby-comment"># File lib/mail/part.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_required_message_fields</span>
+  <span class="ruby-comment"># Override so we don&#39;t add Date, MIME-Version, or Message-ID.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- add_required_message_fields-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- add_required_message_fields-method -->
+
+    
+      <div id="method-i-bounced-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bounced?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="bounced-3F-source">
+            <pre><span class="ruby-comment"># File lib/mail/part.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bounced?</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">action</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>)
+    <span class="ruby-operator">!</span><span class="ruby-operator">!</span>(<span class="ruby-identifier">action</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/failed/</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-operator">!</span><span class="ruby-operator">!</span>(<span class="ruby-identifier">action</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/failed/</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- bounced-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- bounced-3F-method -->
+
+    
+      <div id="method-i-cid" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cid</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="cid-source">
+            <pre><span class="ruby-comment"># File lib/mail/part.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cid</span>
+  <span class="ruby-identifier">add_content_id</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">has_content_id?</span>
+  <span class="ruby-identifier">uri_escape</span>(<span class="ruby-identifier">unbracket</span>(<span class="ruby-identifier">content_id</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- cid-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- cid-method -->
+
+    
+      <div id="method-i-delivery_status_data" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delivery_status_data</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="delivery_status_data-source">
+            <pre><span class="ruby-comment"># File lib/mail/part.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delivery_status_data</span>
+  <span class="ruby-identifier">delivery_status_report_part?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">parse_delivery_status_report</span> <span class="ruby-operator">:</span> {}
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- delivery_status_data-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- delivery_status_data-method -->
+
+    
+      <div id="method-i-delivery_status_report_part-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delivery_status_report_part?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="delivery_status_report_part-3F-source">
+            <pre><span class="ruby-comment"># File lib/mail/part.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delivery_status_report_part?</span>
+  (<span class="ruby-identifier">main_type</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/message/</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">sub_type</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/delivery-status/</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">body</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/Status:/</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- delivery_status_report_part-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- delivery_status_report_part-3F-method -->
+
+    
+      <div id="method-i-diagnostic_code" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">diagnostic_code</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="diagnostic_code-source">
+            <pre><span class="ruby-comment"># File lib/mail/part.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">diagnostic_code</span>
+  <span class="ruby-identifier">get_return_values</span>(<span class="ruby-string">&#39;diagnostic-code&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- diagnostic_code-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- diagnostic_code-method -->
+
+    
+      <div id="method-i-error_status" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">error_status</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="error_status-source">
+            <pre><span class="ruby-comment"># File lib/mail/part.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">error_status</span>
+  <span class="ruby-identifier">get_return_values</span>(<span class="ruby-string">&#39;status&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- error_status-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- error_status-method -->
+
+    
+      <div id="method-i-final_recipient" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">final_recipient</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="final_recipient-source">
+            <pre><span class="ruby-comment"># File lib/mail/part.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">final_recipient</span>
+  <span class="ruby-identifier">get_return_values</span>(<span class="ruby-string">&#39;final-recipient&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- final_recipient-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- final_recipient-method -->
+
+    
+      <div id="method-i-has_content_id-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_content_id?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns true if the part has a content ID field, the field may or may not
+have a value, but the field exists or not.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="has_content_id-3F-source">
+            <pre><span class="ruby-comment"># File lib/mail/part.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_content_id?</span>
+  <span class="ruby-identifier">header</span>.<span class="ruby-identifier">has_content_id?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- has_content_id-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- has_content_id-3F-method -->
+
+    
+      <div id="method-i-inline-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inline?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="inline-3F-source">
+            <pre><span class="ruby-comment"># File lib/mail/part.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inline?</span>
+  <span class="ruby-identifier">header</span>[<span class="ruby-value">:content_disposition</span>].<span class="ruby-identifier">disposition_type</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;inline&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">header</span>[<span class="ruby-value">:content_disposition</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- inline-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- inline-3F-method -->
+
+    
+      <div id="method-i-inline_content_id" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inline_content_id</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="inline_content_id-source">
+            <pre><span class="ruby-comment"># File lib/mail/part.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inline_content_id</span>
+  <span class="ruby-comment"># TODO: Deprecated in 2.2.2 - Remove in 2.3</span>
+  <span class="ruby-constant">STDERR</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;Part#inline_content_id is deprecated, please call Part#cid instead&quot;</span>)
+  <span class="ruby-identifier">cid</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- inline_content_id-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- inline_content_id-method -->
+
+    
+      <div id="method-i-remote_mta" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remote_mta</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="remote_mta-source">
+            <pre><span class="ruby-comment"># File lib/mail/part.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remote_mta</span>
+  <span class="ruby-identifier">get_return_values</span>(<span class="ruby-string">&#39;remote-mta&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- remote_mta-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- remote_mta-method -->
+
+    
+      <div id="method-i-retryable-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">retryable?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="retryable-3F-source">
+            <pre><span class="ruby-comment"># File lib/mail/part.rb, line 87</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">retryable?</span>
+  <span class="ruby-operator">!</span>(<span class="ruby-identifier">error_status</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^5/</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- retryable-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- retryable-3F-method -->
+
+    
+      <div id="method-i-url" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">url</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="url-source">
+            <pre><span class="ruby-comment"># File lib/mail/part.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">url</span>
+  <span class="ruby-node">&quot;cid:#{cid}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- url-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- url-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-get_return_values" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_return_values</span><span
+            class="method-args">(key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_return_values-source">
+            <pre><span class="ruby-comment"># File lib/mail/part.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_return_values</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">delivery_status_data</span>[<span class="ruby-identifier">key</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>)
+    <span class="ruby-identifier">delivery_status_data</span>[<span class="ruby-identifier">key</span>].<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">value</span> }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">delivery_status_data</span>[<span class="ruby-identifier">key</span>].<span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_return_values-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_return_values-method -->
+
+    
+      <div id="method-i-parse_delivery_status_report" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_delivery_status_report</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse_delivery_status_report-source">
+            <pre><span class="ruby-comment"># File lib/mail/part.rb, line 113</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse_delivery_status_report</span>
+  <span class="ruby-ivar">@delivery_status_data</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Header</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">body</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;\r\n\r\n&quot;</span>, <span class="ruby-string">&quot;\r\n&quot;</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- parse_delivery_status_report-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- parse_delivery_status_report-method -->
+
+    
+      <div id="method-i-parse_message" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_message</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A part may not have a header.… so, just init a body if no header</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parse_message-source">
+            <pre><span class="ruby-comment"># File lib/mail/part.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse_message</span>
+  <span class="ruby-identifier">header_part</span>, <span class="ruby-identifier">body_part</span> = <span class="ruby-identifier">raw_source</span>.<span class="ruby-identifier">split</span>(<span class="ruby-node">/#{CRLF}#{WSP}*#{CRLF}/</span>, <span class="ruby-value">2</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">header_part</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">HEADER_LINE</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">header</span> = <span class="ruby-identifier">header_part</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">body</span>   = <span class="ruby-identifier">body_part</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">header</span> = <span class="ruby-string">&quot;Content-Type: text/plain\r\n&quot;</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">body</span>   = <span class="ruby-identifier">raw_source</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- parse_message-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- parse_message-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

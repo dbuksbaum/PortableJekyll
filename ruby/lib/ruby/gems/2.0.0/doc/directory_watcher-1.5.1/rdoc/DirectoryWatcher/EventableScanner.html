@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class DirectoryWatcher::EventableScanner - directory_watcher-1.5.1 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/directory_watcher/eventable_scanner.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    <!-- Included Modules -->
+<nav id="includes-section" class="section">
+  <h3 class="section-header">Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="Logable.html">DirectoryWatcher::Logable</a>
+  
+  
+  </ul>
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-collection_queue">#collection_queue</a>
+    
+    <li ><a href="#method-i-finished_iterations-3F">#finished_iterations?</a>
+    
+    <li ><a href="#method-i-interval">#interval</a>
+    
+    <li ><a href="#method-i-join">#join</a>
+    
+    <li ><a href="#method-i-maximum_iterations-3D">#maximum_iterations=</a>
+    
+    <li ><a href="#method-i-on_modified">#on_modified</a>
+    
+    <li ><a href="#method-i-on_removed">#on_removed</a>
+    
+    <li ><a href="#method-i-on_scan">#on_scan</a>
+    
+    <li ><a href="#method-i-pause">#pause</a>
+    
+    <li ><a href="#method-i-paused-3F">#paused?</a>
+    
+    <li ><a href="#method-i-progress_towards_maximum_iterations">#progress_towards_maximum_iterations</a>
+    
+    <li ><a href="#method-i-queue_item">#queue_item</a>
+    
+    <li ><a href="#method-i-resume">#resume</a>
+    
+    <li ><a href="#method-i-run">#run</a>
+    
+    <li ><a href="#method-i-running-3F">#running?</a>
+    
+    <li ><a href="#method-i-scan_and_watch_files">#scan_and_watch_files</a>
+    
+    <li ><a href="#method-i-start">#start</a>
+    
+    <li ><a href="#method-i-stop">#stop</a>
+    
+    <li ><a href="#method-i-teardown_timer_and_watches">#teardown_timer_and_watches</a>
+    
+    <li ><a href="#method-i-unwatch_file">#unwatch_file</a>
+    
+    <li ><a href="#method-i-watch_file">#watch_file</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../History_txt.html">History</a>
+  
+    <li class="file"><a href="../README_txt.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../DirectoryWatcher.html">DirectoryWatcher</a>
+  
+    <li><a href="../DirectoryWatcher/Collector.html">DirectoryWatcher::Collector</a>
+  
+    <li><a href="../DirectoryWatcher/Configuration.html">DirectoryWatcher::Configuration</a>
+  
+    <li><a href="../DirectoryWatcher/CoolioScanner.html">DirectoryWatcher::CoolioScanner</a>
+  
+    <li><a href="../DirectoryWatcher/EmScanner.html">DirectoryWatcher::EmScanner</a>
+  
+    <li><a href="../DirectoryWatcher/Event.html">DirectoryWatcher::Event</a>
+  
+    <li><a href="../DirectoryWatcher/EventableScanner.html">DirectoryWatcher::EventableScanner</a>
+  
+    <li><a href="../DirectoryWatcher/FileStat.html">DirectoryWatcher::FileStat</a>
+  
+    <li><a href="../DirectoryWatcher/Logable.html">DirectoryWatcher::Logable</a>
+  
+    <li><a href="../DirectoryWatcher/Notifier.html">DirectoryWatcher::Notifier</a>
+  
+    <li><a href="../DirectoryWatcher/NullLogger.html">DirectoryWatcher::NullLogger</a>
+  
+    <li><a href="../DirectoryWatcher/Paths.html">DirectoryWatcher::Paths</a>
+  
+    <li><a href="../DirectoryWatcher/RevScanner.html">DirectoryWatcher::RevScanner</a>
+  
+    <li><a href="../DirectoryWatcher/Scan.html">DirectoryWatcher::Scan</a>
+  
+    <li><a href="../DirectoryWatcher/ScanAndQueue.html">DirectoryWatcher::ScanAndQueue</a>
+  
+    <li><a href="../DirectoryWatcher/Scanner.html">DirectoryWatcher::Scanner</a>
+  
+    <li><a href="../DirectoryWatcher/Threaded.html">DirectoryWatcher::Threaded</a>
+  
+    <li><a href="../DirectoryWatcher/Version.html">DirectoryWatcher::Version</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class DirectoryWatcher::EventableScanner</h1>
+
+  <div id="description" class="description">
+    
+<p>An Eventable Scanner is one that can be utilized by something that has an
+Event Loop. It is intended to be subclassed by classes that implement the
+specific event loop semantics for say EventMachine or Cool.io.</p>
+
+<p>The Events that the <a href="EventableScanner.html">EventableScanner</a> is
+programmed for are:</p>
+
+<p><a href="EventableScanner.html#method-i-on_scan">#on_scan</a>     - this
+should be called every <code>interval</code> times <a
+href="EventableScanner.html#method-i-on_modified">#on_modified</a> - If the
+event loop can monitor individual files then this should</p>
+
+<pre>be called when the file is modified</pre>
+
+<p><a href="EventableScanner.html#method-i-on_removed">#on_removed</a>  -
+Similar to <a
+href="EventableScanner.html#method-i-on_modified">#on_modified</a> but
+called when a file is removed.</p>
+
+<p>Sub classes are required to implement the following:</p>
+
+<pre class="ruby"><span class="ruby-identifier">start_loop_with_attached_scan_timer</span>() <span class="ruby-operator">-</span> <span class="ruby-constant">Instance</span> <span class="ruby-constant">Method</span>
+  <span class="ruby-constant">This</span> <span class="ruby-identifier">method</span> <span class="ruby-identifier">is</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">start</span> <span class="ruby-identifier">up</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">loop</span>, <span class="ruby-keyword">if</span> <span class="ruby-identifier">necessary</span> <span class="ruby-identifier">assign</span> <span class="ruby-identifier">to</span> <span class="ruby-ivar">@loop_thread</span>
+  <span class="ruby-identifier">instance</span> <span class="ruby-identifier">variable</span> <span class="ruby-identifier">the</span> <span class="ruby-constant">Thread</span> <span class="ruby-identifier">that</span> <span class="ruby-identifier">is</span> <span class="ruby-identifier">controlling</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">event</span> <span class="ruby-identifier">loop</span>.
+
+  <span class="ruby-constant">This</span> <span class="ruby-identifier">method</span> <span class="ruby-identifier">must</span> <span class="ruby-identifier">also</span> <span class="ruby-identifier">assign</span> <span class="ruby-identifier">an</span> <span class="ruby-identifier">object</span> <span class="ruby-identifier">to</span> <span class="ruby-ivar">@timer</span> <span class="ruby-identifier">which</span> <span class="ruby-identifier">is</span> <span class="ruby-identifier">what</span> <span class="ruby-identifier">does</span> <span class="ruby-identifier">the</span>
+  <span class="ruby-identifier">periodic</span> <span class="ruby-identifier">scanning</span> <span class="ruby-identifier">of</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">globs</span>. <span class="ruby-constant">This</span> <span class="ruby-identifier">object</span> <span class="ruby-identifier">must</span> <span class="ruby-identifier">respond</span> <span class="ruby-identifier">to</span> <span class="ruby-operator">+</span><span class="ruby-identifier">detach</span>()<span class="ruby-operator">+</span> <span class="ruby-identifier">so</span>
+  <span class="ruby-identifier">that</span> <span class="ruby-identifier">it</span> <span class="ruby-identifier">may</span> <span class="ruby-identifier">be</span> <span class="ruby-identifier">detached</span> <span class="ruby-identifier">from</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">event</span> <span class="ruby-identifier">loop</span>.
+
+<span class="ruby-identifier">stop_loop</span>() <span class="ruby-operator">-</span> <span class="ruby-constant">Instance</span> <span class="ruby-constant">Method</span>
+  <span class="ruby-constant">This</span> <span class="ruby-identifier">method</span> <span class="ruby-identifier">must</span> <span class="ruby-identifier">shut</span> <span class="ruby-identifier">down</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">event</span> <span class="ruby-identifier">loop</span>, <span class="ruby-keyword">or</span> <span class="ruby-identifier">detach</span> <span class="ruby-identifier">these</span> <span class="ruby-identifier">classes</span> <span class="ruby-identifier">from</span>
+  <span class="ruby-identifier">the</span> <span class="ruby-identifier">event</span> <span class="ruby-identifier">loop</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">we</span> <span class="ruby-identifier">just</span> <span class="ruby-identifier">attached</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">an</span> <span class="ruby-identifier">existing</span> <span class="ruby-identifier">event</span> <span class="ruby-identifier">loop</span>.
+
+<span class="ruby-constant">Watcher</span> <span class="ruby-operator">-</span> <span class="ruby-constant">An</span> <span class="ruby-constant">Embedded</span> <span class="ruby-identifier">class</span>
+  <span class="ruby-constant">This</span> <span class="ruby-identifier">is</span> <span class="ruby-identifier">a</span> <span class="ruby-keyword">class</span> <span class="ruby-identifier">that</span> <span class="ruby-identifier">must</span> <span class="ruby-identifier">have</span> <span class="ruby-identifier">a</span> <span class="ruby-keyword">class</span> <span class="ruby-identifier">method</span> <span class="ruby-operator">+</span><span class="ruby-identifier">watcher</span>(<span class="ruby-identifier">path</span>,<span class="ruby-identifier">scanner</span>)<span class="ruby-operator">+</span>
+  <span class="ruby-identifier">which</span> <span class="ruby-identifier">is</span> <span class="ruby-identifier">used</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">instantiate</span> <span class="ruby-identifier">a</span> <span class="ruby-identifier">file</span> <span class="ruby-identifier">watcher</span>. <span class="ruby-constant">The</span> <span class="ruby-constant">Watcher</span> <span class="ruby-identifier">instance</span> <span class="ruby-identifier">must</span>
+  <span class="ruby-identifier">respond</span> <span class="ruby-identifier">to</span> <span class="ruby-operator">+</span><span class="ruby-identifier">detach</span>()<span class="ruby-operator">+</span> <span class="ruby-identifier">so</span> <span class="ruby-identifier">that</span> <span class="ruby-identifier">it</span> <span class="ruby-identifier">may</span> <span class="ruby-identifier">be</span> <span class="ruby-identifier">independently</span> <span class="ruby-identifier">detached</span> <span class="ruby-identifier">from</span> <span class="ruby-identifier">the</span>
+  <span class="ruby-identifier">event</span> <span class="ruby-identifier">loop</span>.
+</pre>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-iterations" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">iterations</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-maximum_iterations" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">maximum_iterations</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-watchers" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">watchers</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>A Hash of Watcher objects.</p>
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            new( config )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>config - the Configuration instances</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/eventable_scanner.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>( <span class="ruby-identifier">config</span> )
+  <span class="ruby-ivar">@config</span> = <span class="ruby-identifier">config</span>
+  <span class="ruby-ivar">@scan_and_queue</span> = <span class="ruby-constant">DirectoryWatcher</span><span class="ruby-operator">::</span><span class="ruby-constant">ScanAndQueue</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">config</span>.<span class="ruby-identifier">glob</span>, <span class="ruby-identifier">config</span>.<span class="ruby-identifier">collection_queue</span>)
+  <span class="ruby-ivar">@watchers</span> = {}
+  <span class="ruby-ivar">@stopping</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@timer</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@loop_thread</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@paused</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-collection_queue" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">collection_queue</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The queue on which to put FileStat and Scan items.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="collection_queue-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/eventable_scanner.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">collection_queue</span>
+  <span class="ruby-ivar">@config</span>.<span class="ruby-identifier">collection_queue</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- collection_queue-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- collection_queue-method -->
+
+    
+      <div id="method-i-finished_iterations-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">finished_iterations?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Have we completed up to the <a
+href="EventableScanner.html#attribute-i-maximum_iterations">#maximum_iterations</a>?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="finished_iterations-3F-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/eventable_scanner.rb, line 146</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">finished_iterations?</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">iterations</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">maximum_iterations</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- finished_iterations-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- finished_iterations-3F-method -->
+
+    
+      <div id="method-i-interval" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">interval</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The interval at which to scan</p>
+          
+          
+
+          
+          <div class="method-source-code" id="interval-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/eventable_scanner.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">interval</span>
+  <span class="ruby-ivar">@config</span>.<span class="ruby-identifier">interval</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- interval-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- interval-method -->
+
+    
+      <div id="method-i-join" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">join</span><span
+            class="method-args">( limit = nil )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>EventableScanners do not join</p>
+          
+          
+
+          
+          <div class="method-source-code" id="join-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/eventable_scanner.rb, line 119</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">join</span>( <span class="ruby-identifier">limit</span> = <span class="ruby-keyword">nil</span> )
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- join-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- join-method -->
+
+    
+      <div id="method-i-maximum_iterations-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">maximum_iterations=</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Setting maximum iterations means hooking into the periodic timer event and
+counting the number of times it is going on. This also resets the current
+iterations count</p>
+          
+          
+
+          
+          <div class="method-source-code" id="maximum_iterations-3D-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/eventable_scanner.rb, line 133</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">maximum_iterations=</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-constant">Integer</span>(<span class="ruby-identifier">value</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;maximum iterations must be &gt;= 1&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@iterations</span> = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@maximum_iterations</span> = <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- maximum_iterations-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- maximum_iterations-3D-method -->
+
+    
+      <div id="method-i-on_modified" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_modified</span><span
+            class="method-args">(watcher, new_stat)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This callback is invoked by the Watcher instance when it is triggered by
+the loop for file modifications.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="on_modified-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/eventable_scanner.rb, line 163</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_modified</span>(<span class="ruby-identifier">watcher</span>, <span class="ruby-identifier">new_stat</span>)
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-string">&quot;on_modified called&quot;</span>
+  <span class="ruby-identifier">queue_item</span>(<span class="ruby-identifier">new_stat</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- on_modified-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- on_modified-method -->
+
+    
+      <div id="method-i-on_removed" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_removed</span><span
+            class="method-args">(watcher, new_stat)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This callback is invoked by the Watcher instance when it is triggered by
+the loop for file removals</p>
+          
+          
+
+          
+          <div class="method-source-code" id="on_removed-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/eventable_scanner.rb, line 171</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_removed</span>(<span class="ruby-identifier">watcher</span>, <span class="ruby-identifier">new_stat</span>)
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-string">&quot;on_removed called&quot;</span>
+  <span class="ruby-identifier">unwatch_file</span>(<span class="ruby-identifier">watcher</span>.<span class="ruby-identifier">path</span>)
+  <span class="ruby-identifier">queue_item</span>(<span class="ruby-identifier">new_stat</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- on_removed-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- on_removed-method -->
+
+    
+      <div id="method-i-on_scan" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_scan</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This callback is invoked by the Timer instance when it is triggered by the
+Loop. This method will check for added files and stable files and notify
+the directory watcher accordingly.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="on_scan-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/eventable_scanner.rb, line 154</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_scan</span>
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-string">&quot;on_scan called&quot;</span>
+  <span class="ruby-identifier">scan_and_watch_files</span>
+  <span class="ruby-identifier">progress_towards_maximum_iterations</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- on_scan-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- on_scan-method -->
+
+    
+      <div id="method-i-pause" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pause</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Pause the scanner.</p>
+
+<p>Pausing the scanner does not stop the scanning per se, it stops items from
+being sent to the collection queue</p>
+          
+          
+
+          
+          <div class="method-source-code" id="pause-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/eventable_scanner.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pause</span>
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-string">&quot;pausing scanner&quot;</span>
+  <span class="ruby-ivar">@paused</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- pause-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- pause-method -->
+
+    
+      <div id="method-i-paused-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">paused?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Is the Scanner currently paused.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="paused-3F-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/eventable_scanner.rb, line 113</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">paused?</span>
+  <span class="ruby-ivar">@paused</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- paused-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- paused-3F-method -->
+
+    
+      <div id="method-i-resume" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">resume</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Resume the scanner.</p>
+
+<p>This removes the blockage on sending items to the collection queue.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="resume-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/eventable_scanner.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">resume</span>
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-string">&quot;resuming scanner&quot;</span>
+  <span class="ruby-ivar">@paused</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- resume-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- resume-method -->
+
+    
+      <div id="method-i-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Do a single scan and send those items to the collection queue.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/eventable_scanner.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run</span>
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-string">&quot;running scan and queue&quot;</span>
+  <span class="ruby-ivar">@scan_and_queue</span>.<span class="ruby-identifier">scan_and_queue</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- run-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- run-method -->
+
+    
+      <div id="method-i-running-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">running?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns <code>true</code> if the scanner is currently running. Returns
+<code>false</code> if this is not the case.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="running-3F-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/eventable_scanner.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">running?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@stopping</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@timer</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- running-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- running-3F-method -->
+
+    
+      <div id="method-i-start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Start up the scanner. If the scanner is already running, nothing happens.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="start-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/eventable_scanner.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">start</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">running?</span>
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-string">&quot;starting scanner&quot;</span>
+  <span class="ruby-identifier">start_loop_with_attached_scan_timer</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- start-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- start-method -->
+
+    
+      <div id="method-i-stop" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stop</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Stop the scanner. If the scanner is not running, nothing happens.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="stop-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/eventable_scanner.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stop</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">running?</span>
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-string">&quot;stoping scanner&quot;</span>
+  <span class="ruby-ivar">@stopping</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">teardown_timer_and_watches</span>
+  <span class="ruby-ivar">@stopping</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">stop_loop</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- stop-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- stop-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-progress_towards_maximum_iterations" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">progress_towards_maximum_iterations</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Make progress towards maximum iterations. And if we get there, then stop
+monitoring files.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="progress_towards_maximum_iterations-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/eventable_scanner.rb, line 235</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">progress_towards_maximum_iterations</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">maximum_iterations</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-ivar">@iterations</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">stop</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">finished_iterations?</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- progress_towards_maximum_iterations-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- progress_towards_maximum_iterations-method -->
+
+    
+      <div id="method-i-queue_item" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">queue_item</span><span
+            class="method-args">( item )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Send the given item to the collection queue</p>
+          
+          
+
+          
+          <div class="method-source-code" id="queue_item-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/eventable_scanner.rb, line 183</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">queue_item</span>( <span class="ruby-identifier">item</span> )
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">paused?</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-string">&quot;Not queueing item, we&#39;re paused&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-node">&quot;enqueuing #{item} to #{collection_queue}&quot;</span>
+    <span class="ruby-identifier">collection_queue</span>.<span class="ruby-identifier">enq</span> <span class="ruby-identifier">item</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- queue_item-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- queue_item-method -->
+
+    
+      <div id="method-i-scan_and_watch_files" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">scan_and_watch_files</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Run a single scan and turn on watches for all the files found in that scan
+that do not already have watchers on them.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="scan_and_watch_files-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/eventable_scanner.rb, line 196</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">scan_and_watch_files</span>
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-string">&quot;scanning and watching files&quot;</span>
+  <span class="ruby-identifier">scan</span> = <span class="ruby-ivar">@scan_and_queue</span>.<span class="ruby-identifier">scan_and_queue</span>
+  <span class="ruby-identifier">scan</span>.<span class="ruby-identifier">results</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">stat</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">watch_file</span>(<span class="ruby-identifier">stat</span>.<span class="ruby-identifier">path</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- scan_and_watch_files-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- scan_and_watch_files-method -->
+
+    
+      <div id="method-i-teardown_timer_and_watches" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">teardown_timer_and_watches</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Remove the timer and the watches from the event loop</p>
+          
+          
+
+          
+          <div class="method-source-code" id="teardown_timer_and_watches-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/eventable_scanner.rb, line 206</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">teardown_timer_and_watches</span>
+  <span class="ruby-ivar">@timer</span>.<span class="ruby-identifier">detach</span> <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@timer</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-ivar">@watchers</span>.<span class="ruby-identifier">each_value</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">w</span><span class="ruby-operator">|</span> <span class="ruby-identifier">w</span>.<span class="ruby-identifier">detach</span>}
+  <span class="ruby-ivar">@watchers</span>.<span class="ruby-identifier">clear</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- teardown_timer_and_watches-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- teardown_timer_and_watches-method -->
+
+    
+      <div id="method-i-unwatch_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unwatch_file</span><span
+            class="method-args">( fn )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Remove the watcher instance from our tracking</p>
+          
+          
+
+          
+          <div class="method-source-code" id="unwatch_file-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/eventable_scanner.rb, line 227</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unwatch_file</span>( <span class="ruby-identifier">fn</span> )
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-node">&quot;Unwatching file #{fn}&quot;</span>
+  <span class="ruby-ivar">@watchers</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">fn</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- unwatch_file-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- unwatch_file-method -->
+
+    
+      <div id="method-i-watch_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">watch_file</span><span
+            class="method-args">( fn )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create and return a new Watcher instance for the given filename
+<em>fn</em>. A watcher will only be created once for a particular fn.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="watch_file-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/eventable_scanner.rb, line 217</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">watch_file</span>( <span class="ruby-identifier">fn</span> )
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@watchers</span>[<span class="ruby-identifier">fn</span>] <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-node">&quot;Watching file #{fn}&quot;</span>
+    <span class="ruby-identifier">w</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span><span class="ruby-operator">::</span><span class="ruby-constant">Watcher</span>.<span class="ruby-identifier">watch</span>(<span class="ruby-identifier">fn</span>, <span class="ruby-keyword">self</span>)
+    <span class="ruby-ivar">@watchers</span>[<span class="ruby-identifier">fn</span>] = <span class="ruby-identifier">w</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- watch_file-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- watch_file-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

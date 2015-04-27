@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module Logging::Layouts - logging-2.0.0 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/logging/layouts.rb
+    <li>lib/logging/layouts/basic.rb
+    <li>lib/logging/layouts/parseable.rb
+    <li>lib/logging/layouts/pattern.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-basic">::basic</a>
+    
+    <li ><a href="#method-c-json">::json</a>
+    
+    <li ><a href="#method-c-parseable">::parseable</a>
+    
+    <li ><a href="#method-c-pattern">::pattern</a>
+    
+    <li ><a href="#method-c-yaml">::yaml</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../History_txt.html">History</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../File.html">File</a>
+  
+    <li><a href="../FileUtils.html">FileUtils</a>
+  
+    <li><a href="../Logging.html">Logging</a>
+  
+    <li><a href="../Logging/Appender.html">Logging::Appender</a>
+  
+    <li><a href="../Logging/Appenders.html">Logging::Appenders</a>
+  
+    <li><a href="../Logging/Appenders/Buffering.html">Logging::Appenders::Buffering</a>
+  
+    <li><a href="../Logging/Appenders/File.html">Logging::Appenders::File</a>
+  
+    <li><a href="../Logging/Appenders/IO.html">Logging::Appenders::IO</a>
+  
+    <li><a href="../Logging/Appenders/RollingFile.html">Logging::Appenders::RollingFile</a>
+  
+    <li><a href="../Logging/Appenders/RollingFile/Roller.html">Logging::Appenders::RollingFile::Roller</a>
+  
+    <li><a href="../Logging/Appenders/Stderr.html">Logging::Appenders::Stderr</a>
+  
+    <li><a href="../Logging/Appenders/Stdout.html">Logging::Appenders::Stdout</a>
+  
+    <li><a href="../Logging/Appenders/StringIo.html">Logging::Appenders::StringIo</a>
+  
+    <li><a href="../Logging/Appenders/Syslog.html">Logging::Appenders::Syslog</a>
+  
+    <li><a href="../Logging/ColorScheme.html">Logging::ColorScheme</a>
+  
+    <li><a href="../Logging/Filter.html">Logging::Filter</a>
+  
+    <li><a href="../Logging/Filters.html">Logging::Filters</a>
+  
+    <li><a href="../Logging/Filters/Level.html">Logging::Filters::Level</a>
+  
+    <li><a href="../Logging/Layout.html">Logging::Layout</a>
+  
+    <li><a href="../Logging/Layouts.html">Logging::Layouts</a>
+  
+    <li><a href="../Logging/Layouts/Basic.html">Logging::Layouts::Basic</a>
+  
+    <li><a href="../Logging/Layouts/Parseable.html">Logging::Layouts::Parseable</a>
+  
+    <li><a href="../Logging/Layouts/Parseable/layout;.html">Logging::Layouts::Parseable::layout;</a>
+  
+    <li><a href="../Logging/Layouts/Pattern.html">Logging::Layouts::Pattern</a>
+  
+    <li><a href="../Logging/Logger.html">Logging::Logger</a>
+  
+    <li><a href="../Logging/Logger.html">Logging::Logger</a>
+  
+    <li><a href="../Logging/MappedDiagnosticContext.html">Logging::MappedDiagnosticContext</a>
+  
+    <li><a href="../Logging/NestedDiagnosticContext.html">Logging::NestedDiagnosticContext</a>
+  
+    <li><a href="../Logging/Proxy.html">Logging::Proxy</a>
+  
+    <li><a href="../Logging/RailsCompat.html">Logging::RailsCompat</a>
+  
+    <li><a href="../Logging/Repository.html">Logging::Repository</a>
+  
+    <li><a href="../Logging/Repository/Singleton.html">Logging::Repository::Singleton</a>
+  
+    <li><a href="../Logging/RootLogger.html">Logging::RootLogger</a>
+  
+    <li><a href="../Logging/logger.html">Logging::logger</a>
+  
+    <li><a href="../Module.html">Module</a>
+  
+    <li><a href="../Object.html">Object</a>
+  
+    <li><a href="../RSpec.html">RSpec</a>
+  
+    <li><a href="../RSpec/Core.html">RSpec::Core</a>
+  
+    <li><a href="../RSpec/Core/Configuration.html">RSpec::Core::Configuration</a>
+  
+    <li><a href="../RSpec/LoggingHelper.html">RSpec::LoggingHelper</a>
+  
+    <li><a href="../RSpec/LoggingHelper.html">RSpec::LoggingHelper</a>
+  
+    <li><a href="../ReentrantMutex.html">ReentrantMutex</a>
+  
+    <li><a href="../Spec.html">Spec</a>
+  
+    <li><a href="../Spec/Runner.html">Spec::Runner</a>
+  
+    <li><a href="../Spec/Runner/Configuration.html">Spec::Runner::Configuration</a>
+  
+    <li><a href="../String.html">String</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module Logging::Layouts</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-basic" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">basic</span><span
+            class="method-args">( *args )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Accessor / Factory for the <a href="Layouts/Basic.html">Basic</a> layout.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="basic-source">
+            <pre><span class="ruby-comment"># File lib/logging/layouts/basic.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">basic</span>( <span class="ruby-operator">*</span><span class="ruby-identifier">args</span> )
+  <span class="ruby-keyword">return</span> <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">Layouts</span><span class="ruby-operator">::</span><span class="ruby-constant">Basic</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">Layouts</span><span class="ruby-operator">::</span><span class="ruby-constant">Basic</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- basic-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- basic-method -->
+
+    
+      <div id="method-c-json" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">json</span><span
+            class="method-args">( *args )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Factory for the <a href="Layouts/Parseable.html">Parseable</a> layout using
+JSON formatting.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="json-source">
+            <pre><span class="ruby-comment"># File lib/logging/layouts/parseable.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">json</span>( <span class="ruby-operator">*</span><span class="ruby-identifier">args</span> )
+  <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">Layouts</span><span class="ruby-operator">::</span><span class="ruby-constant">Parseable</span>.<span class="ruby-identifier">json</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- json-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- json-method -->
+
+    
+      <div id="method-c-parseable" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parseable</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Accessor for the <a href="Layouts/Parseable.html">Parseable</a> layout.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parseable-source">
+            <pre><span class="ruby-comment"># File lib/logging/layouts/parseable.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">parseable</span>
+  <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">Layouts</span><span class="ruby-operator">::</span><span class="ruby-constant">Parseable</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- parseable-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- parseable-method -->
+
+    
+      <div id="method-c-pattern" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pattern</span><span
+            class="method-args">( *args )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Accessor / Factory for the <a href="Layouts/Pattern.html">Pattern</a>
+layout.</p>
+
+<p>Returns a new <a href="Layouts/Pattern.html">Pattern</a> layout instance</p>
+          
+          
+
+          
+          <div class="method-source-code" id="pattern-source">
+            <pre><span class="ruby-comment"># File lib/logging/layouts/pattern.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">pattern</span>( <span class="ruby-operator">*</span><span class="ruby-identifier">args</span> )
+  <span class="ruby-keyword">return</span> <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">Layouts</span><span class="ruby-operator">::</span><span class="ruby-constant">Pattern</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">Layouts</span><span class="ruby-operator">::</span><span class="ruby-constant">Pattern</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- pattern-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- pattern-method -->
+
+    
+      <div id="method-c-yaml" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">yaml</span><span
+            class="method-args">( *args )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Factory for the <a href="Layouts/Parseable.html">Parseable</a> layout using
+YAML formatting.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="yaml-source">
+            <pre><span class="ruby-comment"># File lib/logging/layouts/parseable.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">yaml</span>( <span class="ruby-operator">*</span><span class="ruby-identifier">args</span> )
+  <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">Layouts</span><span class="ruby-operator">::</span><span class="ruby-constant">Parseable</span>.<span class="ruby-identifier">yaml</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- yaml-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- yaml-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

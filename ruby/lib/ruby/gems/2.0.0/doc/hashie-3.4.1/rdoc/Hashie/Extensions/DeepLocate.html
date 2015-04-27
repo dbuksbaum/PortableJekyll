@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module Hashie::Extensions::DeepLocate - hashie-3.4.1 Documentation</title>
+
+<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../index.html">Home</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/hashie/extensions/deep_locate.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-_deep_locate">::_deep_locate</a>
+    
+    <li ><a href="#method-c-deep_locate">::deep_locate</a>
+    
+    <li ><a href="#method-i-deep_locate">#deep_locate</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../Hashie.html">Hashie</a>
+  
+    <li><a href="../../Hashie/Clash.html">Hashie::Clash</a>
+  
+    <li><a href="../../Hashie/Clash/ChainError.html">Hashie::Clash::ChainError</a>
+  
+    <li><a href="../../Hashie/CoercionError.html">Hashie::CoercionError</a>
+  
+    <li><a href="../../Hashie/Dash.html">Hashie::Dash</a>
+  
+    <li><a href="../../Hashie/Extensions.html">Hashie::Extensions</a>
+  
+    <li><a href="../../Hashie/Extensions/Coercion.html">Hashie::Extensions::Coercion</a>
+  
+    <li><a href="../../Hashie/Extensions/Coercion/ClassMethods.html">Hashie::Extensions::Coercion::ClassMethods</a>
+  
+    <li><a href="../../Hashie/Extensions/Coercion/InstanceMethods.html">Hashie::Extensions::Coercion::InstanceMethods</a>
+  
+    <li><a href="../../Hashie/Extensions/Dash.html">Hashie::Extensions::Dash</a>
+  
+    <li><a href="../../Hashie/Extensions/Dash/IndifferentAccess.html">Hashie::Extensions::Dash::IndifferentAccess</a>
+  
+    <li><a href="../../Hashie/Extensions/Dash/IndifferentAccess/ClassMethods.html">Hashie::Extensions::Dash::IndifferentAccess::ClassMethods</a>
+  
+    <li><a href="../../Hashie/Extensions/DeepFetch.html">Hashie::Extensions::DeepFetch</a>
+  
+    <li><a href="../../Hashie/Extensions/DeepFetch/UndefinedPathError.html">Hashie::Extensions::DeepFetch::UndefinedPathError</a>
+  
+    <li><a href="../../Hashie/Extensions/DeepFind.html">Hashie::Extensions::DeepFind</a>
+  
+    <li><a href="../../Hashie/Extensions/DeepLocate.html">Hashie::Extensions::DeepLocate</a>
+  
+    <li><a href="../../Hashie/Extensions/DeepMerge.html">Hashie::Extensions::DeepMerge</a>
+  
+    <li><a href="../../Hashie/Extensions/IgnoreUndeclared.html">Hashie::Extensions::IgnoreUndeclared</a>
+  
+    <li><a href="../../Hashie/Extensions/IndifferentAccess.html">Hashie::Extensions::IndifferentAccess</a>
+  
+    <li><a href="../../Hashie/Extensions/IndifferentAccess/hash;.html">Hashie::Extensions::IndifferentAccess::hash;</a>
+  
+    <li><a href="../../Hashie/Extensions/KeyConversion.html">Hashie::Extensions::KeyConversion</a>
+  
+    <li><a href="../../Hashie/Extensions/Mash.html">Hashie::Extensions::Mash</a>
+  
+    <li><a href="../../Hashie/Extensions/Mash/SafeAssignment.html">Hashie::Extensions::Mash::SafeAssignment</a>
+  
+    <li><a href="../../Hashie/Extensions/MergeInitializer.html">Hashie::Extensions::MergeInitializer</a>
+  
+    <li><a href="../../Hashie/Extensions/MethodAccess.html">Hashie::Extensions::MethodAccess</a>
+  
+    <li><a href="../../Hashie/Extensions/MethodAccessWithOverride.html">Hashie::Extensions::MethodAccessWithOverride</a>
+  
+    <li><a href="../../Hashie/Extensions/MethodOverridingWriter.html">Hashie::Extensions::MethodOverridingWriter</a>
+  
+    <li><a href="../../Hashie/Extensions/MethodQuery.html">Hashie::Extensions::MethodQuery</a>
+  
+    <li><a href="../../Hashie/Extensions/MethodReader.html">Hashie::Extensions::MethodReader</a>
+  
+    <li><a href="../../Hashie/Extensions/MethodWriter.html">Hashie::Extensions::MethodWriter</a>
+  
+    <li><a href="../../Hashie/Extensions/Parsers.html">Hashie::Extensions::Parsers</a>
+  
+    <li><a href="../../Hashie/Extensions/Parsers/YamlErbParser.html">Hashie::Extensions::Parsers::YamlErbParser</a>
+  
+    <li><a href="../../Hashie/Extensions/PrettyInspect.html">Hashie::Extensions::PrettyInspect</a>
+  
+    <li><a href="../../Hashie/Extensions/StringifyKeys.html">Hashie::Extensions::StringifyKeys</a>
+  
+    <li><a href="../../Hashie/Extensions/StringifyKeys/ClassMethods.html">Hashie::Extensions::StringifyKeys::ClassMethods</a>
+  
+    <li><a href="../../Hashie/Extensions/SymbolizeKeys.html">Hashie::Extensions::SymbolizeKeys</a>
+  
+    <li><a href="../../Hashie/Extensions/SymbolizeKeys/ClassMethods.html">Hashie::Extensions::SymbolizeKeys::ClassMethods</a>
+  
+    <li><a href="../../Hashie/Hash.html">Hashie::Hash</a>
+  
+    <li><a href="../../Hashie/Mash.html">Hashie::Mash</a>
+  
+    <li><a href="../../Hashie/Rash.html">Hashie::Rash</a>
+  
+    <li><a href="../../Hashie/Trash.html">Hashie::Trash</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module Hashie::Extensions::DeepLocate</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-deep_locate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">deep_locate</span><span
+            class="method-args">(comparator, object)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The module level implementation of <a
+href="DeepLocate.html#method-i-deep_locate">deep_locate</a>, incase you do
+not want to include/extend the base datastructure. For further examples
+please see <a href="DeepLocate.html#method-i-deep_locate">deep_locate</a>.</p>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-identifier">books</span> = [
+  {
+    <span class="ruby-identifier">title</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Ruby for beginners&quot;</span>,
+    <span class="ruby-identifier">pages</span><span class="ruby-operator">:</span> <span class="ruby-value">120</span>
+  },
+  <span class="ruby-operator">...</span>
+]
+
+<span class="ruby-constant">Hashie</span><span class="ruby-operator">::</span><span class="ruby-constant">Extensions</span><span class="ruby-operator">::</span><span class="ruby-constant">DeepLocate</span>.<span class="ruby-identifier">deep_locate</span> <span class="ruby-operator">-</span><span class="ruby-operator">&gt;</span> (<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">object</span>) { <span class="ruby-identifier">key</span> <span class="ruby-operator">==</span> :<span class="ruby-identifier">title</span> }, <span class="ruby-identifier">books</span>
+<span class="ruby-comment"># =&gt; [{:title=&gt;&quot;Ruby for beginners&quot;, :pages=&gt;120}, ...]</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="deep_locate-source">
+            <pre><span class="ruby-comment"># File lib/hashie/extensions/deep_locate.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">deep_locate</span>(<span class="ruby-identifier">comparator</span>, <span class="ruby-identifier">object</span>)
+  <span class="ruby-comment"># ensure comparator is a callable</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">comparator</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+    <span class="ruby-identifier">comparator</span> = <span class="ruby-identifier">lambda</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">non_callable_object</span><span class="ruby-operator">|</span>
+      <span class="ruby-operator">-</span><span class="ruby-operator">&gt;</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">_</span>, <span class="ruby-identifier">_</span>) { <span class="ruby-identifier">key</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">non_callable_object</span> }
+    <span class="ruby-keyword">end</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">comparator</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">_deep_locate</span>(<span class="ruby-identifier">comparator</span>, <span class="ruby-identifier">object</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- deep_locate-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- deep_locate-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="private-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Class Methods</h3>
+
+    
+      <div id="method-c-_deep_locate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_deep_locate</span><span
+            class="method-args">(comparator, object, result = [])</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_deep_locate-source">
+            <pre><span class="ruby-comment"># File lib/hashie/extensions/deep_locate.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">_deep_locate</span>(<span class="ruby-identifier">comparator</span>, <span class="ruby-identifier">object</span>, <span class="ruby-identifier">result</span> = [])
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Enumerable</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">any?</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+        <span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span> = <span class="ruby-identifier">value</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">key</span> = <span class="ruby-keyword">nil</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">comparator</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">object</span>)
+    <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">result</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">object</span>
+    <span class="ruby-keyword">else</span>
+      (<span class="ruby-identifier">object</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:values</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">values</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">entries</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">_deep_locate</span>(<span class="ruby-identifier">comparator</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">result</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- _deep_locate-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- _deep_locate-method -->
+
+    
+    </section><!-- private-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-deep_locate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">deep_locate</span><span
+            class="method-args">(comparator)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Performs a depth-first search on deeply nested data structures for a given
+comparator callable and returns each Enumerable, for which the callable
+returns true for at least one the its elements.</p>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-identifier">books</span> = [
+  {
+    <span class="ruby-identifier">title</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Ruby for beginners&quot;</span>,
+    <span class="ruby-identifier">pages</span><span class="ruby-operator">:</span> <span class="ruby-value">120</span>
+  },
+  {
+    <span class="ruby-identifier">title</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;CSS for intermediates&quot;</span>,
+    <span class="ruby-identifier">pages</span><span class="ruby-operator">:</span> <span class="ruby-value">80</span>
+  },
+  {
+    <span class="ruby-identifier">title</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Collection of ruby books&quot;</span>,
+    <span class="ruby-identifier">books</span><span class="ruby-operator">:</span> [
+      {
+        <span class="ruby-identifier">title</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Ruby for the rest of us&quot;</span>,
+        <span class="ruby-identifier">pages</span><span class="ruby-operator">:</span> <span class="ruby-value">576</span>
+      }
+    ]
+  }
+]
+
+<span class="ruby-identifier">books</span>.<span class="ruby-identifier">extend</span>(<span class="ruby-constant">Hashie</span><span class="ruby-operator">::</span><span class="ruby-constant">Extensions</span><span class="ruby-operator">::</span><span class="ruby-constant">DeepLocate</span>)
+
+<span class="ruby-comment"># for ruby 1.9 leave *no* space between the lambda rocket and the braces</span>
+<span class="ruby-comment"># http://ruby-journal.com/becareful-with-space-in-lambda-hash-rocket-syntax-between-ruby-1-dot-9-and-2-dot-0/</span>
+
+<span class="ruby-identifier">books</span>.<span class="ruby-identifier">deep_locate</span> <span class="ruby-operator">-</span><span class="ruby-operator">&gt;</span> (<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">object</span>) { <span class="ruby-identifier">key</span> <span class="ruby-operator">==</span> :<span class="ruby-identifier">title</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;Ruby&quot;</span>) }
+<span class="ruby-comment"># =&gt; [{:title=&gt;&quot;Ruby for beginners&quot;, :pages=&gt;120}, {:title=&gt;&quot;Ruby for the rest of us&quot;, :pages=&gt;576}]</span>
+
+<span class="ruby-identifier">books</span>.<span class="ruby-identifier">deep_locate</span> <span class="ruby-operator">-</span><span class="ruby-operator">&gt;</span> (<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">object</span>) { <span class="ruby-identifier">key</span> <span class="ruby-operator">==</span> :<span class="ruby-identifier">pages</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">120</span> }
+<span class="ruby-comment"># =&gt; [{:title=&gt;&quot;Ruby for beginners&quot;, :pages=&gt;120}, {:title=&gt;&quot;CSS for intermediates&quot;, :pages=&gt;80}]</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="deep_locate-source">
+            <pre><span class="ruby-comment"># File lib/hashie/extensions/deep_locate.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">deep_locate</span>(<span class="ruby-identifier">comparator</span>)
+  <span class="ruby-constant">Hashie</span><span class="ruby-operator">::</span><span class="ruby-constant">Extensions</span><span class="ruby-operator">::</span><span class="ruby-constant">DeepLocate</span>.<span class="ruby-identifier">deep_locate</span>(<span class="ruby-identifier">comparator</span>, <span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- deep_locate-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- deep_locate-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

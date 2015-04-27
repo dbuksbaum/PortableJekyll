@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>mkmf.log - bigdecimal-1.2.7 Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body class="file">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./Makefile.html">Makefile</a>
+  
+    <li class="file"><a href="./README.html">README</a>
+  
+    <li class="file"><a href="./bigdecimal-i386-mingw32_def.html">bigdecimal-i386-mingw32.def</a>
+  
+    <li class="file"><a href="./depend.html">depend</a>
+  
+    <li class="file"><a href="./mkmf_log.html">mkmf.log</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./BigDecimal.html">BigDecimal</a>
+  
+    <li><a href="./BigMath.html">BigMath</a>
+  
+    <li><a href="./Float.html">Float</a>
+  
+    <li><a href="./Function.html">Function</a>
+  
+    <li><a href="./Integer.html">Integer</a>
+  
+    <li><a href="./Jacobian.html">Jacobian</a>
+  
+    <li><a href="./Kernel.html">Kernel</a>
+  
+    <li><a href="./LUSolve.html">LUSolve</a>
+  
+    <li><a href="./Newton.html">Newton</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./Rational.html">Rational</a>
+  
+    <li><a href="./RbConfig.html">RbConfig</a>
+  
+    <li><a href="./String.html">String</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation" class="description">
+  
+<p>have_func: checking for labs() in stdlib.h… ——————– yes</p>
+
+<p>“gcc -o conftest.exe
+-ID:/Development/Blogs/Jekyll/PortableJekyll/ruby/include/ruby-2.0.0/i386-mingw32
+-ID:/Development/Blogs/Jekyll/PortableJekyll/ruby/include/ruby-2.0.0/ruby/backward
+-ID:/Development/Blogs/Jekyll/PortableJekyll/ruby/include/ruby-2.0.0 -I.
+-DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D_FILE_OFFSET_BITS=64   -O3
+-fno-omit-frame-pointer -fno-fast-math -g -Wall -Wextra
+-Wno-unused-parameter -Wno-parentheses -Wno-long-long
+-Wno-missing-field-initializers -Wunused-variable -Wpointer-arith
+-Wwrite-strings -Wdeclaration-after-statement
+-Wimplicit-function-declaration conftest.c  -L.
+-LD:/Development/Blogs/Jekyll/PortableJekyll/ruby/lib -L.     
+-lmsvcrt-ruby200  -lshell32 -lws2_32 -limagehlp -lshlwapi  ” checked
+program was:</p>
+
+<pre>begin</pre>
+
+<p>1: include “ruby.h” 2:  3: include &lt;winsock2.h&gt; 4: include
+&lt;windows.h&gt; 5: int main(int argc, char **argv) 6: { 7:   return 0; 8:
+}</p>
+
+<pre>end</pre>
+
+<p>“gcc -o conftest.exe
+-ID:/Development/Blogs/Jekyll/PortableJekyll/ruby/include/ruby-2.0.0/i386-mingw32
+-ID:/Development/Blogs/Jekyll/PortableJekyll/ruby/include/ruby-2.0.0/ruby/backward
+-ID:/Development/Blogs/Jekyll/PortableJekyll/ruby/include/ruby-2.0.0 -I.
+-DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D_FILE_OFFSET_BITS=64   -O3
+-fno-omit-frame-pointer -fno-fast-math -g -Wall -Wextra
+-Wno-unused-parameter -Wno-parentheses -Wno-long-long
+-Wno-missing-field-initializers -Wunused-variable -Wpointer-arith
+-Wwrite-strings -Wdeclaration-after-statement
+-Wimplicit-function-declaration conftest.c  -L.
+-LD:/Development/Blogs/Jekyll/PortableJekyll/ruby/lib -L.     
+-lmsvcrt-ruby200  -lshell32 -lws2_32 -limagehlp -lshlwapi  ” conftest.c: In
+function &#39;t&#39;: conftest.c:9:32: warning: variable &#39;p&#39; set
+but not used [-Wunused-but-set-variable] checked program was: /* begin */</p>
+
+<pre>1: #include &quot;ruby.h&quot;
+2: 
+3: #include &lt;winsock2.h&gt;
+4: #include &lt;windows.h&gt;
+5: #include &lt;stdlib.h&gt;
+6: 
+7: /*top*/
+8: extern int t(void);
+9: int t(void) { void ((*volatile p)()); p = (void ((*)()))labs; return 0; }</pre>
+
+<p>10: int main(int argc, char **argv) 11: { 12:   if (argc &gt; 1000000) {
+13:     printf(“%p”, &amp;t); 14:   } 15:  16:   return 0; 17: } /* end */</p>
+<hr style="height: 10px">
+
+<p>have_func: checking for llabs() in stdlib.h… ——————– yes</p>
+
+<p>“gcc -o conftest.exe
+-ID:/Development/Blogs/Jekyll/PortableJekyll/ruby/include/ruby-2.0.0/i386-mingw32
+-ID:/Development/Blogs/Jekyll/PortableJekyll/ruby/include/ruby-2.0.0/ruby/backward
+-ID:/Development/Blogs/Jekyll/PortableJekyll/ruby/include/ruby-2.0.0 -I.
+-DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D_FILE_OFFSET_BITS=64   -O3
+-fno-omit-frame-pointer -fno-fast-math -g -Wall -Wextra
+-Wno-unused-parameter -Wno-parentheses -Wno-long-long
+-Wno-missing-field-initializers -Wunused-variable -Wpointer-arith
+-Wwrite-strings -Wdeclaration-after-statement
+-Wimplicit-function-declaration conftest.c  -L.
+-LD:/Development/Blogs/Jekyll/PortableJekyll/ruby/lib -L.     
+-lmsvcrt-ruby200  -lshell32 -lws2_32 -limagehlp -lshlwapi  ” conftest.c: In
+function &#39;t&#39;: conftest.c:9:32: warning: variable &#39;p&#39; set
+but not used [-Wunused-but-set-variable] checked program was: /* begin */</p>
+
+<pre>1: #include &quot;ruby.h&quot;
+2: 
+3: #include &lt;winsock2.h&gt;
+4: #include &lt;windows.h&gt;
+5: #include &lt;stdlib.h&gt;
+6: 
+7: /*top*/
+8: extern int t(void);
+9: int t(void) { void ((*volatile p)()); p = (void ((*)()))llabs; return 0; }</pre>
+
+<p>10: int main(int argc, char **argv) 11: { 12:   if (argc &gt; 1000000) {
+13:     printf(“%p”, &amp;t); 14:   } 15:  16:   return 0; 17: } /* end */</p>
+<hr style="height: 10px">
+
+<p>have_type: checking for struct RRational in ruby.h… ——————– yes</p>
+
+<p>“gcc
+-ID:/Development/Blogs/Jekyll/PortableJekyll/ruby/include/ruby-2.0.0/i386-mingw32
+-ID:/Development/Blogs/Jekyll/PortableJekyll/ruby/include/ruby-2.0.0/ruby/backward
+-ID:/Development/Blogs/Jekyll/PortableJekyll/ruby/include/ruby-2.0.0 -I.
+-DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D_FILE_OFFSET_BITS=64   -O3
+-fno-omit-frame-pointer -fno-fast-math -g -Wall -Wextra
+-Wno-unused-parameter -Wno-parentheses -Wno-long-long
+-Wno-missing-field-initializers -Wunused-variable -Wpointer-arith
+-Wwrite-strings -Wdeclaration-after-statement
+-Wimplicit-function-declaration   -c conftest.c” checked program was: /*
+begin */ 1: include “ruby.h” 2:  3: include &lt;winsock2.h&gt; 4: include
+&lt;windows.h&gt; 5: include &lt;ruby.h&gt; 6:  7: /<strong>top</strong>/
+8: typedef struct RRational conftest_type; 9: int <a
+href="http://sizeof(conftest_type)?1:-1">conftestval</a>; /* end */</p>
+<hr style="height: 10px">
+
+<p>have_func: checking for rb_rational_num() in ruby.h… ——————– no</p>
+
+<p>“gcc -o conftest.exe
+-ID:/Development/Blogs/Jekyll/PortableJekyll/ruby/include/ruby-2.0.0/i386-mingw32
+-ID:/Development/Blogs/Jekyll/PortableJekyll/ruby/include/ruby-2.0.0/ruby/backward
+-ID:/Development/Blogs/Jekyll/PortableJekyll/ruby/include/ruby-2.0.0 -I.
+-DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D_FILE_OFFSET_BITS=64   -O3
+-fno-omit-frame-pointer -fno-fast-math -g -Wall -Wextra
+-Wno-unused-parameter -Wno-parentheses -Wno-long-long
+-Wno-missing-field-initializers -Wunused-variable -Wpointer-arith
+-Wwrite-strings -Wdeclaration-after-statement
+-Wimplicit-function-declaration conftest.c  -L.
+-LD:/Development/Blogs/Jekyll/PortableJekyll/ruby/lib -L.     
+-lmsvcrt-ruby200  -lshell32 -lws2_32 -limagehlp -lshlwapi  ” conftest.c: In
+function &#39;t&#39;: conftest.c:9:57: error: &#39;rb_rational_num&#39;
+undeclared (first use in this function) conftest.c:9:57: note: each
+undeclared identifier is reported only once for each function it appears in
+conftest.c:9:32: warning: variable &#39;p&#39; set but not used
+[-Wunused-but-set-variable] checked program was: /* begin */</p>
+
+<pre>1: #include &quot;ruby.h&quot;
+2: 
+3: #include &lt;winsock2.h&gt;
+4: #include &lt;windows.h&gt;
+5: #include &lt;ruby.h&gt;
+6: 
+7: /*top*/
+8: extern int t(void);
+9: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_rational_num; return 0; }</pre>
+
+<p>10: int main(int argc, char **argv) 11: { 12:   if (argc &gt; 1000000) {
+13:     printf(“%p”, &amp;t); 14:   } 15:  16:   return 0; 17: } /* end */</p>
+
+<p>“gcc -o conftest.exe
+-ID:/Development/Blogs/Jekyll/PortableJekyll/ruby/include/ruby-2.0.0/i386-mingw32
+-ID:/Development/Blogs/Jekyll/PortableJekyll/ruby/include/ruby-2.0.0/ruby/backward
+-ID:/Development/Blogs/Jekyll/PortableJekyll/ruby/include/ruby-2.0.0 -I.
+-DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D_FILE_OFFSET_BITS=64   -O3
+-fno-omit-frame-pointer -fno-fast-math -g -Wall -Wextra
+-Wno-unused-parameter -Wno-parentheses -Wno-long-long
+-Wno-missing-field-initializers -Wunused-variable -Wpointer-arith
+-Wwrite-strings -Wdeclaration-after-statement
+-Wimplicit-function-declaration conftest.c  -L.
+-LD:/Development/Blogs/Jekyll/PortableJekyll/ruby/lib -L.     
+-lmsvcrt-ruby200  -lshell32 -lws2_32 -limagehlp -lshlwapi  ” conftest.c: In
+function &#39;t&#39;: conftest.c:9:1: warning: implicit declaration of
+function &#39;rb_rational_num&#39; [-Wimplicit-function-declaration]
+C:UsersdavidAppDataLocalTempccgxYAZV.o: In function `t&#39;:
+D:DevelopmentBlogsJekyllPortableJekyllrubylibrubygems2.0.0gemsbigdecimal-1.2.7/conftest.c:9:
+undefined reference to `rb_rational_num&#39; collect2.exe: error: ld
+returned 1 exit status checked program was: /* begin */</p>
+
+<pre>1: #include &quot;ruby.h&quot;
+2: 
+3: #include &lt;winsock2.h&gt;
+4: #include &lt;windows.h&gt;
+5: #include &lt;ruby.h&gt;
+6: 
+7: /*top*/
+8: extern int t(void);
+9: int t(void) { rb_rational_num(); return 0; }</pre>
+
+<p>10: int main(int argc, char **argv) 11: { 12:   if (argc &gt; 1000000) {
+13:     printf(“%p”, &amp;t); 14:   } 15:  16:   return 0; 17: } /* end */</p>
+<hr style="height: 10px">
+
+<p>have_func: checking for rb_rational_den() in ruby.h… ——————– no</p>
+
+<p>“gcc -o conftest.exe
+-ID:/Development/Blogs/Jekyll/PortableJekyll/ruby/include/ruby-2.0.0/i386-mingw32
+-ID:/Development/Blogs/Jekyll/PortableJekyll/ruby/include/ruby-2.0.0/ruby/backward
+-ID:/Development/Blogs/Jekyll/PortableJekyll/ruby/include/ruby-2.0.0 -I.
+-DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D_FILE_OFFSET_BITS=64   -O3
+-fno-omit-frame-pointer -fno-fast-math -g -Wall -Wextra
+-Wno-unused-parameter -Wno-parentheses -Wno-long-long
+-Wno-missing-field-initializers -Wunused-variable -Wpointer-arith
+-Wwrite-strings -Wdeclaration-after-statement
+-Wimplicit-function-declaration conftest.c  -L.
+-LD:/Development/Blogs/Jekyll/PortableJekyll/ruby/lib -L.     
+-lmsvcrt-ruby200  -lshell32 -lws2_32 -limagehlp -lshlwapi  ” conftest.c: In
+function &#39;t&#39;: conftest.c:9:57: error: &#39;rb_rational_den&#39;
+undeclared (first use in this function) conftest.c:9:57: note: each
+undeclared identifier is reported only once for each function it appears in
+conftest.c:9:32: warning: variable &#39;p&#39; set but not used
+[-Wunused-but-set-variable] checked program was: /* begin */</p>
+
+<pre>1: #include &quot;ruby.h&quot;
+2: 
+3: #include &lt;winsock2.h&gt;
+4: #include &lt;windows.h&gt;
+5: #include &lt;ruby.h&gt;
+6: 
+7: /*top*/
+8: extern int t(void);
+9: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_rational_den; return 0; }</pre>
+
+<p>10: int main(int argc, char **argv) 11: { 12:   if (argc &gt; 1000000) {
+13:     printf(“%p”, &amp;t); 14:   } 15:  16:   return 0; 17: } /* end */</p>
+
+<p>“gcc -o conftest.exe
+-ID:/Development/Blogs/Jekyll/PortableJekyll/ruby/include/ruby-2.0.0/i386-mingw32
+-ID:/Development/Blogs/Jekyll/PortableJekyll/ruby/include/ruby-2.0.0/ruby/backward
+-ID:/Development/Blogs/Jekyll/PortableJekyll/ruby/include/ruby-2.0.0 -I.
+-DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D_FILE_OFFSET_BITS=64   -O3
+-fno-omit-frame-pointer -fno-fast-math -g -Wall -Wextra
+-Wno-unused-parameter -Wno-parentheses -Wno-long-long
+-Wno-missing-field-initializers -Wunused-variable -Wpointer-arith
+-Wwrite-strings -Wdeclaration-after-statement
+-Wimplicit-function-declaration conftest.c  -L.
+-LD:/Development/Blogs/Jekyll/PortableJekyll/ruby/lib -L.     
+-lmsvcrt-ruby200  -lshell32 -lws2_32 -limagehlp -lshlwapi  ” conftest.c: In
+function &#39;t&#39;: conftest.c:9:1: warning: implicit declaration of
+function &#39;rb_rational_den&#39; [-Wimplicit-function-declaration]
+C:UsersdavidAppDataLocalTempccgUsyNz.o: In function `t&#39;:
+D:DevelopmentBlogsJekyllPortableJekyllrubylibrubygems2.0.0gemsbigdecimal-1.2.7/conftest.c:9:
+undefined reference to `rb_rational_den&#39; collect2.exe: error: ld
+returned 1 exit status checked program was: /* begin */</p>
+
+<pre>1: #include &quot;ruby.h&quot;
+2: 
+3: #include &lt;winsock2.h&gt;
+4: #include &lt;windows.h&gt;
+5: #include &lt;ruby.h&gt;
+6: 
+7: /*top*/
+8: extern int t(void);
+9: int t(void) { rb_rational_den(); return 0; }</pre>
+
+<p>10: int main(int argc, char **argv) 11: { 12:   if (argc &gt; 1000000) {
+13:     printf(“%p”, &amp;t); 14:   } 15:  16:   return 0; 17: } /* end */</p>
+<hr style="height: 10px">
+
+</div>
+
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class DirectoryWatcher::Event - directory_watcher-1.5.1 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/directory_watcher/event.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-from_stats">::from_stats</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-added-3F">#added?</a>
+    
+    <li ><a href="#method-i-modified-3F">#modified?</a>
+    
+    <li ><a href="#method-i-removed-3F">#removed?</a>
+    
+    <li ><a href="#method-i-stable-3F">#stable?</a>
+    
+    <li ><a href="#method-i-to_s">#to_s</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../History_txt.html">History</a>
+  
+    <li class="file"><a href="../README_txt.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../DirectoryWatcher.html">DirectoryWatcher</a>
+  
+    <li><a href="../DirectoryWatcher/Collector.html">DirectoryWatcher::Collector</a>
+  
+    <li><a href="../DirectoryWatcher/Configuration.html">DirectoryWatcher::Configuration</a>
+  
+    <li><a href="../DirectoryWatcher/CoolioScanner.html">DirectoryWatcher::CoolioScanner</a>
+  
+    <li><a href="../DirectoryWatcher/EmScanner.html">DirectoryWatcher::EmScanner</a>
+  
+    <li><a href="../DirectoryWatcher/Event.html">DirectoryWatcher::Event</a>
+  
+    <li><a href="../DirectoryWatcher/EventableScanner.html">DirectoryWatcher::EventableScanner</a>
+  
+    <li><a href="../DirectoryWatcher/FileStat.html">DirectoryWatcher::FileStat</a>
+  
+    <li><a href="../DirectoryWatcher/Logable.html">DirectoryWatcher::Logable</a>
+  
+    <li><a href="../DirectoryWatcher/Notifier.html">DirectoryWatcher::Notifier</a>
+  
+    <li><a href="../DirectoryWatcher/NullLogger.html">DirectoryWatcher::NullLogger</a>
+  
+    <li><a href="../DirectoryWatcher/Paths.html">DirectoryWatcher::Paths</a>
+  
+    <li><a href="../DirectoryWatcher/RevScanner.html">DirectoryWatcher::RevScanner</a>
+  
+    <li><a href="../DirectoryWatcher/Scan.html">DirectoryWatcher::Scan</a>
+  
+    <li><a href="../DirectoryWatcher/ScanAndQueue.html">DirectoryWatcher::ScanAndQueue</a>
+  
+    <li><a href="../DirectoryWatcher/Scanner.html">DirectoryWatcher::Scanner</a>
+  
+    <li><a href="../DirectoryWatcher/Threaded.html">DirectoryWatcher::Threaded</a>
+  
+    <li><a href="../DirectoryWatcher/Version.html">DirectoryWatcher::Version</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class DirectoryWatcher::Event</h1>
+
+  <div id="description" class="description">
+    
+<p>An <code>Event</code> structure contains the <em>type</em> of the event and
+the file <em>path</em> to which the event pertains. The type can be one of
+the following:</p>
+
+<pre class="ruby">:<span class="ruby-identifier">added</span>      =<span class="ruby-operator">&gt;</span>  <span class="ruby-identifier">file</span> <span class="ruby-identifier">has</span> <span class="ruby-identifier">been</span> <span class="ruby-identifier">added</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">directory</span>
+:<span class="ruby-identifier">modified</span>   =<span class="ruby-operator">&gt;</span>  <span class="ruby-identifier">file</span> <span class="ruby-identifier">has</span> <span class="ruby-identifier">been</span> <span class="ruby-identifier">modified</span> (<span class="ruby-identifier">either</span> <span class="ruby-identifier">mtime</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">size</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">both</span>
+                <span class="ruby-identifier">have</span> <span class="ruby-identifier">changed</span>)
+:<span class="ruby-identifier">removed</span>    =<span class="ruby-operator">&gt;</span>  <span class="ruby-identifier">file</span> <span class="ruby-identifier">has</span> <span class="ruby-identifier">been</span> <span class="ruby-identifier">removed</span> <span class="ruby-identifier">from</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">directory</span>
+:<span class="ruby-identifier">stable</span>     =<span class="ruby-operator">&gt;</span>  <span class="ruby-identifier">file</span> <span class="ruby-identifier">has</span> <span class="ruby-identifier">stabilized</span> <span class="ruby-identifier">since</span> <span class="ruby-identifier">being</span> <span class="ruby-identifier">added</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">modified</span>
+</pre>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-path" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">path</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-stat" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">stat</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-type" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">type</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-from_stats" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">from_stats</span><span
+            class="method-args">( old_stat, new_stat )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create one of the 4 types of events given the two stats</p>
+
+<p>The rules are:</p>
+
+<pre class="ruby">:<span class="ruby-identifier">added</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">old_stat</span> <span class="ruby-identifier">will</span> <span class="ruby-identifier">be</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">new_stat</span> <span class="ruby-identifier">will</span> <span class="ruby-identifier">exist</span>
+:<span class="ruby-identifier">removed</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">old_stat</span> <span class="ruby-identifier">will</span> <span class="ruby-identifier">exist</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">new_stat</span> <span class="ruby-identifier">will</span> <span class="ruby-identifier">be</span> <span class="ruby-keyword">nil</span>
+:<span class="ruby-identifier">modified</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">old_stat</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">new_stat</span>
+:<span class="ruby-identifier">stable</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">old_stat</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">new_stat</span> <span class="ruby-keyword">and</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="from_stats-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/event.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">from_stats</span>( <span class="ruby-identifier">old_stat</span>, <span class="ruby-identifier">new_stat</span> )
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">old_stat</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">new_stat</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">DirectoryWatcher</span><span class="ruby-operator">::</span><span class="ruby-constant">Event</span>.<span class="ruby-identifier">new</span>( <span class="ruby-value">:removed</span>,  <span class="ruby-identifier">new_stat</span>.<span class="ruby-identifier">path</span>           ) <span class="ruby-keyword">if</span> <span class="ruby-identifier">new_stat</span>.<span class="ruby-identifier">removed?</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">DirectoryWatcher</span><span class="ruby-operator">::</span><span class="ruby-constant">Event</span>.<span class="ruby-identifier">new</span>( <span class="ruby-value">:added</span>,    <span class="ruby-identifier">new_stat</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">new_stat</span> ) <span class="ruby-keyword">if</span> <span class="ruby-identifier">old_stat</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">DirectoryWatcher</span><span class="ruby-operator">::</span><span class="ruby-constant">Event</span>.<span class="ruby-identifier">new</span>( <span class="ruby-value">:modified</span>, <span class="ruby-identifier">new_stat</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">new_stat</span> )
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">DirectoryWatcher</span><span class="ruby-operator">::</span><span class="ruby-constant">Event</span>.<span class="ruby-identifier">new</span>( <span class="ruby-value">:stable</span>, <span class="ruby-identifier">new_stat</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">new_stat</span>   )
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- from_stats-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- from_stats-method -->
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">( type, path, stat = nil )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new <a href="Event.html">Event</a> with one of the 4 types and the
+path of the file.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/event.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>( <span class="ruby-identifier">type</span>, <span class="ruby-identifier">path</span>, <span class="ruby-identifier">stat</span> = <span class="ruby-keyword">nil</span> )
+  <span class="ruby-ivar">@type</span> = <span class="ruby-identifier">type</span>
+  <span class="ruby-ivar">@path</span> = <span class="ruby-identifier">path</span>
+  <span class="ruby-ivar">@stat</span> = <span class="ruby-identifier">stat</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-added-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">added?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Is the event an added event.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="added-3F-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/event.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">added?</span>
+  <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:added</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- added-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- added-3F-method -->
+
+    
+      <div id="method-i-modified-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">modified?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Is the event a modified event.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="modified-3F-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/event.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">modified?</span>
+  <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:modified</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- modified-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- modified-3F-method -->
+
+    
+      <div id="method-i-removed-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">removed?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Is the event a removed event.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="removed-3F-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/event.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">removed?</span>
+  <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:removed</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- removed-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- removed-3F-method -->
+
+    
+      <div id="method-i-stable-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stable?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Is the event a stable event.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="stable-3F-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/event.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stable?</span>
+  <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:stable</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- stable-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- stable-3F-method -->
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">( )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Convert the <a href="Event.html">Event</a> to a nice string format</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/event.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>( )
+  <span class="ruby-node">&quot;&lt;#{self.class} type: #{type} path: &#39;#{path}&#39;&gt;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_s-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_s-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

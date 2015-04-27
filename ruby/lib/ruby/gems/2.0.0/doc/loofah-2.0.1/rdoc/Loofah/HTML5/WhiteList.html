@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module Loofah::HTML5::WhiteList - loofah-2.0.1 Documentation</title>
+
+<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../index.html">Home</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/loofah/html5/whitelist.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../CHANGELOG_rdoc.html">CHANGELOG</a>
+  
+    <li class="file"><a href="../../MIT-LICENSE_txt.html">MIT-LICENSE</a>
+  
+    <li class="file"><a href="../../Manifest_txt.html">Manifest</a>
+  
+    <li class="file"><a href="../../README_rdoc.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../Loofah.html">Loofah</a>
+  
+    <li><a href="../../Loofah/DocumentDecorator.html">Loofah::DocumentDecorator</a>
+  
+    <li><a href="../../Loofah/Elements.html">Loofah::Elements</a>
+  
+    <li><a href="../../Loofah/HTML.html">Loofah::HTML</a>
+  
+    <li><a href="../../Loofah/HTML5.html">Loofah::HTML5</a>
+  
+    <li><a href="../../Loofah/HTML5/Scrub.html">Loofah::HTML5::Scrub</a>
+  
+    <li><a href="../../Loofah/HTML5/WhiteList.html">Loofah::HTML5::WhiteList</a>
+  
+    <li><a href="../../Loofah/HTML/Document.html">Loofah::HTML::Document</a>
+  
+    <li><a href="../../Loofah/HTML/DocumentFragment.html">Loofah::HTML::DocumentFragment</a>
+  
+    <li><a href="../../Loofah/Helpers.html">Loofah::Helpers</a>
+  
+    <li><a href="../../Loofah/Helpers/ActionView.html">Loofah::Helpers::ActionView</a>
+  
+    <li><a href="../../Loofah/Helpers/ActionView/ClassMethods.html">Loofah::Helpers::ActionView::ClassMethods</a>
+  
+    <li><a href="../../Loofah/Helpers/ActionView/FullSanitizer.html">Loofah::Helpers::ActionView::FullSanitizer</a>
+  
+    <li><a href="../../Loofah/Helpers/ActionView/WhiteListSanitizer.html">Loofah::Helpers::ActionView::WhiteListSanitizer</a>
+  
+    <li><a href="../../Loofah/MetaHelpers.html">Loofah::MetaHelpers</a>
+  
+    <li><a href="../../Loofah/ScrubBehavior.html">Loofah::ScrubBehavior</a>
+  
+    <li><a href="../../Loofah/ScrubBehavior/Node.html">Loofah::ScrubBehavior::Node</a>
+  
+    <li><a href="../../Loofah/ScrubBehavior/NodeSet.html">Loofah::ScrubBehavior::NodeSet</a>
+  
+    <li><a href="../../Loofah/Scrubber.html">Loofah::Scrubber</a>
+  
+    <li><a href="../../Loofah/ScrubberNotFound.html">Loofah::ScrubberNotFound</a>
+  
+    <li><a href="../../Loofah/Scrubbers.html">Loofah::Scrubbers</a>
+  
+    <li><a href="../../Loofah/Scrubbers/Escape.html">Loofah::Scrubbers::Escape</a>
+  
+    <li><a href="../../Loofah/Scrubbers/NewlineBlockElements.html">Loofah::Scrubbers::NewlineBlockElements</a>
+  
+    <li><a href="../../Loofah/Scrubbers/NoFollow.html">Loofah::Scrubbers::NoFollow</a>
+  
+    <li><a href="../../Loofah/Scrubbers/Prune.html">Loofah::Scrubbers::Prune</a>
+  
+    <li><a href="../../Loofah/Scrubbers/Strip.html">Loofah::Scrubbers::Strip</a>
+  
+    <li><a href="../../Loofah/Scrubbers/Unprintable.html">Loofah::Scrubbers::Unprintable</a>
+  
+    <li><a href="../../Loofah/Scrubbers/Whitewash.html">Loofah::Scrubbers::Whitewash</a>
+  
+    <li><a href="../../Loofah/TextBehavior.html">Loofah::TextBehavior</a>
+  
+    <li><a href="../../Loofah/XML.html">Loofah::XML</a>
+  
+    <li><a href="../../Loofah/XML/Document.html">Loofah::XML::Document</a>
+  
+    <li><a href="../../Loofah/XML/DocumentFragment.html">Loofah::XML::DocumentFragment</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module Loofah::HTML5::WhiteList</h1>
+
+  <div id="description" class="description">
+    
+<pre>HTML whitelist lifted from HTML5lib sanitizer code:
+
+  http://code.google.com/p/html5lib/</pre>
+
+<p>&lt;html5_license&gt;</p>
+
+<pre>Copyright (c) 2006-2008 The Authors
+
+Contributors:
+James Graham - jg307@cam.ac.uk
+Anne van Kesteren - annevankesteren@gmail.com
+Lachlan Hunt - lachlan.hunt@lachy.id.au
+Matt McDonald - kanashii@kanashii.ca
+Sam Ruby - rubys@intertwingly.net
+Ian Hickson (Google) - ian@hixie.ch
+Thomas Broyer - t.broyer@ltgt.net
+Jacques Distler - distler@golem.ph.utexas.edu
+Henri Sivonen - hsivonen@iki.fi
+The Mozilla Foundation (contributions from Henri Sivonen since 2008)
+
+Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation
+files (the &quot;Software&quot;), to deal in the Software without
+restriction, including without limitation the rights to use, copy,
+modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.</pre>
+
+<p>&lt;/html5_license&gt;</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="ACCEPTABLE_ATTRIBUTES">ACCEPTABLE_ATTRIBUTES
+        
+        <dd class="description">
+        
+      
+        <dt id="ACCEPTABLE_CSS_KEYWORDS">ACCEPTABLE_CSS_KEYWORDS
+        
+        <dd class="description">
+        
+      
+        <dt id="ACCEPTABLE_CSS_PROPERTIES">ACCEPTABLE_CSS_PROPERTIES
+        
+        <dd class="description">
+        
+      
+        <dt id="ACCEPTABLE_ELEMENTS">ACCEPTABLE_ELEMENTS
+        
+        <dd class="description">
+        
+      
+        <dt id="ACCEPTABLE_PROTOCOLS">ACCEPTABLE_PROTOCOLS
+        
+        <dd class="description">
+        
+      
+        <dt id="ACCEPTABLE_SVG_PROPERTIES">ACCEPTABLE_SVG_PROPERTIES
+        
+        <dd class="description">
+        
+      
+        <dt id="ALLOWED_ATTRIBUTES">ALLOWED_ATTRIBUTES
+        
+        <dd class="description">
+        
+      
+        <dt id="ALLOWED_CSS_KEYWORDS">ALLOWED_CSS_KEYWORDS
+        
+        <dd class="description">
+        
+      
+        <dt id="ALLOWED_CSS_PROPERTIES">ALLOWED_CSS_PROPERTIES
+        
+        <dd class="description">
+        
+      
+        <dt id="ALLOWED_ELEMENTS">ALLOWED_ELEMENTS
+        
+        <dd class="description"><p>subclasses may define their own versions of these constants</p>
+        
+      
+        <dt id="ALLOWED_ELEMENTS_WITH_LIBXML2">ALLOWED_ELEMENTS_WITH_LIBXML2
+        
+        <dd class="description">
+        
+      
+        <dt id="ALLOWED_PROTOCOLS">ALLOWED_PROTOCOLS
+        
+        <dd class="description">
+        
+      
+        <dt id="ALLOWED_SVG_PROPERTIES">ALLOWED_SVG_PROPERTIES
+        
+        <dd class="description">
+        
+      
+        <dt id="ATTR_VAL_IS_URI">ATTR_VAL_IS_URI
+        
+        <dd class="description">
+        
+      
+        <dt id="MATHML_ATTRIBUTES">MATHML_ATTRIBUTES
+        
+        <dd class="description">
+        
+      
+        <dt id="MATHML_ELEMENTS">MATHML_ELEMENTS
+        
+        <dd class="description">
+        
+      
+        <dt id="PROTOCOL_SEPARATOR">PROTOCOL_SEPARATOR
+        
+        <dd class="description">
+        
+      
+        <dt id="SHORTHAND_CSS_PROPERTIES">SHORTHAND_CSS_PROPERTIES
+        
+        <dd class="description">
+        
+      
+        <dt id="SVG_ALLOW_LOCAL_HREF">SVG_ALLOW_LOCAL_HREF
+        
+        <dd class="description">
+        
+      
+        <dt id="SVG_ATTRIBUTES">SVG_ATTRIBUTES
+        
+        <dd class="description">
+        
+      
+        <dt id="SVG_ATTR_VAL_ALLOWS_REF">SVG_ATTR_VAL_ALLOWS_REF
+        
+        <dd class="description">
+        
+      
+        <dt id="SVG_ELEMENTS">SVG_ELEMENTS
+        
+        <dd class="description">
+        
+      
+        <dt id="TAGS_SAFE_WITH_LIBXML2">TAGS_SAFE_WITH_LIBXML2
+        
+        <dd class="description"><p>additional tags we should consider safe since we have libxml2 fixing up our
+documents.</p>
+        
+      
+        <dt id="VOID_ELEMENTS">VOID_ELEMENTS
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

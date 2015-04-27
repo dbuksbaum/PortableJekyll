@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module Icalendar::HasProperties - icalendar-2.2.2 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/icalendar/has_properties.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    <!-- Extension Modules -->
+<nav id="extends-section" class="section">
+  <h3 class="section-header">Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><a class="extend" href="HasProperties/ClassMethods.html">Icalendar::HasProperties::ClassMethods</a>
+  
+  
+  </ul>
+</nav>
+
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-included">::included</a>
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-append_custom_property">#append_custom_property</a>
+    
+    <li ><a href="#method-i-custom_property">#custom_property</a>
+    
+    <li ><a href="#method-i-map_property_value">#map_property_value</a>
+    
+    <li class="calls-super" ><a href="#method-i-method_missing">#method_missing</a>
+    
+    <li ><a href="#method-i-property">#property</a>
+    
+    <li class="calls-super" ><a href="#method-i-respond_to_missing-3F">#respond_to_missing?</a>
+    
+    <li ><a href="#method-i-valid-3F">#valid?</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../ActiveSupport.html">ActiveSupport</a>
+  
+    <li><a href="../Icalendar.html">Icalendar</a>
+  
+    <li><a href="../Icalendar/Alarm.html">Icalendar::Alarm</a>
+  
+    <li><a href="../Icalendar/Calendar.html">Icalendar::Calendar</a>
+  
+    <li><a href="../Icalendar/Component.html">Icalendar::Component</a>
+  
+    <li><a href="../Icalendar/Event.html">Icalendar::Event</a>
+  
+    <li><a href="../Icalendar/Freebusy.html">Icalendar::Freebusy</a>
+  
+    <li><a href="../Icalendar/HasComponents.html">Icalendar::HasComponents</a>
+  
+    <li><a href="../Icalendar/HasComponents/ClassMethods.html">Icalendar::HasComponents::ClassMethods</a>
+  
+    <li><a href="../Icalendar/HasProperties.html">Icalendar::HasProperties</a>
+  
+    <li><a href="../Icalendar/HasProperties/ClassMethods.html">Icalendar::HasProperties::ClassMethods</a>
+  
+    <li><a href="../Icalendar/Journal.html">Icalendar::Journal</a>
+  
+    <li><a href="../Icalendar/Logger.html">Icalendar::Logger</a>
+  
+    <li><a href="../Icalendar/Parser.html">Icalendar::Parser</a>
+  
+    <li><a href="../Icalendar/Timezone.html">Icalendar::Timezone</a>
+  
+    <li><a href="../Icalendar/Timezone/Daylight.html">Icalendar::Timezone::Daylight</a>
+  
+    <li><a href="../Icalendar/Timezone/Standard.html">Icalendar::Timezone::Standard</a>
+  
+    <li><a href="../Icalendar/Timezone/TzProperties.html">Icalendar::Timezone::TzProperties</a>
+  
+    <li><a href="../Icalendar/TimezoneOffset.html">Icalendar::TimezoneOffset</a>
+  
+    <li><a href="../Icalendar/TimezoneTransition.html">Icalendar::TimezoneTransition</a>
+  
+    <li><a href="../Icalendar/Todo.html">Icalendar::Todo</a>
+  
+    <li><a href="../Icalendar/Value.html">Icalendar::Value</a>
+  
+    <li><a href="../Icalendar/Values.html">Icalendar::Values</a>
+  
+    <li><a href="../Icalendar/Values/ActiveSupportTimeWithZoneAdapter.html">Icalendar::Values::ActiveSupportTimeWithZoneAdapter</a>
+  
+    <li><a href="../Icalendar/Values/Array.html">Icalendar::Values::Array</a>
+  
+    <li><a href="../Icalendar/Values/Binary.html">Icalendar::Values::Binary</a>
+  
+    <li><a href="../Icalendar/Values/Boolean.html">Icalendar::Values::Boolean</a>
+  
+    <li><a href="../Icalendar/Values/CalAddress.html">Icalendar::Values::CalAddress</a>
+  
+    <li><a href="../Icalendar/Values/Date.html">Icalendar::Values::Date</a>
+  
+    <li><a href="../Icalendar/Values/DateTime.html">Icalendar::Values::DateTime</a>
+  
+    <li><a href="../Icalendar/Values/Duration.html">Icalendar::Values::Duration</a>
+  
+    <li><a href="../Icalendar/Values/Float.html">Icalendar::Values::Float</a>
+  
+    <li><a href="../Icalendar/Values/Integer.html">Icalendar::Values::Integer</a>
+  
+    <li><a href="../Icalendar/Values/Period.html">Icalendar::Values::Period</a>
+  
+    <li><a href="../Icalendar/Values/Recur.html">Icalendar::Values::Recur</a>
+  
+    <li><a href="../Icalendar/Values/Text.html">Icalendar::Values::Text</a>
+  
+    <li><a href="../Icalendar/Values/Time.html">Icalendar::Values::Time</a>
+  
+    <li><a href="../Icalendar/Values/TimeWithZone.html">Icalendar::Values::TimeWithZone</a>
+  
+    <li><a href="../Icalendar/Values/Uri.html">Icalendar::Values::Uri</a>
+  
+    <li><a href="../Icalendar/Values/UtcOffset.html">Icalendar::Values::UtcOffset</a>
+  
+    <li><a href="../TZInfo.html">TZInfo</a>
+  
+    <li><a href="../TZInfo/Timezone.html">TZInfo::Timezone</a>
+  
+    <li><a href="../TZInfo/TimezoneOffset.html">TZInfo::TimezoneOffset</a>
+  
+    <li><a href="../TZInfo/TimezoneOffsetInfo.html">TZInfo::TimezoneOffsetInfo</a>
+  
+    <li><a href="../TZInfo/TimezonePeriod.html">TZInfo::TimezonePeriod</a>
+  
+    <li><a href="../TZInfo/TimezoneTransition.html">TZInfo::TimezoneTransition</a>
+  
+    <li><a href="../TZInfo/TimezoneTransitionInfo.html">TZInfo::TimezoneTransitionInfo</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module Icalendar::HasProperties</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-included" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">included</span><span
+            class="method-args">(base)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="included-source">
+            <pre><span class="ruby-comment"># File lib/icalendar/has_properties.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">included</span>(<span class="ruby-identifier">base</span>)
+  <span class="ruby-identifier">base</span>.<span class="ruby-identifier">extend</span> <span class="ruby-constant">ClassMethods</span>
+  <span class="ruby-identifier">base</span>.<span class="ruby-identifier">class_eval</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">attr_reader</span> <span class="ruby-value">:custom_properties</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- included-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- included-method -->
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/icalendar/has_properties.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-ivar">@custom_properties</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">h</span>, <span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-identifier">h</span>[<span class="ruby-identifier">k</span>] = [] }
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-append_custom_property" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">append_custom_property</span><span
+            class="method-args">(property_name, value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="append_custom_property-source">
+            <pre><span class="ruby-comment"># File lib/icalendar/has_properties.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">append_custom_property</span>(<span class="ruby-identifier">property_name</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">property_name</span> = <span class="ruby-identifier">property_name</span>.<span class="ruby-identifier">downcase</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Icalendar</span><span class="ruby-operator">::</span><span class="ruby-constant">Value</span>
+    <span class="ruby-identifier">custom_properties</span>[<span class="ruby-identifier">property_name</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">custom_properties</span>[<span class="ruby-identifier">property_name</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Icalendar</span><span class="ruby-operator">::</span><span class="ruby-constant">Values</span><span class="ruby-operator">::</span><span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- append_custom_property-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- append_custom_property-method -->
+
+    
+      <div id="method-i-custom_property" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">custom_property</span><span
+            class="method-args">(property_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="custom_property-source">
+            <pre><span class="ruby-comment"># File lib/icalendar/has_properties.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">custom_property</span>(<span class="ruby-identifier">property_name</span>)
+  <span class="ruby-identifier">custom_properties</span>[<span class="ruby-identifier">property_name</span>.<span class="ruby-identifier">downcase</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- custom_property-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- custom_property-method -->
+
+    
+      <div id="method-i-method_missing" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">method_missing</span><span
+            class="method-args">(method, *args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="method_missing-source">
+            <pre><span class="ruby-comment"># File lib/icalendar/has_properties.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">method_missing</span>(<span class="ruby-identifier">method</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">method_name</span> = <span class="ruby-identifier">method</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">method_name</span>.<span class="ruby-identifier">start_with?</span> <span class="ruby-string">&#39;x_&#39;</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">method_name</span>.<span class="ruby-identifier">end_with?</span> <span class="ruby-string">&#39;=&#39;</span>
+      <span class="ruby-identifier">append_custom_property</span> <span class="ruby-identifier">method_name</span>.<span class="ruby-identifier">chomp</span>(<span class="ruby-string">&#39;=&#39;</span>), <span class="ruby-identifier">args</span>.<span class="ruby-identifier">first</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">custom_property</span> <span class="ruby-identifier">method_name</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">super</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- method_missing-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- method_missing-method -->
+
+    
+      <div id="method-i-property" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">property</span><span
+            class="method-args">(property_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="property-source">
+            <pre><span class="ruby-comment"># File lib/icalendar/has_properties.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">property</span>(<span class="ruby-identifier">property_name</span>)
+  <span class="ruby-identifier">property_name</span> = <span class="ruby-identifier">property_name</span>.<span class="ruby-identifier">downcase</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">properties</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">property_name</span>
+    <span class="ruby-identifier">send</span> <span class="ruby-identifier">property_name</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">custom_property</span> <span class="ruby-identifier">property_name</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- property-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- property-method -->
+
+    
+      <div id="method-i-respond_to_missing-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">respond_to_missing?</span><span
+            class="method-args">(method, include_private = false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="respond_to_missing-3F-source">
+            <pre><span class="ruby-comment"># File lib/icalendar/has_properties.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">respond_to_missing?</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">include_private</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">method</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-string">&#39;x_&#39;</span>) <span class="ruby-operator">||</span> <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- respond_to_missing-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- respond_to_missing-3F-method -->
+
+    
+      <div id="method-i-valid-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">valid?</span><span
+            class="method-args">(strict = false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="valid-3F-source">
+            <pre><span class="ruby-comment"># File lib/icalendar/has_properties.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">valid?</span>(<span class="ruby-identifier">strict</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">required_properties</span>.<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">prop</span>, <span class="ruby-identifier">validator</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">validator</span>.<span class="ruby-identifier">call</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">send</span>(<span class="ruby-identifier">prop</span>)) <span class="ruby-keyword">or</span> <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">mutex_properties</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">mutexprops</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">mutexprops</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">send</span> <span class="ruby-identifier">p</span> }.<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span> <span class="ruby-keyword">and</span> <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">strict</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">suggested_single_properties</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">single_prop</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">send</span>(<span class="ruby-identifier">single_prop</span>).<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span> <span class="ruby-keyword">and</span> <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- valid-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- valid-3F-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-map_property_value" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">map_property_value</span><span
+            class="method-args">(value, klass, multi_valued)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="map_property_value-source">
+            <pre><span class="ruby-comment"># File lib/icalendar/has_properties.rb, line 163</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">map_property_value</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">klass</span>, <span class="ruby-identifier">multi_valued</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Icalendar</span><span class="ruby-operator">::</span><span class="ruby-constant">Value</span>)
+    <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-operator">::</span><span class="ruby-constant">Array</span>
+    <span class="ruby-constant">Icalendar</span><span class="ruby-operator">::</span><span class="ruby-constant">Values</span><span class="ruby-operator">::</span><span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">value</span>, <span class="ruby-identifier">klass</span>, {}, {<span class="ruby-identifier">delimiter</span><span class="ruby-operator">:</span> (<span class="ruby-identifier">multi_valued</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;,&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;;&#39;</span>)}
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- map_property_value-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- map_property_value-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

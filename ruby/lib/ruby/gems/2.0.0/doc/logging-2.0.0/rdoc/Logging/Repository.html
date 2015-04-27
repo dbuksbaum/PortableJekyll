@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Logging::Repository - logging-2.0.0 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/logging/repository.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</nav>
+
+    <!-- Included Modules -->
+<nav id="includes-section" class="section">
+  <h3 class="section-header">Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="Repository/Singleton.html">Logging::Repository::Singleton</a>
+  
+  
+  </ul>
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-5B-5D">#[]</a>
+    
+    <li ><a href="#method-i-5B-5D-3D">#[]=</a>
+    
+    <li ><a href="#method-i-children">#children</a>
+    
+    <li ><a href="#method-i-delete">#delete</a>
+    
+    <li ><a href="#method-i-fetch">#fetch</a>
+    
+    <li ><a href="#method-i-has_logger-3F">#has_logger?</a>
+    
+    <li ><a href="#method-i-parent">#parent</a>
+    
+    <li ><a href="#method-i-parent_name">#parent_name</a>
+    
+    <li ><a href="#method-i-to_key">#to_key</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../History_txt.html">History</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../File.html">File</a>
+  
+    <li><a href="../FileUtils.html">FileUtils</a>
+  
+    <li><a href="../Logging.html">Logging</a>
+  
+    <li><a href="../Logging/Appender.html">Logging::Appender</a>
+  
+    <li><a href="../Logging/Appenders.html">Logging::Appenders</a>
+  
+    <li><a href="../Logging/Appenders/Buffering.html">Logging::Appenders::Buffering</a>
+  
+    <li><a href="../Logging/Appenders/File.html">Logging::Appenders::File</a>
+  
+    <li><a href="../Logging/Appenders/IO.html">Logging::Appenders::IO</a>
+  
+    <li><a href="../Logging/Appenders/RollingFile.html">Logging::Appenders::RollingFile</a>
+  
+    <li><a href="../Logging/Appenders/RollingFile/Roller.html">Logging::Appenders::RollingFile::Roller</a>
+  
+    <li><a href="../Logging/Appenders/Stderr.html">Logging::Appenders::Stderr</a>
+  
+    <li><a href="../Logging/Appenders/Stdout.html">Logging::Appenders::Stdout</a>
+  
+    <li><a href="../Logging/Appenders/StringIo.html">Logging::Appenders::StringIo</a>
+  
+    <li><a href="../Logging/Appenders/Syslog.html">Logging::Appenders::Syslog</a>
+  
+    <li><a href="../Logging/ColorScheme.html">Logging::ColorScheme</a>
+  
+    <li><a href="../Logging/Filter.html">Logging::Filter</a>
+  
+    <li><a href="../Logging/Filters.html">Logging::Filters</a>
+  
+    <li><a href="../Logging/Filters/Level.html">Logging::Filters::Level</a>
+  
+    <li><a href="../Logging/Layout.html">Logging::Layout</a>
+  
+    <li><a href="../Logging/Layouts.html">Logging::Layouts</a>
+  
+    <li><a href="../Logging/Layouts/Basic.html">Logging::Layouts::Basic</a>
+  
+    <li><a href="../Logging/Layouts/Parseable.html">Logging::Layouts::Parseable</a>
+  
+    <li><a href="../Logging/Layouts/Parseable/layout;.html">Logging::Layouts::Parseable::layout;</a>
+  
+    <li><a href="../Logging/Layouts/Pattern.html">Logging::Layouts::Pattern</a>
+  
+    <li><a href="../Logging/Logger.html">Logging::Logger</a>
+  
+    <li><a href="../Logging/Logger.html">Logging::Logger</a>
+  
+    <li><a href="../Logging/MappedDiagnosticContext.html">Logging::MappedDiagnosticContext</a>
+  
+    <li><a href="../Logging/NestedDiagnosticContext.html">Logging::NestedDiagnosticContext</a>
+  
+    <li><a href="../Logging/Proxy.html">Logging::Proxy</a>
+  
+    <li><a href="../Logging/RailsCompat.html">Logging::RailsCompat</a>
+  
+    <li><a href="../Logging/Repository.html">Logging::Repository</a>
+  
+    <li><a href="../Logging/Repository/Singleton.html">Logging::Repository::Singleton</a>
+  
+    <li><a href="../Logging/RootLogger.html">Logging::RootLogger</a>
+  
+    <li><a href="../Logging/logger.html">Logging::logger</a>
+  
+    <li><a href="../Module.html">Module</a>
+  
+    <li><a href="../Object.html">Object</a>
+  
+    <li><a href="../RSpec.html">RSpec</a>
+  
+    <li><a href="../RSpec/Core.html">RSpec::Core</a>
+  
+    <li><a href="../RSpec/Core/Configuration.html">RSpec::Core::Configuration</a>
+  
+    <li><a href="../RSpec/LoggingHelper.html">RSpec::LoggingHelper</a>
+  
+    <li><a href="../RSpec/LoggingHelper.html">RSpec::LoggingHelper</a>
+  
+    <li><a href="../ReentrantMutex.html">ReentrantMutex</a>
+  
+    <li><a href="../Spec.html">Spec</a>
+  
+    <li><a href="../Spec/Runner.html">Spec::Runner</a>
+  
+    <li><a href="../Spec/Runner/Configuration.html">Spec::Runner::Configuration</a>
+  
+    <li><a href="../String.html">String</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Logging::Repository</h1>
+
+  <div id="description" class="description">
+    
+<p>The <a href="Repository.html">Repository</a> is a hash that stores
+references to all Loggers that have been created. It provides methods to
+determine parent/child relationships between Loggers and to retrieve
+Loggers from the hash.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>nodoc:</p>
+
+<p>This is a singleton class – use the <code>instance</code> method to obtain
+the <code>Repository</code> instance.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/logging/repository.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-ivar">@h</span> = {<span class="ruby-value">:root</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">RootLogger</span>.<span class="ruby-identifier">new</span>}
+
+  <span class="ruby-comment"># configures the internal logger which is disabled by default</span>
+  <span class="ruby-identifier">logger</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">Logger</span>.<span class="ruby-identifier">allocate</span>
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">_setup</span>(
+      <span class="ruby-identifier">to_key</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Logging</span>),
+      <span class="ruby-value">:parent</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@h</span>[<span class="ruby-value">:root</span>],
+      <span class="ruby-value">:additive</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>,
+      <span class="ruby-value">:level</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">LEVELS</span>.<span class="ruby-identifier">length</span>   <span class="ruby-comment"># turns this logger off</span>
+  )
+  <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">logger</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-5B-5D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            instance[name]
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the <code>Logger</code> named <em>name</em>.</p>
+
+<p>When <em>name</em> is a <code>String</code> or a <code>Symbol</code> it
+will be used “as is” to retrieve the logger. When <em>name</em> is a
+<code>Class</code> the class name will be used to retrieve the logger. When
+<em>name</em> is an object the name of the object&#39;s class will be used
+to retrieve the logger.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">repo</span> = <span class="ruby-constant">Repository</span>.<span class="ruby-identifier">instance</span>
+<span class="ruby-identifier">obj</span> = <span class="ruby-constant">MyClass</span>.<span class="ruby-identifier">new</span>
+
+<span class="ruby-identifier">log1</span> = <span class="ruby-identifier">repo</span>[<span class="ruby-identifier">obj</span>]
+<span class="ruby-identifier">log2</span> = <span class="ruby-identifier">repo</span>[<span class="ruby-constant">MyClass</span>]
+<span class="ruby-identifier">log3</span> = <span class="ruby-identifier">repo</span>[<span class="ruby-string">&#39;MyClass&#39;</span>]
+
+<span class="ruby-identifier">log1</span>.<span class="ruby-identifier">object_id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">log2</span>.<span class="ruby-identifier">object_id</span>         <span class="ruby-comment"># =&gt; true</span>
+<span class="ruby-identifier">log2</span>.<span class="ruby-identifier">object_id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">log3</span>.<span class="ruby-identifier">object_id</span>         <span class="ruby-comment"># =&gt; true</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-source">
+            <pre><span class="ruby-comment"># File lib/logging/repository.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]</span>( <span class="ruby-identifier">key</span> ) <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">to_key</span>(<span class="ruby-identifier">key</span>)] <span class="ruby-keyword">end</span></pre>
+          </div><!-- 5B-5D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- 5B-5D-method -->
+
+    
+      <div id="method-i-5B-5D-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            instance[name] = logger
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Stores the <em>logger</em> under the given <em>name</em>.</p>
+
+<p>When <em>name</em> is a <code>String</code> or a <code>Symbol</code> it
+will be used “as is” to store the logger. When <em>name</em> is a
+<code>Class</code> the class name will be used to store the logger. When
+<em>name</em> is an object the name of the object&#39;s class will be used
+to store the logger.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-3D-source">
+            <pre><span class="ruby-comment"># File lib/logging/repository.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]=</span>( <span class="ruby-identifier">key</span>, <span class="ruby-identifier">val</span> ) <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">to_key</span>(<span class="ruby-identifier">key</span>)] = <span class="ruby-identifier">val</span> <span class="ruby-keyword">end</span></pre>
+          </div><!-- 5B-5D-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- 5B-5D-3D-method -->
+
+    
+      <div id="method-i-children" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            children( key )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns an array of the children loggers for the logger identified by
+<em>key</em> where <em>key</em> follows the same identification rules
+described in +Repository#[]+. Children are returned regardless of the
+existence of the logger referenced by <em>key</em>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="children-source">
+            <pre><span class="ruby-comment"># File lib/logging/repository.rb, line 146</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">children</span>( <span class="ruby-identifier">parent</span> )
+  <span class="ruby-identifier">ary</span> = []
+  <span class="ruby-identifier">parent</span> = <span class="ruby-identifier">to_key</span>(<span class="ruby-identifier">parent</span>)
+
+  <span class="ruby-ivar">@h</span>.<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">child</span>,<span class="ruby-identifier">logger</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-value">:root</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">child</span>
+    <span class="ruby-identifier">ary</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">logger</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">parent</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">parent_name</span>(<span class="ruby-identifier">child</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">ary</span>.<span class="ruby-identifier">sort</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- children-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- children-method -->
+
+    
+      <div id="method-i-delete" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            delete( name )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Deletes the named logger from the repository. All direct children of the
+logger will have their parent reassigned. So the parent of the logger being
+deleted becomes the new parent of the children.</p>
+
+<p>When <em>name</em> is a <code>String</code> or a <code>Symbol</code> it
+will be used “as is” to remove the logger. When <em>name</em> is a
+<code>Class</code> the class name will be used to remove the logger. When
+<em>name</em> is an object the name of the object&#39;s class will be used
+to remove the logger.</p>
+
+<p>Raises a RuntimeError if you try to delete the root logger. Raises an
+KeyError if the named logger is not found.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="delete-source">
+            <pre><span class="ruby-comment"># File lib/logging/repository.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete</span>( <span class="ruby-identifier">key</span> )
+  <span class="ruby-identifier">key</span> = <span class="ruby-identifier">to_key</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&#39;the :root logger cannot be deleted&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-value">:root</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">key</span>
+
+  <span class="ruby-identifier">parent</span> = <span class="ruby-ivar">@h</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">parent</span>
+  <span class="ruby-identifier">children</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-value">:parent=</span>, <span class="ruby-identifier">parent</span>)}
+  <span class="ruby-ivar">@h</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- delete-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- delete-method -->
+
+    
+      <div id="method-i-fetch" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            fetch( name )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the <code>Logger</code> named <em>name</em>. An
+<code>KeyError</code> will be raised if the logger does not exist.</p>
+
+<p>When <em>name</em> is a <code>String</code> or a <code>Symbol</code> it
+will be used “as is” to retrieve the logger. When <em>name</em> is a
+<code>Class</code> the class name will be used to retrieve the logger. When
+<em>name</em> is an object the name of the object&#39;s class will be used
+to retrieve the logger.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="fetch-source">
+            <pre><span class="ruby-comment"># File lib/logging/repository.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fetch</span>( <span class="ruby-identifier">key</span> ) <span class="ruby-ivar">@h</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">to_key</span>(<span class="ruby-identifier">key</span>)) <span class="ruby-keyword">end</span></pre>
+          </div><!-- fetch-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- fetch-method -->
+
+    
+      <div id="method-i-has_logger-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            has_logger?( name )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns <code>true</code> if the given logger exists in the repository.
+Returns <code>false</code> if this is not the case.</p>
+
+<p>When <em>name</em> is a <code>String</code> or a <code>Symbol</code> it
+will be used “as is” to retrieve the logger. When <em>name</em> is a
+<code>Class</code> the class name will be used to retrieve the logger. When
+<em>name</em> is an object the name of the object&#39;s class will be used
+to retrieve the logger.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="has_logger-3F-source">
+            <pre><span class="ruby-comment"># File lib/logging/repository.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_logger?</span>( <span class="ruby-identifier">key</span> ) <span class="ruby-ivar">@h</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">to_key</span>(<span class="ruby-identifier">key</span>)) <span class="ruby-keyword">end</span></pre>
+          </div><!-- has_logger-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- has_logger-3F-method -->
+
+    
+      <div id="method-i-parent" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            parent( key )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the parent logger for the logger identified by <em>key</em> where
+<em>key</em> follows the same identification rules described in
+<code>Repository#[]</code>. A parent is returned regardless of the
+existence of the logger referenced by <em>key</em>.</p>
+
+<p>A note about parents -</p>
+
+<p>If you have a class A::B::C, then the parent of C is B, and the parent of B
+is A. Parents are determined by namespace.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parent-source">
+            <pre><span class="ruby-comment"># File lib/logging/repository.rb, line 132</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parent</span>( <span class="ruby-identifier">key</span> )
+  <span class="ruby-identifier">name</span> = <span class="ruby-identifier">parent_name</span>(<span class="ruby-identifier">to_key</span>(<span class="ruby-identifier">key</span>))
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-ivar">@h</span>[<span class="ruby-identifier">name</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- parent-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- parent-method -->
+
+    
+      <div id="method-i-parent_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parent_name</span><span
+            class="method-args">( key )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the name of the parent for the logger identified by the given
+<em>key</em>. If the <em>key</em> is for the root logger, then
+<code>nil</code> is returned.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parent_name-source">
+            <pre><span class="ruby-comment"># File lib/logging/repository.rb, line 180</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parent_name</span>( <span class="ruby-identifier">key</span> )
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-value">:root</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">key</span>
+
+  <span class="ruby-identifier">a</span> = <span class="ruby-identifier">key</span>.<span class="ruby-identifier">split</span> <span class="ruby-constant">PATH_DELIMITER</span>
+  <span class="ruby-identifier">p</span> = <span class="ruby-value">:root</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">slice!</span>(<span class="ruby-value">-1</span>) <span class="ruby-keyword">and</span> <span class="ruby-operator">!</span><span class="ruby-identifier">a</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">k</span> = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">join</span> <span class="ruby-constant">PATH_DELIMITER</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@h</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-identifier">k</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">p</span> = <span class="ruby-identifier">k</span>; <span class="ruby-keyword">break</span> <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">p</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- parent_name-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- parent_name-method -->
+
+    
+      <div id="method-i-to_key" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            to_key( key )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Takes the given <em>key</em> and converts it into a form that can be used
+to retrieve a logger from the <code>Repository</code> hash.</p>
+
+<p>When <em>key</em> is a <code>String</code> or a <code>Symbol</code> it will
+be returned “as is”. When <em>key</em> is a <code>Class</code> the class
+name will be returned. When <em>key</em> is an object the name of the
+object&#39;s class will be returned.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_key-source">
+            <pre><span class="ruby-comment"># File lib/logging/repository.rb, line 167</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_key</span>( <span class="ruby-identifier">key</span> )
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">key</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:root</span>, <span class="ruby-string">&#39;root&#39;</span>; <span class="ruby-value">:root</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>; <span class="ruby-identifier">key</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Symbol</span>; <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Module</span>; <span class="ruby-identifier">key</span>.<span class="ruby-identifier">logger_name</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Object</span>; <span class="ruby-identifier">key</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">logger_name</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_key-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_key-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

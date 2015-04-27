@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Syntax::Fortran - syntax-1.2.0 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/syntax/lang/fortran.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="Tokenizer.html">Syntax::Tokenizer</a>
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-i-step">#step</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Syntax.html">Syntax</a>
+  
+    <li><a href="../Syntax/AnsiC.html">Syntax::AnsiC</a>
+  
+    <li><a href="../Syntax/CSS21.html">Syntax::CSS21</a>
+  
+    <li><a href="../Syntax/Convertors.html">Syntax::Convertors</a>
+  
+    <li><a href="../Syntax/Convertors/Abstract.html">Syntax::Convertors::Abstract</a>
+  
+    <li><a href="../Syntax/Convertors/HTML.html">Syntax::Convertors::HTML</a>
+  
+    <li><a href="../Syntax/Default.html">Syntax::Default</a>
+  
+    <li><a href="../Syntax/Fortran.html">Syntax::Fortran</a>
+  
+    <li><a href="../Syntax/Javascript.html">Syntax::Javascript</a>
+  
+    <li><a href="../Syntax/Ruby.html">Syntax::Ruby</a>
+  
+    <li><a href="../Syntax/SQLite.html">Syntax::SQLite</a>
+  
+    <li><a href="../Syntax/Token.html">Syntax::Token</a>
+  
+    <li><a href="../Syntax/Tokenizer.html">Syntax::Tokenizer</a>
+  
+    <li><a href="../Syntax/Version.html">Syntax::Version</a>
+  
+    <li><a href="../Syntax/XML.html">Syntax::XML</a>
+  
+    <li><a href="../Syntax/YAML.html">Syntax::YAML</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Syntax::Fortran</h1>
+
+  <div id="description" class="description">
+    
+<p>A tokenizer for free-form <a href="Fortran.html">Fortran</a> source code.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="INTRINSICS">INTRINSICS
+        
+        <dd class="description">
+        
+      
+        <dt id="KEYWORDS">KEYWORDS
+        
+        <dd class="description"><p>Also support all uppercase keywords, types, and procedures</p>
+        
+      
+        <dt id="LC_INTRINSICS">LC_INTRINSICS
+        
+        <dd class="description"><p><a href="Fortran.html">Fortran</a> intrinsic procedures</p>
+        
+      
+        <dt id="LC_KEYWORDS">LC_KEYWORDS
+        
+        <dd class="description"><p><a href="Fortran.html">Fortran</a> keywords</p>
+        
+      
+        <dt id="LC_TYPES">LC_TYPES
+        
+        <dd class="description"><p>List of identifiers recognized as types</p>
+        
+      
+        <dt id="TYPES">TYPES
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-step" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">step</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Step through a single iteration of the tokenization process.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="step-source">
+            <pre><span class="ruby-comment"># File lib/syntax/lang/fortran.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">step</span>
+  <span class="ruby-keyword">case</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">check</span>( <span class="ruby-regexp">/program\s+/</span> )
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:keyword</span>, <span class="ruby-identifier">scan</span>( <span class="ruby-regexp">/program\s+/</span> )
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:function</span>,  <span class="ruby-identifier">scan_until</span>( <span class="ruby-node">/(?=[;(\s]|#{EOL})/</span> )
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">check</span>( <span class="ruby-regexp">/subroutine\s+/</span> )
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:keyword</span>, <span class="ruby-identifier">scan</span>( <span class="ruby-regexp">/subroutine\s+/</span> )
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:function</span>,  <span class="ruby-identifier">scan_until</span>( <span class="ruby-node">/(?=[;(\s]|#{EOL})/</span> )
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">check</span>( <span class="ruby-regexp">/function\s+/</span> )
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:keyword</span>, <span class="ruby-identifier">scan</span>( <span class="ruby-regexp">/function\s+/</span> )
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:function</span>,  <span class="ruby-identifier">scan_until</span>( <span class="ruby-node">/(?=[;(\s]|#{EOL})/</span> )
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">check</span>( <span class="ruby-regexp">/module\s+/</span> )
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:keyword</span>, <span class="ruby-identifier">scan</span>( <span class="ruby-regexp">/module\s+/</span> )
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:function</span>,  <span class="ruby-identifier">scan_until</span>( <span class="ruby-node">/(?=[;\s]|#{EOL})/</span> )
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">check</span>( <span class="ruby-regexp">/\.true\.|\.false\.|\.TRUE\.|\.FALSE\./</span> )
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:constant</span>,
+    <span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/\.true\.|\.false\.|\.TRUE\.|\.FALSE\./</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">scan</span>( <span class="ruby-regexp">/(\d+\.?\d*|\d*\.?\d+)([eEdDqQ][+-]?\d+)?(_\w+)?/</span> )
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:number</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">scan</span>( <span class="ruby-regexp">/[bB]\[01]+\|[oO]\[0-7]+\|[zZ]\[0-9a-fA-F]+\/</span> )
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:number</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">peek</span>(<span class="ruby-value">1</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-regexp">/[\n\r]/</span>
+      <span class="ruby-identifier">start_group</span> <span class="ruby-value">:normal</span>, <span class="ruby-identifier">scan</span>( <span class="ruby-regexp">/\s+/</span> )
+    <span class="ruby-keyword">when</span> <span class="ruby-regexp">/\s/</span>
+      <span class="ruby-identifier">start_group</span> <span class="ruby-value">:normal</span>, <span class="ruby-identifier">scan</span>( <span class="ruby-regexp">/\s+/</span> )
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;!&quot;</span>
+      <span class="ruby-identifier">start_group</span> <span class="ruby-value">:comment</span>, <span class="ruby-identifier">scan</span>( <span class="ruby-regexp">/![^\n\r]*/</span> )
+    <span class="ruby-keyword">when</span> <span class="ruby-regexp">/[A-Za-z]/</span>
+      <span class="ruby-identifier">word</span> = <span class="ruby-identifier">scan</span>( <span class="ruby-regexp">/\w+/</span> )
+      <span class="ruby-keyword">if</span> <span class="ruby-constant">KEYWORDS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">word</span>)
+        <span class="ruby-identifier">start_group</span> <span class="ruby-value">:keyword</span>, <span class="ruby-identifier">word</span>
+      <span class="ruby-keyword">elsif</span> <span class="ruby-constant">TYPES</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">word</span>)
+        <span class="ruby-identifier">start_group</span> <span class="ruby-value">:type</span>, <span class="ruby-identifier">word</span>
+      <span class="ruby-keyword">elsif</span> <span class="ruby-constant">INTRINSICS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">word</span>)
+        <span class="ruby-identifier">start_group</span> <span class="ruby-value">:function</span>, <span class="ruby-identifier">word</span>
+      <span class="ruby-keyword">elsif</span>
+        <span class="ruby-identifier">start_group</span> <span class="ruby-value">:ident</span>, <span class="ruby-identifier">word</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;&quot;&#39;</span>
+      <span class="ruby-comment"># allow for continuation characters within strings</span>
+      <span class="ruby-identifier">start_group</span> <span class="ruby-value">:string</span>, <span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/&quot;([^&quot;]*(&amp;[ ]*[\n\r]+)?)*&quot;/</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;&#39;&quot;</span>
+      <span class="ruby-comment"># allow for continuation characters within strings</span>
+      <span class="ruby-identifier">start_group</span> <span class="ruby-value">:string</span>, <span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/&#39;([^&#39;]*(&amp;[ ]*[\n\r]+)?)*&#39;/</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-regexp">/[-!?*\/+=&lt;&gt;()\[\]\{}:;,&amp;|%]/</span>
+      <span class="ruby-identifier">start_group</span> <span class="ruby-value">:punct</span>, <span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/./</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># pass everything else through</span>
+      <span class="ruby-identifier">append</span> <span class="ruby-identifier">getch</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- step-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- step-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

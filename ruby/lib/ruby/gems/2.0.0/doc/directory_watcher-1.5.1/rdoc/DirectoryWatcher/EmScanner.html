@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class DirectoryWatcher::EmScanner - directory_watcher-1.5.1 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/directory_watcher/em_scanner.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="EventableScanner.html">DirectoryWatcher::EventableScanner</a>
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-start_loop_with_attached_scan_timer">#start_loop_with_attached_scan_timer</a>
+    
+    <li ><a href="#method-i-stop_loop">#stop_loop</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../History_txt.html">History</a>
+  
+    <li class="file"><a href="../README_txt.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../DirectoryWatcher.html">DirectoryWatcher</a>
+  
+    <li><a href="../DirectoryWatcher/Collector.html">DirectoryWatcher::Collector</a>
+  
+    <li><a href="../DirectoryWatcher/Configuration.html">DirectoryWatcher::Configuration</a>
+  
+    <li><a href="../DirectoryWatcher/CoolioScanner.html">DirectoryWatcher::CoolioScanner</a>
+  
+    <li><a href="../DirectoryWatcher/EmScanner.html">DirectoryWatcher::EmScanner</a>
+  
+    <li><a href="../DirectoryWatcher/Event.html">DirectoryWatcher::Event</a>
+  
+    <li><a href="../DirectoryWatcher/EventableScanner.html">DirectoryWatcher::EventableScanner</a>
+  
+    <li><a href="../DirectoryWatcher/FileStat.html">DirectoryWatcher::FileStat</a>
+  
+    <li><a href="../DirectoryWatcher/Logable.html">DirectoryWatcher::Logable</a>
+  
+    <li><a href="../DirectoryWatcher/Notifier.html">DirectoryWatcher::Notifier</a>
+  
+    <li><a href="../DirectoryWatcher/NullLogger.html">DirectoryWatcher::NullLogger</a>
+  
+    <li><a href="../DirectoryWatcher/Paths.html">DirectoryWatcher::Paths</a>
+  
+    <li><a href="../DirectoryWatcher/RevScanner.html">DirectoryWatcher::RevScanner</a>
+  
+    <li><a href="../DirectoryWatcher/Scan.html">DirectoryWatcher::Scan</a>
+  
+    <li><a href="../DirectoryWatcher/ScanAndQueue.html">DirectoryWatcher::ScanAndQueue</a>
+  
+    <li><a href="../DirectoryWatcher/Scanner.html">DirectoryWatcher::Scanner</a>
+  
+    <li><a href="../DirectoryWatcher/Threaded.html">DirectoryWatcher::Threaded</a>
+  
+    <li><a href="../DirectoryWatcher/Version.html">DirectoryWatcher::Version</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class DirectoryWatcher::EmScanner</h1>
+
+  <div id="description" class="description">
+    
+<p>The <a href="EmScanner.html">EmScanner</a> uses the EventMachine reactor
+loop to monitor changes to files in the watched directory. This scanner is
+more efficient than the pure Ruby scanner because it relies on the
+operating system kernel notifications instead of a periodic polling and
+stat of every file in the watched directory (the technique used by the
+Scanner class).</p>
+
+<p>EventMachine cannot notify us when a file is added to the watched
+directory; therefore, added files are only picked up when we apply the glob
+pattern to the directory. This is done at the configured interval.</p>
+
+<p>Notes:</p>
+
+<pre>* Kqueue does not generate notifications when &quot;touch&quot; is used to update
+  a file&#39;s timestamp. This applies to Mac and BSD systems.
+
+* New files are detected only when the watched directory is polled at the
+  configured interval.</pre>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            new( configuration )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="EventableScanner.html#method-c-new">DirectoryWatcher::EventableScanner.new</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/em_scanner.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>( <span class="ruby-identifier">config</span> )
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">config</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-start_loop_with_attached_scan_timer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start_loop_with_attached_scan_timer</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Called by EventablScanner#start to start the loop up and attach the
+periodic timer that will poll the globs for new files.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="start_loop_with_attached_scan_timer-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/em_scanner.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">start_loop_with_attached_scan_timer</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@loop_thread</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-constant">EventMachine</span>.<span class="ruby-identifier">reactor_running?</span>
+    <span class="ruby-ivar">@loop_thread</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> {<span class="ruby-constant">EventMachine</span>.<span class="ruby-identifier">run</span>}
+    <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">pass</span> <span class="ruby-keyword">until</span> <span class="ruby-constant">EventMachine</span>.<span class="ruby-identifier">reactor_running?</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@timer</span> = <span class="ruby-constant">ScanTimer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- start_loop_with_attached_scan_timer-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- start_loop_with_attached_scan_timer-method -->
+
+    
+      <div id="method-i-stop_loop" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stop_loop</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Called by EventableScanner#stop to stop the loop as part of the shutdown
+process.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="stop_loop-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/em_scanner.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stop_loop</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@loop_thread</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-constant">EventMachine</span>.<span class="ruby-identifier">next_tick</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-constant">EventMachine</span>.<span class="ruby-identifier">stop_event_loop</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@loop_thread</span>.<span class="ruby-identifier">kill</span>
+    <span class="ruby-ivar">@loop_thread</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- stop_loop-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- stop_loop-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

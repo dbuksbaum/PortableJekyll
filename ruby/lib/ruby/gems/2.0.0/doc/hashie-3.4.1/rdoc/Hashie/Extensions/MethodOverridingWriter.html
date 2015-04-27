@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module Hashie::Extensions::MethodOverridingWriter - hashie-3.4.1 Documentation</title>
+
+<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../index.html">Home</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/hashie/extensions/method_access.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-i-already_overridden-3F">#already_overridden?</a>
+    
+    <li ><a href="#method-i-convert_key">#convert_key</a>
+    
+    <li ><a href="#method-i-method-3F">#method?</a>
+    
+    <li class="calls-super" ><a href="#method-i-method_missing">#method_missing</a>
+    
+    <li ><a href="#method-i-redefine_method">#redefine_method</a>
+    
+    <li class="calls-super" ><a href="#method-i-respond_to_missing-3F">#respond_to_missing?</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../Hashie.html">Hashie</a>
+  
+    <li><a href="../../Hashie/Clash.html">Hashie::Clash</a>
+  
+    <li><a href="../../Hashie/Clash/ChainError.html">Hashie::Clash::ChainError</a>
+  
+    <li><a href="../../Hashie/CoercionError.html">Hashie::CoercionError</a>
+  
+    <li><a href="../../Hashie/Dash.html">Hashie::Dash</a>
+  
+    <li><a href="../../Hashie/Extensions.html">Hashie::Extensions</a>
+  
+    <li><a href="../../Hashie/Extensions/Coercion.html">Hashie::Extensions::Coercion</a>
+  
+    <li><a href="../../Hashie/Extensions/Coercion/ClassMethods.html">Hashie::Extensions::Coercion::ClassMethods</a>
+  
+    <li><a href="../../Hashie/Extensions/Coercion/InstanceMethods.html">Hashie::Extensions::Coercion::InstanceMethods</a>
+  
+    <li><a href="../../Hashie/Extensions/Dash.html">Hashie::Extensions::Dash</a>
+  
+    <li><a href="../../Hashie/Extensions/Dash/IndifferentAccess.html">Hashie::Extensions::Dash::IndifferentAccess</a>
+  
+    <li><a href="../../Hashie/Extensions/Dash/IndifferentAccess/ClassMethods.html">Hashie::Extensions::Dash::IndifferentAccess::ClassMethods</a>
+  
+    <li><a href="../../Hashie/Extensions/DeepFetch.html">Hashie::Extensions::DeepFetch</a>
+  
+    <li><a href="../../Hashie/Extensions/DeepFetch/UndefinedPathError.html">Hashie::Extensions::DeepFetch::UndefinedPathError</a>
+  
+    <li><a href="../../Hashie/Extensions/DeepFind.html">Hashie::Extensions::DeepFind</a>
+  
+    <li><a href="../../Hashie/Extensions/DeepLocate.html">Hashie::Extensions::DeepLocate</a>
+  
+    <li><a href="../../Hashie/Extensions/DeepMerge.html">Hashie::Extensions::DeepMerge</a>
+  
+    <li><a href="../../Hashie/Extensions/IgnoreUndeclared.html">Hashie::Extensions::IgnoreUndeclared</a>
+  
+    <li><a href="../../Hashie/Extensions/IndifferentAccess.html">Hashie::Extensions::IndifferentAccess</a>
+  
+    <li><a href="../../Hashie/Extensions/IndifferentAccess/hash;.html">Hashie::Extensions::IndifferentAccess::hash;</a>
+  
+    <li><a href="../../Hashie/Extensions/KeyConversion.html">Hashie::Extensions::KeyConversion</a>
+  
+    <li><a href="../../Hashie/Extensions/Mash.html">Hashie::Extensions::Mash</a>
+  
+    <li><a href="../../Hashie/Extensions/Mash/SafeAssignment.html">Hashie::Extensions::Mash::SafeAssignment</a>
+  
+    <li><a href="../../Hashie/Extensions/MergeInitializer.html">Hashie::Extensions::MergeInitializer</a>
+  
+    <li><a href="../../Hashie/Extensions/MethodAccess.html">Hashie::Extensions::MethodAccess</a>
+  
+    <li><a href="../../Hashie/Extensions/MethodAccessWithOverride.html">Hashie::Extensions::MethodAccessWithOverride</a>
+  
+    <li><a href="../../Hashie/Extensions/MethodOverridingWriter.html">Hashie::Extensions::MethodOverridingWriter</a>
+  
+    <li><a href="../../Hashie/Extensions/MethodQuery.html">Hashie::Extensions::MethodQuery</a>
+  
+    <li><a href="../../Hashie/Extensions/MethodReader.html">Hashie::Extensions::MethodReader</a>
+  
+    <li><a href="../../Hashie/Extensions/MethodWriter.html">Hashie::Extensions::MethodWriter</a>
+  
+    <li><a href="../../Hashie/Extensions/Parsers.html">Hashie::Extensions::Parsers</a>
+  
+    <li><a href="../../Hashie/Extensions/Parsers/YamlErbParser.html">Hashie::Extensions::Parsers::YamlErbParser</a>
+  
+    <li><a href="../../Hashie/Extensions/PrettyInspect.html">Hashie::Extensions::PrettyInspect</a>
+  
+    <li><a href="../../Hashie/Extensions/StringifyKeys.html">Hashie::Extensions::StringifyKeys</a>
+  
+    <li><a href="../../Hashie/Extensions/StringifyKeys/ClassMethods.html">Hashie::Extensions::StringifyKeys::ClassMethods</a>
+  
+    <li><a href="../../Hashie/Extensions/SymbolizeKeys.html">Hashie::Extensions::SymbolizeKeys</a>
+  
+    <li><a href="../../Hashie/Extensions/SymbolizeKeys/ClassMethods.html">Hashie::Extensions::SymbolizeKeys::ClassMethods</a>
+  
+    <li><a href="../../Hashie/Hash.html">Hashie::Hash</a>
+  
+    <li><a href="../../Hashie/Mash.html">Hashie::Mash</a>
+  
+    <li><a href="../../Hashie/Rash.html">Hashie::Rash</a>
+  
+    <li><a href="../../Hashie/Trash.html">Hashie::Trash</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module Hashie::Extensions::MethodOverridingWriter</h1>
+
+  <div id="description" class="description">
+    
+<p><a href="MethodOverridingWriter.html">MethodOverridingWriter</a> gives you
+key_name= shortcuts for writing to your hash. It allows methods to be
+overridden by key_name= shortcuts and aliases those methods with two
+leading underscores.</p>
+
+<p>Keys are written as strings. Override <a
+href="MethodOverridingWriter.html#method-i-convert_key">convert_key</a> if
+you would like to have symbols or something else.</p>
+
+<p>Note that <a href="MethodOverridingWriter.html">MethodOverridingWriter</a>
+also overrides <a
+href="MethodOverridingWriter.html#method-i-respond_to_missing-3F">respond_to_missing?</a>
+such that any method_name= will respond appropriately as true.</p>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">MyHash</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Hash</span>
+  <span class="ruby-identifier">include</span> <span class="ruby-constant">Hashie</span><span class="ruby-operator">::</span><span class="ruby-constant">Extensions</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodOverridingWriter</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">h</span> = <span class="ruby-constant">MyHash</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">h</span>.<span class="ruby-identifier">awesome</span> = <span class="ruby-string">&#39;sauce&#39;</span>
+<span class="ruby-identifier">h</span>[<span class="ruby-string">&#39;awesome&#39;</span>] <span class="ruby-comment"># =&gt; &#39;sauce&#39;</span>
+<span class="ruby-identifier">h</span>.<span class="ruby-identifier">zip</span> = <span class="ruby-string">&#39;a-dee-doo-dah&#39;</span>
+<span class="ruby-identifier">h</span>.<span class="ruby-identifier">zip</span> <span class="ruby-comment"># =&gt; &#39;a-dee-doo-dah&#39;</span>
+<span class="ruby-identifier">h</span>.<span class="ruby-identifier">__zip</span> <span class="ruby-comment"># =&gt; [[[&#39;awesome&#39;, &#39;sauce&#39;], [&#39;zip&#39;, &#39;a-dee-doo-dah&#39;]]]</span>
+</pre>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-convert_key" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">convert_key</span><span
+            class="method-args">(key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="convert_key-source">
+            <pre><span class="ruby-comment"># File lib/hashie/extensions/method_access.rb, line 159</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">convert_key</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- convert_key-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- convert_key-method -->
+
+    
+      <div id="method-i-method_missing" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">method_missing</span><span
+            class="method-args">(name, *args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="method_missing-source">
+            <pre><span class="ruby-comment"># File lib/hashie/extensions/method_access.rb, line 163</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">method_missing</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/(.*)=$/</span>
+    <span class="ruby-identifier">key</span> = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">last_match</span>[<span class="ruby-value">1</span>]
+    <span class="ruby-identifier">redefine_method</span>(<span class="ruby-identifier">key</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">method?</span>(<span class="ruby-identifier">key</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">already_overridden?</span>(<span class="ruby-identifier">key</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>[<span class="ruby-identifier">convert_key</span>(<span class="ruby-identifier">key</span>)] = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">first</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- method_missing-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- method_missing-method -->
+
+    
+      <div id="method-i-respond_to_missing-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">respond_to_missing?</span><span
+            class="method-args">(name, include_private = false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="respond_to_missing-3F-source">
+            <pre><span class="ruby-comment"># File lib/hashie/extensions/method_access.rb, line 173</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">respond_to_missing?</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">include_private</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&#39;=&#39;</span>)
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- respond_to_missing-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- respond_to_missing-3F-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Protected Instance Methods</h3>
+
+    
+      <div id="method-i-already_overridden-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">already_overridden?</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="already_overridden-3F-source">
+            <pre><span class="ruby-comment"># File lib/hashie/extensions/method_access.rb, line 180</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">already_overridden?</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">method?</span>(<span class="ruby-node">&quot;__#{name}&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- already_overridden-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- already_overridden-3F-method -->
+
+    
+      <div id="method-i-method-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">method?</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="method-3F-source">
+            <pre><span class="ruby-comment"># File lib/hashie/extensions/method_access.rb, line 184</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">method?</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">methods</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:to_s</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- method-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- method-3F-method -->
+
+    
+      <div id="method-i-redefine_method" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">redefine_method</span><span
+            class="method-args">(method_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="redefine_method-source">
+            <pre><span class="ruby-comment"># File lib/hashie/extensions/method_access.rb, line 188</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">redefine_method</span>(<span class="ruby-identifier">method_name</span>)
+  <span class="ruby-identifier">eigenclass</span> = <span class="ruby-keyword">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword">self</span>; <span class="ruby-keyword">self</span>; <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">eigenclass</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-value">:alias_method</span>, <span class="ruby-node">&quot;__#{method_name}&quot;</span>, <span class="ruby-identifier">method_name</span>)
+  <span class="ruby-identifier">eigenclass</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-value">:define_method</span>, <span class="ruby-identifier">method_name</span>, <span class="ruby-operator">-</span><span class="ruby-operator">&gt;</span> { <span class="ruby-keyword">self</span>[<span class="ruby-identifier">method_name</span>] })
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- redefine_method-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- redefine_method-method -->
+
+    
+    </section><!-- protected-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

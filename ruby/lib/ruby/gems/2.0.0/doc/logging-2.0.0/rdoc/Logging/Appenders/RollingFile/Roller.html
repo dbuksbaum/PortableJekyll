@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Logging::Appenders::RollingFile::Roller - logging-2.0.0 Documentation</title>
+
+<link type="text/css" media="screen" href="../../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../../index.html">Home</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/logging/appenders/rolling_file.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="../../../Object.html">Object</a>
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-copy_file">#copy_file</a>
+    
+    <li ><a href="#method-i-filename">#filename</a>
+    
+    <li ><a href="#method-i-format">#format</a>
+    
+    <li ><a href="#method-i-glob">#glob</a>
+    
+    <li ><a href="#method-i-roll_by_date">#roll_by_date</a>
+    
+    <li ><a href="#method-i-roll_by_number">#roll_by_number</a>
+    
+    <li ><a href="#method-i-roll_files">#roll_files</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../../History_txt.html">History</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../File.html">File</a>
+  
+    <li><a href="../../../FileUtils.html">FileUtils</a>
+  
+    <li><a href="../../../Logging.html">Logging</a>
+  
+    <li><a href="../../../Logging/Appender.html">Logging::Appender</a>
+  
+    <li><a href="../../../Logging/Appenders.html">Logging::Appenders</a>
+  
+    <li><a href="../../../Logging/Appenders/Buffering.html">Logging::Appenders::Buffering</a>
+  
+    <li><a href="../../../Logging/Appenders/File.html">Logging::Appenders::File</a>
+  
+    <li><a href="../../../Logging/Appenders/IO.html">Logging::Appenders::IO</a>
+  
+    <li><a href="../../../Logging/Appenders/RollingFile.html">Logging::Appenders::RollingFile</a>
+  
+    <li><a href="../../../Logging/Appenders/RollingFile/Roller.html">Logging::Appenders::RollingFile::Roller</a>
+  
+    <li><a href="../../../Logging/Appenders/Stderr.html">Logging::Appenders::Stderr</a>
+  
+    <li><a href="../../../Logging/Appenders/Stdout.html">Logging::Appenders::Stdout</a>
+  
+    <li><a href="../../../Logging/Appenders/StringIo.html">Logging::Appenders::StringIo</a>
+  
+    <li><a href="../../../Logging/Appenders/Syslog.html">Logging::Appenders::Syslog</a>
+  
+    <li><a href="../../../Logging/ColorScheme.html">Logging::ColorScheme</a>
+  
+    <li><a href="../../../Logging/Filter.html">Logging::Filter</a>
+  
+    <li><a href="../../../Logging/Filters.html">Logging::Filters</a>
+  
+    <li><a href="../../../Logging/Filters/Level.html">Logging::Filters::Level</a>
+  
+    <li><a href="../../../Logging/Layout.html">Logging::Layout</a>
+  
+    <li><a href="../../../Logging/Layouts.html">Logging::Layouts</a>
+  
+    <li><a href="../../../Logging/Layouts/Basic.html">Logging::Layouts::Basic</a>
+  
+    <li><a href="../../../Logging/Layouts/Parseable.html">Logging::Layouts::Parseable</a>
+  
+    <li><a href="../../../Logging/Layouts/Parseable/layout;.html">Logging::Layouts::Parseable::layout;</a>
+  
+    <li><a href="../../../Logging/Layouts/Pattern.html">Logging::Layouts::Pattern</a>
+  
+    <li><a href="../../../Logging/Logger.html">Logging::Logger</a>
+  
+    <li><a href="../../../Logging/Logger.html">Logging::Logger</a>
+  
+    <li><a href="../../../Logging/MappedDiagnosticContext.html">Logging::MappedDiagnosticContext</a>
+  
+    <li><a href="../../../Logging/NestedDiagnosticContext.html">Logging::NestedDiagnosticContext</a>
+  
+    <li><a href="../../../Logging/Proxy.html">Logging::Proxy</a>
+  
+    <li><a href="../../../Logging/RailsCompat.html">Logging::RailsCompat</a>
+  
+    <li><a href="../../../Logging/Repository.html">Logging::Repository</a>
+  
+    <li><a href="../../../Logging/Repository/Singleton.html">Logging::Repository::Singleton</a>
+  
+    <li><a href="../../../Logging/RootLogger.html">Logging::RootLogger</a>
+  
+    <li><a href="../../../Logging/logger.html">Logging::logger</a>
+  
+    <li><a href="../../../Module.html">Module</a>
+  
+    <li><a href="../../../Object.html">Object</a>
+  
+    <li><a href="../../../RSpec.html">RSpec</a>
+  
+    <li><a href="../../../RSpec/Core.html">RSpec::Core</a>
+  
+    <li><a href="../../../RSpec/Core/Configuration.html">RSpec::Core::Configuration</a>
+  
+    <li><a href="../../../RSpec/LoggingHelper.html">RSpec::LoggingHelper</a>
+  
+    <li><a href="../../../RSpec/LoggingHelper.html">RSpec::LoggingHelper</a>
+  
+    <li><a href="../../../ReentrantMutex.html">ReentrantMutex</a>
+  
+    <li><a href="../../../Spec.html">Spec</a>
+  
+    <li><a href="../../../Spec/Runner.html">Spec::Runner</a>
+  
+    <li><a href="../../../Spec/Runner/Configuration.html">Spec::Runner::Configuration</a>
+  
+    <li><a href="../../../String.html">String</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Logging::Appenders::RollingFile::Roller</h1>
+
+  <div id="description" class="description">
+    
+<p>Not intended for general consumption, but the <a
+href="Roller.html">Roller</a> class is used internally by the <a
+href="../RollingFile.html">RollingFile</a> appender to roll dem log files
+according to the user&#39;s desires.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="RGXP">RGXP
+        
+        <dd class="description"><p>The magic regex for finding user-defined roller patterns.</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-keep" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">keep</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-roll" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">roll</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-roll_by" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">roll_by</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">( name, opts )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new roller. See the RollingFile#initialize documentation for the
+list of options.</p>
+
+<p>name - The appender name as a <a href="../../../String.html">String</a>
+opts - The options Hash</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/logging/appenders/rolling_file.rb, line 251</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>( <span class="ruby-identifier">name</span>, <span class="ruby-identifier">opts</span> )
+  <span class="ruby-comment"># raise an error if a filename was not given</span>
+  <span class="ruby-ivar">@fn</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:filename</span>, <span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&#39;no filename was given&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@fn</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">m</span> = <span class="ruby-constant">RGXP</span>.<span class="ruby-identifier">match</span> <span class="ruby-ivar">@fn</span>)
+    <span class="ruby-ivar">@roll_by</span> = (<span class="ruby-node">&quot;#{m[2]}%d&quot;</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">m</span>[<span class="ruby-value">1</span>]) <span class="ruby-operator">?</span> <span class="ruby-value">:number</span> <span class="ruby-operator">:</span> <span class="ruby-value">:date</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">age</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:age</span>, <span class="ruby-keyword">nil</span>)
+    <span class="ruby-identifier">size</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:size</span>, <span class="ruby-keyword">nil</span>)
+
+    <span class="ruby-ivar">@roll_by</span> =
+        <span class="ruby-keyword">case</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:roll_by</span>, <span class="ruby-keyword">nil</span>)
+        <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;number&#39;</span>; <span class="ruby-value">:number</span>
+        <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;date&#39;</span>; <span class="ruby-value">:date</span>
+        <span class="ruby-keyword">else</span>
+          (<span class="ruby-identifier">age</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">size</span>) <span class="ruby-operator">?</span> <span class="ruby-value">:date</span> <span class="ruby-operator">:</span> <span class="ruby-value">:number</span>
+        <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">ext</span> = <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">extname</span>(<span class="ruby-ivar">@fn</span>)
+    <span class="ruby-identifier">bn</span>  = <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-ivar">@fn</span>), <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-ivar">@fn</span>, <span class="ruby-identifier">ext</span>))
+
+    <span class="ruby-ivar">@fn</span> = <span class="ruby-keyword">if</span> <span class="ruby-value">:date</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@roll_by</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-node">%w[daily weekly monthly]</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">age</span>)
+            <span class="ruby-node">&quot;#{bn}{{.%Y%m%d}}#{ext}&quot;</span>
+          <span class="ruby-keyword">elsif</span> <span class="ruby-value">:date</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@roll_by</span>
+            <span class="ruby-node">&quot;#{bn}{{.%Y%m%d-%H%M%S}}#{ext}&quot;</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-node">&quot;#{bn}{{.%d}}#{ext}&quot;</span>
+          <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@fn</span> = <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-ivar">@fn</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">Appenders</span><span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">assert_valid_logfile</span>(<span class="ruby-identifier">filename</span>)
+
+  <span class="ruby-ivar">@roll</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@keep</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:keep</span>, <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@keep</span> = <span class="ruby-constant">Integer</span>(<span class="ruby-identifier">keep</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">keep</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-copy_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">copy_file</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the file name to use as the temporary copy location. We are using
+copy-and-truncate semantics for rolling files so that the <a
+href="../IO.html">IO</a> file descriptor remains valid during rolling.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="copy_file-source">
+            <pre><span class="ruby-comment"># File lib/logging/appenders/rolling_file.rb, line 303</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">copy_file</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@copy_file</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span> <span class="ruby-ivar">@copy_file</span>
+  <span class="ruby-ivar">@copy_file</span> = <span class="ruby-identifier">filename</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;._copy_&#39;</span>
+  <span class="ruby-ivar">@copy_file</span>.<span class="ruby-identifier">freeze</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- copy_file-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- copy_file-method -->
+
+    
+      <div id="method-i-filename" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">filename</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the regular log file name without any roller text.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="filename-source">
+            <pre><span class="ruby-comment"># File lib/logging/appenders/rolling_file.rb, line 294</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">filename</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@filename</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span> <span class="ruby-ivar">@filename</span>
+  <span class="ruby-ivar">@filename</span> = (<span class="ruby-ivar">@fn</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">RGXP</span> <span class="ruby-operator">?</span>  <span class="ruby-ivar">@fn</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-constant">RGXP</span>, <span class="ruby-string">&#39;&#39;</span>) <span class="ruby-operator">:</span> <span class="ruby-ivar">@fn</span>.<span class="ruby-identifier">dup</span>)
+  <span class="ruby-ivar">@filename</span>.<span class="ruby-identifier">freeze</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- filename-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- filename-method -->
+
+    
+      <div id="method-i-format" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">format</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the format <a href="../../../String.html">String</a> used to
+generate rolled file names. Depending upon the `roll_by` type (:date or
+:number), this <a href="../../../String.html">String</a> will be processed
+by `sprintf` or `Time#strftime`.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="format-source">
+            <pre><span class="ruby-comment"># File lib/logging/appenders/rolling_file.rb, line 321</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">format</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@format</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span> <span class="ruby-ivar">@format</span>
+  <span class="ruby-identifier">m</span> = <span class="ruby-constant">RGXP</span>.<span class="ruby-identifier">match</span> <span class="ruby-ivar">@fn</span>
+  <span class="ruby-ivar">@format</span> = <span class="ruby-ivar">@fn</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-constant">RGXP</span>, <span class="ruby-identifier">m</span>[<span class="ruby-value">1</span>])
+  <span class="ruby-ivar">@format</span>.<span class="ruby-identifier">freeze</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- format-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- format-method -->
+
+    
+      <div id="method-i-glob" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">glob</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the glob pattern used to find rolled log files. We use this list
+for pruning older log files and doing the numbered rolling.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="glob-source">
+            <pre><span class="ruby-comment"># File lib/logging/appenders/rolling_file.rb, line 311</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">glob</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@glob</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span> <span class="ruby-ivar">@glob</span>
+  <span class="ruby-identifier">m</span> = <span class="ruby-constant">RGXP</span>.<span class="ruby-identifier">match</span> <span class="ruby-ivar">@fn</span>
+  <span class="ruby-ivar">@glob</span> = <span class="ruby-ivar">@fn</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-constant">RGXP</span>, (<span class="ruby-identifier">m</span>[<span class="ruby-value">2</span>] <span class="ruby-operator">?</span> <span class="ruby-node">&quot;#{m[2]}*&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;*&#39;</span>))
+  <span class="ruby-ivar">@glob</span>.<span class="ruby-identifier">freeze</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- glob-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- glob-method -->
+
+    
+      <div id="method-i-roll_by_date" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">roll_by_date</span><span
+            class="method-args">( files )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Roll the list of log files optionally removing older files. The “older
+files” are determined by the mtime of the log files. So touching log files
+or otherwise messing with them will screw this up.</p>
+
+<p>files - The Array of filename Strings</p>
+
+<p>Returns nil</p>
+          
+          
+
+          
+          <div class="method-source-code" id="roll_by_date-source">
+            <pre><span class="ruby-comment"># File lib/logging/appenders/rolling_file.rb, line 384</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">roll_by_date</span>( <span class="ruby-identifier">files</span> )
+  <span class="ruby-identifier">length</span> = <span class="ruby-identifier">files</span>.<span class="ruby-identifier">length</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">keep</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">keep</span>
+    <span class="ruby-identifier">files</span> = <span class="ruby-identifier">files</span>.<span class="ruby-identifier">sort</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">a</span>,<span class="ruby-identifier">b</span><span class="ruby-operator">|</span>
+              <span class="ruby-identifier">a</span> = <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">mtime</span>(<span class="ruby-identifier">a</span>)
+              <span class="ruby-identifier">b</span> = <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">mtime</span>(<span class="ruby-identifier">b</span>)
+              <span class="ruby-identifier">b</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">a</span>
+            <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">files</span>.<span class="ruby-identifier">last</span>(<span class="ruby-identifier">length</span><span class="ruby-operator">-</span><span class="ruby-identifier">keep</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>).<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">fn</span><span class="ruby-operator">|</span> <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">fn</span> }
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># rename the copied log file</span>
+  <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">rename</span>(<span class="ruby-identifier">copy_file</span>, <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-identifier">format</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- roll_by_date-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- roll_by_date-method -->
+
+    
+      <div id="method-i-roll_by_number" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">roll_by_number</span><span
+            class="method-args">( files )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Roll the list of log files optionally removing older files. The “older
+files” are determined by extracting the number from the log file name and
+order by the number.</p>
+
+<p>files - The Array of filename Strings</p>
+
+<p>Returns nil</p>
+          
+          
+
+          
+          <div class="method-source-code" id="roll_by_number-source">
+            <pre><span class="ruby-comment"># File lib/logging/appenders/rolling_file.rb, line 353</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">roll_by_number</span>( <span class="ruby-identifier">files</span> )
+  <span class="ruby-ivar">@number_rgxp</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@fn</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-constant">RGXP</span>, <span class="ruby-string">&#39;\2(\d+)&#39;</span>))
+
+  <span class="ruby-comment"># sort the files in reverse order based on their count number</span>
+  <span class="ruby-identifier">files</span> = <span class="ruby-identifier">files</span>.<span class="ruby-identifier">sort</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">a</span>,<span class="ruby-identifier">b</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">a</span> = <span class="ruby-constant">Integer</span>(<span class="ruby-ivar">@number_rgxp</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">a</span>)[<span class="ruby-value">1</span>])
+            <span class="ruby-identifier">b</span> = <span class="ruby-constant">Integer</span>(<span class="ruby-ivar">@number_rgxp</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">b</span>)[<span class="ruby-value">1</span>])
+            <span class="ruby-identifier">b</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">a</span>
+          <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># for each file, roll its count number one higher</span>
+  <span class="ruby-identifier">files</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">fn</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">cnt</span> = <span class="ruby-constant">Integer</span>(<span class="ruby-ivar">@number_rgxp</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">fn</span>)[<span class="ruby-value">1</span>])
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">keep</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">cnt</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">keep</span>
+      <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">fn</span>
+      <span class="ruby-keyword">next</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">rename</span> <span class="ruby-identifier">fn</span>, <span class="ruby-identifier">sprintf</span>(<span class="ruby-identifier">format</span>, <span class="ruby-identifier">cnt</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># finally rename the copied log file</span>
+  <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">rename</span>(<span class="ruby-identifier">copy_file</span>, <span class="ruby-identifier">sprintf</span>(<span class="ruby-identifier">format</span>, <span class="ruby-value">1</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- roll_by_number-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- roll_by_number-method -->
+
+    
+      <div id="method-i-roll_files" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">roll_files</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Roll the log files. This method will collect the list of rolled files and
+then pass that list to either `roll_by_number` or `roll_by_date` to perform
+the actual rolling.</p>
+
+<p>Returns nil</p>
+          
+          
+
+          
+          <div class="method-source-code" id="roll_files-source">
+            <pre><span class="ruby-comment"># File lib/logging/appenders/rolling_file.rb, line 333</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">roll_files</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">roll</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">copy_file</span>)
+
+  <span class="ruby-identifier">files</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-identifier">glob</span>)
+  <span class="ruby-identifier">files</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">copy_file</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">send</span> <span class="ruby-node">&quot;roll_by_#{roll_by}&quot;</span>, <span class="ruby-identifier">files</span>
+
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">roll</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- roll_files-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- roll_files-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

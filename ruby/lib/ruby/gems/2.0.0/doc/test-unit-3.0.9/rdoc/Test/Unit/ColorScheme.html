@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Test::Unit::ColorScheme - test-unit-3.0.9 Documentation</title>
+
+<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../index.html">Home</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/test/unit/color-scheme.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</nav>
+
+    <!-- Included Modules -->
+<nav id="includes-section" class="section">
+  <h3 class="section-header">Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><span class="include">Enumerable</span>
+  
+  
+  </ul>
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-5B-5D">::[]</a>
+    
+    <li ><a href="#method-c-5B-5D-3D">::[]=</a>
+    
+    <li ><a href="#method-c-all">::all</a>
+    
+    <li ><a href="#method-c-available_colors">::available_colors</a>
+    
+    <li ><a href="#method-c-default">::default</a>
+    
+    <li ><a href="#method-c-default_for_256_colors">::default_for_256_colors</a>
+    
+    <li ><a href="#method-c-default_for_8_colors">::default_for_8_colors</a>
+    
+    <li ><a href="#method-c-guess_available_colors_from_colorterm_env">::guess_available_colors_from_colorterm_env</a>
+    
+    <li ><a href="#method-c-guess_available_colors_from_term_env">::guess_available_colors_from_term_env</a>
+    
+    <li ><a href="#method-c-guess_available_colors_from_vte_version_env">::guess_available_colors_from_vte_version_env</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-5B-5D">#[]</a>
+    
+    <li ><a href="#method-i-5B-5D-3D">#[]=</a>
+    
+    <li ><a href="#method-i-each">#each</a>
+    
+    <li ><a href="#method-i-make_color">#make_color</a>
+    
+    <li ><a href="#method-i-to_hash">#to_hash</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../Object.html">Object</a>
+  
+    <li><a href="../../Test.html">Test</a>
+  
+    <li><a href="../../Test/Unit.html">Test::Unit</a>
+  
+    <li><a href="../../Test/Unit/AssertionFailedError.html">Test::Unit::AssertionFailedError</a>
+  
+    <li><a href="../../Test/Unit/Assertions.html">Test::Unit::Assertions</a>
+  
+    <li><a href="../../Test/Unit/Assertions/AssertExceptionHelper.html">Test::Unit::Assertions::AssertExceptionHelper</a>
+  
+    <li><a href="../../Test/Unit/Assertions/AssertExceptionHelper/WrappedException.html">Test::Unit::Assertions::AssertExceptionHelper::WrappedException</a>
+  
+    <li><a href="../../Test/Unit/Assertions/AssertionMessage.html">Test::Unit::Assertions::AssertionMessage</a>
+  
+    <li><a href="../../Test/Unit/Assertions/AssertionMessage/ArrayInspector.html">Test::Unit::Assertions::AssertionMessage::ArrayInspector</a>
+  
+    <li><a href="../../Test/Unit/Assertions/AssertionMessage/DelayedLiteral.html">Test::Unit::Assertions::AssertionMessage::DelayedLiteral</a>
+  
+    <li><a href="../../Test/Unit/Assertions/AssertionMessage/HashInspector.html">Test::Unit::Assertions::AssertionMessage::HashInspector</a>
+  
+    <li><a href="../../Test/Unit/Assertions/AssertionMessage/Inspector.html">Test::Unit::Assertions::AssertionMessage::Inspector</a>
+  
+    <li><a href="../../Test/Unit/Assertions/AssertionMessage/Literal.html">Test::Unit::Assertions::AssertionMessage::Literal</a>
+  
+    <li><a href="../../Test/Unit/Assertions/AssertionMessage/MaybeContainer.html">Test::Unit::Assertions::AssertionMessage::MaybeContainer</a>
+  
+    <li><a href="../../Test/Unit/Assertions/AssertionMessage/NumericInspector.html">Test::Unit::Assertions::AssertionMessage::NumericInspector</a>
+  
+    <li><a href="../../Test/Unit/Assertions/AssertionMessage/Template.html">Test::Unit::Assertions::AssertionMessage::Template</a>
+  
+    <li><a href="../../Test/Unit/Assertions/ThrowTagExtractor.html">Test::Unit::Assertions::ThrowTagExtractor</a>
+  
+    <li><a href="../../Test/Unit/Attribute.html">Test::Unit::Attribute</a>
+  
+    <li><a href="../../Test/Unit/Attribute/BaseClassMethods.html">Test::Unit::Attribute::BaseClassMethods</a>
+  
+    <li><a href="../../Test/Unit/Attribute/ClassMethods.html">Test::Unit::Attribute::ClassMethods</a>
+  
+    <li><a href="../../Test/Unit/Attribute/StringifyKeyHash.html">Test::Unit::Attribute::StringifyKeyHash</a>
+  
+    <li><a href="../../Test/Unit/AttributeMatcher.html">Test::Unit::AttributeMatcher</a>
+  
+    <li><a href="../../Test/Unit/AutoRunner.html">Test::Unit::AutoRunner</a>
+  
+    <li><a href="../../Test/Unit/AutoRunner/Collector.html">Test::Unit::AutoRunner::Collector</a>
+  
+    <li><a href="../../Test/Unit/CodeSnippetFetcher.html">Test::Unit::CodeSnippetFetcher</a>
+  
+    <li><a href="../../Test/Unit/Collector.html">Test::Unit::Collector</a>
+  
+    <li><a href="../../Test/Unit/Collector/Descendant.html">Test::Unit::Collector::Descendant</a>
+  
+    <li><a href="../../Test/Unit/Collector/Dir.html">Test::Unit::Collector::Dir</a>
+  
+    <li><a href="../../Test/Unit/Collector/Load.html">Test::Unit::Collector::Load</a>
+  
+    <li><a href="../../Test/Unit/Collector/ObjectSpace.html">Test::Unit::Collector::ObjectSpace</a>
+  
+    <li><a href="../../Test/Unit/Collector/XML.html">Test::Unit::Collector::XML</a>
+  
+    <li><a href="../../Test/Unit/Collector/XML/Listener.html">Test::Unit::Collector::XML::Listener</a>
+  
+    <li><a href="../../Test/Unit/Color.html">Test::Unit::Color</a>
+  
+    <li><a href="../../Test/Unit/Color/Error.html">Test::Unit::Color::Error</a>
+  
+    <li><a href="../../Test/Unit/Color/ParseError.html">Test::Unit::Color::ParseError</a>
+  
+    <li><a href="../../Test/Unit/ColorScheme.html">Test::Unit::ColorScheme</a>
+  
+    <li><a href="../../Test/Unit/Data.html">Test::Unit::Data</a>
+  
+    <li><a href="../../Test/Unit/Data/ClassMethods.html">Test::Unit::Data::ClassMethods</a>
+  
+    <li><a href="../../Test/Unit/Data/ClassMethods/Loader.html">Test::Unit::Data::ClassMethods::Loader</a>
+  
+    <li><a href="../../Test/Unit/Diff.html">Test::Unit::Diff</a>
+  
+    <li><a href="../../Test/Unit/Diff/Differ.html">Test::Unit::Diff::Differ</a>
+  
+    <li><a href="../../Test/Unit/Diff/ReadableDiffer.html">Test::Unit::Diff::ReadableDiffer</a>
+  
+    <li><a href="../../Test/Unit/Diff/SequenceMatcher.html">Test::Unit::Diff::SequenceMatcher</a>
+  
+    <li><a href="../../Test/Unit/Diff/UTF8Line.html">Test::Unit::Diff::UTF8Line</a>
+  
+    <li><a href="../../Test/Unit/Diff/UnifiedDiffer.html">Test::Unit::Diff::UnifiedDiffer</a>
+  
+    <li><a href="../../Test/Unit/Error.html">Test::Unit::Error</a>
+  
+    <li><a href="../../Test/Unit/ErrorHandler.html">Test::Unit::ErrorHandler</a>
+  
+    <li><a href="../../Test/Unit/ExceptionHandler.html">Test::Unit::ExceptionHandler</a>
+  
+    <li><a href="../../Test/Unit/ExceptionHandler/ClassMethods.html">Test::Unit::ExceptionHandler::ClassMethods</a>
+  
+    <li><a href="../../Test/Unit/Failure.html">Test::Unit::Failure</a>
+  
+    <li><a href="../../Test/Unit/FailureHandler.html">Test::Unit::FailureHandler</a>
+  
+    <li><a href="../../Test/Unit/FaultLocationDetector.html">Test::Unit::FaultLocationDetector</a>
+  
+    <li><a href="../../Test/Unit/Fixture.html">Test::Unit::Fixture</a>
+  
+    <li><a href="../../Test/Unit/Fixture/ClassMethods.html">Test::Unit::Fixture::ClassMethods</a>
+  
+    <li><a href="../../Test/Unit/Fixture/Fixture.html">Test::Unit::Fixture::Fixture</a>
+  
+    <li><a href="../../Test/Unit/Fixture/HookPoint.html">Test::Unit::Fixture::HookPoint</a>
+  
+    <li><a href="../../Test/Unit/MixColor.html">Test::Unit::MixColor</a>
+  
+    <li><a href="../../Test/Unit/Notification.html">Test::Unit::Notification</a>
+  
+    <li><a href="../../Test/Unit/NotificationHandler.html">Test::Unit::NotificationHandler</a>
+  
+    <li><a href="../../Test/Unit/NotifiedError.html">Test::Unit::NotifiedError</a>
+  
+    <li><a href="../../Test/Unit/NullResultContainerInitializer.html">Test::Unit::NullResultContainerInitializer</a>
+  
+    <li><a href="../../Test/Unit/Omission.html">Test::Unit::Omission</a>
+  
+    <li><a href="../../Test/Unit/OmissionHandler.html">Test::Unit::OmissionHandler</a>
+  
+    <li><a href="../../Test/Unit/OmittedError.html">Test::Unit::OmittedError</a>
+  
+    <li><a href="../../Test/Unit/PendedError.html">Test::Unit::PendedError</a>
+  
+    <li><a href="../../Test/Unit/Pending.html">Test::Unit::Pending</a>
+  
+    <li><a href="../../Test/Unit/PendingHandler.html">Test::Unit::PendingHandler</a>
+  
+    <li><a href="../../Test/Unit/Priority.html">Test::Unit::Priority</a>
+  
+    <li><a href="../../Test/Unit/Priority/Checker.html">Test::Unit::Priority::Checker</a>
+  
+    <li><a href="../../Test/Unit/Priority/ClassMethods.html">Test::Unit::Priority::ClassMethods</a>
+  
+    <li><a href="../../Test/Unit/TestCase.html">Test::Unit::TestCase</a>
+  
+    <li><a href="../../Test/Unit/TestCase/InternalData.html">Test::Unit::TestCase::InternalData</a>
+  
+    <li><a href="../../Test/Unit/TestCaseNotificationSupport.html">Test::Unit::TestCaseNotificationSupport</a>
+  
+    <li><a href="../../Test/Unit/TestCaseOmissionSupport.html">Test::Unit::TestCaseOmissionSupport</a>
+  
+    <li><a href="../../Test/Unit/TestCasePendingSupport.html">Test::Unit::TestCasePendingSupport</a>
+  
+    <li><a href="../../Test/Unit/TestResult.html">Test::Unit::TestResult</a>
+  
+    <li><a href="../../Test/Unit/TestResultErrorSupport.html">Test::Unit::TestResultErrorSupport</a>
+  
+    <li><a href="../../Test/Unit/TestResultFailureSupport.html">Test::Unit::TestResultFailureSupport</a>
+  
+    <li><a href="../../Test/Unit/TestResultNotificationSupport.html">Test::Unit::TestResultNotificationSupport</a>
+  
+    <li><a href="../../Test/Unit/TestResultOmissionSupport.html">Test::Unit::TestResultOmissionSupport</a>
+  
+    <li><a href="../../Test/Unit/TestResultPendingSupport.html">Test::Unit::TestResultPendingSupport</a>
+  
+    <li><a href="../../Test/Unit/TestSuite.html">Test::Unit::TestSuite</a>
+  
+    <li><a href="../../Test/Unit/TestSuiteCreator.html">Test::Unit::TestSuiteCreator</a>
+  
+    <li><a href="../../Test/Unit/UI.html">Test::Unit::UI</a>
+  
+    <li><a href="../../Test/Unit/UI/Console.html">Test::Unit::UI::Console</a>
+  
+    <li><a href="../../Test/Unit/UI/Console/ColorizedReadableDiffer.html">Test::Unit::UI::Console::ColorizedReadableDiffer</a>
+  
+    <li><a href="../../Test/Unit/UI/Console/OutputLevel.html">Test::Unit::UI::Console::OutputLevel</a>
+  
+    <li><a href="../../Test/Unit/UI/Console/TestRunner.html">Test::Unit::UI::Console::TestRunner</a>
+  
+    <li><a href="../../Test/Unit/UI/Emacs.html">Test::Unit::UI::Emacs</a>
+  
+    <li><a href="../../Test/Unit/UI/Emacs/TestRunner.html">Test::Unit::UI::Emacs::TestRunner</a>
+  
+    <li><a href="../../Test/Unit/UI/TestRunner.html">Test::Unit::UI::TestRunner</a>
+  
+    <li><a href="../../Test/Unit/UI/TestRunnerMediator.html">Test::Unit::UI::TestRunnerMediator</a>
+  
+    <li><a href="../../Test/Unit/UI/TestRunnerUtilities.html">Test::Unit::UI::TestRunnerUtilities</a>
+  
+    <li><a href="../../Test/Unit/UI/XML.html">Test::Unit::UI::XML</a>
+  
+    <li><a href="../../Test/Unit/UI/XML/TestRunner.html">Test::Unit::UI::XML::TestRunner</a>
+  
+    <li><a href="../../Test/Unit/Util.html">Test::Unit::Util</a>
+  
+    <li><a href="../../Test/Unit/Util/BacktraceFilter.html">Test::Unit::Util::BacktraceFilter</a>
+  
+    <li><a href="../../Test/Unit/Util/MethodOwnerFinder.html">Test::Unit::Util::MethodOwnerFinder</a>
+  
+    <li><a href="../../Test/Unit/Util/Observable.html">Test::Unit::Util::Observable</a>
+  
+    <li><a href="../../Test/Unit/Util/Output.html">Test::Unit::Util::Output</a>
+  
+    <li><a href="../../Test/Unit/Util/ProcWrapper.html">Test::Unit::Util::ProcWrapper</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Test::Unit::ColorScheme</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-5B-5D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]</span><span
+            class="method-args">(id)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/color-scheme.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">id</span>)
+  <span class="ruby-identifier">@@schemes</span>[<span class="ruby-identifier">id</span>.<span class="ruby-identifier">to_s</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- 5B-5D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- 5B-5D-method -->
+
+    
+      <div id="method-c-5B-5D-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]=</span><span
+            class="method-args">(id, scheme_or_spec)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-3D-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/color-scheme.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]=</span>(<span class="ruby-identifier">id</span>, <span class="ruby-identifier">scheme_or_spec</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">scheme_or_spec</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-keyword">self</span>)
+    <span class="ruby-identifier">scheme</span> = <span class="ruby-identifier">scheme_or_spec</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">scheme</span> = <span class="ruby-identifier">new</span>(<span class="ruby-identifier">scheme_or_spec</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">@@schemes</span>[<span class="ruby-identifier">id</span>.<span class="ruby-identifier">to_s</span>] = <span class="ruby-identifier">scheme</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- 5B-5D-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- 5B-5D-3D-method -->
+
+    
+      <div id="method-c-all" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">all</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="all-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/color-scheme.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">all</span>
+  <span class="ruby-identifier">@@schemes</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-string">&quot;default&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">default</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- all-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- all-method -->
+
+    
+      <div id="method-c-available_colors" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">available_colors</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="available_colors-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/color-scheme.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">available_colors</span>
+  <span class="ruby-identifier">guess_available_colors_from_vte_version_env</span> <span class="ruby-operator">||</span>
+    <span class="ruby-identifier">guess_available_colors_from_colorterm_env</span> <span class="ruby-operator">||</span>
+    <span class="ruby-identifier">guess_available_colors_from_term_env</span> <span class="ruby-operator">||</span>
+    <span class="ruby-value">8</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- available_colors-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- available_colors-method -->
+
+    
+      <div id="method-c-default" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/color-scheme.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">available_colors</span> <span class="ruby-operator">==</span> <span class="ruby-value">256</span>
+    <span class="ruby-identifier">default_for_256_colors</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">default_for_8_colors</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- default-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- default-method -->
+
+    
+      <div id="method-c-default_for_256_colors" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_for_256_colors</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_for_256_colors-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/color-scheme.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_for_256_colors</span>
+  <span class="ruby-identifier">@@default_for_256_colors</span> <span class="ruby-operator">||=</span>
+    <span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;pass&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;030&quot;</span>, <span class="ruby-value">:background</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>) <span class="ruby-operator">+</span>
+                  <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;555&quot;</span>, <span class="ruby-value">:bold</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>),
+        <span class="ruby-string">&quot;pass-marker&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;050&quot;</span>, <span class="ruby-value">:bold</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>),
+        <span class="ruby-string">&quot;failure&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;300&quot;</span>, <span class="ruby-value">:background</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>) <span class="ruby-operator">+</span>
+                     <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;555&quot;</span>, <span class="ruby-value">:bold</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>),
+        <span class="ruby-string">&quot;failure-marker&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;500&quot;</span>),
+        <span class="ruby-string">&quot;pending&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;303&quot;</span>, <span class="ruby-value">:background</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>) <span class="ruby-operator">+</span>
+                      <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;555&quot;</span>, <span class="ruby-value">:bold</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>),
+        <span class="ruby-string">&quot;pending-marker&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;303&quot;</span>),
+        <span class="ruby-string">&quot;omission&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;001&quot;</span>, <span class="ruby-value">:background</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>) <span class="ruby-operator">+</span>
+                      <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;555&quot;</span>, <span class="ruby-value">:bold</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>),
+        <span class="ruby-string">&quot;omission-marker&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;001&quot;</span>),
+        <span class="ruby-string">&quot;notification&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;011&quot;</span>, <span class="ruby-value">:background</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>) <span class="ruby-operator">+</span>
+                          <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;555&quot;</span>, <span class="ruby-value">:bold</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>),
+        <span class="ruby-string">&quot;notification-marker&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;011&quot;</span>),
+        <span class="ruby-string">&quot;error&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;000&quot;</span>, <span class="ruby-value">:background</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>) <span class="ruby-operator">+</span>
+                   <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;550&quot;</span>, <span class="ruby-value">:bold</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>),
+        <span class="ruby-string">&quot;error-marker&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;550&quot;</span>),
+        <span class="ruby-string">&quot;case&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;220&quot;</span>, <span class="ruby-value">:background</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>) <span class="ruby-operator">+</span>
+                  <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;555&quot;</span>, <span class="ruby-value">:bold</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>),
+        <span class="ruby-string">&quot;suite&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;110&quot;</span>, <span class="ruby-value">:background</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>) <span class="ruby-operator">+</span>
+                   <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;555&quot;</span>, <span class="ruby-value">:bold</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>),
+        <span class="ruby-string">&quot;diff-inserted-tag&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;500&quot;</span>, <span class="ruby-value">:background</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>) <span class="ruby-operator">+</span>
+                               <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;000&quot;</span>, <span class="ruby-value">:bold</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>),
+        <span class="ruby-string">&quot;diff-deleted-tag&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;050&quot;</span>, <span class="ruby-value">:background</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>) <span class="ruby-operator">+</span>
+                              <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;000&quot;</span>, <span class="ruby-value">:bold</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>),
+        <span class="ruby-string">&quot;diff-difference-tag&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;005&quot;</span>, <span class="ruby-value">:background</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>) <span class="ruby-operator">+</span>
+                                 <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;555&quot;</span>, <span class="ruby-value">:bold</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>),
+        <span class="ruby-string">&quot;diff-inserted&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;300&quot;</span>, <span class="ruby-value">:background</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>) <span class="ruby-operator">+</span>
+                           <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;555&quot;</span>, <span class="ruby-value">:bold</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>),
+        <span class="ruby-string">&quot;diff-deleted&quot;</span> =<span class="ruby-operator">&gt;</span>  <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;030&quot;</span>, <span class="ruby-value">:background</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>) <span class="ruby-operator">+</span>
+                           <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;555&quot;</span>, <span class="ruby-value">:bold</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- default_for_256_colors-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- default_for_256_colors-method -->
+
+    
+      <div id="method-c-default_for_8_colors" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_for_8_colors</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_for_8_colors-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/color-scheme.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_for_8_colors</span>
+  <span class="ruby-identifier">@@default_for_8_colors</span> <span class="ruby-operator">||=</span>
+    <span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;pass&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;green&quot;</span>, <span class="ruby-value">:background</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>) <span class="ruby-operator">+</span>
+                  <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;white&quot;</span>, <span class="ruby-value">:bold</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>),
+        <span class="ruby-string">&quot;pass-marker&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;green&quot;</span>, <span class="ruby-value">:bold</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>),
+        <span class="ruby-string">&quot;failure&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;red&quot;</span>, <span class="ruby-value">:background</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>) <span class="ruby-operator">+</span>
+                     <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;white&quot;</span>, <span class="ruby-value">:bold</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>),
+        <span class="ruby-string">&quot;failure-marker&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;red&quot;</span>),
+        <span class="ruby-string">&quot;pending&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;magenta&quot;</span>, <span class="ruby-value">:background</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>) <span class="ruby-operator">+</span>
+                     <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;white&quot;</span>, <span class="ruby-value">:bold</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>),
+        <span class="ruby-string">&quot;pending-marker&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;magenta&quot;</span>),
+        <span class="ruby-string">&quot;omission&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;blue&quot;</span>, <span class="ruby-value">:background</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>) <span class="ruby-operator">+</span>
+                     <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;white&quot;</span>, <span class="ruby-value">:bold</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>),
+        <span class="ruby-string">&quot;omission-marker&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;blue&quot;</span>),
+        <span class="ruby-string">&quot;notification&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;cyan&quot;</span>, <span class="ruby-value">:background</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>) <span class="ruby-operator">+</span>
+                          <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;white&quot;</span>, <span class="ruby-value">:bold</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>),
+        <span class="ruby-string">&quot;notification-marker&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;cyan&quot;</span>),
+        <span class="ruby-string">&quot;error&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;black&quot;</span>, <span class="ruby-value">:background</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>) <span class="ruby-operator">+</span>
+                   <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;yellow&quot;</span>, <span class="ruby-value">:bold</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>),
+        <span class="ruby-string">&quot;error-marker&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;yellow&quot;</span>),
+        <span class="ruby-string">&quot;case&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;blue&quot;</span>, <span class="ruby-value">:background</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>) <span class="ruby-operator">+</span>
+                  <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;white&quot;</span>, <span class="ruby-value">:bold</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>),
+        <span class="ruby-string">&quot;suite&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;green&quot;</span>, <span class="ruby-value">:background</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>) <span class="ruby-operator">+</span>
+                   <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;white&quot;</span>, <span class="ruby-value">:bold</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>),
+        <span class="ruby-string">&quot;diff-inserted-tag&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;red&quot;</span>, <span class="ruby-value">:background</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>) <span class="ruby-operator">+</span>
+                               <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;black&quot;</span>, <span class="ruby-value">:bold</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>),
+        <span class="ruby-string">&quot;diff-deleted-tag&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;green&quot;</span>, <span class="ruby-value">:background</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>) <span class="ruby-operator">+</span>
+                              <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;black&quot;</span>, <span class="ruby-value">:bold</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>),
+        <span class="ruby-string">&quot;diff-difference-tag&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;cyan&quot;</span>, <span class="ruby-value">:background</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>) <span class="ruby-operator">+</span>
+                                 <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;white&quot;</span>, <span class="ruby-value">:bold</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>),
+        <span class="ruby-string">&quot;diff-inserted&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;red&quot;</span>, <span class="ruby-value">:background</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>) <span class="ruby-operator">+</span>
+                           <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;white&quot;</span>, <span class="ruby-value">:bold</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>),
+        <span class="ruby-string">&quot;diff-deleted&quot;</span> =<span class="ruby-operator">&gt;</span>  <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;green&quot;</span>, <span class="ruby-value">:background</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>) <span class="ruby-operator">+</span>
+                           <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;white&quot;</span>, <span class="ruby-value">:bold</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- default_for_8_colors-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- default_for_8_colors-method -->
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(scheme_spec)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/color-scheme.rb, line 151</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">scheme_spec</span>)
+  <span class="ruby-ivar">@scheme</span> = {}
+  <span class="ruby-identifier">scheme_spec</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">color_spec</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">self</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">color_spec</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="private-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Class Methods</h3>
+
+    
+      <div id="method-c-guess_available_colors_from_colorterm_env" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">guess_available_colors_from_colorterm_env</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="guess_available_colors_from_colorterm_env-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/color-scheme.rb, line 132</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">guess_available_colors_from_colorterm_env</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;COLORTERM&quot;</span>]
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;gnome-terminal&quot;</span>, <span class="ruby-string">&quot;xfce4-terminal&quot;</span>
+    <span class="ruby-value">256</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- guess_available_colors_from_colorterm_env-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- guess_available_colors_from_colorterm_env-method -->
+
+    
+      <div id="method-c-guess_available_colors_from_term_env" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">guess_available_colors_from_term_env</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="guess_available_colors_from_term_env-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/color-scheme.rb, line 141</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">guess_available_colors_from_term_env</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;TERM&quot;</span>]
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/-256color\z/</span>
+    <span class="ruby-value">256</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- guess_available_colors_from_term_env-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- guess_available_colors_from_term_env-method -->
+
+    
+      <div id="method-c-guess_available_colors_from_vte_version_env" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">guess_available_colors_from_vte_version_env</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="guess_available_colors_from_vte_version_env-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/color-scheme.rb, line 117</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">guess_available_colors_from_vte_version_env</span>
+  <span class="ruby-identifier">vte_version</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;VTE_VERSION&quot;</span>]
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">vte_version</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-identifier">major</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">minor</span> = <span class="ruby-value">13</span>
+  <span class="ruby-identifier">micro</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">packed_version</span> = <span class="ruby-identifier">major</span> <span class="ruby-operator">*</span> <span class="ruby-value">10000</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">minor</span> <span class="ruby-operator">*</span> <span class="ruby-value">100</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">micro</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">vte_version</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">packed_version</span>
+    <span class="ruby-value">256</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-value">8</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- guess_available_colors_from_vte_version_env-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- guess_available_colors_from_vte_version_env-method -->
+
+    
+    </section><!-- private-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-5B-5D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/color-scheme.rb, line 158</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-ivar">@scheme</span>[<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- 5B-5D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- 5B-5D-method -->
+
+    
+      <div id="method-i-5B-5D-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]=</span><span
+            class="method-args">(name, color_spec)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-3D-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/color-scheme.rb, line 162</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]=</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">color_spec</span>)
+  <span class="ruby-ivar">@scheme</span>[<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>] = <span class="ruby-identifier">make_color</span>(<span class="ruby-identifier">color_spec</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- 5B-5D-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- 5B-5D-3D-method -->
+
+    
+      <div id="method-i-each" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">each</span><span
+            class="method-args">(&block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="each-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/color-scheme.rb, line 166</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-ivar">@scheme</span>.<span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- each-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- each-method -->
+
+    
+      <div id="method-i-to_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_hash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_hash-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/color-scheme.rb, line 170</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_hash</span>
+  <span class="ruby-identifier">hash</span> = {}
+  <span class="ruby-ivar">@scheme</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">color</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">color</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">hash</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_hash-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_hash-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-make_color" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">make_color</span><span
+            class="method-args">(color_spec)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="make_color-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/color-scheme.rb, line 179</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">make_color</span>(<span class="ruby-identifier">color_spec</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">color_spec</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Color</span>) <span class="ruby-keyword">or</span> <span class="ruby-identifier">color_spec</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">MixColor</span>)
+    <span class="ruby-identifier">color_spec</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">color_name</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">normalized_color_spec</span> = {}
+    <span class="ruby-identifier">color_spec</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">key</span> = <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">key</span> <span class="ruby-operator">==</span> <span class="ruby-value">:name</span>
+        <span class="ruby-identifier">color_name</span> = <span class="ruby-identifier">value</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">normalized_color_spec</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">value</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-constant">Color</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">color_name</span>, <span class="ruby-identifier">normalized_color_spec</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- make_color-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- make_color-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

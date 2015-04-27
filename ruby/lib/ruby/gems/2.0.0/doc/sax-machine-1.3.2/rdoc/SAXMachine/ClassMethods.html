@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module SAXMachine::ClassMethods - sax-machine-1.3.2 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/sax-machine/sax_document.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-i-ancestor">#ancestor</a>
+    
+    <li ><a href="#method-i-attribute">#attribute</a>
+    
+    <li ><a href="#method-i-column">#column</a>
+    
+    <li ><a href="#method-i-column_names">#column_names</a>
+    
+    <li ><a href="#method-i-columns">#columns</a>
+    
+    <li ><a href="#method-i-create_attr">#create_attr</a>
+    
+    <li ><a href="#method-i-data_class">#data_class</a>
+    
+    <li ><a href="#method-i-element">#element</a>
+    
+    <li ><a href="#method-i-elements">#elements</a>
+    
+    <li ><a href="#method-i-inherited">#inherited</a>
+    
+    <li ><a href="#method-i-parse">#parse</a>
+    
+    <li ><a href="#method-i-required-3F">#required?</a>
+    
+    <li ><a href="#method-i-sax_config">#sax_config</a>
+    
+    <li ><a href="#method-i-value">#value</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../SAXMachine.html">SAXMachine</a>
+  
+    <li><a href="../SAXMachine/ClassMethods.html">SAXMachine::ClassMethods</a>
+  
+    <li><a href="../SAXMachine/InstanceMethods.html">SAXMachine::InstanceMethods</a>
+  
+    <li><a href="../SAXMachine/LightWeightSaxMachine.html">SAXMachine::LightWeightSaxMachine</a>
+  
+    <li><a href="../SAXMachine/SAXAbstractHandler.html">SAXMachine::SAXAbstractHandler</a>
+  
+    <li><a href="../SAXMachine/SAXAbstractHandler/StackNode.html">SAXMachine::SAXAbstractHandler::StackNode</a>
+  
+    <li><a href="../SAXMachine/SAXConfig.html">SAXMachine::SAXConfig</a>
+  
+    <li><a href="../SAXMachine/SAXConfig/AncestorConfig.html">SAXMachine::SAXConfig::AncestorConfig</a>
+  
+    <li><a href="../SAXMachine/SAXConfig/AttributeConfig.html">SAXMachine::SAXConfig::AttributeConfig</a>
+  
+    <li><a href="../SAXMachine/SAXConfig/CollectionConfig.html">SAXMachine::SAXConfig::CollectionConfig</a>
+  
+    <li><a href="../SAXMachine/SAXConfig/ElementConfig.html">SAXMachine::SAXConfig::ElementConfig</a>
+  
+    <li><a href="../SAXMachine/SAXConfig/ElementValueConfig.html">SAXMachine::SAXConfig::ElementValueConfig</a>
+  
+    <li><a href="../SAXMachine/SAXNokogiriHandler.html">SAXMachine::SAXNokogiriHandler</a>
+  
+    <li><a href="../SAXMachine/SAXOgaHandler.html">SAXMachine::SAXOgaHandler</a>
+  
+    <li><a href="../SAXMachine/SAXOxHandler.html">SAXMachine::SAXOxHandler</a>
+  
+    <li><a href="../SAXMachine/clazz;.html">SAXMachine::clazz;</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module SAXMachine::ClassMethods</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-ancestor" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ancestor</span><span
+            class="method-args">(name, options = {}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ancestor-source">
+            <pre><span class="ruby-comment"># File lib/sax-machine/sax_document.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ancestor</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">real_name</span> = (<span class="ruby-identifier">options</span>[<span class="ruby-value">:as</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">name</span>).<span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">sax_config</span>.<span class="ruby-identifier">add_ancestor</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">create_attr</span>(<span class="ruby-identifier">real_name</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- ancestor-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- ancestor-method -->
+
+    
+      <div id="method-i-attribute" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">attribute</span><span
+            class="method-args">(name, options = {}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="attribute-source">
+            <pre><span class="ruby-comment"># File lib/sax-machine/sax_document.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">attribute</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">real_name</span> = (<span class="ruby-identifier">options</span>[<span class="ruby-value">:as</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">name</span>).<span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">sax_config</span>.<span class="ruby-identifier">add_top_level_attribute</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">name</span>))
+  <span class="ruby-identifier">create_attr</span>(<span class="ruby-identifier">real_name</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- attribute-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- attribute-method -->
+
+    
+      <div id="method-i-column" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">column</span><span
+            class="method-args">(sym)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="column-source">
+            <pre><span class="ruby-comment"># File lib/sax-machine/sax_document.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">sym</span>)
+  <span class="ruby-identifier">columns</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">column</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">sym</span> }[<span class="ruby-value">0</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- column-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- column-method -->
+
+    
+      <div id="method-i-column_names" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">column_names</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="column_names-source">
+            <pre><span class="ruby-comment"># File lib/sax-machine/sax_document.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">column_names</span>
+  <span class="ruby-identifier">columns</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">column</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- column_names-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- column_names-method -->
+
+    
+      <div id="method-i-columns" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">columns</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="columns-source">
+            <pre><span class="ruby-comment"># File lib/sax-machine/sax_document.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">columns</span>
+  <span class="ruby-identifier">sax_config</span>.<span class="ruby-identifier">columns</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- columns-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- columns-method -->
+
+    
+      <div id="method-i-create_attr" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_attr</span><span
+            class="method-args">(real_name, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>we only want to insert the getter and setter if they haven&#39;t defined it
+from elsewhere. this is how we allow custom parsing behavior. So you could
+define the setter and have it parse the string into a date or whatever.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="create_attr-source">
+            <pre><span class="ruby-comment"># File lib/sax-machine/sax_document.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_attr</span>(<span class="ruby-identifier">real_name</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">attr_reader</span>(<span class="ruby-identifier">real_name</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">method_defined?</span>(<span class="ruby-identifier">real_name</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">method_defined?</span>(<span class="ruby-node">&quot;#{real_name}=&quot;</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+      <span class="ruby-identifier">define_method</span>(<span class="ruby-node">&quot;#{real_name}=&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">instance_variable_set</span>(<span class="ruby-node">&quot;@#{real_name}&quot;</span>, <span class="ruby-identifier">instance_exec</span>(<span class="ruby-identifier">value</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>))
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">attr_writer</span>(<span class="ruby-identifier">real_name</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- create_attr-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- create_attr-method -->
+
+    
+      <div id="method-i-data_class" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">data_class</span><span
+            class="method-args">(sym)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="data_class-source">
+            <pre><span class="ruby-comment"># File lib/sax-machine/sax_document.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">data_class</span>(<span class="ruby-identifier">sym</span>)
+  <span class="ruby-identifier">column</span>(<span class="ruby-identifier">sym</span>).<span class="ruby-identifier">data_class</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- data_class-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- data_class-method -->
+
+    
+      <div id="method-i-element" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">element</span><span
+            class="method-args">(name, options = {}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="element-source">
+            <pre><span class="ruby-comment"># File lib/sax-machine/sax_document.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">element</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">real_name</span> = (<span class="ruby-identifier">options</span>[<span class="ruby-value">:as</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">name</span>).<span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">sax_config</span>.<span class="ruby-identifier">add_top_level_element</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">create_attr</span>(<span class="ruby-identifier">real_name</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- element-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- element-method -->
+
+    
+      <div id="method-i-elements" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">elements</span><span
+            class="method-args">(name, options = {}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="elements-source">
+            <pre><span class="ruby-comment"># File lib/sax-machine/sax_document.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">elements</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">real_name</span> = (<span class="ruby-identifier">options</span>[<span class="ruby-value">:as</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">name</span>).<span class="ruby-identifier">to_s</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:class</span>]
+    <span class="ruby-identifier">sax_config</span>.<span class="ruby-identifier">add_collection_element</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+      <span class="ruby-identifier">define_method</span>(<span class="ruby-node">&quot;add_#{real_name}&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">send</span>(<span class="ruby-identifier">real_name</span>).<span class="ruby-identifier">send</span>(<span class="ruby-value">:&lt;&lt;</span>, <span class="ruby-identifier">instance_exec</span>(<span class="ruby-identifier">value</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>))
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">define_method</span>(<span class="ruby-node">&quot;add_#{real_name}&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">send</span>(<span class="ruby-identifier">real_name</span>).<span class="ruby-identifier">send</span>(<span class="ruby-value">:&lt;&lt;</span>, <span class="ruby-identifier">value</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">sax_config</span>.<span class="ruby-identifier">add_top_level_element</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">collection</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>))
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">method_defined?</span>(<span class="ruby-identifier">real_name</span>)
+    <span class="ruby-identifier">class_eval</span> <span class="ruby-value">&lt;&lt;-SRC
+      def #{real_name}
+        @#{real_name} ||= []
+      end
+    SRC</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">attr_writer</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:as</span>]) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">method_defined?</span>(<span class="ruby-node">&quot;#{options[:as]}=&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- elements-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- elements-method -->
+
+    
+      <div id="method-i-inherited" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inherited</span><span
+            class="method-args">(subclass)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="inherited-source">
+            <pre><span class="ruby-comment"># File lib/sax-machine/sax_document.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inherited</span>(<span class="ruby-identifier">subclass</span>)
+  <span class="ruby-identifier">subclass</span>.<span class="ruby-identifier">sax_config</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:initialize_copy</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sax_config</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- inherited-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- inherited-method -->
+
+    
+      <div id="method-i-parse" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse-source">
+            <pre><span class="ruby-comment"># File lib/sax-machine/sax_document.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">new</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- parse-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- parse-method -->
+
+    
+      <div id="method-i-required-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">required?</span><span
+            class="method-args">(sym)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="required-3F-source">
+            <pre><span class="ruby-comment"># File lib/sax-machine/sax_document.rb, line 108</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">required?</span>(<span class="ruby-identifier">sym</span>)
+  <span class="ruby-identifier">column</span>(<span class="ruby-identifier">sym</span>).<span class="ruby-identifier">required?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- required-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- required-3F-method -->
+
+    
+      <div id="method-i-sax_config" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sax_config</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sax_config-source">
+            <pre><span class="ruby-comment"># File lib/sax-machine/sax_document.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sax_config</span>
+  <span class="ruby-ivar">@sax_config</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">SAXConfig</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- sax_config-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- sax_config-method -->
+
+    
+      <div id="method-i-value" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">value</span><span
+            class="method-args">(name, options = {}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="value-source">
+            <pre><span class="ruby-comment"># File lib/sax-machine/sax_document.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">value</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">real_name</span> = (<span class="ruby-identifier">options</span>[<span class="ruby-value">:as</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">name</span>).<span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">sax_config</span>.<span class="ruby-identifier">add_top_level_element_value</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">name</span>))
+  <span class="ruby-identifier">create_attr</span>(<span class="ruby-identifier">real_name</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- value-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- value-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

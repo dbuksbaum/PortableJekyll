@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module Net::NTLM - rubyntlm-0.5.0 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/net/ntlm.rb
+    <li>lib/net/ntlm/blob.rb
+    <li>lib/net/ntlm/client.rb
+    <li>lib/net/ntlm/client/session.rb
+    <li>lib/net/ntlm/encode_util.rb
+    <li>lib/net/ntlm/field.rb
+    <li>lib/net/ntlm/field_set.rb
+    <li>lib/net/ntlm/int16_le.rb
+    <li>lib/net/ntlm/int32_le.rb
+    <li>lib/net/ntlm/int64_le.rb
+    <li>lib/net/ntlm/message.rb
+    <li>lib/net/ntlm/message/type0.rb
+    <li>lib/net/ntlm/message/type1.rb
+    <li>lib/net/ntlm/message/type2.rb
+    <li>lib/net/ntlm/message/type3.rb
+    <li>lib/net/ntlm/security_buffer.rb
+    <li>lib/net/ntlm/string.rb
+    <li>lib/net/ntlm/version.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-apply_des">::apply_des</a>
+    
+    <li ><a href="#method-c-gen_keys">::gen_keys</a>
+    
+    <li ><a href="#method-c-lm_hash">::lm_hash</a>
+    
+    <li ><a href="#method-c-lm_response">::lm_response</a>
+    
+    <li ><a href="#method-c-lmv2_response">::lmv2_response</a>
+    
+    <li ><a href="#method-c-ntlm2_session">::ntlm2_session</a>
+    
+    <li ><a href="#method-c-ntlm_hash">::ntlm_hash</a>
+    
+    <li ><a href="#method-c-ntlm_response">::ntlm_response</a>
+    
+    <li ><a href="#method-c-ntlmv2_hash">::ntlmv2_hash</a>
+    
+    <li ><a href="#method-c-ntlmv2_response">::ntlmv2_response</a>
+    
+    <li ><a href="#method-c-pack_int64le">::pack_int64le</a>
+    
+    <li ><a href="#method-c-split7">::split7</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Net.html">Net</a>
+  
+    <li><a href="../Net/NTLM.html">Net::NTLM</a>
+  
+    <li><a href="../Net/NTLM/Blob.html">Net::NTLM::Blob</a>
+  
+    <li><a href="../Net/NTLM/Client.html">Net::NTLM::Client</a>
+  
+    <li><a href="../Net/NTLM/Client/Session.html">Net::NTLM::Client::Session</a>
+  
+    <li><a href="../Net/NTLM/EncodeUtil.html">Net::NTLM::EncodeUtil</a>
+  
+    <li><a href="../Net/NTLM/Field.html">Net::NTLM::Field</a>
+  
+    <li><a href="../Net/NTLM/FieldSet.html">Net::NTLM::FieldSet</a>
+  
+    <li><a href="../Net/NTLM/Int16LE.html">Net::NTLM::Int16LE</a>
+  
+    <li><a href="../Net/NTLM/Int32LE.html">Net::NTLM::Int32LE</a>
+  
+    <li><a href="../Net/NTLM/Int64LE.html">Net::NTLM::Int64LE</a>
+  
+    <li><a href="../Net/NTLM/Message.html">Net::NTLM::Message</a>
+  
+    <li><a href="../Net/NTLM/Message/Type0.html">Net::NTLM::Message::Type0</a>
+  
+    <li><a href="../Net/NTLM/Message/Type1.html">Net::NTLM::Message::Type1</a>
+  
+    <li><a href="../Net/NTLM/Message/Type2.html">Net::NTLM::Message::Type2</a>
+  
+    <li><a href="../Net/NTLM/Message/Type3.html">Net::NTLM::Message::Type3</a>
+  
+    <li><a href="../Net/NTLM/SecurityBuffer.html">Net::NTLM::SecurityBuffer</a>
+  
+    <li><a href="../Net/NTLM/String.html">Net::NTLM::String</a>
+  
+    <li><a href="../Net/NTLM/VERSION.html">Net::NTLM::VERSION</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module Net::NTLM</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="BLOB_SIGN">BLOB_SIGN
+        
+        <dd class="description">
+        
+      
+        <dt id="DEFAULT_FLAGS">DEFAULT_FLAGS
+        
+        <dd class="description">
+        
+      
+        <dt id="FLAGS">FLAGS
+        
+        <dd class="description">
+        
+      
+        <dt id="FLAG_KEYS">FLAG_KEYS
+        
+        <dd class="description">
+        
+      
+        <dt id="LM_MAGIC">LM_MAGIC
+        
+        <dd class="description">
+        
+      
+        <dt id="MAX64">MAX64
+        
+        <dd class="description">
+        
+      
+        <dt id="SSP_SIGN">SSP_SIGN
+        
+        <dd class="description">
+        
+      
+        <dt id="TIME_OFFSET">TIME_OFFSET
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-apply_des" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">apply_des</span><span
+            class="method-args">(plain, keys)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="apply_des-source">
+            <pre><span class="ruby-comment"># File lib/net/ntlm.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">apply_des</span>(<span class="ruby-identifier">plain</span>, <span class="ruby-identifier">keys</span>)
+  <span class="ruby-identifier">dec</span> = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">Cipher</span><span class="ruby-operator">::</span><span class="ruby-constant">Cipher</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;des-cbc&quot;</span>)
+  <span class="ruby-identifier">dec</span>.<span class="ruby-identifier">padding</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">dec</span>.<span class="ruby-identifier">key</span> = <span class="ruby-identifier">k</span>
+    <span class="ruby-identifier">dec</span>.<span class="ruby-identifier">encrypt</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">plain</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">dec</span>.<span class="ruby-identifier">final</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- apply_des-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- apply_des-method -->
+
+    
+      <div id="method-c-gen_keys" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">gen_keys</span><span
+            class="method-args">(str)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Not sure what this is doing @param [String] str <a
+href="NTLM/String.html">String</a> to generate keys for @api private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="gen_keys-source">
+            <pre><span class="ruby-comment"># File lib/net/ntlm.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">gen_keys</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">split7</span>(<span class="ruby-identifier">str</span>).<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">str7</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">bits</span> = <span class="ruby-identifier">split7</span>(<span class="ruby-identifier">str7</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;B*&quot;</span>)[<span class="ruby-value">0</span>]).<span class="ruby-identifier">inject</span>(<span class="ruby-string">&#39;&#39;</span>)             {<span class="ruby-operator">|</span><span class="ruby-identifier">ret</span>, <span class="ruby-identifier">tkn</span><span class="ruby-operator">|</span> <span class="ruby-identifier">ret</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">tkn</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">tkn</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&#39;1&#39;</span>, <span class="ruby-string">&#39;&#39;</span>).<span class="ruby-identifier">size</span> <span class="ruby-operator">%</span> <span class="ruby-value">2</span>).<span class="ruby-identifier">to_s</span> }
+    [<span class="ruby-identifier">bits</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;B*&quot;</span>)
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- gen_keys-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- gen_keys-method -->
+
+    
+      <div id="method-c-lm_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">lm_hash</span><span
+            class="method-args">(password)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Generates a Lan Manager Hash @param [String] password The password to base
+the hash on</p>
+          
+          
+
+          
+          <div class="method-source-code" id="lm_hash-source">
+            <pre><span class="ruby-comment"># File lib/net/ntlm.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">lm_hash</span>(<span class="ruby-identifier">password</span>)
+  <span class="ruby-identifier">keys</span> = <span class="ruby-identifier">gen_keys</span> <span class="ruby-identifier">password</span>.<span class="ruby-identifier">upcase</span>.<span class="ruby-identifier">ljust</span>(<span class="ruby-value">14</span>, <span class="ruby-string">&quot;\00&quot;&quot;</span>)
+  <span class="ruby-identifier">apply_des</span>(<span class="ruby-constant">LM_MAGIC</span>, <span class="ruby-identifier">keys</span>).<span class="ruby-identifier">join</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- lm_hash-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- lm_hash-method -->
+
+    
+      <div id="method-c-lm_response" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">lm_response</span><span
+            class="method-args">(arg)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="lm_response-source">
+            <pre><span class="ruby-comment"># File lib/net/ntlm.rb, line 142</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">lm_response</span>(<span class="ruby-identifier">arg</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">hash</span> = <span class="ruby-identifier">arg</span>[<span class="ruby-value">:lm_hash</span>]
+    <span class="ruby-identifier">chal</span> = <span class="ruby-identifier">arg</span>[<span class="ruby-value">:challenge</span>]
+  <span class="ruby-keyword">rescue</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">chal</span> = <span class="ruby-constant">NTLM</span><span class="ruby-operator">::</span><span class="ruby-identifier">pack_int64le</span>(<span class="ruby-identifier">chal</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">chal</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Integer</span>)
+  <span class="ruby-identifier">keys</span> = <span class="ruby-identifier">gen_keys</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">ljust</span>(<span class="ruby-value">21</span>, <span class="ruby-string">&quot;\00&quot;&quot;</span>)
+  <span class="ruby-identifier">apply_des</span>(<span class="ruby-identifier">chal</span>, <span class="ruby-identifier">keys</span>).<span class="ruby-identifier">join</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- lm_response-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- lm_response-method -->
+
+    
+      <div id="method-c-lmv2_response" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">lmv2_response</span><span
+            class="method-args">(arg, opt = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="lmv2_response-source">
+            <pre><span class="ruby-comment"># File lib/net/ntlm.rb, line 197</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">lmv2_response</span>(<span class="ruby-identifier">arg</span>, <span class="ruby-identifier">opt</span> = {})
+  <span class="ruby-identifier">key</span> = <span class="ruby-identifier">arg</span>[<span class="ruby-value">:ntlmv2_hash</span>]
+  <span class="ruby-identifier">chal</span> = <span class="ruby-identifier">arg</span>[<span class="ruby-value">:challenge</span>]
+
+  <span class="ruby-identifier">chal</span> = <span class="ruby-constant">NTLM</span><span class="ruby-operator">::</span><span class="ruby-identifier">pack_int64le</span>(<span class="ruby-identifier">chal</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">chal</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Integer</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">opt</span>[<span class="ruby-value">:client_challenge</span>]
+    <span class="ruby-identifier">cc</span>  = <span class="ruby-identifier">opt</span>[<span class="ruby-value">:client_challenge</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">cc</span> = <span class="ruby-identifier">rand</span>(<span class="ruby-constant">MAX64</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">cc</span> = <span class="ruby-constant">NTLM</span><span class="ruby-operator">::</span><span class="ruby-identifier">pack_int64le</span>(<span class="ruby-identifier">cc</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">cc</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Integer</span>)
+
+  <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">HMAC</span>.<span class="ruby-identifier">digest</span>(<span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">MD5</span>.<span class="ruby-identifier">new</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">chal</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">cc</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">cc</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- lmv2_response-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- lmv2_response-method -->
+
+    
+      <div id="method-c-ntlm2_session" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ntlm2_session</span><span
+            class="method-args">(arg, opt = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ntlm2_session-source">
+            <pre><span class="ruby-comment"># File lib/net/ntlm.rb, line 213</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ntlm2_session</span>(<span class="ruby-identifier">arg</span>, <span class="ruby-identifier">opt</span> = {})
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">passwd_hash</span> = <span class="ruby-identifier">arg</span>[<span class="ruby-value">:ntlm_hash</span>]
+    <span class="ruby-identifier">chal</span> = <span class="ruby-identifier">arg</span>[<span class="ruby-value">:challenge</span>]
+  <span class="ruby-keyword">rescue</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">chal</span> = <span class="ruby-constant">NTLM</span><span class="ruby-operator">::</span><span class="ruby-identifier">pack_int64le</span>(<span class="ruby-identifier">chal</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">chal</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Integer</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">opt</span>[<span class="ruby-value">:client_challenge</span>]
+    <span class="ruby-identifier">cc</span> = <span class="ruby-identifier">opt</span>[<span class="ruby-value">:client_challenge</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">cc</span> = <span class="ruby-identifier">rand</span>(<span class="ruby-constant">MAX64</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">cc</span> = <span class="ruby-constant">NTLM</span><span class="ruby-operator">::</span><span class="ruby-identifier">pack_int64le</span>(<span class="ruby-identifier">cc</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">cc</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Integer</span>)
+
+  <span class="ruby-identifier">keys</span> = <span class="ruby-identifier">gen_keys</span>(<span class="ruby-identifier">passwd_hash</span>.<span class="ruby-identifier">ljust</span>(<span class="ruby-value">21</span>, <span class="ruby-string">&quot;\00&quot;&quot;</span>))
+  <span class="ruby-identifier">session_hash</span> = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">MD5</span>.<span class="ruby-identifier">digest</span>(<span class="ruby-identifier">chal</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">cc</span>).<span class="ruby-identifier">slice</span>(<span class="ruby-value">0</span>, <span class="ruby-value">8</span>)
+  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">apply_des</span>(<span class="ruby-identifier">session_hash</span>, <span class="ruby-identifier">keys</span>).<span class="ruby-identifier">join</span>
+  [<span class="ruby-identifier">cc</span>.<span class="ruby-identifier">ljust</span>(<span class="ruby-value">24</span>, <span class="ruby-string">&quot;\00&quot;&quot;</span>), <span class="ruby-identifier">response</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- ntlm2_session-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- ntlm2_session-method -->
+
+    
+      <div id="method-c-ntlm_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ntlm_hash</span><span
+            class="method-args">(password, opt = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Generate a <a href="NTLM.html">NTLM</a> Hash @param [String] password The
+password to base the hash on @option opt :unicode (false) Unicode encode
+the password</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ntlm_hash-source">
+            <pre><span class="ruby-comment"># File lib/net/ntlm.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ntlm_hash</span>(<span class="ruby-identifier">password</span>, <span class="ruby-identifier">opt</span> = {})
+  <span class="ruby-identifier">pwd</span> = <span class="ruby-identifier">password</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">opt</span>[<span class="ruby-value">:unicode</span>]
+    <span class="ruby-identifier">pwd</span> = <span class="ruby-constant">EncodeUtil</span>.<span class="ruby-identifier">encode_utf16le</span>(<span class="ruby-identifier">pwd</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">MD4</span>.<span class="ruby-identifier">digest</span> <span class="ruby-identifier">pwd</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- ntlm_hash-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- ntlm_hash-method -->
+
+    
+      <div id="method-c-ntlm_response" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ntlm_response</span><span
+            class="method-args">(arg)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ntlm_response-source">
+            <pre><span class="ruby-comment"># File lib/net/ntlm.rb, line 154</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ntlm_response</span>(<span class="ruby-identifier">arg</span>)
+  <span class="ruby-identifier">hash</span> = <span class="ruby-identifier">arg</span>[<span class="ruby-value">:ntlm_hash</span>]
+  <span class="ruby-identifier">chal</span> = <span class="ruby-identifier">arg</span>[<span class="ruby-value">:challenge</span>]
+  <span class="ruby-identifier">chal</span> = <span class="ruby-constant">NTLM</span><span class="ruby-operator">::</span><span class="ruby-identifier">pack_int64le</span>(<span class="ruby-identifier">chal</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">chal</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Integer</span>)
+  <span class="ruby-identifier">keys</span> = <span class="ruby-identifier">gen_keys</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">ljust</span>(<span class="ruby-value">21</span>, <span class="ruby-string">&quot;\00&quot;&quot;</span>)
+  <span class="ruby-identifier">apply_des</span>(<span class="ruby-identifier">chal</span>, <span class="ruby-identifier">keys</span>).<span class="ruby-identifier">join</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- ntlm_response-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- ntlm_response-method -->
+
+    
+      <div id="method-c-ntlmv2_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ntlmv2_hash</span><span
+            class="method-args">(user, password, target, opt={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Generate a NTLMv2 Hash @param [String] user The username @param [String]
+password The password @param [String] target The domain or workstaiton to
+authenticate to @option opt :unicode (false) Unicode encode the domain</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ntlmv2_hash-source">
+            <pre><span class="ruby-comment"># File lib/net/ntlm.rb, line 133</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ntlmv2_hash</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">password</span>, <span class="ruby-identifier">target</span>, <span class="ruby-identifier">opt</span>={})
+  <span class="ruby-identifier">ntlmhash</span> = <span class="ruby-identifier">ntlm_hash</span>(<span class="ruby-identifier">password</span>, <span class="ruby-identifier">opt</span>)
+  <span class="ruby-identifier">userdomain</span> = <span class="ruby-identifier">user</span>.<span class="ruby-identifier">upcase</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">target</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">opt</span>[<span class="ruby-value">:unicode</span>]
+    <span class="ruby-identifier">userdomain</span> = <span class="ruby-constant">EncodeUtil</span>.<span class="ruby-identifier">encode_utf16le</span>(<span class="ruby-identifier">userdomain</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">HMAC</span>.<span class="ruby-identifier">digest</span>(<span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">MD5</span>.<span class="ruby-identifier">new</span>, <span class="ruby-identifier">ntlmhash</span>, <span class="ruby-identifier">userdomain</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- ntlmv2_hash-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- ntlmv2_hash-method -->
+
+    
+      <div id="method-c-ntlmv2_response" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ntlmv2_response</span><span
+            class="method-args">(arg, opt = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ntlmv2_response-source">
+            <pre><span class="ruby-comment"># File lib/net/ntlm.rb, line 162</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ntlmv2_response</span>(<span class="ruby-identifier">arg</span>, <span class="ruby-identifier">opt</span> = {})
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">key</span> = <span class="ruby-identifier">arg</span>[<span class="ruby-value">:ntlmv2_hash</span>]
+    <span class="ruby-identifier">chal</span> = <span class="ruby-identifier">arg</span>[<span class="ruby-value">:challenge</span>]
+    <span class="ruby-identifier">ti</span> = <span class="ruby-identifier">arg</span>[<span class="ruby-value">:target_info</span>]
+  <span class="ruby-keyword">rescue</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">chal</span> = <span class="ruby-constant">NTLM</span><span class="ruby-operator">::</span><span class="ruby-identifier">pack_int64le</span>(<span class="ruby-identifier">chal</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">chal</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Integer</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">opt</span>[<span class="ruby-value">:client_challenge</span>]
+    <span class="ruby-identifier">cc</span>  = <span class="ruby-identifier">opt</span>[<span class="ruby-value">:client_challenge</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">cc</span> = <span class="ruby-identifier">rand</span>(<span class="ruby-constant">MAX64</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">cc</span> = <span class="ruby-constant">NTLM</span><span class="ruby-operator">::</span><span class="ruby-identifier">pack_int64le</span>(<span class="ruby-identifier">cc</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">cc</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Integer</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">opt</span>[<span class="ruby-value">:timestamp</span>]
+    <span class="ruby-identifier">ts</span> = <span class="ruby-identifier">opt</span>[<span class="ruby-value">:timestamp</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">ts</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># epoch -&gt; milsec from Jan 1, 1601</span>
+  <span class="ruby-identifier">ts</span> = <span class="ruby-value">10_000_000</span> <span class="ruby-operator">*</span> (<span class="ruby-identifier">ts</span> <span class="ruby-operator">+</span> <span class="ruby-constant">TIME_OFFSET</span>)
+
+  <span class="ruby-identifier">blob</span> = <span class="ruby-constant">Blob</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">blob</span>.<span class="ruby-identifier">timestamp</span> = <span class="ruby-identifier">ts</span>
+  <span class="ruby-identifier">blob</span>.<span class="ruby-identifier">challenge</span> = <span class="ruby-identifier">cc</span>
+  <span class="ruby-identifier">blob</span>.<span class="ruby-identifier">target_info</span> = <span class="ruby-identifier">ti</span>
+
+  <span class="ruby-identifier">bb</span> = <span class="ruby-identifier">blob</span>.<span class="ruby-identifier">serialize</span>
+
+  <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">HMAC</span>.<span class="ruby-identifier">digest</span>(<span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">MD5</span>.<span class="ruby-identifier">new</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">chal</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">bb</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">bb</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- ntlmv2_response-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- ntlmv2_response-method -->
+
+    
+      <div id="method-c-pack_int64le" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pack_int64le</span><span
+            class="method-args">(val)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Conver the value to a 64-Bit Little Endian Int @param [String] val The
+string to convert</p>
+          
+          
+
+          
+          <div class="method-source-code" id="pack_int64le-source">
+            <pre><span class="ruby-comment"># File lib/net/ntlm.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pack_int64le</span>(<span class="ruby-identifier">val</span>)
+    [<span class="ruby-identifier">val</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0x00000000ffffffff</span>, <span class="ruby-identifier">val</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">32</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;V2&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- pack_int64le-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- pack_int64le-method -->
+
+    
+      <div id="method-c-split7" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">split7</span><span
+            class="method-args">(str)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Builds an array of strings that are 7 characters long @param [String] str
+The string to split @api private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="split7-source">
+            <pre><span class="ruby-comment"># File lib/net/ntlm.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">split7</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">s</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-keyword">until</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">empty?</span>
+    (<span class="ruby-identifier">ret</span> <span class="ruby-operator">||=</span> []).<span class="ruby-identifier">push</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">slice!</span>(<span class="ruby-value">0</span>, <span class="ruby-value">7</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">ret</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- split7-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- split7-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Mail::Ruby19 - mail-2.6.3 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/mail/version_specific/ruby_1_9.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-b_value_decode">::b_value_decode</a>
+    
+    <li ><a href="#method-c-b_value_encode">::b_value_encode</a>
+    
+    <li ><a href="#method-c-bracket">::bracket</a>
+    
+    <li ><a href="#method-c-decode_base64">::decode_base64</a>
+    
+    <li ><a href="#method-c-encode_base64">::encode_base64</a>
+    
+    <li ><a href="#method-c-escape_bracket">::escape_bracket</a>
+    
+    <li ><a href="#method-c-escape_paren">::escape_paren</a>
+    
+    <li ><a href="#method-c-get_constant">::get_constant</a>
+    
+    <li ><a href="#method-c-has_constant-3F">::has_constant?</a>
+    
+    <li ><a href="#method-c-param_decode">::param_decode</a>
+    
+    <li ><a href="#method-c-param_encode">::param_encode</a>
+    
+    <li ><a href="#method-c-paren">::paren</a>
+    
+    <li ><a href="#method-c-pick_encoding">::pick_encoding</a>
+    
+    <li ><a href="#method-c-q_value_decode">::q_value_decode</a>
+    
+    <li ><a href="#method-c-q_value_encode">::q_value_encode</a>
+    
+    <li ><a href="#method-c-uri_parser">::uri_parser</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../CHANGELOG_rdoc.html">CHANGELOG</a>
+  
+    <li class="file"><a href="../CONTRIBUTING_md.html">CONTRIBUTING</a>
+  
+    <li class="file"><a href="../README_md.html">README</a>
+  
+    <li class="file"><a href="../TODO_rdoc.html">TODO</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/common_rl.html">common.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/date_time_rl.html">date_time.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/address_lists_machine_rb_rl.html">address_lists_machine.rb.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/content_disposition_machine_rb_rl.html">content_disposition_machine.rb.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/content_location_machine_rb_rl.html">content_location_machine.rb.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/content_transfer_encoding_machine_rb_rl.html">content_transfer_encoding_machine.rb.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/content_type_machine_rb_rl.html">content_type_machine.rb.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/date_time_machine_rb_rl.html">date_time_machine.rb.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/envelope_from_machine_rb_rl.html">envelope_from_machine.rb.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/message_ids_machine_rb_rl.html">message_ids_machine.rb.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/mime_version_machine_rb_rl.html">mime_version_machine.rb.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/phrase_lists_machine_rb_rl.html">phrase_lists_machine.rb.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/rb_actions_rl.html">rb_actions.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/received_machine_rb_rl.html">received_machine.rb.rl</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../ActiveSupport.html">ActiveSupport</a>
+  
+    <li><a href="../Mail.html">Mail</a>
+  
+    <li><a href="../Mail/Address.html">Mail::Address</a>
+  
+    <li><a href="../Mail/AddressContainer.html">Mail::AddressContainer</a>
+  
+    <li><a href="../Mail/AddressList.html">Mail::AddressList</a>
+  
+    <li><a href="../Mail/AttachmentsList.html">Mail::AttachmentsList</a>
+  
+    <li><a href="../Mail/BccField.html">Mail::BccField</a>
+  
+    <li><a href="../Mail/Body.html">Mail::Body</a>
+  
+    <li><a href="../Mail/CcField.html">Mail::CcField</a>
+  
+    <li><a href="../Mail/CheckDeliveryParams.html">Mail::CheckDeliveryParams</a>
+  
+    <li><a href="../Mail/CommentsField.html">Mail::CommentsField</a>
+  
+    <li><a href="../Mail/CommonAddress.html">Mail::CommonAddress</a>
+  
+    <li><a href="../Mail/CommonDate.html">Mail::CommonDate</a>
+  
+    <li><a href="../Mail/CommonField.html">Mail::CommonField</a>
+  
+    <li><a href="../Mail/CommonMessageId.html">Mail::CommonMessageId</a>
+  
+    <li><a href="../Mail/Configuration.html">Mail::Configuration</a>
+  
+    <li><a href="../Mail/Constants.html">Mail::Constants</a>
+  
+    <li><a href="../Mail/Constants/Encoding.html">Mail::Constants::Encoding</a>
+  
+    <li><a href="../Mail/ContentDescriptionField.html">Mail::ContentDescriptionField</a>
+  
+    <li><a href="../Mail/ContentDispositionElement.html">Mail::ContentDispositionElement</a>
+  
+    <li><a href="../Mail/ContentDispositionField.html">Mail::ContentDispositionField</a>
+  
+    <li><a href="../Mail/ContentIdField.html">Mail::ContentIdField</a>
+  
+    <li><a href="../Mail/ContentLocationElement.html">Mail::ContentLocationElement</a>
+  
+    <li><a href="../Mail/ContentLocationField.html">Mail::ContentLocationField</a>
+  
+    <li><a href="../Mail/ContentTransferEncodingElement.html">Mail::ContentTransferEncodingElement</a>
+  
+    <li><a href="../Mail/ContentTransferEncodingField.html">Mail::ContentTransferEncodingField</a>
+  
+    <li><a href="../Mail/ContentTypeElement.html">Mail::ContentTypeElement</a>
+  
+    <li><a href="../Mail/ContentTypeField.html">Mail::ContentTypeField</a>
+  
+    <li><a href="../Mail/DateField.html">Mail::DateField</a>
+  
+    <li><a href="../Mail/DateTimeElement.html">Mail::DateTimeElement</a>
+  
+    <li><a href="../Mail/Encodings.html">Mail::Encodings</a>
+  
+    <li><a href="../Mail/Encodings/Base64.html">Mail::Encodings::Base64</a>
+  
+    <li><a href="../Mail/Encodings/Binary.html">Mail::Encodings::Binary</a>
+  
+    <li><a href="../Mail/Encodings/EightBit.html">Mail::Encodings::EightBit</a>
+  
+    <li><a href="../Mail/Encodings/QuotedPrintable.html">Mail::Encodings::QuotedPrintable</a>
+  
+    <li><a href="../Mail/Encodings/SevenBit.html">Mail::Encodings::SevenBit</a>
+  
+    <li><a href="../Mail/Encodings/TransferEncoding.html">Mail::Encodings::TransferEncoding</a>
+  
+    <li><a href="../Mail/Encodings/UnixToUnix.html">Mail::Encodings::UnixToUnix</a>
+  
+    <li><a href="../Mail/Envelope.html">Mail::Envelope</a>
+  
+    <li><a href="../Mail/EnvelopeFromElement.html">Mail::EnvelopeFromElement</a>
+  
+    <li><a href="../Mail/Exim.html">Mail::Exim</a>
+  
+    <li><a href="../Mail/Field.html">Mail::Field</a>
+  
+    <li><a href="../Mail/Field/FieldError.html">Mail::Field::FieldError</a>
+  
+    <li><a href="../Mail/Field/ParseError.html">Mail::Field::ParseError</a>
+  
+    <li><a href="../Mail/Field/SyntaxError.html">Mail::Field::SyntaxError</a>
+  
+    <li><a href="../Mail/FieldList.html">Mail::FieldList</a>
+  
+    <li><a href="../Mail/FileDelivery.html">Mail::FileDelivery</a>
+  
+    <li><a href="../Mail/FromField.html">Mail::FromField</a>
+  
+    <li><a href="../Mail/Header.html">Mail::Header</a>
+  
+    <li><a href="../Mail/IMAP.html">Mail::IMAP</a>
+  
+    <li><a href="../Mail/InReplyToField.html">Mail::InReplyToField</a>
+  
+    <li><a href="../Mail/IndifferentHash.html">Mail::IndifferentHash</a>
+  
+    <li><a href="../Mail/KeywordsField.html">Mail::KeywordsField</a>
+  
+    <li><a href="../Mail/Matchers.html">Mail::Matchers</a>
+  
+    <li><a href="../Mail/Matchers/HasSentEmailMatcher.html">Mail::Matchers::HasSentEmailMatcher</a>
+  
+    <li><a href="../Mail/Message.html">Mail::Message</a>
+  
+    <li><a href="../Mail/MessageIdField.html">Mail::MessageIdField</a>
+  
+    <li><a href="../Mail/MessageIdsElement.html">Mail::MessageIdsElement</a>
+  
+    <li><a href="../Mail/MimeVersionElement.html">Mail::MimeVersionElement</a>
+  
+    <li><a href="../Mail/MimeVersionField.html">Mail::MimeVersionField</a>
+  
+    <li><a href="../Mail/Multibyte.html">Mail::Multibyte</a>
+  
+    <li><a href="../Mail/Multibyte.html">Mail::Multibyte</a>
+  
+    <li><a href="../Mail/Multibyte/Chars.html">Mail::Multibyte::Chars</a>
+  
+    <li><a href="../Mail/Multibyte/EncodingError.html">Mail::Multibyte::EncodingError</a>
+  
+    <li><a href="../Mail/Multibyte/Unicode.html">Mail::Multibyte::Unicode</a>
+  
+    <li><a href="../Mail/Multibyte/Unicode/Codepoint.html">Mail::Multibyte::Unicode::Codepoint</a>
+  
+    <li><a href="../Mail/Multibyte/Unicode/UnicodeDatabase.html">Mail::Multibyte::Unicode::UnicodeDatabase</a>
+  
+    <li><a href="../Mail/OptionalField.html">Mail::OptionalField</a>
+  
+    <li><a href="../Mail/POP3.html">Mail::POP3</a>
+  
+    <li><a href="../Mail/ParameterHash.html">Mail::ParameterHash</a>
+  
+    <li><a href="../Mail/Parsers.html">Mail::Parsers</a>
+  
+    <li><a href="../Mail/Parsers/AddressListsParser.html">Mail::Parsers::AddressListsParser</a>
+  
+    <li><a href="../Mail/Parsers/ContentDispositionParser.html">Mail::Parsers::ContentDispositionParser</a>
+  
+    <li><a href="../Mail/Parsers/ContentLocationParser.html">Mail::Parsers::ContentLocationParser</a>
+  
+    <li><a href="../Mail/Parsers/ContentTransferEncodingParser.html">Mail::Parsers::ContentTransferEncodingParser</a>
+  
+    <li><a href="../Mail/Parsers/ContentTypeParser.html">Mail::Parsers::ContentTypeParser</a>
+  
+    <li><a href="../Mail/Parsers/DateTimeParser.html">Mail::Parsers::DateTimeParser</a>
+  
+    <li><a href="../Mail/Parsers/EnvelopeFromParser.html">Mail::Parsers::EnvelopeFromParser</a>
+  
+    <li><a href="../Mail/Parsers/MessageIdsParser.html">Mail::Parsers::MessageIdsParser</a>
+  
+    <li><a href="../Mail/Parsers/MimeVersionParser.html">Mail::Parsers::MimeVersionParser</a>
+  
+    <li><a href="../Mail/Parsers/PhraseListsParser.html">Mail::Parsers::PhraseListsParser</a>
+  
+    <li><a href="../Mail/Parsers/Ragel.html">Mail::Parsers::Ragel</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/AddressListsMachine.html">Mail::Parsers::Ragel::AddressListsMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/ContentDispositionMachine.html">Mail::Parsers::Ragel::ContentDispositionMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/ContentLocationMachine.html">Mail::Parsers::Ragel::ContentLocationMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/ContentTransferEncodingMachine.html">Mail::Parsers::Ragel::ContentTransferEncodingMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/ContentTypeMachine.html">Mail::Parsers::Ragel::ContentTypeMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/DateTimeMachine.html">Mail::Parsers::Ragel::DateTimeMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/EnvelopeFromMachine.html">Mail::Parsers::Ragel::EnvelopeFromMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/MessageIdsMachine.html">Mail::Parsers::Ragel::MessageIdsMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/MimeVersionMachine.html">Mail::Parsers::Ragel::MimeVersionMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/PhraseListsMachine.html">Mail::Parsers::Ragel::PhraseListsMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/ReceivedMachine.html">Mail::Parsers::Ragel::ReceivedMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/Ruby.html">Mail::Parsers::Ragel::Ruby</a>
+  
+    <li><a href="../Mail/Parsers/ReceivedParser.html">Mail::Parsers::ReceivedParser</a>
+  
+    <li><a href="../Mail/Part.html">Mail::Part</a>
+  
+    <li><a href="../Mail/PartsList.html">Mail::PartsList</a>
+  
+    <li><a href="../Mail/PhraseList.html">Mail::PhraseList</a>
+  
+    <li><a href="../Mail/ReceivedElement.html">Mail::ReceivedElement</a>
+  
+    <li><a href="../Mail/ReceivedField.html">Mail::ReceivedField</a>
+  
+    <li><a href="../Mail/ReferencesField.html">Mail::ReferencesField</a>
+  
+    <li><a href="../Mail/ReplyToField.html">Mail::ReplyToField</a>
+  
+    <li><a href="../Mail/ResentBccField.html">Mail::ResentBccField</a>
+  
+    <li><a href="../Mail/ResentCcField.html">Mail::ResentCcField</a>
+  
+    <li><a href="../Mail/ResentDateField.html">Mail::ResentDateField</a>
+  
+    <li><a href="../Mail/ResentFromField.html">Mail::ResentFromField</a>
+  
+    <li><a href="../Mail/ResentMessageIdField.html">Mail::ResentMessageIdField</a>
+  
+    <li><a href="../Mail/ResentSenderField.html">Mail::ResentSenderField</a>
+  
+    <li><a href="../Mail/ResentToField.html">Mail::ResentToField</a>
+  
+    <li><a href="../Mail/Retriever.html">Mail::Retriever</a>
+  
+    <li><a href="../Mail/ReturnPathField.html">Mail::ReturnPathField</a>
+  
+    <li><a href="../Mail/Ruby18.html">Mail::Ruby18</a>
+  
+    <li><a href="../Mail/Ruby19.html">Mail::Ruby19</a>
+  
+    <li><a href="../Mail/Ruby19/BestEffortCharsetEncoder.html">Mail::Ruby19::BestEffortCharsetEncoder</a>
+  
+    <li><a href="../Mail/Ruby19/StrictCharsetEncoder.html">Mail::Ruby19::StrictCharsetEncoder</a>
+  
+    <li><a href="../Mail/SMTP.html">Mail::SMTP</a>
+  
+    <li><a href="../Mail/SMTPConnection.html">Mail::SMTPConnection</a>
+  
+    <li><a href="../Mail/SenderField.html">Mail::SenderField</a>
+  
+    <li><a href="../Mail/Sendmail.html">Mail::Sendmail</a>
+  
+    <li><a href="../Mail/StructuredField.html">Mail::StructuredField</a>
+  
+    <li><a href="../Mail/SubjectField.html">Mail::SubjectField</a>
+  
+    <li><a href="../Mail/TestMailer.html">Mail::TestMailer</a>
+  
+    <li><a href="../Mail/TestRetriever.html">Mail::TestRetriever</a>
+  
+    <li><a href="../Mail/ToField.html">Mail::ToField</a>
+  
+    <li><a href="../Mail/UnknownEncodingType.html">Mail::UnknownEncodingType</a>
+  
+    <li><a href="../Mail/UnstructuredField.html">Mail::UnstructuredField</a>
+  
+    <li><a href="../Mail/Utilities.html">Mail::Utilities</a>
+  
+    <li><a href="../Mail/VERSION.html">Mail::VERSION</a>
+  
+    <li><a href="../Net.html">Net</a>
+  
+    <li><a href="../Net/SMTP.html">Net::SMTP</a>
+  
+    <li><a href="../NilClass.html">NilClass</a>
+  
+    <li><a href="../Object.html">Object</a>
+  
+    <li><a href="../String.html">String</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Mail::Ruby19</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-c-charset_encoder" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">charset_encoder</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-b_value_decode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">b_value_decode</span><span
+            class="method-args">(str)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="b_value_decode-source">
+            <pre><span class="ruby-comment"># File lib/mail/version_specific/ruby_1_9.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Ruby19</span>.<span class="ruby-identifier">b_value_decode</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">match</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\=\?(.+)?\?[Bb]\?(.*)\?\=/</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">match</span>
+    <span class="ruby-identifier">charset</span> = <span class="ruby-identifier">match</span>[<span class="ruby-value">1</span>]
+    <span class="ruby-identifier">str</span> = <span class="ruby-constant">Ruby19</span>.<span class="ruby-identifier">decode_base64</span>(<span class="ruby-identifier">match</span>[<span class="ruby-value">2</span>])
+    <span class="ruby-identifier">str</span> = <span class="ruby-identifier">charset_encoder</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">str</span>, <span class="ruby-identifier">charset</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">decoded</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>, <span class="ruby-value">:invalid</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:replace</span>, <span class="ruby-value">:replace</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-identifier">decoded</span>.<span class="ruby-identifier">valid_encoding?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">decoded</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">decoded</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_16LE</span>, <span class="ruby-value">:invalid</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:replace</span>, <span class="ruby-value">:replace</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&quot;</span>).<span class="ruby-identifier">encode</span>(<span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UndefinedConversionError</span>, <span class="ruby-constant">ArgumentError</span>, <span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ConverterNotFoundError</span>
+  <span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;Encoding conversion failed #{$!}&quot;</span>
+  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- b_value_decode-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- b_value_decode-method -->
+
+    
+      <div id="method-c-b_value_encode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">b_value_encode</span><span
+            class="method-args">(str, encoding = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="b_value_encode-source">
+            <pre><span class="ruby-comment"># File lib/mail/version_specific/ruby_1_9.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Ruby19</span>.<span class="ruby-identifier">b_value_encode</span>(<span class="ruby-identifier">str</span>, <span class="ruby-identifier">encoding</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">encoding</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">encoding</span>.<span class="ruby-identifier">to_s</span>
+  [<span class="ruby-constant">Ruby19</span>.<span class="ruby-identifier">encode_base64</span>(<span class="ruby-identifier">str</span>), <span class="ruby-identifier">encoding</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- b_value_encode-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- b_value_encode-method -->
+
+    
+      <div id="method-c-bracket" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bracket</span><span
+            class="method-args">( str )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="bracket-source">
+            <pre><span class="ruby-comment"># File lib/mail/version_specific/ruby_1_9.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Ruby19</span>.<span class="ruby-identifier">bracket</span>( <span class="ruby-identifier">str</span> )
+  <span class="ruby-identifier">str</span> = <span class="ruby-node">$1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">str</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^\&lt;(.*)?\&gt;$/</span>
+  <span class="ruby-identifier">str</span> = <span class="ruby-identifier">escape_bracket</span>( <span class="ruby-identifier">str</span> )
+  <span class="ruby-string">&#39;&lt;&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">str</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;&gt;&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- bracket-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- bracket-method -->
+
+    
+      <div id="method-c-decode_base64" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">decode_base64</span><span
+            class="method-args">(str)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="decode_base64-source">
+            <pre><span class="ruby-comment"># File lib/mail/version_specific/ruby_1_9.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Ruby19</span>.<span class="ruby-identifier">decode_base64</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">unpack</span>( <span class="ruby-string">&#39;m&#39;</span> ).<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- decode_base64-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- decode_base64-method -->
+
+    
+      <div id="method-c-encode_base64" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">encode_base64</span><span
+            class="method-args">(str)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="encode_base64-source">
+            <pre><span class="ruby-comment"># File lib/mail/version_specific/ruby_1_9.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Ruby19</span>.<span class="ruby-identifier">encode_base64</span>(<span class="ruby-identifier">str</span>)
+  [<span class="ruby-identifier">str</span>].<span class="ruby-identifier">pack</span>( <span class="ruby-string">&#39;m&#39;</span> )
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- encode_base64-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- encode_base64-method -->
+
+    
+      <div id="method-c-escape_bracket" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">escape_bracket</span><span
+            class="method-args">( str )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="escape_bracket-source">
+            <pre><span class="ruby-comment"># File lib/mail/version_specific/ruby_1_9.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Ruby19</span>.<span class="ruby-identifier">escape_bracket</span>( <span class="ruby-identifier">str</span> )
+  <span class="ruby-identifier">re</span> = <span class="ruby-regexp">/(?&lt;!\)([\&lt;\&gt;])/</span>          <span class="ruby-comment"># Only match unescaped brackets</span>
+  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-identifier">re</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-string">&#39;\&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">s</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- escape_bracket-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- escape_bracket-method -->
+
+    
+      <div id="method-c-escape_paren" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">escape_paren</span><span
+            class="method-args">( str )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Escapes any parenthesis in a string that are unescaped this uses a Ruby
+1.9.1 regexp feature of negative look behind</p>
+          
+          
+
+          
+          <div class="method-source-code" id="escape_paren-source">
+            <pre><span class="ruby-comment"># File lib/mail/version_specific/ruby_1_9.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Ruby19</span>.<span class="ruby-identifier">escape_paren</span>( <span class="ruby-identifier">str</span> )
+  <span class="ruby-identifier">re</span> = <span class="ruby-regexp">/(?&lt;!\)([\(\)])/</span>          <span class="ruby-comment"># Only match unescaped parens</span>
+  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-identifier">re</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-string">&#39;\&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">s</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- escape_paren-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- escape_paren-method -->
+
+    
+      <div id="method-c-get_constant" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_constant</span><span
+            class="method-args">(klass, string)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_constant-source">
+            <pre><span class="ruby-comment"># File lib/mail/version_specific/ruby_1_9.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Ruby19</span>.<span class="ruby-identifier">get_constant</span>(<span class="ruby-identifier">klass</span>, <span class="ruby-identifier">string</span>)
+  <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">const_get</span>( <span class="ruby-identifier">string</span> )
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_constant-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_constant-method -->
+
+    
+      <div id="method-c-has_constant-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_constant?</span><span
+            class="method-args">(klass, string)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="has_constant-3F-source">
+            <pre><span class="ruby-comment"># File lib/mail/version_specific/ruby_1_9.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Ruby19</span>.<span class="ruby-identifier">has_constant?</span>(<span class="ruby-identifier">klass</span>, <span class="ruby-identifier">string</span>)
+  <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">const_defined?</span>( <span class="ruby-identifier">string</span>, <span class="ruby-keyword">false</span> )
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- has_constant-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- has_constant-3F-method -->
+
+    
+      <div id="method-c-param_decode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">param_decode</span><span
+            class="method-args">(str, encoding)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="param_decode-source">
+            <pre><span class="ruby-comment"># File lib/mail/version_specific/ruby_1_9.rb, line 119</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Ruby19</span>.<span class="ruby-identifier">param_decode</span>(<span class="ruby-identifier">str</span>, <span class="ruby-identifier">encoding</span>)
+  <span class="ruby-identifier">str</span> = <span class="ruby-identifier">uri_parser</span>.<span class="ruby-identifier">unescape</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">str</span> = <span class="ruby-identifier">charset_encoder</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">str</span>, <span class="ruby-identifier">encoding</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">encoding</span>
+  <span class="ruby-identifier">str</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- param_decode-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- param_decode-method -->
+
+    
+      <div id="method-c-param_encode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">param_encode</span><span
+            class="method-args">(str)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="param_encode-source">
+            <pre><span class="ruby-comment"># File lib/mail/version_specific/ruby_1_9.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Ruby19</span>.<span class="ruby-identifier">param_encode</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">encoding</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">encoding</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>
+  <span class="ruby-identifier">language</span> = <span class="ruby-constant">Configuration</span>.<span class="ruby-identifier">instance</span>.<span class="ruby-identifier">param_encode_language</span>
+  <span class="ruby-node">&quot;#{encoding}&#39;#{language}&#39;#{uri_parser.escape(str)}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- param_encode-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- param_encode-method -->
+
+    
+      <div id="method-c-paren" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">paren</span><span
+            class="method-args">( str )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="paren-source">
+            <pre><span class="ruby-comment"># File lib/mail/version_specific/ruby_1_9.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Ruby19</span>.<span class="ruby-identifier">paren</span>( <span class="ruby-identifier">str</span> )
+  <span class="ruby-identifier">str</span> = <span class="ruby-node">$1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">str</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^\((.*)?\)$/</span>
+  <span class="ruby-identifier">str</span> = <span class="ruby-identifier">escape_paren</span>( <span class="ruby-identifier">str</span> )
+  <span class="ruby-string">&#39;(&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">str</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;)&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- paren-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- paren-method -->
+
+    
+      <div id="method-c-pick_encoding" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pick_encoding</span><span
+            class="method-args">(charset)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Pick a Ruby encoding corresponding to the message charset. Most charsets
+have a Ruby encoding, but some need manual aliasing here.</p>
+
+<p>TODO: add this as a test somewhere:</p>
+
+<pre class="ruby"><span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">list</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">e</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">upcase</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">pick_encoding</span>(<span class="ruby-identifier">e</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;-&quot;</span>, <span class="ruby-string">&quot;&quot;</span>)), <span class="ruby-identifier">e</span>.<span class="ruby-identifier">to_s</span>] }.<span class="ruby-identifier">select</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">a</span>,<span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-operator">!</span><span class="ruby-identifier">b</span>}
+<span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">list</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">e</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">pick_encoding</span>(<span class="ruby-identifier">e</span>.<span class="ruby-identifier">to_s</span>), <span class="ruby-identifier">e</span>.<span class="ruby-identifier">to_s</span>] }.<span class="ruby-identifier">select</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">a</span>,<span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-operator">!</span><span class="ruby-identifier">b</span>}
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="pick_encoding-source">
+            <pre><span class="ruby-comment"># File lib/mail/version_specific/ruby_1_9.rb, line 141</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Ruby19</span>.<span class="ruby-identifier">pick_encoding</span>(<span class="ruby-identifier">charset</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">charset</span>
+
+  <span class="ruby-comment"># ISO-8859-8-I etc. http://en.wikipedia.org/wiki/ISO-8859-8-I</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^iso-?8859-(\d+)(-i)?$/</span>
+    <span class="ruby-node">&quot;ISO-8859-#{$1}&quot;</span>
+
+  <span class="ruby-comment"># ISO-8859-15, ISO-2022-JP and alike</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/iso-?(\d{4})-?(\w{1,2})/</span>
+    <span class="ruby-node">&quot;ISO-#{$1}-#{$2}&quot;</span>
+
+  <span class="ruby-comment"># &quot;ISO-2022-JP-KDDI&quot;  and alike</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/iso-?(\d{4})-?(\w{1,2})-?(\w*)/</span>
+    <span class="ruby-node">&quot;ISO-#{$1}-#{$2}-#{$3}&quot;</span>
+
+  <span class="ruby-comment"># UTF-8, UTF-32BE and alike</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/utf[\-_]?(\d{1,2})?(\w{1,2})/</span>
+    <span class="ruby-node">&quot;UTF-#{$1}#{$2}&quot;</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/\A(UTF-(?:16|32))\z/</span>, <span class="ruby-string">&#39;\1BE&#39;</span>)
+
+  <span class="ruby-comment"># Windows-1252 and alike</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/Windows-?(.*)/</span>
+    <span class="ruby-node">&quot;Windows-#{$1}&quot;</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^8bit$/</span>
+    <span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ASCII_8BIT</span>
+
+  <span class="ruby-comment"># alternatives/misspellings of us-ascii seen in the wild</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^iso-?646(-us)?$/</span>, <span class="ruby-regexp">/us=ascii/</span>
+    <span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ASCII</span>
+
+  <span class="ruby-comment"># Microsoft-specific alias for MACROMAN</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^macintosh$/</span>
+    <span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">MACROMAN</span>
+
+  <span class="ruby-comment"># Microsoft-specific alias for CP949 (Korean)</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;ks_c_5601-1987&#39;</span>
+    <span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">CP949</span>
+
+  <span class="ruby-comment"># Wrongly written Shift_JIS (Japanese)</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;shift-jis&#39;</span>
+    <span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">Shift_JIS</span>
+
+  <span class="ruby-comment"># GB2312 (Chinese charset) is a subset of GB18030 (its replacement)</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/gb2312/</span>
+    <span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">GB18030</span>
+
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">charset</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- pick_encoding-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- pick_encoding-method -->
+
+    
+      <div id="method-c-q_value_decode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">q_value_decode</span><span
+            class="method-args">(str)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="q_value_decode-source">
+            <pre><span class="ruby-comment"># File lib/mail/version_specific/ruby_1_9.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Ruby19</span>.<span class="ruby-identifier">q_value_decode</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">match</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\=\?(.+)?\?[Qq]\?(.*)\?\=/</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">match</span>
+    <span class="ruby-identifier">charset</span> = <span class="ruby-identifier">match</span>[<span class="ruby-value">1</span>]
+    <span class="ruby-identifier">string</span> = <span class="ruby-identifier">match</span>[<span class="ruby-value">2</span>].<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/_/</span>, <span class="ruby-string">&#39;=20&#39;</span>)
+    <span class="ruby-comment"># Remove trailing = if it exists in a Q encoding</span>
+    <span class="ruby-identifier">string</span> = <span class="ruby-identifier">string</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">/\=$/</span>, <span class="ruby-string">&#39;&#39;</span>)
+    <span class="ruby-identifier">str</span> = <span class="ruby-constant">Encodings</span><span class="ruby-operator">::</span><span class="ruby-constant">QuotedPrintable</span>.<span class="ruby-identifier">decode</span>(<span class="ruby-identifier">string</span>)
+    <span class="ruby-identifier">str</span> = <span class="ruby-identifier">charset_encoder</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">str</span>, <span class="ruby-identifier">charset</span>)
+    <span class="ruby-comment"># We assume that binary strings hold utf-8 directly to work around</span>
+    <span class="ruby-comment"># jruby/jruby#829 which subtly changes String#encode semantics.</span>
+    <span class="ruby-identifier">str</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">encoding</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ASCII_8BIT</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">decoded</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>, <span class="ruby-value">:invalid</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:replace</span>, <span class="ruby-value">:replace</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-identifier">decoded</span>.<span class="ruby-identifier">valid_encoding?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">decoded</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">decoded</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_16LE</span>, <span class="ruby-value">:invalid</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:replace</span>, <span class="ruby-value">:replace</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&quot;</span>).<span class="ruby-identifier">encode</span>(<span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UndefinedConversionError</span>, <span class="ruby-constant">ArgumentError</span>, <span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ConverterNotFoundError</span>
+  <span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;Encoding conversion failed #{$!}&quot;</span>
+  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- q_value_decode-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- q_value_decode-method -->
+
+    
+      <div id="method-c-q_value_encode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">q_value_encode</span><span
+            class="method-args">(str, encoding = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="q_value_encode-source">
+            <pre><span class="ruby-comment"># File lib/mail/version_specific/ruby_1_9.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Ruby19</span>.<span class="ruby-identifier">q_value_encode</span>(<span class="ruby-identifier">str</span>, <span class="ruby-identifier">encoding</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">encoding</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">encoding</span>.<span class="ruby-identifier">to_s</span>
+  [<span class="ruby-constant">Encodings</span><span class="ruby-operator">::</span><span class="ruby-constant">QuotedPrintable</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">str</span>), <span class="ruby-identifier">encoding</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- q_value_encode-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- q_value_encode-method -->
+
+    
+      <div id="method-c-uri_parser" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">uri_parser</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="uri_parser-source">
+            <pre><span class="ruby-comment"># File lib/mail/version_specific/ruby_1_9.rb, line 131</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Ruby19</span>.<span class="ruby-identifier">uri_parser</span>
+  <span class="ruby-ivar">@uri_parser</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-constant">Parser</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- uri_parser-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- uri_parser-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

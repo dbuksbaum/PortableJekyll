@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Syntax::Convertors::HTML - syntax-1.2.0 Documentation</title>
+
+<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../index.html">Home</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/syntax/convertors/html.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="Abstract.html">Syntax::Convertors::Abstract</a>
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-i-convert">#convert</a>
+    
+    <li ><a href="#method-i-html_escape">#html_escape</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../Syntax.html">Syntax</a>
+  
+    <li><a href="../../Syntax/AnsiC.html">Syntax::AnsiC</a>
+  
+    <li><a href="../../Syntax/CSS21.html">Syntax::CSS21</a>
+  
+    <li><a href="../../Syntax/Convertors.html">Syntax::Convertors</a>
+  
+    <li><a href="../../Syntax/Convertors/Abstract.html">Syntax::Convertors::Abstract</a>
+  
+    <li><a href="../../Syntax/Convertors/HTML.html">Syntax::Convertors::HTML</a>
+  
+    <li><a href="../../Syntax/Default.html">Syntax::Default</a>
+  
+    <li><a href="../../Syntax/Fortran.html">Syntax::Fortran</a>
+  
+    <li><a href="../../Syntax/Javascript.html">Syntax::Javascript</a>
+  
+    <li><a href="../../Syntax/Ruby.html">Syntax::Ruby</a>
+  
+    <li><a href="../../Syntax/SQLite.html">Syntax::SQLite</a>
+  
+    <li><a href="../../Syntax/Token.html">Syntax::Token</a>
+  
+    <li><a href="../../Syntax/Tokenizer.html">Syntax::Tokenizer</a>
+  
+    <li><a href="../../Syntax/Version.html">Syntax::Version</a>
+  
+    <li><a href="../../Syntax/XML.html">Syntax::XML</a>
+  
+    <li><a href="../../Syntax/YAML.html">Syntax::YAML</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Syntax::Convertors::HTML</h1>
+
+  <div id="description" class="description">
+    
+<p>A simple class for converting a text into <a href="HTML.html">HTML</a>.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-convert" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">convert</span><span
+            class="method-args">( text, pre=true )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Converts the given text to <a href="HTML.html">HTML</a>, using spans to
+represent token groups of any type but <code>:normal</code> (which is
+always unhighlighted). If <code>pre</code> is <code>true</code>, the html
+is automatically wrapped in pre tags.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="convert-source">
+            <pre><span class="ruby-comment"># File lib/syntax/convertors/html.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">convert</span>( <span class="ruby-identifier">text</span>, <span class="ruby-identifier">pre</span>=<span class="ruby-keyword">true</span> )
+  <span class="ruby-identifier">html</span> = <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&lt;pre&gt;&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">pre</span>
+  <span class="ruby-identifier">regions</span> = []
+  <span class="ruby-ivar">@tokenizer</span>.<span class="ruby-identifier">tokenize</span>( <span class="ruby-identifier">text</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tok</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-identifier">html_escape</span>(<span class="ruby-identifier">tok</span>)
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">tok</span>.<span class="ruby-identifier">instruction</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:region_close</span> <span class="ruby-keyword">then</span>
+        <span class="ruby-identifier">regions</span>.<span class="ruby-identifier">pop</span>
+        <span class="ruby-identifier">html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&lt;/span&gt;&quot;</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:region_open</span> <span class="ruby-keyword">then</span>
+        <span class="ruby-identifier">regions</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">tok</span>.<span class="ruby-identifier">group</span>
+        <span class="ruby-identifier">html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;&lt;span class=\&quot;#{tok.group}\&quot;&gt;#{value}&quot;</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">tok</span>.<span class="ruby-identifier">group</span> <span class="ruby-operator">==</span> ( <span class="ruby-identifier">regions</span>.<span class="ruby-identifier">last</span> <span class="ruby-operator">||</span> <span class="ruby-value">:normal</span> )
+          <span class="ruby-identifier">html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">value</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;&lt;span class=\&quot;#{tok.group}\&quot;&gt;#{value}&lt;/span&gt;&quot;</span>
+        <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&lt;/span&gt;&quot;</span> <span class="ruby-keyword">while</span> <span class="ruby-identifier">regions</span>.<span class="ruby-identifier">pop</span>
+  <span class="ruby-identifier">html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&lt;/pre&gt;&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">pre</span>
+  <span class="ruby-identifier">html</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- convert-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- convert-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-html_escape" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">html_escape</span><span
+            class="method-args">( string )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Replaces some characters with their corresponding <a
+href="HTML.html">HTML</a> entities.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="html_escape-source">
+            <pre><span class="ruby-comment"># File lib/syntax/convertors/html.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">html_escape</span>( <span class="ruby-identifier">string</span> )
+  <span class="ruby-identifier">string</span>.<span class="ruby-identifier">gsub</span>( <span class="ruby-regexp">/&amp;/</span>, <span class="ruby-string">&quot;&amp;amp;&quot;</span> ).
+         <span class="ruby-identifier">gsub</span>( <span class="ruby-regexp">/&lt;/</span>, <span class="ruby-string">&quot;&amp;lt;&quot;</span> ).
+         <span class="ruby-identifier">gsub</span>( <span class="ruby-regexp">/&gt;/</span>, <span class="ruby-string">&quot;&amp;gt;&quot;</span> ).
+         <span class="ruby-identifier">gsub</span>( <span class="ruby-regexp">/&quot;/</span>, <span class="ruby-string">&quot;&amp;quot;&quot;</span> )
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- html_escape-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- html_escape-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module Emoji - gemoji-2.1.0 Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/emoji.rb
+    <li>lib/emoji/character.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-i-all">#all</a>
+    
+    <li ><a href="#method-i-create">#create</a>
+    
+    <li ><a href="#method-i-data_file">#data_file</a>
+    
+    <li ><a href="#method-i-edit_emoji">#edit_emoji</a>
+    
+    <li ><a href="#method-i-find_by_alias">#find_by_alias</a>
+    
+    <li ><a href="#method-i-find_by_unicode">#find_by_unicode</a>
+    
+    <li ><a href="#method-i-images_path">#images_path</a>
+    
+    <li ><a href="#method-i-names_index">#names_index</a>
+    
+    <li ><a href="#method-i-parse_data_file">#parse_data_file</a>
+    
+    <li ><a href="#method-i-unicodes_index">#unicodes_index</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./lib/tasks/emoji_rake.html">emoji.rake</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Emoji.html">Emoji</a>
+  
+    <li><a href="./Emoji/Character.html">Emoji::Character</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module Emoji</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="VARIATION_SELECTOR_16">VARIATION_SELECTOR_16
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-all" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">all</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="all-source">
+            <pre><span class="ruby-comment"># File lib/emoji.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">all</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@all</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span> <span class="ruby-ivar">@all</span>
+  <span class="ruby-ivar">@all</span> = []
+  <span class="ruby-identifier">parse_data_file</span>
+  <span class="ruby-ivar">@all</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- all-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- all-method -->
+
+    
+      <div id="method-i-create" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create</span><span
+            class="method-args">(name) { |emoji| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public: Initialize an <a href="Emoji/Character.html">Emoji::Character</a>
+instance and yield it to the block. The character is added to the
+`Emoji.all` set.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="create-source">
+            <pre><span class="ruby-comment"># File lib/emoji.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">emoji</span> = <span class="ruby-constant">Emoji</span><span class="ruby-operator">::</span><span class="ruby-constant">Character</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">all</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">edit_emoji</span>(<span class="ruby-identifier">emoji</span>) { <span class="ruby-keyword">yield</span> <span class="ruby-identifier">emoji</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span> }
+  <span class="ruby-identifier">emoji</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- create-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- create-method -->
+
+    
+      <div id="method-i-data_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">data_file</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="data_file-source">
+            <pre><span class="ruby-comment"># File lib/emoji.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">data_file</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&#39;../../db/emoji.json&#39;</span>, <span class="ruby-keyword">__FILE__</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- data_file-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- data_file-method -->
+
+    
+      <div id="method-i-edit_emoji" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">edit_emoji</span><span
+            class="method-args">(emoji) { |emoji| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public: Yield an emoji to the block and update the indices in case its
+aliases or unicode_aliases lists changed.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="edit_emoji-source">
+            <pre><span class="ruby-comment"># File lib/emoji.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">edit_emoji</span>(<span class="ruby-identifier">emoji</span>)
+  <span class="ruby-ivar">@names_index</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@unicodes_index</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-keyword">yield</span> <span class="ruby-identifier">emoji</span>
+
+  <span class="ruby-identifier">emoji</span>.<span class="ruby-identifier">aliases</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@names_index</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">emoji</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">emoji</span>.<span class="ruby-identifier">unicode_aliases</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">unicode</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@unicodes_index</span>[<span class="ruby-identifier">unicode</span>] = <span class="ruby-identifier">emoji</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">emoji</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- edit_emoji-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- edit_emoji-method -->
+
+    
+      <div id="method-i-find_by_alias" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_by_alias</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public: Find an emoji by its aliased name. Return nil if missing.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="find_by_alias-source">
+            <pre><span class="ruby-comment"># File lib/emoji.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_by_alias</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">names_index</span>[<span class="ruby-identifier">name</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- find_by_alias-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- find_by_alias-method -->
+
+    
+      <div id="method-i-find_by_unicode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_by_unicode</span><span
+            class="method-args">(unicode)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public: Find an emoji by its unicode character. Return nil if missing.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="find_by_unicode-source">
+            <pre><span class="ruby-comment"># File lib/emoji.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_by_unicode</span>(<span class="ruby-identifier">unicode</span>)
+  <span class="ruby-identifier">unicodes_index</span>[<span class="ruby-identifier">unicode</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- find_by_unicode-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- find_by_unicode-method -->
+
+    
+      <div id="method-i-images_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">images_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="images_path-source">
+            <pre><span class="ruby-comment"># File lib/emoji.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">images_path</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&quot;../../images&quot;</span>, <span class="ruby-keyword">__FILE__</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- images_path-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- images_path-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-names_index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">names_index</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="names_index-source">
+            <pre><span class="ruby-comment"># File lib/emoji.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">names_index</span>
+  <span class="ruby-identifier">all</span> <span class="ruby-keyword">unless</span> <span class="ruby-keyword">defined?</span> <span class="ruby-ivar">@all</span>
+  <span class="ruby-ivar">@names_index</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- names_index-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- names_index-method -->
+
+    
+      <div id="method-i-parse_data_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_data_file</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse_data_file-source">
+            <pre><span class="ruby-comment"># File lib/emoji.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse_data_file</span>
+  <span class="ruby-identifier">raw</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">data_file</span>, <span class="ruby-string">&#39;r:UTF-8&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">data</span><span class="ruby-operator">|</span> <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">data</span>.<span class="ruby-identifier">read</span>) }
+  <span class="ruby-identifier">raw</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">raw_emoji</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">create</span>(<span class="ruby-keyword">nil</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">emoji</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">raw_emoji</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&#39;aliases&#39;</span>).<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">emoji</span>.<span class="ruby-identifier">add_alias</span>(<span class="ruby-identifier">name</span>) }
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">raw</span> = <span class="ruby-identifier">raw_emoji</span>[<span class="ruby-string">&#39;emoji&#39;</span>]
+        <span class="ruby-identifier">unicodes</span> = [<span class="ruby-identifier">raw</span>, <span class="ruby-identifier">raw</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-constant">VARIATION_SELECTOR_16</span>, <span class="ruby-string">&#39;&#39;</span>) <span class="ruby-operator">+</span> <span class="ruby-constant">VARIATION_SELECTOR_16</span>].<span class="ruby-identifier">uniq</span>
+        <span class="ruby-identifier">unicodes</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">uni</span><span class="ruby-operator">|</span> <span class="ruby-identifier">emoji</span>.<span class="ruby-identifier">add_unicode_alias</span>(<span class="ruby-identifier">uni</span>) }
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">raw_emoji</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&#39;tags&#39;</span>).<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">tag</span><span class="ruby-operator">|</span> <span class="ruby-identifier">emoji</span>.<span class="ruby-identifier">add_tag</span>(<span class="ruby-identifier">tag</span>) }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- parse_data_file-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- parse_data_file-method -->
+
+    
+      <div id="method-i-unicodes_index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unicodes_index</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="unicodes_index-source">
+            <pre><span class="ruby-comment"># File lib/emoji.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unicodes_index</span>
+  <span class="ruby-identifier">all</span> <span class="ruby-keyword">unless</span> <span class="ruby-keyword">defined?</span> <span class="ruby-ivar">@all</span>
+  <span class="ruby-ivar">@unicodes_index</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- unicodes_index-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- unicodes_index-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

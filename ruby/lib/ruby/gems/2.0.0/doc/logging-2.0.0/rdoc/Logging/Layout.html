@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Logging::Layout - logging-2.0.0 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/logging/layout.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-footer">#footer</a>
+    
+    <li ><a href="#method-i-format">#format</a>
+    
+    <li ><a href="#method-i-format_obj">#format_obj</a>
+    
+    <li ><a href="#method-i-header">#header</a>
+    
+    <li ><a href="#method-i-try_json">#try_json</a>
+    
+    <li ><a href="#method-i-try_yaml">#try_yaml</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../History_txt.html">History</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../File.html">File</a>
+  
+    <li><a href="../FileUtils.html">FileUtils</a>
+  
+    <li><a href="../Logging.html">Logging</a>
+  
+    <li><a href="../Logging/Appender.html">Logging::Appender</a>
+  
+    <li><a href="../Logging/Appenders.html">Logging::Appenders</a>
+  
+    <li><a href="../Logging/Appenders/Buffering.html">Logging::Appenders::Buffering</a>
+  
+    <li><a href="../Logging/Appenders/File.html">Logging::Appenders::File</a>
+  
+    <li><a href="../Logging/Appenders/IO.html">Logging::Appenders::IO</a>
+  
+    <li><a href="../Logging/Appenders/RollingFile.html">Logging::Appenders::RollingFile</a>
+  
+    <li><a href="../Logging/Appenders/RollingFile/Roller.html">Logging::Appenders::RollingFile::Roller</a>
+  
+    <li><a href="../Logging/Appenders/Stderr.html">Logging::Appenders::Stderr</a>
+  
+    <li><a href="../Logging/Appenders/Stdout.html">Logging::Appenders::Stdout</a>
+  
+    <li><a href="../Logging/Appenders/StringIo.html">Logging::Appenders::StringIo</a>
+  
+    <li><a href="../Logging/Appenders/Syslog.html">Logging::Appenders::Syslog</a>
+  
+    <li><a href="../Logging/ColorScheme.html">Logging::ColorScheme</a>
+  
+    <li><a href="../Logging/Filter.html">Logging::Filter</a>
+  
+    <li><a href="../Logging/Filters.html">Logging::Filters</a>
+  
+    <li><a href="../Logging/Filters/Level.html">Logging::Filters::Level</a>
+  
+    <li><a href="../Logging/Layout.html">Logging::Layout</a>
+  
+    <li><a href="../Logging/Layouts.html">Logging::Layouts</a>
+  
+    <li><a href="../Logging/Layouts/Basic.html">Logging::Layouts::Basic</a>
+  
+    <li><a href="../Logging/Layouts/Parseable.html">Logging::Layouts::Parseable</a>
+  
+    <li><a href="../Logging/Layouts/Parseable/layout;.html">Logging::Layouts::Parseable::layout;</a>
+  
+    <li><a href="../Logging/Layouts/Pattern.html">Logging::Layouts::Pattern</a>
+  
+    <li><a href="../Logging/Logger.html">Logging::Logger</a>
+  
+    <li><a href="../Logging/Logger.html">Logging::Logger</a>
+  
+    <li><a href="../Logging/MappedDiagnosticContext.html">Logging::MappedDiagnosticContext</a>
+  
+    <li><a href="../Logging/NestedDiagnosticContext.html">Logging::NestedDiagnosticContext</a>
+  
+    <li><a href="../Logging/Proxy.html">Logging::Proxy</a>
+  
+    <li><a href="../Logging/RailsCompat.html">Logging::RailsCompat</a>
+  
+    <li><a href="../Logging/Repository.html">Logging::Repository</a>
+  
+    <li><a href="../Logging/Repository/Singleton.html">Logging::Repository::Singleton</a>
+  
+    <li><a href="../Logging/RootLogger.html">Logging::RootLogger</a>
+  
+    <li><a href="../Logging/logger.html">Logging::logger</a>
+  
+    <li><a href="../Module.html">Module</a>
+  
+    <li><a href="../Object.html">Object</a>
+  
+    <li><a href="../RSpec.html">RSpec</a>
+  
+    <li><a href="../RSpec/Core.html">RSpec::Core</a>
+  
+    <li><a href="../RSpec/Core/Configuration.html">RSpec::Core::Configuration</a>
+  
+    <li><a href="../RSpec/LoggingHelper.html">RSpec::LoggingHelper</a>
+  
+    <li><a href="../RSpec/LoggingHelper.html">RSpec::LoggingHelper</a>
+  
+    <li><a href="../ReentrantMutex.html">ReentrantMutex</a>
+  
+    <li><a href="../Spec.html">Spec</a>
+  
+    <li><a href="../Spec/Runner.html">Spec::Runner</a>
+  
+    <li><a href="../Spec/Runner/Configuration.html">Spec::Runner::Configuration</a>
+  
+    <li><a href="../String.html">String</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Logging::Layout</h1>
+
+  <div id="description" class="description">
+    
+<p>The <code>Layout</code> class provides methods for formatting log events
+into a string representation. <a href="Layouts.html">Layouts</a> are used
+by <a href="Appenders.html">Appenders</a> to format log events before
+writing them to the logging destination.</p>
+
+<p>All other <a href="Layouts.html">Layouts</a> inherit from this class which
+provides stub methods. Each subclass should provide a <code>format</code>
+method. A layout can be used by more than one <code>Appender</code> so all
+the methods need to be thread safe.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            new( :format_as &rarr; :string )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new layout that will format objects as strings using the given
+<code>:format_as</code> style. This can be one of <code>:string</code>,
+<code>:inspect</code>, or <code>:yaml</code>. These formatting commands map
+to the following object methods:</p>
+<ul><li>
+<p>:string  =&gt; to_s</p>
+</li><li>
+<p>:inspect =&gt; inspect</p>
+</li><li>
+<p>:yaml    =&gt; to_yaml</p>
+</li><li>
+<p>:json    =&gt; MultiJson.encode(obj)</p>
+</li></ul>
+
+<p>If the format is not specified then the global object format is used (see
+Logging#format_as). If the global object format is not specified then
+<code>:string</code> is used.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/logging/layout.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>( <span class="ruby-identifier">opts</span> = {} )
+  <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span>.<span class="ruby-identifier">init</span> <span class="ruby-keyword">unless</span> <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span>.<span class="ruby-identifier">initialized?</span>
+
+  <span class="ruby-identifier">default</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span>.<span class="ruby-identifier">const_defined?</span>(<span class="ruby-string">&#39;OBJ_FORMAT&#39;</span>) <span class="ruby-operator">?</span>
+            <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">OBJ_FORMAT</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-identifier">f</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:format_as</span>, <span class="ruby-identifier">default</span>)
+  <span class="ruby-identifier">f</span> = <span class="ruby-identifier">f</span>.<span class="ruby-identifier">intern</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">instance_of?</span> <span class="ruby-constant">String</span>
+
+  <span class="ruby-ivar">@obj_format</span> = <span class="ruby-keyword">case</span> <span class="ruby-identifier">f</span>
+                <span class="ruby-keyword">when</span> <span class="ruby-value">:inspect</span>, <span class="ruby-value">:yaml</span>, <span class="ruby-value">:json</span>; <span class="ruby-identifier">f</span>
+                <span class="ruby-keyword">else</span> <span class="ruby-value">:string</span> <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">b</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:backtrace</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span>.<span class="ruby-identifier">backtrace</span>)
+  <span class="ruby-ivar">@backtrace</span> = <span class="ruby-keyword">case</span> <span class="ruby-identifier">b</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:on</span>, <span class="ruby-string">&#39;on&#39;</span>, <span class="ruby-keyword">true</span>;    <span class="ruby-keyword">true</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:off</span>, <span class="ruby-string">&#39;off&#39;</span>, <span class="ruby-keyword">false</span>; <span class="ruby-keyword">false</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;backtrace must be true or false&quot;</span>
+      <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-footer" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            footer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns a footer string to be used at the end of a logging appender.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="footer-source">
+            <pre><span class="ruby-comment"># File lib/logging/layout.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">footer</span>( ) <span class="ruby-string">&#39;&#39;</span> <span class="ruby-keyword">end</span></pre>
+          </div><!-- footer-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- footer-method -->
+
+    
+      <div id="method-i-format" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            format( event )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns a string representation of the given logging <em>event</em>. It is
+up to subclasses to implement this method.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="format-source">
+            <pre><span class="ruby-comment"># File lib/logging/layout.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">format</span>( <span class="ruby-identifier">event</span> ) <span class="ruby-keyword">nil</span> <span class="ruby-keyword">end</span></pre>
+          </div><!-- format-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- format-method -->
+
+    
+      <div id="method-i-format_obj" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            format_obj( obj )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Return a string representation of the given object. Depending upon the
+configuration of the logger system the format will be an
+<code>inspect</code> based representation or a <code>yaml</code> based
+representation.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="format_obj-source">
+            <pre><span class="ruby-comment"># File lib/logging/layout.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">format_obj</span>( <span class="ruby-identifier">obj</span> )
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">obj</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>; <span class="ruby-identifier">obj</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Exception</span>
+    <span class="ruby-identifier">str</span> = <span class="ruby-node">&quot;&lt;#{obj.class.name}&gt; #{obj.message}&quot;</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@backtrace</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">obj</span>.<span class="ruby-identifier">backtrace</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">str</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n\t&quot;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">backtrace</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n\t&quot;</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">str</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-keyword">nil</span>; <span class="ruby-node">&quot;&lt;#{obj.class.name}&gt; nil&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">str</span> = <span class="ruby-node">&quot;&lt;#{obj.class.name}&gt; &quot;</span>
+    <span class="ruby-identifier">str</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword">case</span> <span class="ruby-ivar">@obj_format</span>
+           <span class="ruby-keyword">when</span> <span class="ruby-value">:inspect</span>; <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">inspect</span>
+           <span class="ruby-keyword">when</span> <span class="ruby-value">:yaml</span>; <span class="ruby-identifier">try_yaml</span>(<span class="ruby-identifier">obj</span>)
+           <span class="ruby-keyword">when</span> <span class="ruby-value">:json</span>; <span class="ruby-identifier">try_json</span>(<span class="ruby-identifier">obj</span>)
+           <span class="ruby-keyword">else</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">str</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- format_obj-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- format_obj-method -->
+
+    
+      <div id="method-i-header" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            header
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns a header string to be used at the beginning of a logging appender.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="header-source">
+            <pre><span class="ruby-comment"># File lib/logging/layout.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">header</span>( ) <span class="ruby-string">&#39;&#39;</span> <span class="ruby-keyword">end</span></pre>
+          </div><!-- header-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- header-method -->
+
+    
+      <div id="method-i-try_json" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">try_json</span><span
+            class="method-args">( obj )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Attempt to format the given object as a JSON string, but fall back to
+inspect formatting if JSON encoding fails.</p>
+
+<p>obj - The <a href="../Object.html">Object</a> to format.</p>
+
+<p>Returns a <a href="../String.html">String</a> representation of the object.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="try_json-source">
+            <pre><span class="ruby-comment"># File lib/logging/layout.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">try_json</span>( <span class="ruby-identifier">obj</span> )
+  <span class="ruby-constant">MultiJson</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">obj</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">StandardError</span>
+  <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">inspect</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- try_json-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- try_json-method -->
+
+    
+      <div id="method-i-try_yaml" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">try_yaml</span><span
+            class="method-args">( obj )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Attempt to format the <em>obj</em> using yaml, but fall back to inspect
+style formatting if yaml fails.</p>
+
+<p>obj - The <a href="../Object.html">Object</a> to format.</p>
+
+<p>Returns a <a href="../String.html">String</a> representation of the object.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="try_yaml-source">
+            <pre><span class="ruby-comment"># File lib/logging/layout.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">try_yaml</span>( <span class="ruby-identifier">obj</span> )
+  <span class="ruby-node">&quot;\n#{obj.to_yaml}&quot;</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">TypeError</span>
+  <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">inspect</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- try_yaml-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- try_yaml-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

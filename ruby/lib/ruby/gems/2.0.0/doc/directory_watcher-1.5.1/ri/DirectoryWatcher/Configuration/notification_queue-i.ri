@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"notification_queue:ETI"7DirectoryWatcher::Configuration#notification_queue;TI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"IThe Queue through which the Collector will send data to the Notifier;T:
+@fileI"+lib/directory_watcher/configuration.rb;T:0@omit_headings_from_table_of_contents_below0F@I"$DirectoryWatcher::Configuration;TcRDoc::NormalClass0

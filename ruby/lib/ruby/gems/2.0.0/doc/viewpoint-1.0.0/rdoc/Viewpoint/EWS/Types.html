@@ -1,0 +1,2004 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module Viewpoint::EWS::Types - viewpoint-1.0.0 Documentation</title>
+
+<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../index.html">Home</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/ews/types.rb
+    <li>lib/ews/types/attachment.rb
+    <li>lib/ews/types/attendee.rb
+    <li>lib/ews/types/calendar_folder.rb
+    <li>lib/ews/types/calendar_item.rb
+    <li>lib/ews/types/contact.rb
+    <li>lib/ews/types/contacts_folder.rb
+    <li>lib/ews/types/copied_event.rb
+    <li>lib/ews/types/created_event.rb
+    <li>lib/ews/types/deleted_event.rb
+    <li>lib/ews/types/distribution_list.rb
+    <li>lib/ews/types/event.rb
+    <li>lib/ews/types/export_items_response_message.rb
+    <li>lib/ews/types/file_attachment.rb
+    <li>lib/ews/types/folder.rb
+    <li>lib/ews/types/free_busy_changed_event.rb
+    <li>lib/ews/types/generic_folder.rb
+    <li>lib/ews/types/item.rb
+    <li>lib/ews/types/item_attachment.rb
+    <li>lib/ews/types/mailbox_user.rb
+    <li>lib/ews/types/meeting_cancellation.rb
+    <li>lib/ews/types/meeting_message.rb
+    <li>lib/ews/types/meeting_request.rb
+    <li>lib/ews/types/meeting_response.rb
+    <li>lib/ews/types/message.rb
+    <li>lib/ews/types/modified_event.rb
+    <li>lib/ews/types/moved_event.rb
+    <li>lib/ews/types/new_mail_event.rb
+    <li>lib/ews/types/out_of_office.rb
+    <li>lib/ews/types/search_folder.rb
+    <li>lib/ews/types/status_event.rb
+    <li>lib/ews/types/task.rb
+    <li>lib/ews/types/tasks_folder.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    <!-- Included Modules -->
+<nav id="includes-section" class="section">
+  <h3 class="section-header">Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="../StringUtils.html">Viewpoint::StringUtils</a>
+  
+  
+  </ul>
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-auto_deepen-3F">#auto_deepen?</a>
+    
+    <li ><a href="#method-i-build_attachments">#build_attachments</a>
+    
+    <li ><a href="#method-i-build_attendees_users">#build_attendees_users</a>
+    
+    <li ><a href="#method-i-build_extended_properties">#build_extended_properties</a>
+    
+    <li ><a href="#method-i-build_mailbox_user">#build_mailbox_user</a>
+    
+    <li ><a href="#method-i-build_mailbox_users">#build_mailbox_users</a>
+    
+    <li ><a href="#method-i-class_by_name">#class_by_name</a>
+    
+    <li ><a href="#method-i-deepen-21">#deepen!</a>
+    
+    <li ><a href="#method-i-dispatch_create_item-21">#dispatch_create_item!</a>
+    
+    <li ><a href="#method-i-enlighten-21">#enlighten!</a>
+    
+    <li ><a href="#method-i-ews">#ews</a>
+    
+    <li ><a href="#method-i-ews_methods">#ews_methods</a>
+    
+    <li ><a href="#method-i-freeze-21">#freeze!</a>
+    
+    <li ><a href="#method-i-frozen-3F">#frozen?</a>
+    
+    <li ><a href="#method-i-key_alias">#key_alias</a>
+    
+    <li ><a href="#method-i-key_paths">#key_paths</a>
+    
+    <li ><a href="#method-i-key_types">#key_types</a>
+    
+    <li ><a href="#method-i-mark_deep-21">#mark_deep!</a>
+    
+    <li ><a href="#method-i-method_keys">#method_keys</a>
+    
+    <li class="calls-super" ><a href="#method-i-method_missing">#method_missing</a>
+    
+    <li ><a href="#method-i-method_path">#method_path</a>
+    
+    <li class="calls-super" ><a href="#method-i-methods">#methods</a>
+    
+    <li ><a href="#method-i-parse_created_item">#parse_created_item</a>
+    
+    <li ><a href="#method-i-resolve_key_path">#resolve_key_path</a>
+    
+    <li ><a href="#method-i-resolve_method">#resolve_method</a>
+    
+    <li class="calls-super" ><a href="#method-i-respond_to-3F">#respond_to?</a>
+    
+    <li ><a href="#method-i-set_change_key">#set_change_key</a>
+    
+    <li ><a href="#method-i-shallow-3F">#shallow?</a>
+    
+    <li ><a href="#method-i-to_s">#to_s</a>
+    
+    <li ><a href="#method-i-type_convert">#type_convert</a>
+    
+    <li ><a href="#method-i-unfreeze-21">#unfreeze!</a>
+    
+    <li ><a href="#method-i-validate_created_item">#validate_created_item</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../README_md.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../Viewpoint.html">Viewpoint</a>
+  
+    <li><a href="../../Viewpoint/EWS.html">Viewpoint::EWS</a>
+  
+    <li><a href="../../Viewpoint/EWS/CalendarAccessors.html">Viewpoint::EWS::CalendarAccessors</a>
+  
+    <li><a href="../../Viewpoint/EWS/Connection.html">Viewpoint::EWS::Connection</a>
+  
+    <li><a href="../../Viewpoint/EWS/ConnectionHelper.html">Viewpoint::EWS::ConnectionHelper</a>
+  
+    <li><a href="../../Viewpoint/EWS/ConvertAccessors.html">Viewpoint::EWS::ConvertAccessors</a>
+  
+    <li><a href="../../Viewpoint/EWS/Errors.html">Viewpoint::EWS::Errors</a>
+  
+    <li><a href="../../Viewpoint/EWS/Errors/ResponseError.html">Viewpoint::EWS::Errors::ResponseError</a>
+  
+    <li><a href="../../Viewpoint/EWS/Errors/ServerError.html">Viewpoint::EWS::Errors::ServerError</a>
+  
+    <li><a href="../../Viewpoint/EWS/Errors/SoapResponseError.html">Viewpoint::EWS::Errors::SoapResponseError</a>
+  
+    <li><a href="../../Viewpoint/EWS/Errors/UnauthorizedResponseError.html">Viewpoint::EWS::Errors::UnauthorizedResponseError</a>
+  
+    <li><a href="../../Viewpoint/EWS/Errors/UnhandledResponseError.html">Viewpoint::EWS::Errors::UnhandledResponseError</a>
+  
+    <li><a href="../../Viewpoint/EWS/EwsBadArgumentError.html">Viewpoint::EWS::EwsBadArgumentError</a>
+  
+    <li><a href="../../Viewpoint/EWS/EwsCreateItemError.html">Viewpoint::EWS::EwsCreateItemError</a>
+  
+    <li><a href="../../Viewpoint/EWS/EwsError.html">Viewpoint::EWS::EwsError</a>
+  
+    <li><a href="../../Viewpoint/EWS/EwsFolderNotFound.html">Viewpoint::EWS::EwsFolderNotFound</a>
+  
+    <li><a href="../../Viewpoint/EWS/EwsFrozenObjectError.html">Viewpoint::EWS::EwsFrozenObjectError</a>
+  
+    <li><a href="../../Viewpoint/EWS/EwsItemNotFound.html">Viewpoint::EWS::EwsItemNotFound</a>
+  
+    <li><a href="../../Viewpoint/EWS/EwsLoginError.html">Viewpoint::EWS::EwsLoginError</a>
+  
+    <li><a href="../../Viewpoint/EWS/EwsMinimalObjectError.html">Viewpoint::EWS::EwsMinimalObjectError</a>
+  
+    <li><a href="../../Viewpoint/EWS/EwsNotImplemented.html">Viewpoint::EWS::EwsNotImplemented</a>
+  
+    <li><a href="../../Viewpoint/EWS/EwsSendItemError.html">Viewpoint::EWS::EwsSendItemError</a>
+  
+    <li><a href="../../Viewpoint/EWS/EwsServerVersionError.html">Viewpoint::EWS::EwsServerVersionError</a>
+  
+    <li><a href="../../Viewpoint/EWS/EwsSubscriptionError.html">Viewpoint::EWS::EwsSubscriptionError</a>
+  
+    <li><a href="../../Viewpoint/EWS/EwsSubscriptionTimeout.html">Viewpoint::EWS::EwsSubscriptionTimeout</a>
+  
+    <li><a href="../../Viewpoint/EWS/FolderAccessors.html">Viewpoint::EWS::FolderAccessors</a>
+  
+    <li><a href="../../Viewpoint/EWS/ItemAccessors.html">Viewpoint::EWS::ItemAccessors</a>
+  
+    <li><a href="../../Viewpoint/EWS/ItemFieldUriMap.html">Viewpoint::EWS::ItemFieldUriMap</a>
+  
+    <li><a href="../../Viewpoint/EWS/MailboxAccessors.html">Viewpoint::EWS::MailboxAccessors</a>
+  
+    <li><a href="../../Viewpoint/EWS/MessageAccessors.html">Viewpoint::EWS::MessageAccessors</a>
+  
+    <li><a href="../../Viewpoint/EWS/PushSubscriptionAccessors.html">Viewpoint::EWS::PushSubscriptionAccessors</a>
+  
+    <li><a href="../../Viewpoint/EWS/RoomAccessors.html">Viewpoint::EWS::RoomAccessors</a>
+  
+    <li><a href="../../Viewpoint/EWS/RoomlistAccessors.html">Viewpoint::EWS::RoomlistAccessors</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP.html">Viewpoint::EWS::SOAP</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/CreateAttachmentResponseMessage.html">Viewpoint::EWS::SOAP::CreateAttachmentResponseMessage</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/CreateItemResponseMessage.html">Viewpoint::EWS::SOAP::CreateItemResponseMessage</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/EwsBuilder.html">Viewpoint::EWS::SOAP::EwsBuilder</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/EwsParser.html">Viewpoint::EWS::SOAP::EwsParser</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/EwsResponse.html">Viewpoint::EWS::SOAP::EwsResponse</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/EwsSaxDocument.html">Viewpoint::EWS::SOAP::EwsSaxDocument</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/EwsSoapAvailabilityResponse.html">Viewpoint::EWS::SOAP::EwsSoapAvailabilityResponse</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/EwsSoapFreeBusyResponse.html">Viewpoint::EWS::SOAP::EwsSoapFreeBusyResponse</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/EwsSoapResponse.html">Viewpoint::EWS::SOAP::EwsSoapResponse</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/EwsSoapRoomResponse.html">Viewpoint::EWS::SOAP::EwsSoapRoomResponse</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/EwsSoapRoomlistResponse.html">Viewpoint::EWS::SOAP::EwsSoapRoomlistResponse</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/ExchangeAvailability.html">Viewpoint::EWS::SOAP::ExchangeAvailability</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/ExchangeDataServices.html">Viewpoint::EWS::SOAP::ExchangeDataServices</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/ExchangeNotification.html">Viewpoint::EWS::SOAP::ExchangeNotification</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/ExchangeSynchronization.html">Viewpoint::EWS::SOAP::ExchangeSynchronization</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/ExchangeTimeZones.html">Viewpoint::EWS::SOAP::ExchangeTimeZones</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/ExchangeUserConfiguration.html">Viewpoint::EWS::SOAP::ExchangeUserConfiguration</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/ExchangeWebService.html">Viewpoint::EWS::SOAP::ExchangeWebService</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/FindItemResponseMessage.html">Viewpoint::EWS::SOAP::FindItemResponseMessage</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/GetEventsResponseMessage.html">Viewpoint::EWS::SOAP::GetEventsResponseMessage</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/ResponseMessage.html">Viewpoint::EWS::SOAP::ResponseMessage</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/RootFolder.html">Viewpoint::EWS::SOAP::RootFolder</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/SendNotificationResponseMessage.html">Viewpoint::EWS::SOAP::SendNotificationResponseMessage</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/SubscribeResponseMessage.html">Viewpoint::EWS::SOAP::SubscribeResponseMessage</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/SyncFolderHierarchyResponseMessage.html">Viewpoint::EWS::SOAP::SyncFolderHierarchyResponseMessage</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/SyncFolderItemsResponseMessage.html">Viewpoint::EWS::SOAP::SyncFolderItemsResponseMessage</a>
+  
+    <li><a href="../../Viewpoint/EWS/SaveFailed.html">Viewpoint::EWS::SaveFailed</a>
+  
+    <li><a href="../../Viewpoint/EWS/Template.html">Viewpoint::EWS::Template</a>
+  
+    <li><a href="../../Viewpoint/EWS/Template/CalendarItem.html">Viewpoint::EWS::Template::CalendarItem</a>
+  
+    <li><a href="../../Viewpoint/EWS/Template/ForwardItem.html">Viewpoint::EWS::Template::ForwardItem</a>
+  
+    <li><a href="../../Viewpoint/EWS/Template/Message.html">Viewpoint::EWS::Template::Message</a>
+  
+    <li><a href="../../Viewpoint/EWS/Template/ReplyToItem.html">Viewpoint::EWS::Template::ReplyToItem</a>
+  
+    <li><a href="../../Viewpoint/EWS/Template/Task.html">Viewpoint::EWS::Template::Task</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types.html">Viewpoint::EWS::Types</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/Attachment.html">Viewpoint::EWS::Types::Attachment</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/Attendee.html">Viewpoint::EWS::Types::Attendee</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/CalendarFolder.html">Viewpoint::EWS::Types::CalendarFolder</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/CalendarItem.html">Viewpoint::EWS::Types::CalendarItem</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/Contact.html">Viewpoint::EWS::Types::Contact</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/ContactsFolder.html">Viewpoint::EWS::Types::ContactsFolder</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/CopiedEvent.html">Viewpoint::EWS::Types::CopiedEvent</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/CreatedEvent.html">Viewpoint::EWS::Types::CreatedEvent</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/DeletedEvent.html">Viewpoint::EWS::Types::DeletedEvent</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/DistributionList.html">Viewpoint::EWS::Types::DistributionList</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/Event.html">Viewpoint::EWS::Types::Event</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/ExportItemsResponseMessage.html">Viewpoint::EWS::Types::ExportItemsResponseMessage</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/FileAttachment.html">Viewpoint::EWS::Types::FileAttachment</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/Folder.html">Viewpoint::EWS::Types::Folder</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/FreeBusyChangedEvent.html">Viewpoint::EWS::Types::FreeBusyChangedEvent</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/GenericFolder.html">Viewpoint::EWS::Types::GenericFolder</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/Item.html">Viewpoint::EWS::Types::Item</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/Item/ClassMethods.html">Viewpoint::EWS::Types::Item::ClassMethods</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/ItemAttachment.html">Viewpoint::EWS::Types::ItemAttachment</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/MailboxUser.html">Viewpoint::EWS::Types::MailboxUser</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/MeetingCancellation.html">Viewpoint::EWS::Types::MeetingCancellation</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/MeetingMessage.html">Viewpoint::EWS::Types::MeetingMessage</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/MeetingRequest.html">Viewpoint::EWS::Types::MeetingRequest</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/MeetingResponse.html">Viewpoint::EWS::Types::MeetingResponse</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/Message.html">Viewpoint::EWS::Types::Message</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/ModifiedEvent.html">Viewpoint::EWS::Types::ModifiedEvent</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/MovedEvent.html">Viewpoint::EWS::Types::MovedEvent</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/NewMailEvent.html">Viewpoint::EWS::Types::NewMailEvent</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/OutOfOffice.html">Viewpoint::EWS::Types::OutOfOffice</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/SearchFolder.html">Viewpoint::EWS::Types::SearchFolder</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/StatusEvent.html">Viewpoint::EWS::Types::StatusEvent</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/Task.html">Viewpoint::EWS::Types::Task</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/TasksFolder.html">Viewpoint::EWS::Types::TasksFolder</a>
+  
+    <li><a href="../../Viewpoint/EWSClient.html">Viewpoint::EWSClient</a>
+  
+    <li><a href="../../Viewpoint/StringFormatException.html">Viewpoint::StringFormatException</a>
+  
+    <li><a href="../../Viewpoint/StringUtils.html">Viewpoint::StringUtils</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module Viewpoint::EWS::Types</h1>
+
+  <div id="description" class="description">
+    
+<p>This file is part of <a href="../../Viewpoint.html">Viewpoint</a>; the Ruby
+library for Microsoft Exchange Web Services.</p>
+
+<p>Copyright © 2011 Dan Wanek &lt;dan.wanek@gmail.com&gt;</p>
+
+<p>Licensed under the Apache License, Version 2.0 (the “License”); you may not
+use this file except in compliance with the License. You may obtain a copy
+of the License at</p>
+
+<pre>http://www.apache.org/licenses/LICENSE-2.0</pre>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an “AS IS” BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.</p>
+
+<p>This file is part of <a href="../../Viewpoint.html">Viewpoint</a>; the Ruby
+library for Microsoft Exchange Web Services.</p>
+
+<p>Copyright © 2011 Dan Wanek &lt;dan.wanek@gmail.com&gt;</p>
+
+<p>Licensed under the Apache License, Version 2.0 (the “License”); you may not
+use this file except in compliance with the License. You may obtain a copy
+of the License at</p>
+
+<pre>http://www.apache.org/licenses/LICENSE-2.0</pre>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an “AS IS” BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.</p>
+
+<p>This file is part of <a href="../../Viewpoint.html">Viewpoint</a>; the Ruby
+library for Microsoft Exchange Web Services.</p>
+
+<p>Copyright © 2011 Dan Wanek &lt;dan.wanek@gmail.com&gt;</p>
+
+<p>Licensed under the Apache License, Version 2.0 (the “License”); you may not
+use this file except in compliance with the License. You may obtain a copy
+of the License at</p>
+
+<pre>http://www.apache.org/licenses/LICENSE-2.0</pre>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an “AS IS” BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.</p>
+
+<p>This file is part of <a href="../../Viewpoint.html">Viewpoint</a>; the Ruby
+library for Microsoft Exchange Web Services.</p>
+
+<p>Copyright © 2011 Dan Wanek &lt;dan.wanek@gmail.com&gt;</p>
+
+<p>Licensed under the Apache License, Version 2.0 (the “License”); you may not
+use this file except in compliance with the License. You may obtain a copy
+of the License at</p>
+
+<pre>http://www.apache.org/licenses/LICENSE-2.0</pre>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an “AS IS” BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.</p>
+
+<p>This file is part of <a href="../../Viewpoint.html">Viewpoint</a>; the Ruby
+library for Microsoft Exchange Web Services.</p>
+
+<p>Copyright © 2011 Dan Wanek &lt;dan.wanek@gmail.com&gt;</p>
+
+<p>Licensed under the Apache License, Version 2.0 (the “License”); you may not
+use this file except in compliance with the License. You may obtain a copy
+of the License at</p>
+
+<pre>http://www.apache.org/licenses/LICENSE-2.0</pre>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an “AS IS” BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.</p>
+
+<p>This file is part of <a href="../../Viewpoint.html">Viewpoint</a>; the Ruby
+library for Microsoft Exchange Web Services.</p>
+
+<p>Copyright © 2011 Dan Wanek &lt;dan.wanek@gmail.com&gt;</p>
+
+<p>Licensed under the Apache License, Version 2.0 (the “License”); you may not
+use this file except in compliance with the License. You may obtain a copy
+of the License at</p>
+
+<pre>http://www.apache.org/licenses/LICENSE-2.0</pre>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an “AS IS” BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.</p>
+
+<p>This file is part of <a href="../../Viewpoint.html">Viewpoint</a>; the Ruby
+library for Microsoft Exchange Web Services.</p>
+
+<p>Copyright © 2011 Dan Wanek &lt;dan.wanek@gmail.com&gt;</p>
+
+<p>Licensed under the Apache License, Version 2.0 (the “License”); you may not
+use this file except in compliance with the License. You may obtain a copy
+of the License at</p>
+
+<pre>http://www.apache.org/licenses/LICENSE-2.0</pre>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an “AS IS” BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.</p>
+
+<p>This file is part of <a href="../../Viewpoint.html">Viewpoint</a>; the Ruby
+library for Microsoft Exchange Web Services.</p>
+
+<p>Copyright © 2011 Dan Wanek &lt;dan.wanek@gmail.com&gt;</p>
+
+<p>Licensed under the Apache License, Version 2.0 (the “License”); you may not
+use this file except in compliance with the License. You may obtain a copy
+of the License at</p>
+
+<pre>http://www.apache.org/licenses/LICENSE-2.0</pre>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an “AS IS” BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.</p>
+
+<p>This file is part of <a href="../../Viewpoint.html">Viewpoint</a>; the Ruby
+library for Microsoft Exchange Web Services.</p>
+
+<p>Copyright © 2011 Dan Wanek &lt;dan.wanek@gmail.com&gt;</p>
+
+<p>Licensed under the Apache License, Version 2.0 (the “License”); you may not
+use this file except in compliance with the License. You may obtain a copy
+of the License at</p>
+
+<pre>http://www.apache.org/licenses/LICENSE-2.0</pre>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an “AS IS” BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.</p>
+
+<p>This file is part of <a href="../../Viewpoint.html">Viewpoint</a>; the Ruby
+library for Microsoft Exchange Web Services.</p>
+
+<p>Copyright © 2011 Dan Wanek &lt;dan.wanek@gmail.com&gt;</p>
+
+<p>Licensed under the Apache License, Version 2.0 (the “License”); you may not
+use this file except in compliance with the License. You may obtain a copy
+of the License at</p>
+
+<pre>http://www.apache.org/licenses/LICENSE-2.0</pre>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an “AS IS” BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.</p>
+
+<p>This file is part of <a href="../../Viewpoint.html">Viewpoint</a>; the Ruby
+library for Microsoft Exchange Web Services.</p>
+
+<p>Copyright © 2011 Dan Wanek &lt;dan.wanek@gmail.com&gt;</p>
+
+<p>Licensed under the Apache License, Version 2.0 (the “License”); you may not
+use this file except in compliance with the License. You may obtain a copy
+of the License at</p>
+
+<pre>http://www.apache.org/licenses/LICENSE-2.0</pre>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an “AS IS” BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.</p>
+
+<p>This file is part of <a href="../../Viewpoint.html">Viewpoint</a>; the Ruby
+library for Microsoft Exchange Web Services.</p>
+
+<p>Copyright © 2011 Dan Wanek &lt;dan.wanek@gmail.com&gt;</p>
+
+<p>Licensed under the Apache License, Version 2.0 (the “License”); you may not
+use this file except in compliance with the License. You may obtain a copy
+of the License at</p>
+
+<pre>http://www.apache.org/licenses/LICENSE-2.0</pre>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an “AS IS” BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.</p>
+
+<p>This file is part of <a href="../../Viewpoint.html">Viewpoint</a>; the Ruby
+library for Microsoft Exchange Web Services.</p>
+
+<p>Copyright © 2011 Dan Wanek &lt;dan.wanek@gmail.com&gt;</p>
+
+<p>Licensed under the Apache License, Version 2.0 (the “License”); you may not
+use this file except in compliance with the License. You may obtain a copy
+of the License at</p>
+
+<pre>http://www.apache.org/licenses/LICENSE-2.0</pre>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an “AS IS” BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.</p>
+
+<p>This file is part of <a href="../../Viewpoint.html">Viewpoint</a>; the Ruby
+library for Microsoft Exchange Web Services.</p>
+
+<p>Copyright © 2011 Dan Wanek &lt;dan.wanek@gmail.com&gt;</p>
+
+<p>Licensed under the Apache License, Version 2.0 (the “License”); you may not
+use this file except in compliance with the License. You may obtain a copy
+of the License at</p>
+
+<pre>http://www.apache.org/licenses/LICENSE-2.0</pre>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an “AS IS” BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.</p>
+
+<p>This file is part of <a href="../../Viewpoint.html">Viewpoint</a>; the Ruby
+library for Microsoft Exchange Web Services.</p>
+
+<p>Copyright © 2011 Dan Wanek &lt;dan.wanek@gmail.com&gt;</p>
+
+<p>Licensed under the Apache License, Version 2.0 (the “License”); you may not
+use this file except in compliance with the License. You may obtain a copy
+of the License at</p>
+
+<pre>http://www.apache.org/licenses/LICENSE-2.0</pre>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an “AS IS” BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="KEY_ALIAS">KEY_ALIAS
+        
+        <dd class="description">
+        
+      
+        <dt id="KEY_PATHS">KEY_PATHS
+        
+        <dd class="description">
+        
+      
+        <dt id="KEY_TYPES">KEY_TYPES
+        
+        <dd class="description">
+        
+      
+        <dt id="OOF_KEY_ALIAS">OOF_KEY_ALIAS
+        
+        <dd class="description">
+        
+      
+        <dt id="OOF_KEY_PATHS">OOF_KEY_PATHS
+        
+        <dd class="description">
+        
+      
+        <dt id="OOF_KEY_TYPES">OOF_KEY_TYPES
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-ews_item" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">ews_item</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(ews, ews_item)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param [SOAP::ExchangeWebService] ews the <a href="../EWS.html">EWS</a>
+reference @param [Hash] <a
+href="Types.html#attribute-i-ews_item">#ews_item</a> the <a
+href="../EWS.html">EWS</a> parsed response document</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/ews/types.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">ews</span>, <span class="ruby-identifier">ews_item</span>)
+  <span class="ruby-ivar">@ews</span>      = <span class="ruby-identifier">ews</span>
+  <span class="ruby-ivar">@ews_item</span> = <span class="ruby-identifier">ews_item</span>
+  <span class="ruby-ivar">@shallow</span>  = <span class="ruby-keyword">true</span>
+  <span class="ruby-ivar">@frozen</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-auto_deepen-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">auto_deepen?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="auto_deepen-3F-source">
+            <pre><span class="ruby-comment"># File lib/ews/types.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">auto_deepen?</span>
+  <span class="ruby-identifier">ews</span>.<span class="ruby-identifier">auto_deepen</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- auto_deepen-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- auto_deepen-3F-method -->
+
+    
+      <div id="method-i-build_attachments" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_attachments</span><span
+            class="method-args">(attachments)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_attachments-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/item.rb, line 384</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_attachments</span>(<span class="ruby-identifier">attachments</span>)
+  <span class="ruby-keyword">return</span> [] <span class="ruby-keyword">if</span> <span class="ruby-identifier">attachments</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">attachments</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">att</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">key</span> = <span class="ruby-identifier">att</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">first</span>
+    <span class="ruby-identifier">class_by_name</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">att</span>[<span class="ruby-identifier">key</span>])
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- build_attachments-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- build_attachments-method -->
+
+    
+      <div id="method-i-build_attendees_users" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_attendees_users</span><span
+            class="method-args">(users)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_attendees_users-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/item.rb, line 375</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_attendees_users</span>(<span class="ruby-identifier">users</span>)
+  <span class="ruby-keyword">return</span> [] <span class="ruby-keyword">if</span> <span class="ruby-identifier">users</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">users</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">u</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">u</span>[<span class="ruby-value">:attendee</span>][<span class="ruby-value">:elems</span>].<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">build_mailbox_user</span>(<span class="ruby-identifier">a</span>[<span class="ruby-value">:mailbox</span>][<span class="ruby-value">:elems</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">a</span>[<span class="ruby-value">:mailbox</span>]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">compact</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- build_attendees_users-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- build_attendees_users-method -->
+
+    
+      <div id="method-i-build_mailbox_user" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_mailbox_user</span><span
+            class="method-args">(mbox_ews)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_mailbox_user-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/item.rb, line 366</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_mailbox_user</span>(<span class="ruby-identifier">mbox_ews</span>)
+  <span class="ruby-constant">MailboxUser</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ews</span>, <span class="ruby-identifier">mbox_ews</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- build_mailbox_user-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- build_mailbox_user-method -->
+
+    
+      <div id="method-i-build_mailbox_users" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_mailbox_users</span><span
+            class="method-args">(users)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_mailbox_users-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/item.rb, line 370</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_mailbox_users</span>(<span class="ruby-identifier">users</span>)
+  <span class="ruby-keyword">return</span> [] <span class="ruby-keyword">if</span> <span class="ruby-identifier">users</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">users</span>.<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">u</span><span class="ruby-operator">|</span> <span class="ruby-identifier">build_mailbox_user</span>(<span class="ruby-identifier">u</span>[<span class="ruby-value">:mailbox</span>][<span class="ruby-value">:elems</span>])}
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- build_mailbox_users-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- build_mailbox_users-method -->
+
+    
+      <div id="method-i-deepen-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">deepen!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="deepen-21-source">
+            <pre><span class="ruby-comment"># File lib/ews/types.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">deepen!</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">shallow?</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">get_all_properties!</span>
+    <span class="ruby-ivar">@shallow</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- deepen-21-source -->
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Types.html#method-i-enlighten-21">enlighten!</a>
+        </div>
+        
+
+        
+      </div><!-- deepen-21-method -->
+
+    
+      <div id="method-i-dispatch_create_item-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dispatch_create_item!</span><span
+            class="method-args">(msg)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Handles the CreateItem call for Forward, ReplyTo, and ReplyAllTo It will
+handle the neccessary actions for adding attachments.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dispatch_create_item-21-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/item.rb, line 399</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dispatch_create_item!</span>(<span class="ruby-identifier">msg</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">msg</span>.<span class="ruby-identifier">has_attachments?</span>
+    <span class="ruby-identifier">draft</span> = <span class="ruby-identifier">msg</span>.<span class="ruby-identifier">draft</span>
+    <span class="ruby-identifier">msg</span>.<span class="ruby-identifier">draft</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">validate_created_item</span>(<span class="ruby-identifier">ews</span>.<span class="ruby-identifier">create_item</span>(<span class="ruby-identifier">msg</span>.<span class="ruby-identifier">to_ews</span>))
+    <span class="ruby-identifier">msg</span>.<span class="ruby-identifier">file_attachments</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">File</span>)
+      <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">add_file_attachment</span>(<span class="ruby-identifier">f</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">draft</span>
+      <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">submit_attachments!</span>
+      <span class="ruby-identifier">resp</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">submit!</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">ews</span>.<span class="ruby-identifier">create_item</span>(<span class="ruby-identifier">msg</span>.<span class="ruby-identifier">to_ews</span>)
+    <span class="ruby-identifier">validate_created_item</span> <span class="ruby-identifier">resp</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- dispatch_create_item-21-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- dispatch_create_item-21-method -->
+
+    
+      <div id="method-i-enlighten-21" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">enlighten!</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Types.html#method-i-deepen-21">deepen!</a>
+        </div>
+        
+      </div><!-- enlighten-21-method -->
+
+    
+      <div id="method-i-ews_methods" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ews_methods</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ews_methods-source">
+            <pre><span class="ruby-comment"># File lib/ews/types.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ews_methods</span>
+  <span class="ruby-identifier">key_paths</span>.<span class="ruby-identifier">keys</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">key_alias</span>.<span class="ruby-identifier">keys</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- ews_methods-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- ews_methods-method -->
+
+    
+      <div id="method-i-freeze-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">freeze!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param ronly [Boolean] true to freeze</p>
+          
+          
+
+          
+          <div class="method-source-code" id="freeze-21-source">
+            <pre><span class="ruby-comment"># File lib/ews/types.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">freeze!</span>
+  <span class="ruby-ivar">@frozen</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- freeze-21-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- freeze-21-method -->
+
+    
+      <div id="method-i-frozen-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">frozen?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="frozen-3F-source">
+            <pre><span class="ruby-comment"># File lib/ews/types.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">frozen?</span>
+  <span class="ruby-ivar">@frozen</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- frozen-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- frozen-3F-method -->
+
+    
+      <div id="method-i-mark_deep-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mark_deep!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="mark_deep-21-source">
+            <pre><span class="ruby-comment"># File lib/ews/types.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mark_deep!</span>
+  <span class="ruby-ivar">@shallow</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- mark_deep-21-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- mark_deep-21-method -->
+
+    
+      <div id="method-i-method_missing" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">method_missing</span><span
+            class="method-args">(method_sym, *arguments, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="method_missing-source">
+            <pre><span class="ruby-comment"># File lib/ews/types.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">method_missing</span>(<span class="ruby-identifier">method_sym</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">arguments</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">method_keys</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">method_sym</span>)
+    <span class="ruby-identifier">type_convert</span>( <span class="ruby-identifier">method_sym</span>, <span class="ruby-identifier">resolve_method</span>(<span class="ruby-identifier">method_sym</span>) )
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">super</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- method_missing-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- method_missing-method -->
+
+    
+      <div id="method-i-methods" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">methods</span><span
+            class="method-args">(include_super = true)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="methods-source">
+            <pre><span class="ruby-comment"># File lib/ews/types.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">methods</span>(<span class="ruby-identifier">include_super</span> = <span class="ruby-keyword">true</span>)
+  <span class="ruby-keyword">super</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">ews_methods</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- methods-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- methods-method -->
+
+    
+      <div id="method-i-parse_created_item" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_created_item</span><span
+            class="method-args">(msg)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse_created_item-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/item.rb, line 435</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse_created_item</span>(<span class="ruby-identifier">msg</span>)
+  <span class="ruby-identifier">mtype</span> = <span class="ruby-identifier">msg</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">first</span>
+  <span class="ruby-identifier">message</span> = <span class="ruby-identifier">class_by_name</span>(<span class="ruby-identifier">mtype</span>).<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ews</span>, <span class="ruby-identifier">msg</span>[<span class="ruby-identifier">mtype</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- parse_created_item-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- parse_created_item-method -->
+
+    
+      <div id="method-i-respond_to-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">respond_to?</span><span
+            class="method-args">(method_sym, include_private = false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@see <a
+href="http://www.ruby-doc.org/core/classes/Object.html#M000333">www.ruby-doc.org/core/classes/Object.html#M000333</a></p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="respond_to-3F-source">
+            <pre><span class="ruby-comment"># File lib/ews/types.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">method_sym</span>, <span class="ruby-identifier">include_private</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">method_keys</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">method_sym</span>)
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">super</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- respond_to-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- respond_to-3F-method -->
+
+    
+      <div id="method-i-set_change_key" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_change_key</span><span
+            class="method-args">(ck)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_change_key-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/item.rb, line 392</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_change_key</span>(<span class="ruby-identifier">ck</span>)
+  <span class="ruby-identifier">p</span> = <span class="ruby-identifier">resolve_key_path</span>(<span class="ruby-identifier">ews_item</span>, <span class="ruby-identifier">key_paths</span>[<span class="ruby-value">:change_key</span>][<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">-2</span>])
+  <span class="ruby-identifier">p</span>[<span class="ruby-value">:change_key</span>] = <span class="ruby-identifier">ck</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- set_change_key-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- set_change_key-method -->
+
+    
+      <div id="method-i-shallow-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">shallow?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="shallow-3F-source">
+            <pre><span class="ruby-comment"># File lib/ews/types.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">shallow?</span>
+  <span class="ruby-ivar">@shallow</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- shallow-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- shallow-3F-method -->
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File lib/ews/types.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+  <span class="ruby-node">&quot;#{self.class.name}: EWS METHODS: #{self.ews_methods.sort.join(&#39;, &#39;)}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_s-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_s-method -->
+
+    
+      <div id="method-i-unfreeze-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unfreeze!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="unfreeze-21-source">
+            <pre><span class="ruby-comment"># File lib/ews/types.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unfreeze!</span>
+  <span class="ruby-ivar">@frozen</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- unfreeze-21-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- unfreeze-21-method -->
+
+    
+      <div id="method-i-validate_created_item" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">validate_created_item</span><span
+            class="method-args">(response)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>validate the CreateItem response. @return [Boolean, Item] returns true if
+items is empty and status is</p>
+
+<pre>&quot;Success&quot; if items is not empty it will return the first Item since
+we are only dealing with single items here.</pre>
+
+<p>@raise <a href="EwsCreateItemError.html">EwsCreateItemError</a> on failure</p>
+          
+          
+
+          
+          <div class="method-source-code" id="validate_created_item-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/item.rb, line 425</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">validate_created_item</span>(<span class="ruby-identifier">response</span>)
+  <span class="ruby-identifier">msg</span> = <span class="ruby-identifier">response</span>.<span class="ruby-identifier">response_messages</span>[<span class="ruby-value">0</span>]
+
+  <span class="ruby-keyword">if</span>(<span class="ruby-identifier">msg</span>.<span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Success&#39;</span>)
+    <span class="ruby-identifier">msg</span>.<span class="ruby-identifier">items</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">parse_created_item</span>(<span class="ruby-identifier">msg</span>.<span class="ruby-identifier">items</span>.<span class="ruby-identifier">first</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">EwsCreateItemError</span>, <span class="ruby-node">&quot;#{msg.code}: #{msg.message_text}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- validate_created_item-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- validate_created_item-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Protected Instance Methods</h3>
+
+    
+      <div id="method-i-ews" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ews</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ews-source">
+            <pre><span class="ruby-comment"># File lib/ews/types.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ews</span>
+  <span class="ruby-ivar">@ews</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- ews-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- ews-method -->
+
+    
+    </section><!-- protected-instance-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-build_extended_properties" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_extended_properties</span><span
+            class="method-args">(eprops)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_extended_properties-source">
+            <pre><span class="ruby-comment"># File lib/ews/types.rb, line 168</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_extended_properties</span>(<span class="ruby-identifier">eprops</span>)
+  <span class="ruby-identifier">h</span> = {}
+  <span class="ruby-comment"># todo</span>
+  <span class="ruby-comment"># the return pattern seems broken in some cases,</span>
+  <span class="ruby-comment"># probably needs fixing via a dedicated response parser</span>
+  <span class="ruby-identifier">eprops</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+      <span class="ruby-identifier">e</span>[<span class="ruby-value">:elems</span>].<span class="ruby-identifier">each_cons</span>(<span class="ruby-value">2</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">key</span> = <span class="ruby-identifier">k</span>[<span class="ruby-value">:extended_field_u_r_i</span>][<span class="ruby-value">:attribs</span>][<span class="ruby-value">:property_name</span>].<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">to_sym</span>
+        <span class="ruby-identifier">val</span> = <span class="ruby-identifier">v</span>[<span class="ruby-value">:value</span>][<span class="ruby-value">:text</span>]
+        <span class="ruby-identifier">h</span>.<span class="ruby-identifier">store</span>(<span class="ruby-identifier">key</span>,<span class="ruby-identifier">val</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span>
+      <span class="ruby-identifier">e</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">each_cons</span>(<span class="ruby-value">2</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">key</span> = <span class="ruby-identifier">k</span>[<span class="ruby-value">:extended_field_u_r_i</span>][<span class="ruby-value">:attribs</span>][<span class="ruby-value">:property_name</span>].<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">to_sym</span>
+        <span class="ruby-identifier">val</span> = <span class="ruby-identifier">v</span>[<span class="ruby-value">:value</span>][<span class="ruby-value">:text</span>]
+        <span class="ruby-identifier">h</span>.<span class="ruby-identifier">store</span>(<span class="ruby-identifier">key</span>,<span class="ruby-identifier">val</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">EwsMinimalObjectError</span>, <span class="ruby-string">&quot;Not prepared to deal with elements greater than 2&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">h</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- build_extended_properties-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- build_extended_properties-method -->
+
+    
+      <div id="method-i-class_by_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">class_by_name</span><span
+            class="method-args">(cname)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="class_by_name-source">
+            <pre><span class="ruby-comment"># File lib/ews/types.rb, line 107</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">class_by_name</span>(<span class="ruby-identifier">cname</span>)
+  <span class="ruby-keyword">if</span>(<span class="ruby-identifier">cname</span>.<span class="ruby-identifier">instance_of?</span> <span class="ruby-constant">Symbol</span>)
+    <span class="ruby-identifier">cname</span> = <span class="ruby-identifier">camel_case</span>(<span class="ruby-identifier">cname</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Viewpoint</span><span class="ruby-operator">::</span><span class="ruby-constant">EWS</span><span class="ruby-operator">::</span><span class="ruby-constant">Types</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">cname</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- class_by_name-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- class_by_name-method -->
+
+    
+      <div id="method-i-key_alias" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">key_alias</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="key_alias-source">
+            <pre><span class="ruby-comment"># File lib/ews/types.rb, line 103</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">key_alias</span>
+  <span class="ruby-constant">KEY_ALIAS</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- key_alias-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- key_alias-method -->
+
+    
+      <div id="method-i-key_paths" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">key_paths</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="key_paths-source">
+            <pre><span class="ruby-comment"># File lib/ews/types.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">key_paths</span>
+  <span class="ruby-constant">KEY_PATHS</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- key_paths-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- key_paths-method -->
+
+    
+      <div id="method-i-key_types" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">key_types</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="key_types-source">
+            <pre><span class="ruby-comment"># File lib/ews/types.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">key_types</span>
+  <span class="ruby-constant">KEY_TYPES</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- key_types-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- key_types-method -->
+
+    
+      <div id="method-i-method_keys" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">method_keys</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="method_keys-source">
+            <pre><span class="ruby-comment"># File lib/ews/types.rb, line 159</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">method_keys</span>
+  <span class="ruby-identifier">key_paths</span>.<span class="ruby-identifier">keys</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">key_alias</span>.<span class="ruby-identifier">keys</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- method_keys-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- method_keys-method -->
+
+    
+      <div id="method-i-method_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">method_path</span><span
+            class="method-args">(sym)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Resolve the method path with or without an alias</p>
+          
+          
+
+          
+          <div class="method-source-code" id="method_path-source">
+            <pre><span class="ruby-comment"># File lib/ews/types.rb, line 164</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">method_path</span>(<span class="ruby-identifier">sym</span>)
+  <span class="ruby-identifier">key_paths</span>[<span class="ruby-identifier">key_alias</span>[<span class="ruby-identifier">sym</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">sym</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- method_path-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- method_path-method -->
+
+    
+      <div id="method-i-resolve_key_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">resolve_key_path</span><span
+            class="method-args">(hsh, path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="resolve_key_path-source">
+            <pre><span class="ruby-comment"># File lib/ews/types.rb, line 153</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">resolve_key_path</span>(<span class="ruby-identifier">hsh</span>, <span class="ruby-identifier">path</span>)
+  <span class="ruby-identifier">k</span> = <span class="ruby-identifier">path</span>.<span class="ruby-identifier">first</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">hsh</span>[<span class="ruby-identifier">k</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+  <span class="ruby-identifier">resolve_key_path</span>(<span class="ruby-identifier">hsh</span>[<span class="ruby-identifier">k</span>],<span class="ruby-identifier">path</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- resolve_key_path-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- resolve_key_path-method -->
+
+    
+      <div id="method-i-resolve_method" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">resolve_method</span><span
+            class="method-args">(method_sym)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="resolve_method-source">
+            <pre><span class="ruby-comment"># File lib/ews/types.rb, line 127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">resolve_method</span>(<span class="ruby-identifier">method_sym</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">resolve_key_path</span>(<span class="ruby-ivar">@ews_item</span>, <span class="ruby-identifier">method_path</span>(<span class="ruby-identifier">method_sym</span>))
+  <span class="ruby-keyword">rescue</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">shallow?</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">frozen?</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">EwsFrozenObjectError</span>, <span class="ruby-node">&quot;Could not resolve :#{method_sym} on frozen object.&quot;</span>
+      <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">auto_deepen?</span>
+        <span class="ruby-identifier">enlighten!</span>
+        <span class="ruby-keyword">retry</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">auto_deepen?</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">ews</span>.<span class="ruby-identifier">no_auto_deepen_behavior</span> <span class="ruby-operator">==</span> <span class="ruby-value">:raise</span>
+            <span class="ruby-identifier">raise</span> <span class="ruby-constant">EwsMinimalObjectError</span>, <span class="ruby-node">&quot;Could not resolve :#{method_sym}. #auto_deepen set to false&quot;</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-keyword">nil</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- resolve_method-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- resolve_method-method -->
+
+    
+      <div id="method-i-type_convert" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">type_convert</span><span
+            class="method-args">(key,str)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="type_convert-source">
+            <pre><span class="ruby-comment"># File lib/ews/types.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">type_convert</span>(<span class="ruby-identifier">key</span>,<span class="ruby-identifier">str</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">key</span> = <span class="ruby-identifier">key_alias</span>[<span class="ruby-identifier">key</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">key</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">key_types</span>[<span class="ruby-identifier">key</span>]
+      <span class="ruby-identifier">key_types</span>[<span class="ruby-identifier">key</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">method</span>(<span class="ruby-identifier">key_types</span>[<span class="ruby-identifier">key</span>]).<span class="ruby-identifier">call</span>(<span class="ruby-identifier">str</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">key_types</span>[<span class="ruby-identifier">key</span>].<span class="ruby-identifier">call</span>(<span class="ruby-identifier">str</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">str</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span>
+    <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- type_convert-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- type_convert-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

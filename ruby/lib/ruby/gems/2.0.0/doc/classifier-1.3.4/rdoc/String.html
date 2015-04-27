@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class String - classifier-1.3.4 Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/classifier/extensions/word_hash.rb
+    <li>lib/classifier/lsi/summary.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-i-clean_word_hash">#clean_word_hash</a>
+    
+    <li ><a href="#method-i-paragraph_summary">#paragraph_summary</a>
+    
+    <li ><a href="#method-i-perform_lsi">#perform_lsi</a>
+    
+    <li ><a href="#method-i-split_paragraphs">#split_paragraphs</a>
+    
+    <li ><a href="#method-i-split_sentences">#split_sentences</a>
+    
+    <li ><a href="#method-i-summary">#summary</a>
+    
+    <li ><a href="#method-i-without_punctuation">#without_punctuation</a>
+    
+    <li ><a href="#method-i-word_hash">#word_hash</a>
+    
+    <li ><a href="#method-i-word_hash_for_symbols">#word_hash_for_symbols</a>
+    
+    <li ><a href="#method-i-word_hash_for_words">#word_hash_for_words</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Array.html">Array</a>
+  
+    <li><a href="./Classifier.html">Classifier</a>
+  
+    <li><a href="./Classifier/Bayes.html">Classifier::Bayes</a>
+  
+    <li><a href="./Classifier/ContentNode.html">Classifier::ContentNode</a>
+  
+    <li><a href="./Classifier/LSI.html">Classifier::LSI</a>
+  
+    <li><a href="./Classifier/WordList.html">Classifier::WordList</a>
+  
+    <li><a href="./GSL.html">GSL</a>
+  
+    <li><a href="./GSL/Matrix.html">GSL::Matrix</a>
+  
+    <li><a href="./GSL/Vector.html">GSL::Vector</a>
+  
+    <li><a href="./Matrix.html">Matrix</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./String.html">String</a>
+  
+    <li><a href="./Vector.html">Vector</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class String</h1>
+
+  <div id="description" class="description">
+    
+<p>These are extensions to the <a href="String.html">String</a> class to
+provide convenience  methods for the <a
+href="Classifier.html">Classifier</a> package.</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>Lucas Carlson  (<a href="mailto:lucas@rufy.com">lucas@rufy.com</a>)</p>
+</dd><dt>Copyright
+<dd>
+<p>Copyright © 2005 Lucas Carlson</p>
+</dd><dt>License
+<dd>
+<p>LGPL</p>
+</dd></dl>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="CORPUS_SKIP_WORDS">CORPUS_SKIP_WORDS
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-clean_word_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clean_word_hash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return a word hash without extra punctuation or short symbols, just stemmed
+words</p>
+          
+          
+
+          
+          <div class="method-source-code" id="clean_word_hash-source">
+            <pre><span class="ruby-comment"># File lib/classifier/extensions/word_hash.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clean_word_hash</span>
+        <span class="ruby-identifier">word_hash_for_words</span> <span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/[^\w\s]/</span>,<span class="ruby-string">&quot;&quot;</span>).<span class="ruby-identifier">split</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- clean_word_hash-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- clean_word_hash-method -->
+
+    
+      <div id="method-i-paragraph_summary" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">paragraph_summary</span><span
+            class="method-args">( count=1, separator=" [...] " )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="paragraph_summary-source">
+            <pre><span class="ruby-comment"># File lib/classifier/lsi/summary.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">paragraph_summary</span>( <span class="ruby-identifier">count</span>=<span class="ruby-value">1</span>, <span class="ruby-identifier">separator</span>=<span class="ruby-string">&quot; [...] &quot;</span> )
+   <span class="ruby-identifier">perform_lsi</span> <span class="ruby-identifier">split_paragraphs</span>, <span class="ruby-identifier">count</span>, <span class="ruby-identifier">separator</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- paragraph_summary-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- paragraph_summary-method -->
+
+    
+      <div id="method-i-split_paragraphs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">split_paragraphs</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="split_paragraphs-source">
+            <pre><span class="ruby-comment"># File lib/classifier/lsi/summary.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">split_paragraphs</span>
+   <span class="ruby-identifier">split</span> <span class="ruby-regexp">/(\n\n|\r\r|\r\n\r\n)/</span> <span class="ruby-comment"># TODO: make this less primitive</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- split_paragraphs-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- split_paragraphs-method -->
+
+    
+      <div id="method-i-split_sentences" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">split_sentences</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="split_sentences-source">
+            <pre><span class="ruby-comment"># File lib/classifier/lsi/summary.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">split_sentences</span>
+   <span class="ruby-identifier">split</span> <span class="ruby-regexp">/(\.|\!|\?)/</span> <span class="ruby-comment"># TODO: make this less primitive</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- split_sentences-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- split_sentences-method -->
+
+    
+      <div id="method-i-summary" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">summary</span><span
+            class="method-args">( count=10, separator=" [...] " )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="summary-source">
+            <pre><span class="ruby-comment"># File lib/classifier/lsi/summary.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">summary</span>( <span class="ruby-identifier">count</span>=<span class="ruby-value">10</span>, <span class="ruby-identifier">separator</span>=<span class="ruby-string">&quot; [...] &quot;</span> )
+   <span class="ruby-identifier">perform_lsi</span> <span class="ruby-identifier">split_sentences</span>, <span class="ruby-identifier">count</span>, <span class="ruby-identifier">separator</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- summary-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- summary-method -->
+
+    
+      <div id="method-i-without_punctuation" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">without_punctuation</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Removes common punctuation symbols, returning a new string.  E.g.,</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;Hello (greeting&#39;s), with {braces} &lt; &gt;...?&quot;</span>.<span class="ruby-identifier">without_punctuation</span>
+=<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Hello  greetings   with  braces         &quot;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="without_punctuation-source">
+            <pre><span class="ruby-comment"># File lib/classifier/extensions/word_hash.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">without_punctuation</span>
+  <span class="ruby-identifier">tr</span>( <span class="ruby-string">&#39;,?.!;:&quot;@#$%^&amp;*()_=+[]{}\|&lt;&gt;/`~&#39;</span>, <span class="ruby-string">&quot; &quot;</span> ) .<span class="ruby-identifier">tr</span>( <span class="ruby-string">&quot;&#39;\-&quot;</span>, <span class="ruby-string">&quot;&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- without_punctuation-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- without_punctuation-method -->
+
+    
+      <div id="method-i-word_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">word_hash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return a Hash of strings =&gt; ints. Each word in the string is stemmed,
+interned, and indexes to its frequency in the document.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="word_hash-source">
+            <pre><span class="ruby-comment"># File lib/classifier/extensions/word_hash.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">word_hash</span>
+        <span class="ruby-identifier">word_hash</span> = <span class="ruby-identifier">clean_word_hash</span>()
+        <span class="ruby-identifier">symbol_hash</span> = <span class="ruby-identifier">word_hash_for_symbols</span>(<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/[\w]/</span>,<span class="ruby-string">&quot; &quot;</span>).<span class="ruby-identifier">split</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">word_hash</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">symbol_hash</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- word_hash-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- word_hash-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-perform_lsi" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">perform_lsi</span><span
+            class="method-args">(chunks, count, separator)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="perform_lsi-source">
+            <pre><span class="ruby-comment"># File lib/classifier/lsi/summary.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">perform_lsi</span>(<span class="ruby-identifier">chunks</span>, <span class="ruby-identifier">count</span>, <span class="ruby-identifier">separator</span>)
+   <span class="ruby-identifier">lsi</span> = <span class="ruby-constant">Classifier</span><span class="ruby-operator">::</span><span class="ruby-constant">LSI</span>.<span class="ruby-identifier">new</span> <span class="ruby-value">:auto_rebuild</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>
+   <span class="ruby-identifier">chunks</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">chunk</span><span class="ruby-operator">|</span> <span class="ruby-identifier">lsi</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">chunk</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">chunk</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">chunk</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">split</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> }
+   <span class="ruby-identifier">lsi</span>.<span class="ruby-identifier">build_index</span>
+   <span class="ruby-identifier">summaries</span> = <span class="ruby-identifier">lsi</span>.<span class="ruby-identifier">highest_relative_content</span> <span class="ruby-identifier">count</span>
+   <span class="ruby-keyword">return</span> <span class="ruby-identifier">summaries</span>.<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">chunk</span><span class="ruby-operator">|</span> <span class="ruby-operator">!</span><span class="ruby-identifier">summaries</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">chunk</span> }.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">strip</span> }.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">separator</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- perform_lsi-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- perform_lsi-method -->
+
+    
+      <div id="method-i-word_hash_for_symbols" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">word_hash_for_symbols</span><span
+            class="method-args">(words)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="word_hash_for_symbols-source">
+            <pre><span class="ruby-comment"># File lib/classifier/extensions/word_hash.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">word_hash_for_symbols</span>(<span class="ruby-identifier">words</span>)
+        <span class="ruby-identifier">d</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>)
+        <span class="ruby-identifier">words</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">word</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">d</span>[<span class="ruby-identifier">word</span>.<span class="ruby-identifier">intern</span>] <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">d</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- word_hash_for_symbols-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- word_hash_for_symbols-method -->
+
+    
+      <div id="method-i-word_hash_for_words" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">word_hash_for_words</span><span
+            class="method-args">(words)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="word_hash_for_words-source">
+            <pre><span class="ruby-comment"># File lib/classifier/extensions/word_hash.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">word_hash_for_words</span>(<span class="ruby-identifier">words</span>)
+        <span class="ruby-identifier">d</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>)
+        <span class="ruby-identifier">words</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">word</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">word</span>.<span class="ruby-identifier">downcase!</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span> <span class="ruby-constant">CORPUS_SKIP_WORDS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">word</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">word</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>
+                        <span class="ruby-identifier">d</span>[<span class="ruby-identifier">word</span>.<span class="ruby-identifier">stem</span>.<span class="ruby-identifier">intern</span>] <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+                <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">d</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- word_hash_for_words-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- word_hash_for_words-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

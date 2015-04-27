@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module Viewpoint::StringUtils - viewpoint-1.0.0 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/viewpoint/string_utils.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    <!-- Extension Modules -->
+<nav id="extends-section" class="section">
+  <h3 class="section-header">Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><a class="extend" href="StringUtils.html">Viewpoint::StringUtils</a>
+  
+  
+  </ul>
+</nav>
+
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-included">::included</a>
+    
+    <li ><a href="#method-i-camel_case">#camel_case</a>
+    
+    <li ><a href="#method-i-iso8601_duration_to_seconds">#iso8601_duration_to_seconds</a>
+    
+    <li ><a href="#method-i-ruby_case">#ruby_case</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../README_md.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Viewpoint.html">Viewpoint</a>
+  
+    <li><a href="../Viewpoint/EWS.html">Viewpoint::EWS</a>
+  
+    <li><a href="../Viewpoint/EWS/CalendarAccessors.html">Viewpoint::EWS::CalendarAccessors</a>
+  
+    <li><a href="../Viewpoint/EWS/Connection.html">Viewpoint::EWS::Connection</a>
+  
+    <li><a href="../Viewpoint/EWS/ConnectionHelper.html">Viewpoint::EWS::ConnectionHelper</a>
+  
+    <li><a href="../Viewpoint/EWS/ConvertAccessors.html">Viewpoint::EWS::ConvertAccessors</a>
+  
+    <li><a href="../Viewpoint/EWS/Errors.html">Viewpoint::EWS::Errors</a>
+  
+    <li><a href="../Viewpoint/EWS/Errors/ResponseError.html">Viewpoint::EWS::Errors::ResponseError</a>
+  
+    <li><a href="../Viewpoint/EWS/Errors/ServerError.html">Viewpoint::EWS::Errors::ServerError</a>
+  
+    <li><a href="../Viewpoint/EWS/Errors/SoapResponseError.html">Viewpoint::EWS::Errors::SoapResponseError</a>
+  
+    <li><a href="../Viewpoint/EWS/Errors/UnauthorizedResponseError.html">Viewpoint::EWS::Errors::UnauthorizedResponseError</a>
+  
+    <li><a href="../Viewpoint/EWS/Errors/UnhandledResponseError.html">Viewpoint::EWS::Errors::UnhandledResponseError</a>
+  
+    <li><a href="../Viewpoint/EWS/EwsBadArgumentError.html">Viewpoint::EWS::EwsBadArgumentError</a>
+  
+    <li><a href="../Viewpoint/EWS/EwsCreateItemError.html">Viewpoint::EWS::EwsCreateItemError</a>
+  
+    <li><a href="../Viewpoint/EWS/EwsError.html">Viewpoint::EWS::EwsError</a>
+  
+    <li><a href="../Viewpoint/EWS/EwsFolderNotFound.html">Viewpoint::EWS::EwsFolderNotFound</a>
+  
+    <li><a href="../Viewpoint/EWS/EwsFrozenObjectError.html">Viewpoint::EWS::EwsFrozenObjectError</a>
+  
+    <li><a href="../Viewpoint/EWS/EwsItemNotFound.html">Viewpoint::EWS::EwsItemNotFound</a>
+  
+    <li><a href="../Viewpoint/EWS/EwsLoginError.html">Viewpoint::EWS::EwsLoginError</a>
+  
+    <li><a href="../Viewpoint/EWS/EwsMinimalObjectError.html">Viewpoint::EWS::EwsMinimalObjectError</a>
+  
+    <li><a href="../Viewpoint/EWS/EwsNotImplemented.html">Viewpoint::EWS::EwsNotImplemented</a>
+  
+    <li><a href="../Viewpoint/EWS/EwsSendItemError.html">Viewpoint::EWS::EwsSendItemError</a>
+  
+    <li><a href="../Viewpoint/EWS/EwsServerVersionError.html">Viewpoint::EWS::EwsServerVersionError</a>
+  
+    <li><a href="../Viewpoint/EWS/EwsSubscriptionError.html">Viewpoint::EWS::EwsSubscriptionError</a>
+  
+    <li><a href="../Viewpoint/EWS/EwsSubscriptionTimeout.html">Viewpoint::EWS::EwsSubscriptionTimeout</a>
+  
+    <li><a href="../Viewpoint/EWS/FolderAccessors.html">Viewpoint::EWS::FolderAccessors</a>
+  
+    <li><a href="../Viewpoint/EWS/ItemAccessors.html">Viewpoint::EWS::ItemAccessors</a>
+  
+    <li><a href="../Viewpoint/EWS/ItemFieldUriMap.html">Viewpoint::EWS::ItemFieldUriMap</a>
+  
+    <li><a href="../Viewpoint/EWS/MailboxAccessors.html">Viewpoint::EWS::MailboxAccessors</a>
+  
+    <li><a href="../Viewpoint/EWS/MessageAccessors.html">Viewpoint::EWS::MessageAccessors</a>
+  
+    <li><a href="../Viewpoint/EWS/PushSubscriptionAccessors.html">Viewpoint::EWS::PushSubscriptionAccessors</a>
+  
+    <li><a href="../Viewpoint/EWS/RoomAccessors.html">Viewpoint::EWS::RoomAccessors</a>
+  
+    <li><a href="../Viewpoint/EWS/RoomlistAccessors.html">Viewpoint::EWS::RoomlistAccessors</a>
+  
+    <li><a href="../Viewpoint/EWS/SOAP.html">Viewpoint::EWS::SOAP</a>
+  
+    <li><a href="../Viewpoint/EWS/SOAP/CreateAttachmentResponseMessage.html">Viewpoint::EWS::SOAP::CreateAttachmentResponseMessage</a>
+  
+    <li><a href="../Viewpoint/EWS/SOAP/CreateItemResponseMessage.html">Viewpoint::EWS::SOAP::CreateItemResponseMessage</a>
+  
+    <li><a href="../Viewpoint/EWS/SOAP/EwsBuilder.html">Viewpoint::EWS::SOAP::EwsBuilder</a>
+  
+    <li><a href="../Viewpoint/EWS/SOAP/EwsParser.html">Viewpoint::EWS::SOAP::EwsParser</a>
+  
+    <li><a href="../Viewpoint/EWS/SOAP/EwsResponse.html">Viewpoint::EWS::SOAP::EwsResponse</a>
+  
+    <li><a href="../Viewpoint/EWS/SOAP/EwsSaxDocument.html">Viewpoint::EWS::SOAP::EwsSaxDocument</a>
+  
+    <li><a href="../Viewpoint/EWS/SOAP/EwsSoapAvailabilityResponse.html">Viewpoint::EWS::SOAP::EwsSoapAvailabilityResponse</a>
+  
+    <li><a href="../Viewpoint/EWS/SOAP/EwsSoapFreeBusyResponse.html">Viewpoint::EWS::SOAP::EwsSoapFreeBusyResponse</a>
+  
+    <li><a href="../Viewpoint/EWS/SOAP/EwsSoapResponse.html">Viewpoint::EWS::SOAP::EwsSoapResponse</a>
+  
+    <li><a href="../Viewpoint/EWS/SOAP/EwsSoapRoomResponse.html">Viewpoint::EWS::SOAP::EwsSoapRoomResponse</a>
+  
+    <li><a href="../Viewpoint/EWS/SOAP/EwsSoapRoomlistResponse.html">Viewpoint::EWS::SOAP::EwsSoapRoomlistResponse</a>
+  
+    <li><a href="../Viewpoint/EWS/SOAP/ExchangeAvailability.html">Viewpoint::EWS::SOAP::ExchangeAvailability</a>
+  
+    <li><a href="../Viewpoint/EWS/SOAP/ExchangeDataServices.html">Viewpoint::EWS::SOAP::ExchangeDataServices</a>
+  
+    <li><a href="../Viewpoint/EWS/SOAP/ExchangeNotification.html">Viewpoint::EWS::SOAP::ExchangeNotification</a>
+  
+    <li><a href="../Viewpoint/EWS/SOAP/ExchangeSynchronization.html">Viewpoint::EWS::SOAP::ExchangeSynchronization</a>
+  
+    <li><a href="../Viewpoint/EWS/SOAP/ExchangeTimeZones.html">Viewpoint::EWS::SOAP::ExchangeTimeZones</a>
+  
+    <li><a href="../Viewpoint/EWS/SOAP/ExchangeUserConfiguration.html">Viewpoint::EWS::SOAP::ExchangeUserConfiguration</a>
+  
+    <li><a href="../Viewpoint/EWS/SOAP/ExchangeWebService.html">Viewpoint::EWS::SOAP::ExchangeWebService</a>
+  
+    <li><a href="../Viewpoint/EWS/SOAP/FindItemResponseMessage.html">Viewpoint::EWS::SOAP::FindItemResponseMessage</a>
+  
+    <li><a href="../Viewpoint/EWS/SOAP/GetEventsResponseMessage.html">Viewpoint::EWS::SOAP::GetEventsResponseMessage</a>
+  
+    <li><a href="../Viewpoint/EWS/SOAP/ResponseMessage.html">Viewpoint::EWS::SOAP::ResponseMessage</a>
+  
+    <li><a href="../Viewpoint/EWS/SOAP/RootFolder.html">Viewpoint::EWS::SOAP::RootFolder</a>
+  
+    <li><a href="../Viewpoint/EWS/SOAP/SendNotificationResponseMessage.html">Viewpoint::EWS::SOAP::SendNotificationResponseMessage</a>
+  
+    <li><a href="../Viewpoint/EWS/SOAP/SubscribeResponseMessage.html">Viewpoint::EWS::SOAP::SubscribeResponseMessage</a>
+  
+    <li><a href="../Viewpoint/EWS/SOAP/SyncFolderHierarchyResponseMessage.html">Viewpoint::EWS::SOAP::SyncFolderHierarchyResponseMessage</a>
+  
+    <li><a href="../Viewpoint/EWS/SOAP/SyncFolderItemsResponseMessage.html">Viewpoint::EWS::SOAP::SyncFolderItemsResponseMessage</a>
+  
+    <li><a href="../Viewpoint/EWS/SaveFailed.html">Viewpoint::EWS::SaveFailed</a>
+  
+    <li><a href="../Viewpoint/EWS/Template.html">Viewpoint::EWS::Template</a>
+  
+    <li><a href="../Viewpoint/EWS/Template/CalendarItem.html">Viewpoint::EWS::Template::CalendarItem</a>
+  
+    <li><a href="../Viewpoint/EWS/Template/ForwardItem.html">Viewpoint::EWS::Template::ForwardItem</a>
+  
+    <li><a href="../Viewpoint/EWS/Template/Message.html">Viewpoint::EWS::Template::Message</a>
+  
+    <li><a href="../Viewpoint/EWS/Template/ReplyToItem.html">Viewpoint::EWS::Template::ReplyToItem</a>
+  
+    <li><a href="../Viewpoint/EWS/Template/Task.html">Viewpoint::EWS::Template::Task</a>
+  
+    <li><a href="../Viewpoint/EWS/Types.html">Viewpoint::EWS::Types</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/Attachment.html">Viewpoint::EWS::Types::Attachment</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/Attendee.html">Viewpoint::EWS::Types::Attendee</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/CalendarFolder.html">Viewpoint::EWS::Types::CalendarFolder</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/CalendarItem.html">Viewpoint::EWS::Types::CalendarItem</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/Contact.html">Viewpoint::EWS::Types::Contact</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/ContactsFolder.html">Viewpoint::EWS::Types::ContactsFolder</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/CopiedEvent.html">Viewpoint::EWS::Types::CopiedEvent</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/CreatedEvent.html">Viewpoint::EWS::Types::CreatedEvent</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/DeletedEvent.html">Viewpoint::EWS::Types::DeletedEvent</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/DistributionList.html">Viewpoint::EWS::Types::DistributionList</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/Event.html">Viewpoint::EWS::Types::Event</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/ExportItemsResponseMessage.html">Viewpoint::EWS::Types::ExportItemsResponseMessage</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/FileAttachment.html">Viewpoint::EWS::Types::FileAttachment</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/Folder.html">Viewpoint::EWS::Types::Folder</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/FreeBusyChangedEvent.html">Viewpoint::EWS::Types::FreeBusyChangedEvent</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/GenericFolder.html">Viewpoint::EWS::Types::GenericFolder</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/Item.html">Viewpoint::EWS::Types::Item</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/Item/ClassMethods.html">Viewpoint::EWS::Types::Item::ClassMethods</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/ItemAttachment.html">Viewpoint::EWS::Types::ItemAttachment</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/MailboxUser.html">Viewpoint::EWS::Types::MailboxUser</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/MeetingCancellation.html">Viewpoint::EWS::Types::MeetingCancellation</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/MeetingMessage.html">Viewpoint::EWS::Types::MeetingMessage</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/MeetingRequest.html">Viewpoint::EWS::Types::MeetingRequest</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/MeetingResponse.html">Viewpoint::EWS::Types::MeetingResponse</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/Message.html">Viewpoint::EWS::Types::Message</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/ModifiedEvent.html">Viewpoint::EWS::Types::ModifiedEvent</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/MovedEvent.html">Viewpoint::EWS::Types::MovedEvent</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/NewMailEvent.html">Viewpoint::EWS::Types::NewMailEvent</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/OutOfOffice.html">Viewpoint::EWS::Types::OutOfOffice</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/SearchFolder.html">Viewpoint::EWS::Types::SearchFolder</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/StatusEvent.html">Viewpoint::EWS::Types::StatusEvent</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/Task.html">Viewpoint::EWS::Types::Task</a>
+  
+    <li><a href="../Viewpoint/EWS/Types/TasksFolder.html">Viewpoint::EWS::Types::TasksFolder</a>
+  
+    <li><a href="../Viewpoint/EWSClient.html">Viewpoint::EWSClient</a>
+  
+    <li><a href="../Viewpoint/StringFormatException.html">Viewpoint::StringFormatException</a>
+  
+    <li><a href="../Viewpoint/StringUtils.html">Viewpoint::StringUtils</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module Viewpoint::StringUtils</h1>
+
+  <div id="description" class="description">
+    
+<p>Collection of utility methods for working with Strings</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="DURATION_RE">DURATION_RE
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-included" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">included</span><span
+            class="method-args">(klass)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="included-source">
+            <pre><span class="ruby-comment"># File lib/viewpoint/string_utils.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">included</span>(<span class="ruby-identifier">klass</span>)
+  <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">extend</span> <span class="ruby-constant">StringUtils</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- included-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- included-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-camel_case" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">camel_case</span><span
+            class="method-args">(input)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Change a ruby_cased string to CamelCased</p>
+          
+          
+
+          
+          <div class="method-source-code" id="camel_case-source">
+            <pre><span class="ruby-comment"># File lib/viewpoint/string_utils.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">camel_case</span>(<span class="ruby-identifier">input</span>)
+  <span class="ruby-identifier">input</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/_/</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">i</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">/^./</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">upcase</span> }
+  }.<span class="ruby-identifier">join</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- camel_case-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- camel_case-method -->
+
+    
+      <div id="method-i-iso8601_duration_to_seconds" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">iso8601_duration_to_seconds</span><span
+            class="method-args">(input)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Convert an ISO8601 Duration format to seconds @see <a
+href="http://tools.ietf.org/html/rfc2445#section-4.3.6">tools.ietf.org/html/rfc2445#section-4.3.6</a>
+@param [String] input @return [nil,Fixnum] the number of seconds in this
+duration</p>
+
+<pre>nil if there is no known duration</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="iso8601_duration_to_seconds-source">
+            <pre><span class="ruby-comment"># File lib/viewpoint/string_utils.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">iso8601_duration_to_seconds</span>(<span class="ruby-identifier">input</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">input</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">input</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">match_data</span> = <span class="ruby-constant">DURATION_RE</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">input</span>)
+  <span class="ruby-identifier">raise</span>(<span class="ruby-constant">StringFormatException</span>, <span class="ruby-string">&quot;Invalid duration given&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">match_data</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">duration</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">duration</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">match_data</span>[<span class="ruby-value">:weeks</span>].<span class="ruby-identifier">to_i</span>   <span class="ruby-operator">*</span> <span class="ruby-value">604800</span>
+  <span class="ruby-identifier">duration</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">match_data</span>[<span class="ruby-value">:days</span>].<span class="ruby-identifier">to_i</span>    <span class="ruby-operator">*</span> <span class="ruby-value">86400</span>
+  <span class="ruby-identifier">duration</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">match_data</span>[<span class="ruby-value">:hours</span>].<span class="ruby-identifier">to_i</span>   <span class="ruby-operator">*</span> <span class="ruby-value">3600</span>
+  <span class="ruby-identifier">duration</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">match_data</span>[<span class="ruby-value">:minutes</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">*</span> <span class="ruby-value">60</span>
+  <span class="ruby-identifier">duration</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">match_data</span>[<span class="ruby-value">:seconds</span>].<span class="ruby-identifier">to_i</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- iso8601_duration_to_seconds-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- iso8601_duration_to_seconds-method -->
+
+    
+      <div id="method-i-ruby_case" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ruby_case</span><span
+            class="method-args">(input)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Change CamelCased strings to ruby_cased strings It uses the lookahead
+assertion ?=  In this case it basically says match anything followed by a
+capital letter, but not the capital letter itself. @see <a
+href="http://www.pcre.org/pcre.txt">www.pcre.org/pcre.txt</a> The PCRE
+guide for more details</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ruby_case-source">
+            <pre><span class="ruby-comment"># File lib/viewpoint/string_utils.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ruby_case</span>(<span class="ruby-identifier">input</span>)
+  <span class="ruby-identifier">input</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/(?=[A-Z])/</span>).<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;_&#39;</span>).<span class="ruby-identifier">downcase</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- ruby_case-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- ruby_case-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

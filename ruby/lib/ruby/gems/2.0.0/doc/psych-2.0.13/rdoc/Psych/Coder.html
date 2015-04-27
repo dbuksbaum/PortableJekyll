@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Psych::Coder - psych-2.0.13 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/psych/coder.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-5B-5D">#[]</a>
+    
+    <li ><a href="#method-i-5B-5D-3D">#[]=</a>
+    
+    <li ><a href="#method-i-add">#add</a>
+    
+    <li ><a href="#method-i-map">#map</a>
+    
+    <li ><a href="#method-i-map-3D">#map=</a>
+    
+    <li ><a href="#method-i-represent_map">#represent_map</a>
+    
+    <li ><a href="#method-i-represent_object">#represent_object</a>
+    
+    <li ><a href="#method-i-represent_scalar">#represent_scalar</a>
+    
+    <li ><a href="#method-i-represent_seq">#represent_seq</a>
+    
+    <li ><a href="#method-i-scalar">#scalar</a>
+    
+    <li ><a href="#method-i-scalar-3D">#scalar=</a>
+    
+    <li ><a href="#method-i-seq-3D">#seq=</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../CHANGELOG_rdoc.html">CHANGELOG</a>
+  
+    <li class="file"><a href="../Manifest_txt.html">Manifest</a>
+  
+    <li class="file"><a href="../README_rdoc.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Kernel.html">Kernel</a>
+  
+    <li><a href="../Module.html">Module</a>
+  
+    <li><a href="../Object.html">Object</a>
+  
+    <li><a href="../Psych.html">Psych</a>
+  
+    <li><a href="../Psych/BadAlias.html">Psych::BadAlias</a>
+  
+    <li><a href="../Psych/ClassLoader.html">Psych::ClassLoader</a>
+  
+    <li><a href="../Psych/ClassLoader/Restricted.html">Psych::ClassLoader::Restricted</a>
+  
+    <li><a href="../Psych/Coder.html">Psych::Coder</a>
+  
+    <li><a href="../Psych/DeprecatedMethods.html">Psych::DeprecatedMethods</a>
+  
+    <li><a href="../Psych/DisallowedClass.html">Psych::DisallowedClass</a>
+  
+    <li><a href="../Psych/Exception.html">Psych::Exception</a>
+  
+    <li><a href="../Psych/Handler.html">Psych::Handler</a>
+  
+    <li><a href="../Psych/Handler/DumperOptions.html">Psych::Handler::DumperOptions</a>
+  
+    <li><a href="../Psych/Handlers.html">Psych::Handlers</a>
+  
+    <li><a href="../Psych/Handlers/DocumentStream.html">Psych::Handlers::DocumentStream</a>
+  
+    <li><a href="../Psych/Handlers/Recorder.html">Psych::Handlers::Recorder</a>
+  
+    <li><a href="../Psych/JSON.html">Psych::JSON</a>
+  
+    <li><a href="../Psych/JSON/RubyEvents.html">Psych::JSON::RubyEvents</a>
+  
+    <li><a href="../Psych/JSON/Stream.html">Psych::JSON::Stream</a>
+  
+    <li><a href="../Psych/JSON/Stream/Emitter.html">Psych::JSON::Stream::Emitter</a>
+  
+    <li><a href="../Psych/JSON/TreeBuilder.html">Psych::JSON::TreeBuilder</a>
+  
+    <li><a href="../Psych/JSON/YAMLEvents.html">Psych::JSON::YAMLEvents</a>
+  
+    <li><a href="../Psych/Nodes.html">Psych::Nodes</a>
+  
+    <li><a href="../Psych/Nodes/Alias.html">Psych::Nodes::Alias</a>
+  
+    <li><a href="../Psych/Nodes/Document.html">Psych::Nodes::Document</a>
+  
+    <li><a href="../Psych/Nodes/Mapping.html">Psych::Nodes::Mapping</a>
+  
+    <li><a href="../Psych/Nodes/Node.html">Psych::Nodes::Node</a>
+  
+    <li><a href="../Psych/Nodes/Scalar.html">Psych::Nodes::Scalar</a>
+  
+    <li><a href="../Psych/Nodes/Sequence.html">Psych::Nodes::Sequence</a>
+  
+    <li><a href="../Psych/Nodes/Stream.html">Psych::Nodes::Stream</a>
+  
+    <li><a href="../Psych/Omap.html">Psych::Omap</a>
+  
+    <li><a href="../Psych/Parser.html">Psych::Parser</a>
+  
+    <li><a href="../Psych/Parser/Mark.html">Psych::Parser::Mark</a>
+  
+    <li><a href="../Psych/ScalarScanner.html">Psych::ScalarScanner</a>
+  
+    <li><a href="../Psych/Set.html">Psych::Set</a>
+  
+    <li><a href="../Psych/Stream.html">Psych::Stream</a>
+  
+    <li><a href="../Psych/Stream/Emitter.html">Psych::Stream::Emitter</a>
+  
+    <li><a href="../Psych/Streaming.html">Psych::Streaming</a>
+  
+    <li><a href="../Psych/Streaming/ClassMethods.html">Psych::Streaming::ClassMethods</a>
+  
+    <li><a href="../Psych/SyntaxError.html">Psych::SyntaxError</a>
+  
+    <li><a href="../Psych/TreeBuilder.html">Psych::TreeBuilder</a>
+  
+    <li><a href="../Psych/Visitors.html">Psych::Visitors</a>
+  
+    <li><a href="../Psych/Visitors/DepthFirst.html">Psych::Visitors::DepthFirst</a>
+  
+    <li><a href="../Psych/Visitors/Emitter.html">Psych::Visitors::Emitter</a>
+  
+    <li><a href="../Psych/Visitors/JSONTree.html">Psych::Visitors::JSONTree</a>
+  
+    <li><a href="../Psych/Visitors/NoAliasRuby.html">Psych::Visitors::NoAliasRuby</a>
+  
+    <li><a href="../Psych/Visitors/ToRuby.html">Psych::Visitors::ToRuby</a>
+  
+    <li><a href="../Psych/Visitors/Visitor.html">Psych::Visitors::Visitor</a>
+  
+    <li><a href="../Psych/Visitors/YAMLTree.html">Psych::Visitors::YAMLTree</a>
+  
+    <li><a href="../Psych/Visitors/YAMLTree/Registrar.html">Psych::Visitors::YAMLTree::Registrar</a>
+  
+    <li><a href="../Psych/target;.html">Psych::target;</a>
+  
+    <li><a href="../Regexp.html">Regexp</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Psych::Coder</h1>
+
+  <div id="description" class="description">
+    
+<p>If an object defines <code>encode_with</code>, then an instance of <a
+href="Coder.html">Psych::Coder</a> will be passed to the method when the
+object is being serialized.  The <a href="Coder.html">Coder</a>
+automatically assumes a <a
+href="Nodes/Mapping.html">Psych::Nodes::Mapping</a> is being emitted. 
+Other objects like Sequence and Scalar may be emitted if <code>seq=</code>
+or <code>scalar=</code> are called, respectively.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-implicit" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">implicit</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-object" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">object</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-seq" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">seq</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-style" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">style</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-tag" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">tag</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-type" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">type</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(tag)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/psych/coder.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span> <span class="ruby-identifier">tag</span>
+  <span class="ruby-ivar">@map</span>      = {}
+  <span class="ruby-ivar">@seq</span>      = []
+  <span class="ruby-ivar">@implicit</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@type</span>     = <span class="ruby-value">:map</span>
+  <span class="ruby-ivar">@tag</span>      = <span class="ruby-identifier">tag</span>
+  <span class="ruby-ivar">@style</span>    = <span class="ruby-constant">Psych</span><span class="ruby-operator">::</span><span class="ruby-constant">Nodes</span><span class="ruby-operator">::</span><span class="ruby-constant">Mapping</span><span class="ruby-operator">::</span><span class="ruby-constant">BLOCK</span>
+  <span class="ruby-ivar">@scalar</span>   = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@object</span>   = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-5B-5D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]</span><span
+            class="method-args">(k)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-source">
+            <pre><span class="ruby-comment"># File lib/psych/coder.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]</span> <span class="ruby-identifier">k</span>
+  <span class="ruby-ivar">@type</span> = <span class="ruby-value">:map</span>
+  <span class="ruby-ivar">@map</span>[<span class="ruby-identifier">k</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- 5B-5D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- 5B-5D-method -->
+
+    
+      <div id="method-i-5B-5D-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]=</span><span
+            class="method-args">(k, v)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-3D-source">
+            <pre><span class="ruby-comment"># File lib/psych/coder.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]=</span> <span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>
+  <span class="ruby-ivar">@type</span> = <span class="ruby-value">:map</span>
+  <span class="ruby-ivar">@map</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-identifier">v</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- 5B-5D-3D-source -->
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Coder.html#method-i-add">add</a>
+        </div>
+        
+
+        
+      </div><!-- 5B-5D-3D-method -->
+
+    
+      <div id="method-i-add" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">add</span><span
+            class="method-args">(k, v)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Coder.html#method-i-5B-5D-3D">[]=</a>
+        </div>
+        
+      </div><!-- add-method -->
+
+    
+      <div id="method-i-map" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">map</span><span
+            class="method-args">(tag = @tag, style = @style) { |self| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Emit a map.  The coder will be yielded to the block.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="map-source">
+            <pre><span class="ruby-comment"># File lib/psych/coder.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">map</span> <span class="ruby-identifier">tag</span> = <span class="ruby-ivar">@tag</span>, <span class="ruby-identifier">style</span> = <span class="ruby-ivar">@style</span>
+  <span class="ruby-ivar">@tag</span>   = <span class="ruby-identifier">tag</span>
+  <span class="ruby-ivar">@style</span> = <span class="ruby-identifier">style</span>
+  <span class="ruby-keyword">yield</span> <span class="ruby-keyword">self</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-ivar">@map</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- map-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- map-method -->
+
+    
+      <div id="method-i-map-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">map=</span><span
+            class="method-args">(map)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Emit a map with <code>value</code></p>
+          
+          
+
+          
+          <div class="method-source-code" id="map-3D-source">
+            <pre><span class="ruby-comment"># File lib/psych/coder.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">map=</span> <span class="ruby-identifier">map</span>
+  <span class="ruby-ivar">@type</span> = <span class="ruby-value">:map</span>
+  <span class="ruby-ivar">@map</span>  = <span class="ruby-identifier">map</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- map-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- map-3D-method -->
+
+    
+      <div id="method-i-represent_map" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">represent_map</span><span
+            class="method-args">(tag, map)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Emit a sequence with <code>map</code> and <code>tag</code></p>
+          
+          
+
+          
+          <div class="method-source-code" id="represent_map-source">
+            <pre><span class="ruby-comment"># File lib/psych/coder.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">represent_map</span> <span class="ruby-identifier">tag</span>, <span class="ruby-identifier">map</span>
+  <span class="ruby-ivar">@tag</span> = <span class="ruby-identifier">tag</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">map</span> = <span class="ruby-identifier">map</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- represent_map-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- represent_map-method -->
+
+    
+      <div id="method-i-represent_object" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">represent_object</span><span
+            class="method-args">(tag, obj)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Emit an arbitrary object <code>obj</code> and <code>tag</code></p>
+          
+          
+
+          
+          <div class="method-source-code" id="represent_object-source">
+            <pre><span class="ruby-comment"># File lib/psych/coder.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">represent_object</span> <span class="ruby-identifier">tag</span>, <span class="ruby-identifier">obj</span>
+  <span class="ruby-ivar">@tag</span>    = <span class="ruby-identifier">tag</span>
+  <span class="ruby-ivar">@type</span>   = <span class="ruby-value">:object</span>
+  <span class="ruby-ivar">@object</span> = <span class="ruby-identifier">obj</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- represent_object-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- represent_object-method -->
+
+    
+      <div id="method-i-represent_scalar" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">represent_scalar</span><span
+            class="method-args">(tag, value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Emit a scalar with <code>value</code> and <code>tag</code></p>
+          
+          
+
+          
+          <div class="method-source-code" id="represent_scalar-source">
+            <pre><span class="ruby-comment"># File lib/psych/coder.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">represent_scalar</span> <span class="ruby-identifier">tag</span>, <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">tag</span>    = <span class="ruby-identifier">tag</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">scalar</span> = <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- represent_scalar-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- represent_scalar-method -->
+
+    
+      <div id="method-i-represent_seq" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">represent_seq</span><span
+            class="method-args">(tag, list)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Emit a sequence with <code>list</code> and <code>tag</code></p>
+          
+          
+
+          
+          <div class="method-source-code" id="represent_seq-source">
+            <pre><span class="ruby-comment"># File lib/psych/coder.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">represent_seq</span> <span class="ruby-identifier">tag</span>, <span class="ruby-identifier">list</span>
+  <span class="ruby-ivar">@tag</span> = <span class="ruby-identifier">tag</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">seq</span> = <span class="ruby-identifier">list</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- represent_seq-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- represent_seq-method -->
+
+    
+      <div id="method-i-scalar" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">scalar</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="scalar-source">
+            <pre><span class="ruby-comment"># File lib/psych/coder.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">scalar</span> <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;#{caller[0]}: Coder#scalar(a,b,c) is deprecated&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">$VERBOSE</span>
+    <span class="ruby-ivar">@tag</span>, <span class="ruby-ivar">@scalar</span>, <span class="ruby-identifier">_</span> = <span class="ruby-identifier">args</span>
+    <span class="ruby-ivar">@type</span> = <span class="ruby-value">:scalar</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@scalar</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- scalar-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- scalar-method -->
+
+    
+      <div id="method-i-scalar-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">scalar=</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Emit a scalar with <code>value</code></p>
+          
+          
+
+          
+          <div class="method-source-code" id="scalar-3D-source">
+            <pre><span class="ruby-comment"># File lib/psych/coder.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">scalar=</span> <span class="ruby-identifier">value</span>
+  <span class="ruby-ivar">@type</span>   = <span class="ruby-value">:scalar</span>
+  <span class="ruby-ivar">@scalar</span> = <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- scalar-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- scalar-3D-method -->
+
+    
+      <div id="method-i-seq-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">seq=</span><span
+            class="method-args">(list)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Emit a sequence of <code>list</code></p>
+          
+          
+
+          
+          <div class="method-source-code" id="seq-3D-source">
+            <pre><span class="ruby-comment"># File lib/psych/coder.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">seq=</span> <span class="ruby-identifier">list</span>
+  <span class="ruby-ivar">@type</span> = <span class="ruby-value">:seq</span>
+  <span class="ruby-ivar">@seq</span>  = <span class="ruby-identifier">list</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- seq-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- seq-3D-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

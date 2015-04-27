@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module Icalendar - icalendar-2.2.2 Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/icalendar.rb
+    <li>lib/icalendar/alarm.rb
+    <li>lib/icalendar/calendar.rb
+    <li>lib/icalendar/component.rb
+    <li>lib/icalendar/event.rb
+    <li>lib/icalendar/freebusy.rb
+    <li>lib/icalendar/has_components.rb
+    <li>lib/icalendar/has_properties.rb
+    <li>lib/icalendar/journal.rb
+    <li>lib/icalendar/logger.rb
+    <li>lib/icalendar/parser.rb
+    <li>lib/icalendar/timezone.rb
+    <li>lib/icalendar/todo.rb
+    <li>lib/icalendar/tzinfo.rb
+    <li>lib/icalendar/value.rb
+    <li>lib/icalendar/values/active_support_time_with_zone_adapter.rb
+    <li>lib/icalendar/values/array.rb
+    <li>lib/icalendar/values/binary.rb
+    <li>lib/icalendar/values/boolean.rb
+    <li>lib/icalendar/values/cal_address.rb
+    <li>lib/icalendar/values/date.rb
+    <li>lib/icalendar/values/date_time.rb
+    <li>lib/icalendar/values/duration.rb
+    <li>lib/icalendar/values/float.rb
+    <li>lib/icalendar/values/integer.rb
+    <li>lib/icalendar/values/period.rb
+    <li>lib/icalendar/values/recur.rb
+    <li>lib/icalendar/values/text.rb
+    <li>lib/icalendar/values/time.rb
+    <li>lib/icalendar/values/time_with_zone.rb
+    <li>lib/icalendar/values/uri.rb
+    <li>lib/icalendar/values/utc_offset.rb
+    <li>lib/icalendar/version.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-logger">::logger</a>
+    
+    <li ><a href="#method-c-logger-3D">::logger=</a>
+    
+    <li ><a href="#method-c-parse">::parse</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./ActiveSupport.html">ActiveSupport</a>
+  
+    <li><a href="./Icalendar.html">Icalendar</a>
+  
+    <li><a href="./Icalendar/Alarm.html">Icalendar::Alarm</a>
+  
+    <li><a href="./Icalendar/Calendar.html">Icalendar::Calendar</a>
+  
+    <li><a href="./Icalendar/Component.html">Icalendar::Component</a>
+  
+    <li><a href="./Icalendar/Event.html">Icalendar::Event</a>
+  
+    <li><a href="./Icalendar/Freebusy.html">Icalendar::Freebusy</a>
+  
+    <li><a href="./Icalendar/HasComponents.html">Icalendar::HasComponents</a>
+  
+    <li><a href="./Icalendar/HasComponents/ClassMethods.html">Icalendar::HasComponents::ClassMethods</a>
+  
+    <li><a href="./Icalendar/HasProperties.html">Icalendar::HasProperties</a>
+  
+    <li><a href="./Icalendar/HasProperties/ClassMethods.html">Icalendar::HasProperties::ClassMethods</a>
+  
+    <li><a href="./Icalendar/Journal.html">Icalendar::Journal</a>
+  
+    <li><a href="./Icalendar/Logger.html">Icalendar::Logger</a>
+  
+    <li><a href="./Icalendar/Parser.html">Icalendar::Parser</a>
+  
+    <li><a href="./Icalendar/Timezone.html">Icalendar::Timezone</a>
+  
+    <li><a href="./Icalendar/Timezone/Daylight.html">Icalendar::Timezone::Daylight</a>
+  
+    <li><a href="./Icalendar/Timezone/Standard.html">Icalendar::Timezone::Standard</a>
+  
+    <li><a href="./Icalendar/Timezone/TzProperties.html">Icalendar::Timezone::TzProperties</a>
+  
+    <li><a href="./Icalendar/TimezoneOffset.html">Icalendar::TimezoneOffset</a>
+  
+    <li><a href="./Icalendar/TimezoneTransition.html">Icalendar::TimezoneTransition</a>
+  
+    <li><a href="./Icalendar/Todo.html">Icalendar::Todo</a>
+  
+    <li><a href="./Icalendar/Value.html">Icalendar::Value</a>
+  
+    <li><a href="./Icalendar/Values.html">Icalendar::Values</a>
+  
+    <li><a href="./Icalendar/Values/ActiveSupportTimeWithZoneAdapter.html">Icalendar::Values::ActiveSupportTimeWithZoneAdapter</a>
+  
+    <li><a href="./Icalendar/Values/Array.html">Icalendar::Values::Array</a>
+  
+    <li><a href="./Icalendar/Values/Binary.html">Icalendar::Values::Binary</a>
+  
+    <li><a href="./Icalendar/Values/Boolean.html">Icalendar::Values::Boolean</a>
+  
+    <li><a href="./Icalendar/Values/CalAddress.html">Icalendar::Values::CalAddress</a>
+  
+    <li><a href="./Icalendar/Values/Date.html">Icalendar::Values::Date</a>
+  
+    <li><a href="./Icalendar/Values/DateTime.html">Icalendar::Values::DateTime</a>
+  
+    <li><a href="./Icalendar/Values/Duration.html">Icalendar::Values::Duration</a>
+  
+    <li><a href="./Icalendar/Values/Float.html">Icalendar::Values::Float</a>
+  
+    <li><a href="./Icalendar/Values/Integer.html">Icalendar::Values::Integer</a>
+  
+    <li><a href="./Icalendar/Values/Period.html">Icalendar::Values::Period</a>
+  
+    <li><a href="./Icalendar/Values/Recur.html">Icalendar::Values::Recur</a>
+  
+    <li><a href="./Icalendar/Values/Text.html">Icalendar::Values::Text</a>
+  
+    <li><a href="./Icalendar/Values/Time.html">Icalendar::Values::Time</a>
+  
+    <li><a href="./Icalendar/Values/TimeWithZone.html">Icalendar::Values::TimeWithZone</a>
+  
+    <li><a href="./Icalendar/Values/Uri.html">Icalendar::Values::Uri</a>
+  
+    <li><a href="./Icalendar/Values/UtcOffset.html">Icalendar::Values::UtcOffset</a>
+  
+    <li><a href="./TZInfo.html">TZInfo</a>
+  
+    <li><a href="./TZInfo/Timezone.html">TZInfo::Timezone</a>
+  
+    <li><a href="./TZInfo/TimezoneOffset.html">TZInfo::TimezoneOffset</a>
+  
+    <li><a href="./TZInfo/TimezoneOffsetInfo.html">TZInfo::TimezoneOffsetInfo</a>
+  
+    <li><a href="./TZInfo/TimezonePeriod.html">TZInfo::TimezonePeriod</a>
+  
+    <li><a href="./TZInfo/TimezoneTransition.html">TZInfo::TimezoneTransition</a>
+  
+    <li><a href="./TZInfo/TimezoneTransitionInfo.html">TZInfo::TimezoneTransitionInfo</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module Icalendar</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="MAX_LINE_LENGTH">MAX_LINE_LENGTH
+        
+        <dd class="description">
+        
+      
+        <dt id="VERSION">VERSION
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-logger" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">logger</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="logger-source">
+            <pre><span class="ruby-comment"># File lib/icalendar.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">logger</span>
+  <span class="ruby-ivar">@logger</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Icalendar</span><span class="ruby-operator">::</span><span class="ruby-constant">Logger</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">STDERR</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- logger-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- logger-method -->
+
+    
+      <div id="method-c-logger-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">logger=</span><span
+            class="method-args">(logger)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="logger-3D-source">
+            <pre><span class="ruby-comment"># File lib/icalendar.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">logger=</span>(<span class="ruby-identifier">logger</span>)
+  <span class="ruby-ivar">@logger</span> = <span class="ruby-identifier">logger</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- logger-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- logger-3D-method -->
+
+    
+      <div id="method-c-parse" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse</span><span
+            class="method-args">(source, single = false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse-source">
+            <pre><span class="ruby-comment"># File lib/icalendar.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">single</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">calendars</span> = <span class="ruby-constant">Parser</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">source</span>).<span class="ruby-identifier">parse</span>
+  <span class="ruby-identifier">single</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">calendars</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">calendars</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- parse-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- parse-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

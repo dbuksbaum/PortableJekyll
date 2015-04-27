@@ -1,0 +1,1759 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class DirectoryWatcher - directory_watcher-1.5.1 Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+<div id="table-of-contents">
+  <nav class="section">
+    <h3 class="section-header">Table of Contents</h3>
+    <ul>
+      <li><a href="#label-Synopsis">Synopsis</a>
+      <li><a href="#label-Details">Details</a>
+      <li><a href="#label-File+Selection">File Selection</a>
+      <li><a href="#label-Stable+Files">Stable Files</a>
+      <li><a href="#label-Usage">Usage</a>
+      <li><a href="#label-Basic">Basic</a>
+      <li><a href="#label-Suppress+Initial+%22added%22+Events">Suppress Initial “added” Events</a>
+      <li><a href="#label-Generate+%22stable%22+Events">Generate “stable” Events</a>
+      <li><a href="#label-Persisting+State">Persisting State</a>
+      <li><a href="#label-Running+Once">Running Once</a>
+      <li><a href="#label-Ordering+of+Events">Ordering of Events</a>
+      <li><a href="#label-Scanning+Strategies">Scanning Strategies</a>
+      <li><a href="#label-Contact">Contact</a>
+      <li><a href="#label-Author">Author</a>
+    </ul>
+  </nav>
+</div>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/directory_watcher.rb
+    <li>lib/directory_watcher/collector.rb
+    <li>lib/directory_watcher/configuration.rb
+    <li>lib/directory_watcher/coolio_scanner.rb
+    <li>lib/directory_watcher/em_scanner.rb
+    <li>lib/directory_watcher/event.rb
+    <li>lib/directory_watcher/eventable_scanner.rb
+    <li>lib/directory_watcher/file_stat.rb
+    <li>lib/directory_watcher/logable.rb
+    <li>lib/directory_watcher/notifier.rb
+    <li>lib/directory_watcher/paths.rb
+    <li>lib/directory_watcher/rev_scanner.rb
+    <li>lib/directory_watcher/scan.rb
+    <li>lib/directory_watcher/scan_and_queue.rb
+    <li>lib/directory_watcher/scanner.rb
+    <li>lib/directory_watcher/threaded.rb
+    <li>lib/directory_watcher/version.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    <!-- Included Modules -->
+<nav id="includes-section" class="section">
+  <h3 class="section-header">Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="DirectoryWatcher/Logable.html">DirectoryWatcher::Logable</a>
+  
+  
+  </ul>
+</nav>
+
+    <!-- Extension Modules -->
+<nav id="extends-section" class="section">
+  <h3 class="section-header">Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><a class="extend" href="DirectoryWatcher/Paths.html">DirectoryWatcher::Paths</a>
+  
+  
+  
+    <li><a class="extend" href="DirectoryWatcher/Version.html">DirectoryWatcher::Version</a>
+  
+  
+  </ul>
+</nav>
+
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-add_observer">#add_observer</a>
+    
+    <li ><a href="#method-i-count_observers">#count_observers</a>
+    
+    <li ><a href="#method-i-delete_observer">#delete_observer</a>
+    
+    <li ><a href="#method-i-delete_observers">#delete_observers</a>
+    
+    <li ><a href="#method-i-finished_scans-3F">#finished_scans?</a>
+    
+    <li ><a href="#method-i-glob">#glob</a>
+    
+    <li ><a href="#method-i-glob-3D">#glob=</a>
+    
+    <li ><a href="#method-i-interval">#interval</a>
+    
+    <li ><a href="#method-i-interval-3D">#interval=</a>
+    
+    <li ><a href="#method-i-join">#join</a>
+    
+    <li ><a href="#method-i-load-21">#load!</a>
+    
+    <li ><a href="#method-i-maximum_iterations">#maximum_iterations</a>
+    
+    <li ><a href="#method-i-maximum_iterations-3D">#maximum_iterations=</a>
+    
+    <li ><a href="#method-i-pause">#pause</a>
+    
+    <li ><a href="#method-i-persist">#persist</a>
+    
+    <li ><a href="#method-i-persist-21">#persist!</a>
+    
+    <li ><a href="#method-i-persist-3D">#persist=</a>
+    
+    <li ><a href="#method-i-persist-3F">#persist?</a>
+    
+    <li ><a href="#method-i-reset">#reset</a>
+    
+    <li ><a href="#method-i-resume">#resume</a>
+    
+    <li ><a href="#method-i-run_once">#run_once</a>
+    
+    <li ><a href="#method-i-running-3F">#running?</a>
+    
+    <li ><a href="#method-i-scans">#scans</a>
+    
+    <li ><a href="#method-i-setup_dir">#setup_dir</a>
+    
+    <li ><a href="#method-i-stable">#stable</a>
+    
+    <li ><a href="#method-i-stable-3D">#stable=</a>
+    
+    <li ><a href="#method-i-start">#start</a>
+    
+    <li ><a href="#method-i-stop">#stop</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./History_txt.html">History</a>
+  
+    <li class="file"><a href="./README_txt.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./DirectoryWatcher.html">DirectoryWatcher</a>
+  
+    <li><a href="./DirectoryWatcher/Collector.html">DirectoryWatcher::Collector</a>
+  
+    <li><a href="./DirectoryWatcher/Configuration.html">DirectoryWatcher::Configuration</a>
+  
+    <li><a href="./DirectoryWatcher/CoolioScanner.html">DirectoryWatcher::CoolioScanner</a>
+  
+    <li><a href="./DirectoryWatcher/EmScanner.html">DirectoryWatcher::EmScanner</a>
+  
+    <li><a href="./DirectoryWatcher/Event.html">DirectoryWatcher::Event</a>
+  
+    <li><a href="./DirectoryWatcher/EventableScanner.html">DirectoryWatcher::EventableScanner</a>
+  
+    <li><a href="./DirectoryWatcher/FileStat.html">DirectoryWatcher::FileStat</a>
+  
+    <li><a href="./DirectoryWatcher/Logable.html">DirectoryWatcher::Logable</a>
+  
+    <li><a href="./DirectoryWatcher/Notifier.html">DirectoryWatcher::Notifier</a>
+  
+    <li><a href="./DirectoryWatcher/NullLogger.html">DirectoryWatcher::NullLogger</a>
+  
+    <li><a href="./DirectoryWatcher/Paths.html">DirectoryWatcher::Paths</a>
+  
+    <li><a href="./DirectoryWatcher/RevScanner.html">DirectoryWatcher::RevScanner</a>
+  
+    <li><a href="./DirectoryWatcher/Scan.html">DirectoryWatcher::Scan</a>
+  
+    <li><a href="./DirectoryWatcher/ScanAndQueue.html">DirectoryWatcher::ScanAndQueue</a>
+  
+    <li><a href="./DirectoryWatcher/Scanner.html">DirectoryWatcher::Scanner</a>
+  
+    <li><a href="./DirectoryWatcher/Threaded.html">DirectoryWatcher::Threaded</a>
+  
+    <li><a href="./DirectoryWatcher/Version.html">DirectoryWatcher::Version</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class DirectoryWatcher</h1>
+
+  <div id="description" class="description">
+    
+<h2 id="label-Synopsis">Synopsis<span><a href="#label-Synopsis">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>A class for watching files within a directory and generating events when
+those files change.</p>
+
+<h2 id="label-Details">Details<span><a href="#label-Details">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>A directory watcher is an <code>Observable</code> object that sends events
+to registered observers when file changes are detected within the directory
+being watched.</p>
+
+<p>The directory watcher operates by scanning the directory at some interval
+and creating a list of the files it finds. File events are detected by
+comparing the current file list with the file list from the previous scan
+interval. Three types of events are supported – <strong>added</strong>,
+<strong>modified</strong>, and</p>
+
+<pre>removed*.</pre>
+
+<p>An added event is generated when the file appears in the current file list
+but not in the previous scan interval file list. A removed event is
+generated when the file appears in the previous scan interval file list but
+not in the current file list. A modified event is generated when the file
+appears in the current and the previous interval file list, but the file
+modification time or the file size differs between the two lists.</p>
+
+<p>The file events are collected into an array, and all registered observers
+receive all file events for each scan interval. It is up to the individual
+observers to filter the events they are interested in.</p>
+
+<h3 id="label-File+Selection">File Selection<span><a href="#label-File+Selection">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>The directory watcher uses glob patterns to select the files to scan. The
+default glob pattern will select all regular files in the directory of
+interest &#39;*&#39;.</p>
+
+<p>Here are a few useful glob examples:</p>
+
+<pre class="ruby">   <span class="ruby-string">&#39;*&#39;</span>               =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">all</span> <span class="ruby-identifier">files</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">current</span> <span class="ruby-identifier">directory</span>
+   <span class="ruby-string">&#39;**  &#39;</span>            =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">all</span> <span class="ruby-identifier">files</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">all</span> <span class="ruby-identifier">subdirectories</span>
+   <span class="ruby-string">&#39;   *.rb&#39;</span>         =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">all</span> <span class="ruby-identifier">ruby</span> <span class="ruby-identifier">files</span>
+   <span class="ruby-string">&#39;ext   /*.{h,c}&#39;</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">all</span> <span class="ruby-constant">C</span> <span class="ruby-identifier">source</span> <span class="ruby-identifier">code</span> <span class="ruby-identifier">files</span>
+
+<span class="ruby-constant">Note</span><span class="ruby-operator">*</span><span class="ruby-operator">:</span> <span class="ruby-identifier">file</span> <span class="ruby-identifier">events</span> <span class="ruby-identifier">will</span> <span class="ruby-identifier">never</span> <span class="ruby-identifier">be</span> <span class="ruby-identifier">generated</span> <span class="ruby-keyword">for</span> <span class="ruby-identifier">directories</span>. <span class="ruby-constant">Only</span> <span class="ruby-identifier">regular</span>
+</pre>
+
+<p>files are included in the file scan.</p>
+
+<h3 id="label-Stable+Files">Stable Files<span><a href="#label-Stable+Files">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>A fourth file event is supported but not enabled by default – the</p>
+
+<pre>stable* event. This event is generated after a file has been added or</pre>
+
+<p>modified and then remains unchanged for a certain number of scan intervals.</p>
+
+<p>To enable the generation of this event the <code>stable</code> count must
+be configured. This is the number of scan intervals a file must remain
+unchanged (based modification time and file size) before it is considered
+stable.</p>
+
+<p>To disable this event the <code>stable</code> count should be set to
+<code>nil</code>.</p>
+
+<h2 id="label-Usage">Usage<span><a href="#label-Usage">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Learn by Doing – here are a few different ways to configure and use a
+directory watcher.</p>
+
+<h3 id="label-Basic">Basic<span><a href="#label-Basic">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>This basic recipe will watch all files in the current directory and
+generate the three default events. We&#39;ll register an observer that
+simply prints the events to standard out.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;directory_watcher&#39;</span>
+
+<span class="ruby-identifier">dw</span> = <span class="ruby-constant">DirectoryWatcher</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&#39;.&#39;</span>
+<span class="ruby-identifier">dw</span>.<span class="ruby-identifier">add_observer</span> {<span class="ruby-operator">|</span><span class="ruby-operator">*</span><span class="ruby-identifier">args</span><span class="ruby-operator">|</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">event</span><span class="ruby-operator">|</span> <span class="ruby-identifier">puts</span> <span class="ruby-identifier">event</span>}}
+
+<span class="ruby-identifier">dw</span>.<span class="ruby-identifier">start</span>
+<span class="ruby-identifier">gets</span>      <span class="ruby-comment"># when the user hits &quot;enter&quot; the script will terminate</span>
+<span class="ruby-identifier">dw</span>.<span class="ruby-identifier">stop</span>
+</pre>
+
+<h3 id="label-Suppress+Initial+%22added%22+Events">Suppress Initial “added” Events<span><a href="#label-Suppress+Initial+%22added%22+Events">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>This little twist will suppress the initial “added” events that are
+generated the first time the directory is scanned. This is done by
+pre-loading the watcher with files – i.e. telling the watcher to scan for
+files before actually starting the scan loop.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;directory_watcher&#39;</span>
+
+<span class="ruby-identifier">dw</span> = <span class="ruby-constant">DirectoryWatcher</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&#39;.&#39;</span>, :<span class="ruby-identifier">pre_load</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+<span class="ruby-identifier">dw</span>.<span class="ruby-identifier">glob</span> = <span class="ruby-string">&#39;   *.rb&#39;</span>
+<span class="ruby-identifier">dw</span>.<span class="ruby-identifier">add_observer</span> {<span class="ruby-operator">|</span><span class="ruby-operator">*</span><span class="ruby-identifier">args</span><span class="ruby-operator">|</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">event</span><span class="ruby-operator">|</span> <span class="ruby-identifier">puts</span> <span class="ruby-identifier">event</span>}}
+
+<span class="ruby-identifier">dw</span>.<span class="ruby-identifier">start</span>
+<span class="ruby-identifier">gets</span>      <span class="ruby-comment"># when the user hits &quot;enter&quot; the script will terminate</span>
+<span class="ruby-identifier">dw</span>.<span class="ruby-identifier">stop</span>
+</pre>
+
+<p>There is one catch with this recipe. The glob pattern must be specified
+before the pre-load takes place. The glob pattern can be given as an option
+to the constructor:</p>
+
+<pre class="ruby"><span class="ruby-identifier">dw</span> = <span class="ruby-constant">DirectoryWatcher</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&#39;.&#39;</span>, :<span class="ruby-identifier">glob</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;**/*.rb&#39;</span>, :<span class="ruby-identifier">pre_load</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+</pre>
+
+<p>The other option is to use the reset method:</p>
+
+<pre>dw = DirectoryWatcher.new &#39;.&#39;
+dw.glob = &#39;**/*.rb&#39;
+dw.reset true     # the +true+ flag causes the watcher to pre-load
+                  # the files</pre>
+
+<h3 id="label-Generate+%22stable%22+Events">Generate “stable” Events<span><a href="#label-Generate+%22stable%22+Events">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>In order to generate stable events, the stable count must be specified. In
+this example the interval is set to 5.0 seconds and the stable count is set
+to 2. Stable events will only be generated for files after they have remain
+unchanged for 10 seconds (5.0 * 2).</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;directory_watcher&#39;</span>
+
+<span class="ruby-identifier">dw</span> = <span class="ruby-constant">DirectoryWatcher</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&#39;.&#39;</span>, :<span class="ruby-identifier">glob</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;**/*.rb&#39;</span>
+<span class="ruby-identifier">dw</span>.<span class="ruby-identifier">interval</span> = <span class="ruby-value">5.0</span>
+<span class="ruby-identifier">dw</span>.<span class="ruby-identifier">stable</span> = <span class="ruby-value">2</span>
+<span class="ruby-identifier">dw</span>.<span class="ruby-identifier">add_observer</span> {<span class="ruby-operator">|</span><span class="ruby-operator">*</span><span class="ruby-identifier">args</span><span class="ruby-operator">|</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">event</span><span class="ruby-operator">|</span> <span class="ruby-identifier">puts</span> <span class="ruby-identifier">event</span>}}
+
+<span class="ruby-identifier">dw</span>.<span class="ruby-identifier">start</span>
+<span class="ruby-identifier">gets</span>      <span class="ruby-comment"># when the user hits &quot;enter&quot; the script will terminate</span>
+<span class="ruby-identifier">dw</span>.<span class="ruby-identifier">stop</span>
+</pre>
+
+<h3 id="label-Persisting+State">Persisting State<span><a href="#label-Persisting+State">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>A directory watcher can be configured to persist its current state to a
+file when it is stopped and to load state from that same file when it
+starts. Setting the <code>persist</code> value to a filename will enable
+this feature.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;directory_watcher&#39;</span>
+
+<span class="ruby-identifier">dw</span> = <span class="ruby-constant">DirectoryWatcher</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&#39;.&#39;</span>, :<span class="ruby-identifier">glob</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;**/*.rb&#39;</span>
+<span class="ruby-identifier">dw</span>.<span class="ruby-identifier">interval</span> = <span class="ruby-value">5.0</span>
+<span class="ruby-identifier">dw</span>.<span class="ruby-identifier">persist</span> = <span class="ruby-string">&quot;dw_state.yml&quot;</span>
+<span class="ruby-identifier">dw</span>.<span class="ruby-identifier">add_observer</span> {<span class="ruby-operator">|</span><span class="ruby-operator">*</span><span class="ruby-identifier">args</span><span class="ruby-operator">|</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">event</span><span class="ruby-operator">|</span> <span class="ruby-identifier">puts</span> <span class="ruby-identifier">event</span>}}
+
+<span class="ruby-identifier">dw</span>.<span class="ruby-identifier">start</span>  <span class="ruby-comment"># loads state from dw_state.yml</span>
+<span class="ruby-identifier">gets</span>      <span class="ruby-comment"># when the user hits &quot;enter&quot; the script will terminate</span>
+<span class="ruby-identifier">dw</span>.<span class="ruby-identifier">stop</span>   <span class="ruby-comment"># stores state to dw_state.yml</span>
+</pre>
+
+<h3 id="label-Running+Once">Running Once<span><a href="#label-Running+Once">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>Instead of using the built in run loop, the directory watcher can be run
+one or many times using the <code>run_once</code> method. The state of the
+directory watcher can be loaded and dumped if so desired.</p>
+
+<pre class="ruby"><span class="ruby-identifier">dw</span> = <span class="ruby-constant">DirectoryWatcher</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&#39;.&#39;</span>, :<span class="ruby-identifier">glob</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;**/*.rb&#39;</span>
+<span class="ruby-identifier">dw</span>.<span class="ruby-identifier">persist</span> = <span class="ruby-string">&quot;dw_state.yml&quot;</span>
+<span class="ruby-identifier">dw</span>.<span class="ruby-identifier">add_observer</span> {<span class="ruby-operator">|</span><span class="ruby-operator">*</span><span class="ruby-identifier">args</span><span class="ruby-operator">|</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">event</span><span class="ruby-operator">|</span> <span class="ruby-identifier">puts</span> <span class="ruby-identifier">event</span>}}
+
+<span class="ruby-identifier">dw</span>.<span class="ruby-identifier">load!</span>       <span class="ruby-comment"># loads state from dw_state.yml</span>
+<span class="ruby-identifier">dw</span>.<span class="ruby-identifier">run_once</span>
+<span class="ruby-identifier">sleep</span> <span class="ruby-value">5.0</span>
+<span class="ruby-identifier">dw</span>.<span class="ruby-identifier">run_once</span>
+<span class="ruby-identifier">dw</span>.<span class="ruby-identifier">persist!</span>    <span class="ruby-comment"># stores state to dw_state.yml</span>
+</pre>
+
+<h3 id="label-Ordering+of+Events">Ordering of Events<span><a href="#label-Ordering+of+Events">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>In the case, particularly in the initial scan, or in cases where the <a
+href="DirectoryWatcher/Scanner.html">Scanner</a> may be doing a large pass
+over the monitored locations, many events may be generated all at once. In
+the default case, these will be emitted in the order in which they are
+observed, which tends to be alphabetical, but it not guaranteed. If you
+wish the events to be order by modified time, or file size this may be done
+by setting the <code>sort_by</code> and/or the <code>order_by</code>
+options.</p>
+
+<pre class="ruby"><span class="ruby-identifier">dw</span> = <span class="ruby-constant">DirectoryWatcher</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&#39;.&#39;</span>, :<span class="ruby-identifier">glob</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;**/*.rb&#39;</span>, :<span class="ruby-identifier">sort_by</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">mtime</span>
+<span class="ruby-identifier">dw</span>.<span class="ruby-identifier">add_observer</span> {<span class="ruby-operator">|</span><span class="ruby-operator">*</span><span class="ruby-identifier">args</span><span class="ruby-operator">|</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">event</span><span class="ruby-operator">|</span> <span class="ruby-identifier">puts</span> <span class="ruby-identifier">event</span>}}
+<span class="ruby-identifier">dw</span>.<span class="ruby-identifier">start</span>
+<span class="ruby-identifier">gets</span>      <span class="ruby-comment"># when the user hits &quot;enter&quot; the script will terminate</span>
+<span class="ruby-identifier">dw</span>.<span class="ruby-identifier">stop</span>
+</pre>
+
+<h3 id="label-Scanning+Strategies">Scanning Strategies<span><a href="#label-Scanning+Strategies">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>By default <a href="DirectoryWatcher.html">DirectoryWatcher</a> uses a
+thread that scans the directory being watched for files and calls “stat” on
+each file. The stat information is used to determine which files have been
+modified, added, removed, etc. This approach is fairly intensive for short
+intervals and/or directories with many files.</p>
+
+<p><a href="DirectoryWatcher.html">DirectoryWatcher</a> supports using
+Cool.io, EventMachine, or Rev instead of a busy polling thread. These
+libraries use system level kernel hooks to receive notifications of file
+system changes. This makes DirectoryWorker much more efficient.</p>
+
+<p>This example will use Cool.io to generate file notifications.</p>
+
+<pre class="ruby"><span class="ruby-identifier">dw</span> = <span class="ruby-constant">DirectoryWatcher</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&#39;.&#39;</span>, :<span class="ruby-identifier">glob</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;**/*.rb&#39;</span>, :<span class="ruby-identifier">scanner</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">coolio</span>
+<span class="ruby-identifier">dw</span>.<span class="ruby-identifier">add_observer</span> {<span class="ruby-operator">|</span><span class="ruby-operator">*</span><span class="ruby-identifier">args</span><span class="ruby-operator">|</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">event</span><span class="ruby-operator">|</span> <span class="ruby-identifier">puts</span> <span class="ruby-identifier">event</span>}}
+
+<span class="ruby-identifier">dw</span>.<span class="ruby-identifier">start</span>
+<span class="ruby-identifier">gets</span>      <span class="ruby-comment"># when the user hits &quot;enter&quot; the script will terminate</span>
+<span class="ruby-identifier">dw</span>.<span class="ruby-identifier">stop</span>
+</pre>
+
+<p>The scanner cannot be changed after the <a
+href="DirectoryWatcher.html">DirectoryWatcher</a> has been created. To use
+an EventMachine scanner, pass :em as the :scanner option.</p>
+
+<p>If you wish to use the Cool.io scanner, then you must have the Cool.io gem
+installed. The same goes for EventMachine and Rev. To install any of these
+gems run the following on the command line:</p>
+
+<pre>gem install cool.io
+gem install eventmachine
+gem install rev</pre>
+
+<p>Note: Rev has been replace by Cool.io and support for the Rev scanner will
+eventually be dropped from <a
+href="DirectoryWatcher.html">DirectoryWatcher</a>.</p>
+
+<h2 id="label-Contact">Contact<span><a href="#label-Contact">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>A lot of discussion happens about Ruby in general on the ruby-talk mailing
+list (<a
+href="http://www.ruby-lang.org/en/ml.html">www.ruby-lang.org/en/ml.html</a>),
+and you can ask any questions you might have there. I monitor the list, as
+do many other helpful Rubyists, and you&#39;re sure to get a quick answer.
+Of course, you&#39;re also welcome to email me (Tim Pease) directly at the
+at tim.pease@gmail.com, and I&#39;ll do my best to help you out.</p>
+
+<p>(the above paragraph was blatantly stolen from Nathaniel Talbott&#39;s
+Test::Unit documentation)</p>
+
+<h2 id="label-Author">Author<span><a href="#label-Author">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Tim Pease</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="HAVE_COOLIO">HAVE_COOLIO
+        
+        <dd class="description">
+        
+      
+        <dt id="HAVE_EM">HAVE_EM
+        
+        <dd class="description">
+        
+      
+        <dt id="HAVE_REV">HAVE_REV
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-config" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">config</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>access the configuration of the <a
+href="DirectoryWatcher.html">DirectoryWatcher</a></p>
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            new( directory, options )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Create a new <code>DirectoryWatcher</code> that will generate events when
+file changes are detected in the given <em>directory</em>. If the
+<em>directory</em> does not exist, it will be created. The following
+options can be passed to this method:</p>
+
+<pre class="ruby"> :<span class="ruby-identifier">glob</span>      =<span class="ruby-operator">&gt;</span>  <span class="ruby-string">&#39;*&#39;</span>      <span class="ruby-identifier">file</span> <span class="ruby-identifier">glob</span> <span class="ruby-identifier">pattern</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">restrict</span> <span class="ruby-identifier">scanning</span>
+ :<span class="ruby-identifier">interval</span>  =<span class="ruby-operator">&gt;</span>  <span class="ruby-value">30.0</span>     <span class="ruby-identifier">the</span> <span class="ruby-identifier">directory</span> <span class="ruby-identifier">scan</span> <span class="ruby-identifier">interval</span> (<span class="ruby-keyword">in</span> <span class="ruby-identifier">seconds</span>)
+ :<span class="ruby-identifier">stable</span>    =<span class="ruby-operator">&gt;</span>  <span class="ruby-keyword">nil</span>      <span class="ruby-identifier">the</span> <span class="ruby-identifier">number</span> <span class="ruby-identifier">of</span> <span class="ruby-identifier">intervals</span> <span class="ruby-identifier">a</span> <span class="ruby-identifier">file</span> <span class="ruby-identifier">must</span> <span class="ruby-identifier">remain</span>
+                         <span class="ruby-identifier">unchanged</span> <span class="ruby-keyword">for</span> <span class="ruby-identifier">it</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">be</span> <span class="ruby-identifier">considered</span> <span class="ruby-string">&quot;stable&quot;</span>
+ :<span class="ruby-identifier">pre_load</span>  =<span class="ruby-operator">&gt;</span>  <span class="ruby-keyword">false</span>    <span class="ruby-identifier">setting</span> <span class="ruby-identifier">this</span> <span class="ruby-identifier">option</span> <span class="ruby-identifier">to</span> <span class="ruby-keyword">true</span> <span class="ruby-identifier">will</span> <span class="ruby-identifier">pre</span><span class="ruby-operator">-</span><span class="ruby-identifier">load</span> <span class="ruby-identifier">the</span>
+                         <span class="ruby-identifier">file</span> <span class="ruby-identifier">list</span> <span class="ruby-identifier">effectively</span> <span class="ruby-identifier">skipping</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">initial</span>
+                         <span class="ruby-identifier">round</span> <span class="ruby-identifier">of</span> <span class="ruby-identifier">file</span> <span class="ruby-identifier">added</span> <span class="ruby-identifier">events</span> <span class="ruby-identifier">that</span> <span class="ruby-identifier">would</span> <span class="ruby-identifier">normally</span>
+                         <span class="ruby-identifier">be</span> <span class="ruby-identifier">generated</span> (<span class="ruby-identifier">glob</span> <span class="ruby-identifier">pattern</span> <span class="ruby-identifier">must</span> <span class="ruby-identifier">also</span> <span class="ruby-identifier">be</span>
+                         <span class="ruby-identifier">specified</span> <span class="ruby-identifier">otherwise</span> <span class="ruby-identifier">odd</span> <span class="ruby-identifier">things</span> <span class="ruby-identifier">will</span> <span class="ruby-identifier">happen</span>)
+ :<span class="ruby-identifier">persist</span>   =<span class="ruby-operator">&gt;</span>  <span class="ruby-identifier">file</span>     <span class="ruby-identifier">the</span> <span class="ruby-identifier">state</span> <span class="ruby-identifier">will</span> <span class="ruby-identifier">be</span> <span class="ruby-identifier">persisted</span> <span class="ruby-identifier">to</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">restored</span>
+                         <span class="ruby-identifier">from</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">file</span> <span class="ruby-keyword">when</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">directory</span> <span class="ruby-identifier">watcher</span> <span class="ruby-identifier">is</span>
+                         <span class="ruby-identifier">stopped</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">started</span> (<span class="ruby-identifier">respectively</span>)
+ :<span class="ruby-identifier">scanner</span>   =<span class="ruby-operator">&gt;</span>  <span class="ruby-keyword">nil</span>      <span class="ruby-identifier">the</span> <span class="ruby-identifier">directory</span> <span class="ruby-identifier">scanning</span> <span class="ruby-identifier">strategy</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">use</span> <span class="ruby-identifier">with</span>
+                         <span class="ruby-identifier">the</span> <span class="ruby-identifier">directory</span> <span class="ruby-identifier">watcher</span> (<span class="ruby-identifier">either</span> :<span class="ruby-identifier">coolio</span>, :<span class="ruby-identifier">em</span>, :<span class="ruby-identifier">rev</span> <span class="ruby-keyword">or</span> <span class="ruby-keyword">nil</span>)
+ :<span class="ruby-identifier">sort_by</span>   =<span class="ruby-operator">&gt;</span>  :<span class="ruby-identifier">path</span>    <span class="ruby-identifier">the</span> <span class="ruby-identifier">sort</span> <span class="ruby-identifier">order</span> <span class="ruby-identifier">of</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">scans</span>, <span class="ruby-keyword">when</span> <span class="ruby-identifier">there</span> <span class="ruby-identifier">are</span>
+                         <span class="ruby-identifier">multiple</span> <span class="ruby-identifier">events</span> <span class="ruby-identifier">ready</span> <span class="ruby-keyword">for</span> <span class="ruby-identifier">deliver</span>. <span class="ruby-constant">This</span> <span class="ruby-identifier">can</span> <span class="ruby-identifier">be</span>
+                         <span class="ruby-identifier">one</span> <span class="ruby-identifier">of</span><span class="ruby-operator">:</span>
+
+                            :<span class="ruby-identifier">path</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">default</span>, <span class="ruby-identifier">order</span> <span class="ruby-identifier">by</span> <span class="ruby-identifier">file</span> <span class="ruby-identifier">name</span>
+                            :<span class="ruby-identifier">mtime</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">order</span> <span class="ruby-identifier">by</span> <span class="ruby-identifier">last</span> <span class="ruby-identifier">modified</span> <span class="ruby-identifier">time</span>
+                            :<span class="ruby-identifier">size</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">order</span> <span class="ruby-identifier">by</span> <span class="ruby-identifier">file</span> <span class="ruby-identifier">size</span>
+:<span class="ruby-identifier">order_by</span>   =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">ascending</span> <span class="ruby-constant">The</span> <span class="ruby-identifier">direction</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">which</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">sorted</span> <span class="ruby-identifier">items</span> <span class="ruby-identifier">are</span>
+                          <span class="ruby-identifier">sorted</span>. <span class="ruby-constant">Either</span> :<span class="ruby-identifier">ascending</span> <span class="ruby-keyword">or</span> :<span class="ruby-identifier">descending</span>
+:<span class="ruby-identifier">logger</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">nil</span>      <span class="ruby-constant">An</span> <span class="ruby-identifier">object</span> <span class="ruby-identifier">that</span> <span class="ruby-identifier">responds</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">debug</span>, <span class="ruby-identifier">info</span>, <span class="ruby-identifier">warn</span>,
+                        <span class="ruby-identifier">error</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">fatal</span> <span class="ruby-identifier">methods</span>. <span class="ruby-constant">Using</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">default</span> <span class="ruby-identifier">will</span>
+                        <span class="ruby-identifier">use</span> <span class="ruby-constant">Logging</span> <span class="ruby-identifier">gem</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">it</span> <span class="ruby-identifier">is</span> <span class="ruby-identifier">available</span> <span class="ruby-keyword">and</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">fall</span>
+                        <span class="ruby-identifier">back</span> <span class="ruby-identifier">to</span> <span class="ruby-constant">NullLogger</span>
+</pre>
+
+<p>The default glob pattern will scan all files in the configured directory.
+Setting the :stable option to <code>nil</code> will prevent stable events
+from being generated.</p>
+
+<p>Additional information about the available options is documented in the <a
+href="DirectoryWatcher/Configuration.html">Configuration</a> class.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher.rb, line 295</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>( <span class="ruby-identifier">directory</span>, <span class="ruby-identifier">opts</span> = {} )
+  <span class="ruby-ivar">@observer_peers</span> = {}
+  <span class="ruby-ivar">@config</span> = <span class="ruby-constant">Configuration</span>.<span class="ruby-identifier">new</span>( <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">merge</span>( <span class="ruby-value">:dir</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">directory</span> ) )
+
+  <span class="ruby-identifier">setup_dir</span>(<span class="ruby-identifier">config</span>.<span class="ruby-identifier">dir</span>)
+
+  <span class="ruby-ivar">@notifier</span> = <span class="ruby-constant">Notifier</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">config</span>, <span class="ruby-ivar">@observer_peers</span>)
+  <span class="ruby-ivar">@collector</span> = <span class="ruby-constant">Collector</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">config</span>)
+  <span class="ruby-ivar">@scanner</span> = <span class="ruby-identifier">config</span>.<span class="ruby-identifier">scanner_class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">config</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-add_observer" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            add_observer( observer, func = :update )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            add_observer {|*events| block}
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Adds the given <em>observer</em> as an observer on this directory watcher.
+The <em>observer</em> will now receive file events when they are generated.
+The second optional argument specifies a method to notify updates, of which
+the default value is <code>update</code>.</p>
+
+<p>Optionally, a block can be passed as the observer. The block will be
+executed with the file events passed as the arguments. A reference to the
+underlying <code>Proc</code> object will be returned for use with the
+<code>delete_observer</code> method.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_observer-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher.rb, line 335</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_observer</span>( <span class="ruby-identifier">observer</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">func</span> = <span class="ruby-value">:update</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span> )
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">observer</span> = <span class="ruby-identifier">block</span>.<span class="ruby-identifier">to_proc</span>
+    <span class="ruby-identifier">func</span> = <span class="ruby-value">:call</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">observer</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-identifier">func</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">NoMethodError</span>, <span class="ruby-node">&quot;observer does not respond to `#{func.to_s}&#39;&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-string">&quot;Added observer&quot;</span>
+  <span class="ruby-ivar">@observer_peers</span>[<span class="ruby-identifier">observer</span>] = <span class="ruby-identifier">func</span>
+  <span class="ruby-identifier">observer</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- add_observer-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- add_observer-method -->
+
+    
+      <div id="method-i-count_observers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">count_observers</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return the number of observers associated with this directory watcher..</p>
+          
+          
+
+          
+          <div class="method-source-code" id="count_observers-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher.rb, line 365</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">count_observers</span>
+  <span class="ruby-ivar">@observer_peers</span>.<span class="ruby-identifier">size</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- count_observers-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- count_observers-method -->
+
+    
+      <div id="method-i-delete_observer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_observer</span><span
+            class="method-args">( observer )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Delete <code>observer</code> as an observer of this directory watcher. It
+will no longer receive notifications.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="delete_observer-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher.rb, line 353</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_observer</span>( <span class="ruby-identifier">observer</span> )
+  <span class="ruby-ivar">@observer_peers</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">observer</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- delete_observer-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- delete_observer-method -->
+
+    
+      <div id="method-i-delete_observers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_observers</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Delete all observers associated with the directory watcher.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="delete_observers-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher.rb, line 359</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_observers</span>
+  <span class="ruby-ivar">@observer_peers</span>.<span class="ruby-identifier">clear</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- delete_observers-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- delete_observers-method -->
+
+    
+      <div id="method-i-finished_scans-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">finished_scans?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns true if the maximum number of scans has been reached.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="finished_scans-3F-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher.rb, line 556</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">finished_scans?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">maximum_iterations</span> <span class="ruby-keyword">and</span> (<span class="ruby-identifier">scans</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">maximum_iterations</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- finished_scans-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- finished_scans-3F-method -->
+
+    
+      <div id="method-i-glob" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">glob</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="glob-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher.rb, line 380</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">glob</span>
+  <span class="ruby-identifier">config</span>.<span class="ruby-identifier">glob</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- glob-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- glob-method -->
+
+    
+      <div id="method-i-glob-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            glob = &#39;*&#39;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            glob = [&#39;lib   /*.rb&#39;, &#39;test/   *.rb&#39;]
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Sets the glob pattern that will be used when scanning the directory for
+files. A single glob pattern can be given or an array of glob patterns.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="glob-3D-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher.rb, line 376</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">glob=</span>( <span class="ruby-identifier">val</span> )
+  <span class="ruby-identifier">config</span>.<span class="ruby-identifier">glob</span> = <span class="ruby-identifier">val</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- glob-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- glob-3D-method -->
+
+    
+      <div id="method-i-interval" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">interval</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="interval-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher.rb, line 392</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">interval</span>
+  <span class="ruby-identifier">config</span>.<span class="ruby-identifier">interval</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- interval-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- interval-method -->
+
+    
+      <div id="method-i-interval-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">interval=</span><span
+            class="method-args">( val )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets the directory scan interval. The directory will be scanned every
+<em>interval</em> seconds for changes to files matching the glob pattern.
+Raises <code>ArgumentError</code> if the interval is zero or negative.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="interval-3D-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher.rb, line 388</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">interval=</span>( <span class="ruby-identifier">val</span> )
+  <span class="ruby-identifier">config</span>.<span class="ruby-identifier">interval</span> = <span class="ruby-identifier">val</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- interval-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- interval-3D-method -->
+
+    
+      <div id="method-i-join" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            join( limit = nil )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>If the directory watcher is running, the calling thread will suspend
+execution and run the directory watcher thread. This method does not return
+until the directory watcher is stopped or until <em>limit</em> seconds have
+passed.</p>
+
+<p>If the directory watcher is not running, this method returns immediately
+with <code>nil</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="join-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher.rb, line 592</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">join</span>( <span class="ruby-identifier">limit</span> = <span class="ruby-keyword">nil</span> )
+  <span class="ruby-ivar">@scanner</span>.<span class="ruby-identifier">join</span> <span class="ruby-identifier">limit</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- join-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- join-method -->
+
+    
+      <div id="method-i-load-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Loads the state of the directory watcher from the persist file. This method
+will do nothing if the directory watcher is running or if the persist file
+is not configured.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="load-21-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher.rb, line 458</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load!</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">running?</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">persist</span>, <span class="ruby-string">&#39;r&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">fd</span><span class="ruby-operator">|</span> <span class="ruby-ivar">@collector</span>.<span class="ruby-identifier">load_stats</span>(<span class="ruby-identifier">fd</span>) } <span class="ruby-keyword">if</span> <span class="ruby-identifier">persist?</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">test</span>(<span class="ruby-string">f</span>, <span class="ruby-identifier">persist</span>)
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- load-21-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- load-21-method -->
+
+    
+      <div id="method-i-maximum_iterations" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">maximum_iterations</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the maximum number of scans the directory scanner will perform</p>
+          
+          
+
+          
+          <div class="method-source-code" id="maximum_iterations-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher.rb, line 541</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">maximum_iterations</span>
+  <span class="ruby-ivar">@scanner</span>.<span class="ruby-identifier">maximum_iterations</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- maximum_iterations-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- maximum_iterations-method -->
+
+    
+      <div id="method-i-maximum_iterations-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">maximum_iterations=</span><span
+            class="method-args">( value )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets the maximum number of scans the scanner is to make on the directory</p>
+          
+          
+
+          
+          <div class="method-source-code" id="maximum_iterations-3D-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher.rb, line 535</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">maximum_iterations=</span>( <span class="ruby-identifier">value</span> )
+  <span class="ruby-ivar">@scanner</span>.<span class="ruby-identifier">maximum_iterations</span> = <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- maximum_iterations-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- maximum_iterations-3D-method -->
+
+    
+      <div id="method-i-pause" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pause</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Pauses the scanner.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="pause-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher.rb, line 498</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pause</span>
+  <span class="ruby-ivar">@scanner</span>.<span class="ruby-identifier">pause</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- pause-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- pause-method -->
+
+    
+      <div id="method-i-persist" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">persist</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="persist-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher.rb, line 432</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">persist</span>
+  <span class="ruby-identifier">config</span>.<span class="ruby-identifier">persist</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- persist-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- persist-method -->
+
+    
+      <div id="method-i-persist-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">persist!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Write the current state of the directory watcher to the persist file. This
+method will do nothing if the directory watcher is running or if the
+persist file is not configured.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="persist-21-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher.rb, line 440</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">persist!</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">running?</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">persist</span>, <span class="ruby-string">&#39;w&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">fd</span><span class="ruby-operator">|</span> <span class="ruby-ivar">@collector</span>.<span class="ruby-identifier">dump_stats</span>(<span class="ruby-identifier">fd</span>) } <span class="ruby-keyword">if</span> <span class="ruby-identifier">persist?</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">error</span> <span class="ruby-node">&quot;Failure to write to persitence file #{persist.inspect} : #{e}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- persist-21-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- persist-21-method -->
+
+    
+      <div id="method-i-persist-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">persist=</span><span
+            class="method-args">( filename )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets the name of the file to which the directory watcher state will be
+persisted when it is stopped. Setting the persist filename to
+<code>nil</code> will disable this feature.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="persist-3D-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher.rb, line 428</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">persist=</span>( <span class="ruby-identifier">filename</span> )
+  <span class="ruby-identifier">config</span>.<span class="ruby-identifier">persist</span> = <span class="ruby-identifier">filename</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- persist-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- persist-3D-method -->
+
+    
+      <div id="method-i-persist-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">persist?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Is persistence done on this <a
+href="DirectoryWatcher.html">DirectoryWatcher</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="persist-3F-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher.rb, line 450</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">persist?</span>
+  <span class="ruby-identifier">config</span>.<span class="ruby-identifier">persist</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- persist-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- persist-3F-method -->
+
+    
+      <div id="method-i-reset" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            reset( pre_load = false )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Reset the directory watcher state by clearing the stored file list. If the
+directory watcher is running, it will be stopped, the file list cleared,
+and then restarted. Passing <code>true</code> to this method will cause the
+file list to be pre-loaded after it has been cleared effectively skipping
+the initial round of file added events that would normally be generated.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="reset-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher.rb, line 571</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reset</span>( <span class="ruby-identifier">pre_load</span> = <span class="ruby-keyword">false</span> )
+  <span class="ruby-identifier">was_running</span> = <span class="ruby-ivar">@scanner</span>.<span class="ruby-identifier">running?</span>
+
+  <span class="ruby-identifier">stop</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">was_running</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">config</span>.<span class="ruby-identifier">persist</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">persist?</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">test</span>(<span class="ruby-string">f</span>, <span class="ruby-identifier">config</span>.<span class="ruby-identifier">persist</span>)
+  <span class="ruby-ivar">@scanner</span>.<span class="ruby-identifier">reset</span> <span class="ruby-identifier">pre_load</span>
+  <span class="ruby-identifier">start</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">was_running</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- reset-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- reset-method -->
+
+    
+      <div id="method-i-resume" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">resume</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Resume the emitting of events</p>
+          
+          
+
+          
+          <div class="method-source-code" id="resume-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher.rb, line 504</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">resume</span>
+  <span class="ruby-ivar">@scanner</span>.<span class="ruby-identifier">resume</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- resume-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- resume-method -->
+
+    
+      <div id="method-i-run_once" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run_once</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Performs exactly one scan of the directory for file changes and notifies
+the observers.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="run_once-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher.rb, line 599</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run_once</span>
+  <span class="ruby-ivar">@scanner</span>.<span class="ruby-identifier">run</span>
+  <span class="ruby-ivar">@collector</span>.<span class="ruby-identifier">start</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">running?</span>
+  <span class="ruby-ivar">@notifier</span>.<span class="ruby-identifier">start</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">running?</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- run_once-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- run_once-method -->
+
+    
+      <div id="method-i-running-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">running?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns <code>true</code> if the directory watcher is currently running.
+Returns <code>false</code> if this is not the case.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="running-3F-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher.rb, line 467</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">running?</span>
+  <span class="ruby-ivar">@scanner</span>.<span class="ruby-identifier">running?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- running-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- running-3F-method -->
+
+    
+      <div id="method-i-scans" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">scans</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the number of scans of the directory scanner it has completed thus
+far.</p>
+
+<p>This will always report 0 unless a maximum number of scans has been set</p>
+          
+          
+
+          
+          <div class="method-source-code" id="scans-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher.rb, line 550</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">scans</span>
+  <span class="ruby-ivar">@scanner</span>.<span class="ruby-identifier">iterations</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- scans-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- scans-method -->
+
+    
+      <div id="method-i-setup_dir" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup_dir</span><span
+            class="method-args">( dir )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Setup the directory existence.</p>
+
+<p>Raise an error if the item passed in does exist but is not a directory</p>
+
+<p>Returns nothing</p>
+          
+          
+
+          
+          <div class="method-source-code" id="setup_dir-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher.rb, line 311</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup_dir</span>( <span class="ruby-identifier">dir</span> )
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Kernel</span>.<span class="ruby-identifier">test</span>(<span class="ruby-string">e</span>, <span class="ruby-identifier">dir</span>)
+    <span class="ruby-keyword">unless</span> <span class="ruby-constant">Kernel</span>.<span class="ruby-identifier">test</span>(<span class="ruby-string">d</span>, <span class="ruby-identifier">dir</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;&#39;#{dir}&#39; is not a directory&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">mkdir</span> <span class="ruby-identifier">dir</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- setup_dir-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- setup_dir-method -->
+
+    
+      <div id="method-i-stable" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stable</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="stable-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher.rb, line 420</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stable</span>
+  <span class="ruby-identifier">config</span>.<span class="ruby-identifier">stable</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- stable-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- stable-method -->
+
+    
+      <div id="method-i-stable-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stable=</span><span
+            class="method-args">( val )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets the number of intervals a file must remain unchanged before it is
+considered “stable”. When this condition is met, a stable event is
+generated for the file. If stable is set to <code>nil</code> then stable
+events will not be generated.</p>
+
+<p>A stable event will be generated once for a file. Another stable event will
+only be generated after the file has been modified and then remains
+unchanged for <em>stable</em> intervals.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">dw</span> = <span class="ruby-constant">DirectoryWatcher</span>.<span class="ruby-identifier">new</span>( <span class="ruby-string">&#39;/tmp&#39;</span>, :<span class="ruby-identifier">glob</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;swap.*&#39;</span> )
+<span class="ruby-identifier">dw</span>.<span class="ruby-identifier">interval</span> = <span class="ruby-value">15.0</span>
+<span class="ruby-identifier">dw</span>.<span class="ruby-identifier">stable</span> = <span class="ruby-value">4</span>
+</pre>
+
+<p>In this example, a directory watcher is configured to look for swap files
+in the /tmp directory. Stable events will be generated every 4 scan
+intervals iff a swap remains unchanged for that time. In this case the time
+is 60 seconds (15.0 * 4).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="stable-3D-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher.rb, line 416</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stable=</span>( <span class="ruby-identifier">val</span> )
+  <span class="ruby-identifier">config</span>.<span class="ruby-identifier">stable</span> = <span class="ruby-identifier">val</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- stable-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- stable-3D-method -->
+
+    
+      <div id="method-i-start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Start the directory watcher scanning thread. If the directory watcher is
+already running, this method will return without taking any action.</p>
+
+<p>Start returns one the scanner and the notifier say they are running</p>
+          
+          
+
+          
+          <div class="method-source-code" id="start-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher.rb, line 476</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">start</span>
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-node">&quot;start (running -&gt; #{running?})&quot;</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">running?</span>
+
+  <span class="ruby-identifier">load!</span>
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-node">&quot;starting notifier #{@notifier.object_id}&quot;</span>
+  <span class="ruby-ivar">@notifier</span>.<span class="ruby-identifier">start</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">pass</span> <span class="ruby-keyword">until</span> <span class="ruby-ivar">@notifier</span>.<span class="ruby-identifier">running?</span>
+
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-string">&quot;starting collector&quot;</span>
+  <span class="ruby-ivar">@collector</span>.<span class="ruby-identifier">start</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">pass</span> <span class="ruby-keyword">until</span> <span class="ruby-ivar">@collector</span>.<span class="ruby-identifier">running?</span>
+
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-string">&quot;starting scanner&quot;</span>
+  <span class="ruby-ivar">@scanner</span>.<span class="ruby-identifier">start</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">pass</span> <span class="ruby-keyword">until</span> <span class="ruby-ivar">@scanner</span>.<span class="ruby-identifier">running?</span>
+
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- start-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- start-method -->
+
+    
+      <div id="method-i-stop" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stop</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Stop the directory watcher scanning thread. If the directory watcher is
+already stopped, this method will return without taking any action.</p>
+
+<p>Stop returns once the scanner and notifier say they are no longer running</p>
+          
+          
+
+          
+          <div class="method-source-code" id="stop-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher.rb, line 512</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stop</span>
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-node">&quot;stop (running -&gt; #{running?})&quot;</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">running?</span>
+
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span><span class="ruby-string">&quot;stopping scanner&quot;</span>
+  <span class="ruby-ivar">@scanner</span>.<span class="ruby-identifier">stop</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">pass</span> <span class="ruby-keyword">while</span> <span class="ruby-ivar">@scanner</span>.<span class="ruby-identifier">running?</span>
+
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span><span class="ruby-string">&quot;stopping collector&quot;</span>
+  <span class="ruby-ivar">@collector</span>.<span class="ruby-identifier">stop</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">pass</span> <span class="ruby-keyword">while</span> <span class="ruby-ivar">@collector</span>.<span class="ruby-identifier">running?</span>
+
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span><span class="ruby-string">&quot;stopping notifier&quot;</span>
+  <span class="ruby-ivar">@notifier</span>.<span class="ruby-identifier">stop</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">pass</span> <span class="ruby-keyword">while</span> <span class="ruby-ivar">@notifier</span>.<span class="ruby-identifier">running?</span>
+
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-identifier">persist!</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- stop-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- stop-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

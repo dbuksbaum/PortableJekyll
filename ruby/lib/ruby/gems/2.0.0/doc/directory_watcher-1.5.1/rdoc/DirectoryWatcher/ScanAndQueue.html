@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class DirectoryWatcher::ScanAndQueue - directory_watcher-1.5.1 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/directory_watcher/scan_and_queue.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-scan_and_queue">#scan_and_queue</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../History_txt.html">History</a>
+  
+    <li class="file"><a href="../README_txt.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../DirectoryWatcher.html">DirectoryWatcher</a>
+  
+    <li><a href="../DirectoryWatcher/Collector.html">DirectoryWatcher::Collector</a>
+  
+    <li><a href="../DirectoryWatcher/Configuration.html">DirectoryWatcher::Configuration</a>
+  
+    <li><a href="../DirectoryWatcher/CoolioScanner.html">DirectoryWatcher::CoolioScanner</a>
+  
+    <li><a href="../DirectoryWatcher/EmScanner.html">DirectoryWatcher::EmScanner</a>
+  
+    <li><a href="../DirectoryWatcher/Event.html">DirectoryWatcher::Event</a>
+  
+    <li><a href="../DirectoryWatcher/EventableScanner.html">DirectoryWatcher::EventableScanner</a>
+  
+    <li><a href="../DirectoryWatcher/FileStat.html">DirectoryWatcher::FileStat</a>
+  
+    <li><a href="../DirectoryWatcher/Logable.html">DirectoryWatcher::Logable</a>
+  
+    <li><a href="../DirectoryWatcher/Notifier.html">DirectoryWatcher::Notifier</a>
+  
+    <li><a href="../DirectoryWatcher/NullLogger.html">DirectoryWatcher::NullLogger</a>
+  
+    <li><a href="../DirectoryWatcher/Paths.html">DirectoryWatcher::Paths</a>
+  
+    <li><a href="../DirectoryWatcher/RevScanner.html">DirectoryWatcher::RevScanner</a>
+  
+    <li><a href="../DirectoryWatcher/Scan.html">DirectoryWatcher::Scan</a>
+  
+    <li><a href="../DirectoryWatcher/ScanAndQueue.html">DirectoryWatcher::ScanAndQueue</a>
+  
+    <li><a href="../DirectoryWatcher/Scanner.html">DirectoryWatcher::Scanner</a>
+  
+    <li><a href="../DirectoryWatcher/Threaded.html">DirectoryWatcher::Threaded</a>
+  
+    <li><a href="../DirectoryWatcher/Version.html">DirectoryWatcher::Version</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class DirectoryWatcher::ScanAndQueue</h1>
+
+  <div id="description" class="description">
+    
+<p><a href="ScanAndQueue.html">ScanAndQueue</a> creates a Scan from its input
+globs and then sends that Scan to its Queue.</p>
+
+<p>Every time <a
+href="ScanAndQueue.html#method-i-scan_and_queue">#scan_and_queue</a> is
+called a new scan is created an sent to the queue.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">( glob, queue )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/scan_and_queue.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>( <span class="ruby-identifier">glob</span>, <span class="ruby-identifier">queue</span> )
+  <span class="ruby-ivar">@globs</span> = <span class="ruby-identifier">glob</span>
+  <span class="ruby-ivar">@queue</span> =<span class="ruby-identifier">queue</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-scan_and_queue" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">scan_and_queue</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create and run a Scan and submit it to the Queue.</p>
+
+<p>Returns the Scan that was run</p>
+          
+          
+
+          
+          <div class="method-source-code" id="scan_and_queue-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/scan_and_queue.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">scan_and_queue</span>
+  <span class="ruby-identifier">scan</span> = <span class="ruby-operator">::</span><span class="ruby-constant">DirectoryWatcher</span><span class="ruby-operator">::</span><span class="ruby-constant">Scan</span>.<span class="ruby-identifier">new</span>( <span class="ruby-ivar">@globs</span> )
+  <span class="ruby-identifier">scan</span>.<span class="ruby-identifier">run</span>
+  <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">enq</span> <span class="ruby-identifier">scan</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">scan</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- scan_and_queue-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- scan_and_queue-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

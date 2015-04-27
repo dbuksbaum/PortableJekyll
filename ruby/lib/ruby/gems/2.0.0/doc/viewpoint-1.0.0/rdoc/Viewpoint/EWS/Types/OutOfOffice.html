@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Viewpoint::EWS::Types::OutOfOffice - viewpoint-1.0.0 Documentation</title>
+
+<link type="text/css" media="screen" href="../../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../../index.html">Home</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/ews/types/out_of_office.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    <!-- Included Modules -->
+<nav id="includes-section" class="section">
+  <h3 class="section-header">Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="../../EWS.html">Viewpoint::EWS</a>
+  
+  
+  
+    <li><a class="include" href="../Types.html">Viewpoint::EWS::Types</a>
+  
+  
+  </ul>
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-changed-3F">#changed?</a>
+    
+    <li ><a href="#method-i-disable">#disable</a>
+    
+    <li ><a href="#method-i-enable">#enable</a>
+    
+    <li ><a href="#method-i-external_reply-3D">#external_reply=</a>
+    
+    <li ><a href="#method-i-internal_reply-3D">#internal_reply=</a>
+    
+    <li class="calls-super" ><a href="#method-i-key_alias">#key_alias</a>
+    
+    <li class="calls-super" ><a href="#method-i-key_paths">#key_paths</a>
+    
+    <li class="calls-super" ><a href="#method-i-key_types">#key_types</a>
+    
+    <li ><a href="#method-i-save-21">#save!</a>
+    
+    <li ><a href="#method-i-schedule">#schedule</a>
+    
+    <li ><a href="#method-i-set_duration">#set_duration</a>
+    
+    <li ><a href="#method-i-simplify-21">#simplify!</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../../README_md.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../Viewpoint.html">Viewpoint</a>
+  
+    <li><a href="../../../Viewpoint/EWS.html">Viewpoint::EWS</a>
+  
+    <li><a href="../../../Viewpoint/EWS/CalendarAccessors.html">Viewpoint::EWS::CalendarAccessors</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Connection.html">Viewpoint::EWS::Connection</a>
+  
+    <li><a href="../../../Viewpoint/EWS/ConnectionHelper.html">Viewpoint::EWS::ConnectionHelper</a>
+  
+    <li><a href="../../../Viewpoint/EWS/ConvertAccessors.html">Viewpoint::EWS::ConvertAccessors</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Errors.html">Viewpoint::EWS::Errors</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Errors/ResponseError.html">Viewpoint::EWS::Errors::ResponseError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Errors/ServerError.html">Viewpoint::EWS::Errors::ServerError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Errors/SoapResponseError.html">Viewpoint::EWS::Errors::SoapResponseError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Errors/UnauthorizedResponseError.html">Viewpoint::EWS::Errors::UnauthorizedResponseError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Errors/UnhandledResponseError.html">Viewpoint::EWS::Errors::UnhandledResponseError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsBadArgumentError.html">Viewpoint::EWS::EwsBadArgumentError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsCreateItemError.html">Viewpoint::EWS::EwsCreateItemError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsError.html">Viewpoint::EWS::EwsError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsFolderNotFound.html">Viewpoint::EWS::EwsFolderNotFound</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsFrozenObjectError.html">Viewpoint::EWS::EwsFrozenObjectError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsItemNotFound.html">Viewpoint::EWS::EwsItemNotFound</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsLoginError.html">Viewpoint::EWS::EwsLoginError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsMinimalObjectError.html">Viewpoint::EWS::EwsMinimalObjectError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsNotImplemented.html">Viewpoint::EWS::EwsNotImplemented</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsSendItemError.html">Viewpoint::EWS::EwsSendItemError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsServerVersionError.html">Viewpoint::EWS::EwsServerVersionError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsSubscriptionError.html">Viewpoint::EWS::EwsSubscriptionError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsSubscriptionTimeout.html">Viewpoint::EWS::EwsSubscriptionTimeout</a>
+  
+    <li><a href="../../../Viewpoint/EWS/FolderAccessors.html">Viewpoint::EWS::FolderAccessors</a>
+  
+    <li><a href="../../../Viewpoint/EWS/ItemAccessors.html">Viewpoint::EWS::ItemAccessors</a>
+  
+    <li><a href="../../../Viewpoint/EWS/ItemFieldUriMap.html">Viewpoint::EWS::ItemFieldUriMap</a>
+  
+    <li><a href="../../../Viewpoint/EWS/MailboxAccessors.html">Viewpoint::EWS::MailboxAccessors</a>
+  
+    <li><a href="../../../Viewpoint/EWS/MessageAccessors.html">Viewpoint::EWS::MessageAccessors</a>
+  
+    <li><a href="../../../Viewpoint/EWS/PushSubscriptionAccessors.html">Viewpoint::EWS::PushSubscriptionAccessors</a>
+  
+    <li><a href="../../../Viewpoint/EWS/RoomAccessors.html">Viewpoint::EWS::RoomAccessors</a>
+  
+    <li><a href="../../../Viewpoint/EWS/RoomlistAccessors.html">Viewpoint::EWS::RoomlistAccessors</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP.html">Viewpoint::EWS::SOAP</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/CreateAttachmentResponseMessage.html">Viewpoint::EWS::SOAP::CreateAttachmentResponseMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/CreateItemResponseMessage.html">Viewpoint::EWS::SOAP::CreateItemResponseMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/EwsBuilder.html">Viewpoint::EWS::SOAP::EwsBuilder</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/EwsParser.html">Viewpoint::EWS::SOAP::EwsParser</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/EwsResponse.html">Viewpoint::EWS::SOAP::EwsResponse</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/EwsSaxDocument.html">Viewpoint::EWS::SOAP::EwsSaxDocument</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/EwsSoapAvailabilityResponse.html">Viewpoint::EWS::SOAP::EwsSoapAvailabilityResponse</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/EwsSoapFreeBusyResponse.html">Viewpoint::EWS::SOAP::EwsSoapFreeBusyResponse</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/EwsSoapResponse.html">Viewpoint::EWS::SOAP::EwsSoapResponse</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/EwsSoapRoomResponse.html">Viewpoint::EWS::SOAP::EwsSoapRoomResponse</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/EwsSoapRoomlistResponse.html">Viewpoint::EWS::SOAP::EwsSoapRoomlistResponse</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/ExchangeAvailability.html">Viewpoint::EWS::SOAP::ExchangeAvailability</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/ExchangeDataServices.html">Viewpoint::EWS::SOAP::ExchangeDataServices</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/ExchangeNotification.html">Viewpoint::EWS::SOAP::ExchangeNotification</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/ExchangeSynchronization.html">Viewpoint::EWS::SOAP::ExchangeSynchronization</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/ExchangeTimeZones.html">Viewpoint::EWS::SOAP::ExchangeTimeZones</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/ExchangeUserConfiguration.html">Viewpoint::EWS::SOAP::ExchangeUserConfiguration</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/ExchangeWebService.html">Viewpoint::EWS::SOAP::ExchangeWebService</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/FindItemResponseMessage.html">Viewpoint::EWS::SOAP::FindItemResponseMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/GetEventsResponseMessage.html">Viewpoint::EWS::SOAP::GetEventsResponseMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/ResponseMessage.html">Viewpoint::EWS::SOAP::ResponseMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/RootFolder.html">Viewpoint::EWS::SOAP::RootFolder</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/SendNotificationResponseMessage.html">Viewpoint::EWS::SOAP::SendNotificationResponseMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/SubscribeResponseMessage.html">Viewpoint::EWS::SOAP::SubscribeResponseMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/SyncFolderHierarchyResponseMessage.html">Viewpoint::EWS::SOAP::SyncFolderHierarchyResponseMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/SyncFolderItemsResponseMessage.html">Viewpoint::EWS::SOAP::SyncFolderItemsResponseMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SaveFailed.html">Viewpoint::EWS::SaveFailed</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Template.html">Viewpoint::EWS::Template</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Template/CalendarItem.html">Viewpoint::EWS::Template::CalendarItem</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Template/ForwardItem.html">Viewpoint::EWS::Template::ForwardItem</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Template/Message.html">Viewpoint::EWS::Template::Message</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Template/ReplyToItem.html">Viewpoint::EWS::Template::ReplyToItem</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Template/Task.html">Viewpoint::EWS::Template::Task</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types.html">Viewpoint::EWS::Types</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/Attachment.html">Viewpoint::EWS::Types::Attachment</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/Attendee.html">Viewpoint::EWS::Types::Attendee</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/CalendarFolder.html">Viewpoint::EWS::Types::CalendarFolder</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/CalendarItem.html">Viewpoint::EWS::Types::CalendarItem</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/Contact.html">Viewpoint::EWS::Types::Contact</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/ContactsFolder.html">Viewpoint::EWS::Types::ContactsFolder</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/CopiedEvent.html">Viewpoint::EWS::Types::CopiedEvent</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/CreatedEvent.html">Viewpoint::EWS::Types::CreatedEvent</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/DeletedEvent.html">Viewpoint::EWS::Types::DeletedEvent</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/DistributionList.html">Viewpoint::EWS::Types::DistributionList</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/Event.html">Viewpoint::EWS::Types::Event</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/ExportItemsResponseMessage.html">Viewpoint::EWS::Types::ExportItemsResponseMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/FileAttachment.html">Viewpoint::EWS::Types::FileAttachment</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/Folder.html">Viewpoint::EWS::Types::Folder</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/FreeBusyChangedEvent.html">Viewpoint::EWS::Types::FreeBusyChangedEvent</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/GenericFolder.html">Viewpoint::EWS::Types::GenericFolder</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/Item.html">Viewpoint::EWS::Types::Item</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/Item/ClassMethods.html">Viewpoint::EWS::Types::Item::ClassMethods</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/ItemAttachment.html">Viewpoint::EWS::Types::ItemAttachment</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/MailboxUser.html">Viewpoint::EWS::Types::MailboxUser</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/MeetingCancellation.html">Viewpoint::EWS::Types::MeetingCancellation</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/MeetingMessage.html">Viewpoint::EWS::Types::MeetingMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/MeetingRequest.html">Viewpoint::EWS::Types::MeetingRequest</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/MeetingResponse.html">Viewpoint::EWS::Types::MeetingResponse</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/Message.html">Viewpoint::EWS::Types::Message</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/ModifiedEvent.html">Viewpoint::EWS::Types::ModifiedEvent</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/MovedEvent.html">Viewpoint::EWS::Types::MovedEvent</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/NewMailEvent.html">Viewpoint::EWS::Types::NewMailEvent</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/OutOfOffice.html">Viewpoint::EWS::Types::OutOfOffice</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/SearchFolder.html">Viewpoint::EWS::Types::SearchFolder</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/StatusEvent.html">Viewpoint::EWS::Types::StatusEvent</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/Task.html">Viewpoint::EWS::Types::Task</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/TasksFolder.html">Viewpoint::EWS::Types::TasksFolder</a>
+  
+    <li><a href="../../../Viewpoint/EWSClient.html">Viewpoint::EWSClient</a>
+  
+    <li><a href="../../../Viewpoint/StringFormatException.html">Viewpoint::StringFormatException</a>
+  
+    <li><a href="../../../Viewpoint/StringUtils.html">Viewpoint::StringUtils</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Viewpoint::EWS::Types::OutOfOffice</h1>
+
+  <div id="description" class="description">
+    
+<p>This represents <a href="OutOfOffice.html">OutOfOffice</a> settings @see <a
+href="http://msdn.microsoft.com/en-us/library/aa563465.aspx">msdn.microsoft.com/en-us/library/aa563465.aspx</a></p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-user" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">user</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(user, ews_item)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param [MailboxUser] user @param [Hash] ews_item</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/out_of_office.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">ews_item</span>)
+  <span class="ruby-ivar">@ews</span> =  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">ews</span>
+  <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">user</span>
+  <span class="ruby-ivar">@ews_item</span> = <span class="ruby-identifier">ews_item</span>
+  <span class="ruby-ivar">@changed</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">simplify!</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-changed-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">changed?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="changed-3F-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/out_of_office.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">changed?</span>
+  <span class="ruby-ivar">@changed</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- changed-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- changed-3F-method -->
+
+    
+      <div id="method-i-disable" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">disable</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="disable-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/out_of_office.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">disable</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">enabled?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">scheduled?</span>
+  <span class="ruby-ivar">@changed</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-ivar">@ews_item</span>[<span class="ruby-value">:oof_settings</span>][<span class="ruby-value">:oof_state</span>] = <span class="ruby-value">:disabled</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- disable-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- disable-method -->
+
+    
+      <div id="method-i-enable" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">enable</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="enable-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/out_of_office.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">enable</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">enabled?</span>
+  <span class="ruby-ivar">@changed</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-ivar">@ews_item</span>[<span class="ruby-value">:oof_settings</span>][<span class="ruby-value">:oof_state</span>] = <span class="ruby-value">:enabled</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- enable-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- enable-method -->
+
+    
+      <div id="method-i-external_reply-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">external_reply=</span><span
+            class="method-args">(message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A message to send to external users @param [String] message</p>
+          
+          
+
+          
+          <div class="method-source-code" id="external_reply-3D-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/out_of_office.rb, line 108</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">external_reply=</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-ivar">@changed</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-ivar">@ews_item</span>[<span class="ruby-value">:oof_settings</span>][<span class="ruby-value">:external_reply</span>] = <span class="ruby-identifier">message</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- external_reply-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- external_reply-3D-method -->
+
+    
+      <div id="method-i-internal_reply-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">internal_reply=</span><span
+            class="method-args">(message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A message to send to internal users @param [String] message</p>
+          
+          
+
+          
+          <div class="method-source-code" id="internal_reply-3D-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/out_of_office.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">internal_reply=</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-ivar">@changed</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-ivar">@ews_item</span>[<span class="ruby-value">:oof_settings</span>][<span class="ruby-value">:internal_reply</span>] = <span class="ruby-identifier">message</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- internal_reply-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- internal_reply-3D-method -->
+
+    
+      <div id="method-i-save-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">save!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="save-21-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/out_of_office.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">save!</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">changed?</span>
+  <span class="ruby-identifier">opts</span> = { <span class="ruby-identifier">mailbox</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">address</span><span class="ruby-operator">:</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">email_address</span>} }.<span class="ruby-identifier">merge</span>(<span class="ruby-ivar">@ews_item</span>[<span class="ruby-value">:oof_settings</span>])
+  <span class="ruby-identifier">resp</span> = <span class="ruby-ivar">@ews</span>.<span class="ruby-identifier">set_user_oof_settings</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">success?</span>
+    <span class="ruby-ivar">@changed</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">SaveFailed</span>, <span class="ruby-node">&quot;Could not save #{self.class}. #{resp.code}: #{resp.message}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- save-21-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- save-21-method -->
+
+    
+      <div id="method-i-schedule" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">schedule</span><span
+            class="method-args">(start_time, end_time)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Schedule an out of office. @param [DateTime] start_time @param [DateTime]
+end_time</p>
+          
+          
+
+          
+          <div class="method-source-code" id="schedule-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/out_of_office.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">schedule</span>(<span class="ruby-identifier">start_time</span>, <span class="ruby-identifier">end_time</span>)
+  <span class="ruby-ivar">@changed</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-ivar">@ews_item</span>[<span class="ruby-value">:oof_settings</span>][<span class="ruby-value">:oof_state</span>] = <span class="ruby-value">:scheduled</span>
+  <span class="ruby-identifier">set_duration</span> <span class="ruby-identifier">start_time</span>, <span class="ruby-identifier">end_time</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- schedule-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- schedule-method -->
+
+    
+      <div id="method-i-set_duration" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_duration</span><span
+            class="method-args">(start_time, end_time)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Specify a duration for this Out Of Office setting @param [DateTime]
+start_time @param [DateTime] end_time</p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_duration-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/out_of_office.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_duration</span>(<span class="ruby-identifier">start_time</span>, <span class="ruby-identifier">end_time</span>)
+  <span class="ruby-ivar">@changed</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-ivar">@ews_item</span>[<span class="ruby-value">:oof_settings</span>][<span class="ruby-value">:duration</span>][<span class="ruby-value">:start_time</span>] = <span class="ruby-identifier">start_time</span>
+  <span class="ruby-ivar">@ews_item</span>[<span class="ruby-value">:oof_settings</span>][<span class="ruby-value">:duration</span>][<span class="ruby-value">:end_time</span>] = <span class="ruby-identifier">end_time</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- set_duration-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- set_duration-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-key_alias" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">key_alias</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="../Types.html#method-i-key_alias">Viewpoint::EWS::Types#key_alias</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="key_alias-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/out_of_office.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">key_alias</span>
+  <span class="ruby-ivar">@key_alias</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">super</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-constant">OOF_KEY_ALIAS</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- key_alias-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- key_alias-method -->
+
+    
+      <div id="method-i-key_paths" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">key_paths</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="../Types.html#method-i-key_paths">Viewpoint::EWS::Types#key_paths</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="key_paths-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/out_of_office.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">key_paths</span>
+  <span class="ruby-ivar">@key_paths</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">super</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-constant">OOF_KEY_PATHS</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- key_paths-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- key_paths-method -->
+
+    
+      <div id="method-i-key_types" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">key_types</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="../Types.html#method-i-key_types">Viewpoint::EWS::Types#key_types</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="key_types-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/out_of_office.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">key_types</span>
+  <span class="ruby-ivar">@key_types</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">super</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-constant">OOF_KEY_TYPES</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- key_types-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- key_types-method -->
+
+    
+      <div id="method-i-simplify-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">simplify!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="simplify-21-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/out_of_office.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">simplify!</span>
+  <span class="ruby-identifier">oof_settings</span> = <span class="ruby-ivar">@ews_item</span>[<span class="ruby-value">:oof_settings</span>][<span class="ruby-value">:elems</span>].<span class="ruby-identifier">inject</span>(<span class="ruby-value">:merge</span>)
+  <span class="ruby-identifier">oof_settings</span>[<span class="ruby-value">:oof_state</span>] = <span class="ruby-identifier">oof_settings</span>[<span class="ruby-value">:oof_state</span>][<span class="ruby-value">:text</span>].<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">to_sym</span>
+  <span class="ruby-identifier">oof_settings</span>[<span class="ruby-value">:external_audience</span>] = <span class="ruby-identifier">oof_settings</span>[<span class="ruby-value">:external_audience</span>][<span class="ruby-value">:text</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">oof_settings</span>[<span class="ruby-value">:duration</span>]
+    <span class="ruby-identifier">dur</span> = <span class="ruby-identifier">oof_settings</span>[<span class="ruby-value">:duration</span>][<span class="ruby-value">:elems</span>].<span class="ruby-identifier">inject</span>(<span class="ruby-value">:merge</span>)
+    <span class="ruby-identifier">oof_settings</span>[<span class="ruby-value">:duration</span>] = {
+      <span class="ruby-identifier">start_time</span><span class="ruby-operator">:</span> <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">iso8601</span>(<span class="ruby-identifier">dur</span>[<span class="ruby-value">:start_time</span>][<span class="ruby-value">:text</span>]),
+      <span class="ruby-identifier">end_time</span><span class="ruby-operator">:</span>   <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">iso8601</span>(<span class="ruby-identifier">dur</span>[<span class="ruby-value">:end_time</span>][<span class="ruby-value">:text</span>])
+    }
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">oof_settings</span>[<span class="ruby-value">:internal_reply</span>] = <span class="ruby-identifier">oof_settings</span>[<span class="ruby-value">:internal_reply</span>][<span class="ruby-value">:elems</span>][<span class="ruby-value">0</span>][<span class="ruby-value">:message</span>][<span class="ruby-value">:text</span>] <span class="ruby-operator">||</span> <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">oof_settings</span>[<span class="ruby-value">:external_reply</span>] = <span class="ruby-identifier">oof_settings</span>[<span class="ruby-value">:external_reply</span>][<span class="ruby-value">:elems</span>][<span class="ruby-value">0</span>][<span class="ruby-value">:message</span>][<span class="ruby-value">:text</span>] <span class="ruby-operator">||</span> <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-ivar">@ews_item</span>[<span class="ruby-value">:oof_settings</span>] = <span class="ruby-identifier">oof_settings</span>
+  <span class="ruby-ivar">@ews_item</span>[<span class="ruby-value">:allow_external_oof</span>] = <span class="ruby-ivar">@ews_item</span>[<span class="ruby-value">:allow_external_oof</span>][<span class="ruby-value">:text</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- simplify-21-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- simplify-21-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

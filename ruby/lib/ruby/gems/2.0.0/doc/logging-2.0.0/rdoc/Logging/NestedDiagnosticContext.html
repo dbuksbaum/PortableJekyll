@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module Logging::NestedDiagnosticContext - logging-2.0.0 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/logging/diagnostic_context.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-i-3C-3C">#&lt;&lt;</a>
+    
+    <li ><a href="#method-i-clear">#clear</a>
+    
+    <li ><a href="#method-i-context">#context</a>
+    
+    <li ><a href="#method-i-inherit">#inherit</a>
+    
+    <li ><a href="#method-i-peek">#peek</a>
+    
+    <li ><a href="#method-i-pop">#pop</a>
+    
+    <li ><a href="#method-i-push">#push</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../History_txt.html">History</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../File.html">File</a>
+  
+    <li><a href="../FileUtils.html">FileUtils</a>
+  
+    <li><a href="../Logging.html">Logging</a>
+  
+    <li><a href="../Logging/Appender.html">Logging::Appender</a>
+  
+    <li><a href="../Logging/Appenders.html">Logging::Appenders</a>
+  
+    <li><a href="../Logging/Appenders/Buffering.html">Logging::Appenders::Buffering</a>
+  
+    <li><a href="../Logging/Appenders/File.html">Logging::Appenders::File</a>
+  
+    <li><a href="../Logging/Appenders/IO.html">Logging::Appenders::IO</a>
+  
+    <li><a href="../Logging/Appenders/RollingFile.html">Logging::Appenders::RollingFile</a>
+  
+    <li><a href="../Logging/Appenders/RollingFile/Roller.html">Logging::Appenders::RollingFile::Roller</a>
+  
+    <li><a href="../Logging/Appenders/Stderr.html">Logging::Appenders::Stderr</a>
+  
+    <li><a href="../Logging/Appenders/Stdout.html">Logging::Appenders::Stdout</a>
+  
+    <li><a href="../Logging/Appenders/StringIo.html">Logging::Appenders::StringIo</a>
+  
+    <li><a href="../Logging/Appenders/Syslog.html">Logging::Appenders::Syslog</a>
+  
+    <li><a href="../Logging/ColorScheme.html">Logging::ColorScheme</a>
+  
+    <li><a href="../Logging/Filter.html">Logging::Filter</a>
+  
+    <li><a href="../Logging/Filters.html">Logging::Filters</a>
+  
+    <li><a href="../Logging/Filters/Level.html">Logging::Filters::Level</a>
+  
+    <li><a href="../Logging/Layout.html">Logging::Layout</a>
+  
+    <li><a href="../Logging/Layouts.html">Logging::Layouts</a>
+  
+    <li><a href="../Logging/Layouts/Basic.html">Logging::Layouts::Basic</a>
+  
+    <li><a href="../Logging/Layouts/Parseable.html">Logging::Layouts::Parseable</a>
+  
+    <li><a href="../Logging/Layouts/Parseable/layout;.html">Logging::Layouts::Parseable::layout;</a>
+  
+    <li><a href="../Logging/Layouts/Pattern.html">Logging::Layouts::Pattern</a>
+  
+    <li><a href="../Logging/Logger.html">Logging::Logger</a>
+  
+    <li><a href="../Logging/Logger.html">Logging::Logger</a>
+  
+    <li><a href="../Logging/MappedDiagnosticContext.html">Logging::MappedDiagnosticContext</a>
+  
+    <li><a href="../Logging/NestedDiagnosticContext.html">Logging::NestedDiagnosticContext</a>
+  
+    <li><a href="../Logging/Proxy.html">Logging::Proxy</a>
+  
+    <li><a href="../Logging/RailsCompat.html">Logging::RailsCompat</a>
+  
+    <li><a href="../Logging/Repository.html">Logging::Repository</a>
+  
+    <li><a href="../Logging/Repository/Singleton.html">Logging::Repository::Singleton</a>
+  
+    <li><a href="../Logging/RootLogger.html">Logging::RootLogger</a>
+  
+    <li><a href="../Logging/logger.html">Logging::logger</a>
+  
+    <li><a href="../Module.html">Module</a>
+  
+    <li><a href="../Object.html">Object</a>
+  
+    <li><a href="../RSpec.html">RSpec</a>
+  
+    <li><a href="../RSpec/Core.html">RSpec::Core</a>
+  
+    <li><a href="../RSpec/Core/Configuration.html">RSpec::Core::Configuration</a>
+  
+    <li><a href="../RSpec/LoggingHelper.html">RSpec::LoggingHelper</a>
+  
+    <li><a href="../RSpec/LoggingHelper.html">RSpec::LoggingHelper</a>
+  
+    <li><a href="../ReentrantMutex.html">ReentrantMutex</a>
+  
+    <li><a href="../Spec.html">Spec</a>
+  
+    <li><a href="../Spec/Runner.html">Spec::Runner</a>
+  
+    <li><a href="../Spec/Runner/Configuration.html">Spec::Runner::Configuration</a>
+  
+    <li><a href="../String.html">String</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module Logging::NestedDiagnosticContext</h1>
+
+  <div id="description" class="description">
+    
+<p>A Nested Diagnostic Context, or NDC in short, is an instrument to
+distinguish interleaved log output from different sources. Log output is
+typically interleaved when a server handles multiple clients
+near-simultaneously.</p>
+
+<p>Interleaved log output can still be meaningful if each log entry from
+different contexts had a distinctive stamp. This is where NDCs come into
+play.</p>
+
+<p>The NDC is a stack of contextual messages that are pushed and popped by the
+client as different contexts are encountered in the application. When a new
+context is entered, the client will `push` a new message onto the NDC
+stack. This message appears in all log messages. When this context is
+exited, the client will call `pop` to remove the message.</p>
+<ul><li>
+<p>Contexts can be nested</p>
+</li><li>
+<p>When entering a context, call `Logging.ndc.push`</p>
+</li><li>
+<p>When leaving a context, call `Logging.ndc.pop`</p>
+</li><li>
+<p>Configure the PatternLayout to log context information</p>
+</li></ul>
+
+<p>There is no penalty for forgetting to match each push operation with a
+corresponding pop, except the obvious mismatch between the real application
+context and the context set in the NDC.</p>
+
+<p>When configured to do so, PatternLayout instance will automatically
+retrieve the nested diagnostic context for the current thread with out any
+user intervention. This context information can be used to track user
+sessions in a Rails application, for example.</p>
+
+<p>Note that NDCs are managed on a per thread basis. NDC operations such as
+`push`, `pop`, and `clear` affect the NDC of the current thread only. NDCs
+of other threads remain unaffected.</p>
+
+<p>By default, when a new thread is created it will inherit the context of its
+parent thread. However, the `inherit` method may be used to inherit context
+for any other thread in the application.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="NAME">NAME
+        
+        <dd class="description"><p>The name used to retrieve the NDC from thread-local storage.</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-3C-3C" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">&lt;&lt;</span><span
+            class="method-args">( message )</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="NestedDiagnosticContext.html#method-i-push">push</a>
+        </div>
+        
+      </div><!-- 3C-3C-method -->
+
+    
+      <div id="method-i-clear" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clear</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public: Clear all nested diagnostic information if any. This method is
+useful in cases where the same thread can be potentially used over and over
+in different unrelated contexts.</p>
+
+<p>Returns the <a
+href="NestedDiagnosticContext.html">NestedDiagnosticContext</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="clear-source">
+            <pre><span class="ruby-comment"># File lib/logging/diagnostic_context.rb, line 322</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clear</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-constant">NAME</span>] = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- clear-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- clear-method -->
+
+    
+      <div id="method-i-context" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">context</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the Array acting as the storage stack for this <a
+href="NestedDiagnosticContext.html">NestedDiagnosticContext</a>. A new
+storage Array is created for each Thread running in the application.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="context-source">
+            <pre><span class="ruby-comment"># File lib/logging/diagnostic_context.rb, line 353</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">context</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-constant">NAME</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- context-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- context-method -->
+
+    
+      <div id="method-i-inherit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inherit</span><span
+            class="method-args">( obj )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public: Inherit the diagnostic context of another thread. In the vast
+majority of cases the other thread will the parent that spawned the current
+thread. The diagnostic context from the parent thread is cloned before
+being inherited; the two diagnostic contexts can be changed independently.</p>
+
+<p>Returns the <a
+href="NestedDiagnosticContext.html">NestedDiagnosticContext</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="inherit-source">
+            <pre><span class="ruby-comment"># File lib/logging/diagnostic_context.rb, line 335</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inherit</span>( <span class="ruby-identifier">obj</span> )
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">obj</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Array</span>
+    <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-constant">NAME</span>] = <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Thread</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">obj</span>
+    <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">exclusive</span> {
+      <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-constant">NAME</span>] = <span class="ruby-identifier">obj</span>[<span class="ruby-constant">NAME</span>].<span class="ruby-identifier">dup</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">obj</span>[<span class="ruby-constant">NAME</span>]
+    }
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- inherit-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- inherit-method -->
+
+    
+      <div id="method-i-peek" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">peek</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public: Looks at the last diagnostic context at the top of this NDC without
+removing it. The returned value is the last pushed message. If no context
+is available then `nil` is returned.</p>
+
+<p>Returns the last pushed diagnostic message <a
+href="../String.html">String</a> or nil if no messages exist.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="peek-source">
+            <pre><span class="ruby-comment"># File lib/logging/diagnostic_context.rb, line 312</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">peek</span>
+  <span class="ruby-identifier">context</span>.<span class="ruby-identifier">last</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- peek-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- peek-method -->
+
+    
+      <div id="method-i-pop" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pop</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public: Clients should call this method before leaving a diagnostic
+context. The returned value is the last pushed message. If no context is
+available then `nil` is returned.</p>
+
+<p>Returns the last pushed diagnostic message <a
+href="../String.html">String</a> or nil if no messages exist.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="pop-source">
+            <pre><span class="ruby-comment"># File lib/logging/diagnostic_context.rb, line 301</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pop</span>
+  <span class="ruby-identifier">context</span>.<span class="ruby-identifier">pop</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- pop-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- pop-method -->
+
+    
+      <div id="method-i-push" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">push</span><span
+            class="method-args">( message ) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public: Push new diagnostic context information for the current thread. The
+contents of the message parameter is determined solely by the client.</p>
+
+<p>message - The message <a href="../String.html">String</a> to add to the
+current context.</p>
+
+<p>Returns the current <a
+href="NestedDiagnosticContext.html">NestedDiagnosticContext</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="push-source">
+            <pre><span class="ruby-comment"># File lib/logging/diagnostic_context.rb, line 281</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">push</span>( <span class="ruby-identifier">message</span> )
+  <span class="ruby-identifier">context</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">yield</span>
+    <span class="ruby-keyword">ensure</span>
+      <span class="ruby-identifier">context</span>.<span class="ruby-identifier">pop</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- push-source -->
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="NestedDiagnosticContext.html#method-i-3C-3C">&lt;&lt;</a>
+        </div>
+        
+
+        
+      </div><!-- push-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

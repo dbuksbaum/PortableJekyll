@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>types.conf - ffi-1.9.8-x86-mingw32 Documentation</title>
+
+<link type="text/css" media="screen" href="../../../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../../js/darkfish.js"></script>
+
+
+<body class="file">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../../../index.html">Home</a>
+    <a href="../../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/aarch64-linux/types_conf.html">types.conf</a>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/arm-linux/types_conf.html">types.conf</a>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/i386-cygwin/types_conf.html">types.conf</a>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/i386-darwin/types_conf.html">types.conf</a>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/i386-freebsd/types_conf.html">types.conf</a>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/i386-gnu/types_conf.html">types.conf</a>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/i386-linux/types_conf.html">types.conf</a>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/i386-netbsd/types_conf.html">types.conf</a>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/i386-openbsd/types_conf.html">types.conf</a>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/i386-solaris/types_conf.html">types.conf</a>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/i386-windows/types_conf.html">types.conf</a>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/ia64-linux/types_conf.html">types.conf</a>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/mips-linux/types_conf.html">types.conf</a>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/mips64el-linux/types_conf.html">types.conf</a>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/mipsel-linux/types_conf.html">types.conf</a>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/powerpc-aix/types_conf.html">types.conf</a>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/powerpc-darwin/types_conf.html">types.conf</a>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/powerpc-linux/types_conf.html">types.conf</a>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/powerpc64-linux/types_conf.html">types.conf</a>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/s390-linux/types_conf.html">types.conf</a>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/s390x-linux/types_conf.html">types.conf</a>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/sparc-linux/types_conf.html">types.conf</a>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/sparc-solaris/types_conf.html">types.conf</a>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/sparcv9-solaris/types_conf.html">types.conf</a>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/x86_64-cygwin/types_conf.html">types.conf</a>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/x86_64-darwin/types_conf.html">types.conf</a>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/x86_64-freebsd/types_conf.html">types.conf</a>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/x86_64-linux/types_conf.html">types.conf</a>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/x86_64-netbsd/types_conf.html">types.conf</a>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/x86_64-openbsd/types_conf.html">types.conf</a>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/x86_64-solaris/types_conf.html">types.conf</a>
+  
+    <li class="file"><a href="../../../../lib/ffi/platform/x86_64-windows/types_conf.html">types.conf</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../../FFI.html">FFI</a>
+  
+    <li><a href="../../../../FFI/AutoPointer.html">FFI::AutoPointer</a>
+  
+    <li><a href="../../../../FFI/AutoPointer/CallableReleaser.html">FFI::AutoPointer::CallableReleaser</a>
+  
+    <li><a href="../../../../FFI/AutoPointer/DefaultReleaser.html">FFI::AutoPointer::DefaultReleaser</a>
+  
+    <li><a href="../../../../FFI/AutoPointer/Releaser.html">FFI::AutoPointer::Releaser</a>
+  
+    <li><a href="../../../../FFI/ConstGenerator.html">FFI::ConstGenerator</a>
+  
+    <li><a href="../../../../FFI/ConstGenerator/Constant.html">FFI::ConstGenerator::Constant</a>
+  
+    <li><a href="../../../../FFI/Enum.html">FFI::Enum</a>
+  
+    <li><a href="../../../../FFI/Enums.html">FFI::Enums</a>
+  
+    <li><a href="../../../../FFI/Generator.html">FFI::Generator</a>
+  
+    <li><a href="../../../../FFI/Generator/Task.html">FFI::Generator::Task</a>
+  
+    <li><a href="../../../../FFI/IO.html">FFI::IO</a>
+  
+    <li><a href="../../../../FFI/Library.html">FFI::Library</a>
+  
+    <li><a href="../../../../FFI/ManagedStruct.html">FFI::ManagedStruct</a>
+  
+    <li><a href="../../../../FFI/NotFoundError.html">FFI::NotFoundError</a>
+  
+    <li><a href="../../../../FFI/Platform.html">FFI::Platform</a>
+  
+    <li><a href="../../../../FFI/PlatformError.html">FFI::PlatformError</a>
+  
+    <li><a href="../../../../FFI/Pointer.html">FFI::Pointer</a>
+  
+    <li><a href="../../../../FFI/StrPtrConverter.html">FFI::StrPtrConverter</a>
+  
+    <li><a href="../../../../FFI/Struct.html">FFI::Struct</a>
+  
+    <li><a href="../../../../FFI/Struct/ManagedStructConverter.html">FFI::Struct::ManagedStructConverter</a>
+  
+    <li><a href="../../../../FFI/StructGenerator.html">FFI::StructGenerator</a>
+  
+    <li><a href="../../../../FFI/StructGenerator/Field.html">FFI::StructGenerator::Field</a>
+  
+    <li><a href="../../../../FFI/StructLayout.html">FFI::StructLayout</a>
+  
+    <li><a href="../../../../FFI/StructLayout/Enum.html">FFI::StructLayout::Enum</a>
+  
+    <li><a href="../../../../FFI/StructLayout/InnerStruct.html">FFI::StructLayout::InnerStruct</a>
+  
+    <li><a href="../../../../FFI/StructLayout/Mapped.html">FFI::StructLayout::Mapped</a>
+  
+    <li><a href="../../../../FFI/StructLayoutBuilder.html">FFI::StructLayoutBuilder</a>
+  
+    <li><a href="../../../../FFI/Type.html">FFI::Type</a>
+  
+    <li><a href="../../../../FFI/TypesGenerator.html">FFI::TypesGenerator</a>
+  
+    <li><a href="../../../../FFI/Union.html">FFI::Union</a>
+  
+    <li><a href="../../../../FFI/VariadicInvoker.html">FFI::VariadicInvoker</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation" class="description">
+  
+<p>rbx.platform.typedef.__u_char = uchar rbx.platform.typedef.__u_short =
+ushort rbx.platform.typedef.__u_int = uint rbx.platform.typedef.__u_long =
+ulong rbx.platform.typedef.__int8_t = char rbx.platform.typedef.__uint8_t =
+uchar rbx.platform.typedef.__int16_t = short
+rbx.platform.typedef.__uint16_t = ushort rbx.platform.typedef.__int32_t =
+int rbx.platform.typedef.__uint32_t = uint rbx.platform.typedef.__int64_t =
+long rbx.platform.typedef.__uint64_t = ulong rbx.platform.typedef.__quad_t
+= long rbx.platform.typedef.__u_quad_t = ulong rbx.platform.typedef.__dev_t
+= ulong rbx.platform.typedef.__uid_t = uint rbx.platform.typedef.__gid_t =
+uint rbx.platform.typedef.__in_addr_t = uint
+rbx.platform.typedef.__in_port_t = ushort rbx.platform.typedef.__ino_t =
+ulong rbx.platform.typedef.__ino64_t = ulong rbx.platform.typedef.__mode_t
+= uint rbx.platform.typedef.__nlink_t = ulong rbx.platform.typedef.__off_t
+= long rbx.platform.typedef.__off64_t = long rbx.platform.typedef.__pid_t =
+int rbx.platform.typedef.__clock_t = long rbx.platform.typedef.__rlim_t =
+ulong rbx.platform.typedef.__rlim64_t = ulong rbx.platform.typedef.__id_t =
+uint rbx.platform.typedef.__time_t = long rbx.platform.typedef.__useconds_t
+= uint rbx.platform.typedef.__suseconds_t = long
+rbx.platform.typedef.__daddr_t = int rbx.platform.typedef.__swblk_t = long
+rbx.platform.typedef.__key_t = int rbx.platform.typedef.__clockid_t = int
+rbx.platform.typedef.__timer_t = pointer rbx.platform.typedef.__blksize_t =
+long rbx.platform.typedef.__blkcnt_t = long
+rbx.platform.typedef.__blkcnt64_t = long rbx.platform.typedef.__fsblkcnt_t
+= ulong rbx.platform.typedef.__fsblkcnt64_t = ulong
+rbx.platform.typedef.__fsfilcnt_t = ulong
+rbx.platform.typedef.__fsfilcnt64_t = ulong rbx.platform.typedef.__ssize_t
+= long rbx.platform.typedef.__loff_t = long rbx.platform.typedef.*__qaddr_t
+= long rbx.platform.typedef.*__caddr_t = char
+rbx.platform.typedef.__intptr_t = long rbx.platform.typedef.__socklen_t =
+uint rbx.platform.typedef.u_char = uchar rbx.platform.typedef.u_short =
+ushort rbx.platform.typedef.u_int = uint rbx.platform.typedef.u_long =
+ulong rbx.platform.typedef.quad_t = long rbx.platform.typedef.u_quad_t =
+ulong rbx.platform.typedef.loff_t = long rbx.platform.typedef.ino_t = ulong
+rbx.platform.typedef.dev_t = ulong rbx.platform.typedef.gid_t = uint
+rbx.platform.typedef.mode_t = uint rbx.platform.typedef.nlink_t = ulong
+rbx.platform.typedef.uid_t = uint rbx.platform.typedef.off_t = long
+rbx.platform.typedef.pid_t = int rbx.platform.typedef.id_t = uint
+rbx.platform.typedef.ssize_t = long rbx.platform.typedef.daddr_t = int
+rbx.platform.typedef.key_t = int rbx.platform.typedef.clock_t = long
+rbx.platform.typedef.time_t = long rbx.platform.typedef.clockid_t = int
+rbx.platform.typedef.timer_t = pointer rbx.platform.typedef.size_t = ulong
+rbx.platform.typedef.ulong = ulong rbx.platform.typedef.ushort = ushort
+rbx.platform.typedef.uint = uint rbx.platform.typedef.int8_t = char
+rbx.platform.typedef.int16_t = short rbx.platform.typedef.int32_t = int
+rbx.platform.typedef.int64_t = long_long rbx.platform.typedef.u_int8_t =
+uchar rbx.platform.typedef.u_int16_t = ushort
+rbx.platform.typedef.u_int32_t = uint rbx.platform.typedef.u_int64_t =
+ulong_long rbx.platform.typedef.register_t = long
+rbx.platform.typedef.__sig_atomic_t = int rbx.platform.typedef.suseconds_t
+= long rbx.platform.typedef.__fd_mask = long rbx.platform.typedef.fd_mask =
+long rbx.platform.typedef.blksize_t = long rbx.platform.typedef.blkcnt_t =
+long rbx.platform.typedef.fsblkcnt_t = ulong
+rbx.platform.typedef.fsfilcnt_t = ulong rbx.platform.typedef.pthread_t =
+ulong rbx.platform.typedef.pthread_key_t = uint
+rbx.platform.typedef.pthread_once_t = int rbx.platform.typedef.socklen_t =
+uint rbx.platform.typedef.sa_family_t = ushort rbx.platform.typedef.rlim_t
+= ulong rbx.platform.typedef.__rlimit_resource_t = int
+rbx.platform.typedef.__rusage_who_t = int
+rbx.platform.typedef.__priority_which_t = int</p>
+
+</div>
+
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

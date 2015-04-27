@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Mail::IndifferentHash - mail-2.6.3 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/mail/indifferent_hash.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Hash
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-new_from_hash_copying_default">::new_from_hash_copying_default</a>
+    
+    <li ><a href="#method-i-5B-5D-3D">#[]=</a>
+    
+    <li ><a href="#method-i-convert_key">#convert_key</a>
+    
+    <li ><a href="#method-i-convert_value">#convert_value</a>
+    
+    <li class="calls-super" ><a href="#method-i-default">#default</a>
+    
+    <li class="calls-super" ><a href="#method-i-delete">#delete</a>
+    
+    <li ><a href="#method-i-dup">#dup</a>
+    
+    <li class="calls-super" ><a href="#method-i-fetch">#fetch</a>
+    
+    <li ><a href="#method-i-has_key-3F">#has_key?</a>
+    
+    <li ><a href="#method-i-include-3F">#include?</a>
+    
+    <li class="calls-super" ><a href="#method-i-key-3F">#key?</a>
+    
+    <li ><a href="#method-i-member-3F">#member?</a>
+    
+    <li ><a href="#method-i-merge">#merge</a>
+    
+    <li ><a href="#method-i-merge-21">#merge!</a>
+    
+    <li ><a href="#method-i-regular_update">#regular_update</a>
+    
+    <li ><a href="#method-i-regular_writer">#regular_writer</a>
+    
+    <li class="calls-super" ><a href="#method-i-reverse_merge">#reverse_merge</a>
+    
+    <li ><a href="#method-i-reverse_merge-21">#reverse_merge!</a>
+    
+    <li ><a href="#method-i-store">#store</a>
+    
+    <li ><a href="#method-i-stringify_keys">#stringify_keys</a>
+    
+    <li ><a href="#method-i-stringify_keys-21">#stringify_keys!</a>
+    
+    <li ><a href="#method-i-symbolize_keys">#symbolize_keys</a>
+    
+    <li ><a href="#method-i-to_hash">#to_hash</a>
+    
+    <li ><a href="#method-i-to_options-21">#to_options!</a>
+    
+    <li ><a href="#method-i-update">#update</a>
+    
+    <li ><a href="#method-i-values_at">#values_at</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../CHANGELOG_rdoc.html">CHANGELOG</a>
+  
+    <li class="file"><a href="../CONTRIBUTING_md.html">CONTRIBUTING</a>
+  
+    <li class="file"><a href="../README_md.html">README</a>
+  
+    <li class="file"><a href="../TODO_rdoc.html">TODO</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/common_rl.html">common.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/date_time_rl.html">date_time.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/address_lists_machine_rb_rl.html">address_lists_machine.rb.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/content_disposition_machine_rb_rl.html">content_disposition_machine.rb.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/content_location_machine_rb_rl.html">content_location_machine.rb.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/content_transfer_encoding_machine_rb_rl.html">content_transfer_encoding_machine.rb.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/content_type_machine_rb_rl.html">content_type_machine.rb.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/date_time_machine_rb_rl.html">date_time_machine.rb.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/envelope_from_machine_rb_rl.html">envelope_from_machine.rb.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/message_ids_machine_rb_rl.html">message_ids_machine.rb.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/mime_version_machine_rb_rl.html">mime_version_machine.rb.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/phrase_lists_machine_rb_rl.html">phrase_lists_machine.rb.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/rb_actions_rl.html">rb_actions.rl</a>
+  
+    <li class="file"><a href="../lib/mail/parsers/ragel/ruby/machines/received_machine_rb_rl.html">received_machine.rb.rl</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../ActiveSupport.html">ActiveSupport</a>
+  
+    <li><a href="../Mail.html">Mail</a>
+  
+    <li><a href="../Mail/Address.html">Mail::Address</a>
+  
+    <li><a href="../Mail/AddressContainer.html">Mail::AddressContainer</a>
+  
+    <li><a href="../Mail/AddressList.html">Mail::AddressList</a>
+  
+    <li><a href="../Mail/AttachmentsList.html">Mail::AttachmentsList</a>
+  
+    <li><a href="../Mail/BccField.html">Mail::BccField</a>
+  
+    <li><a href="../Mail/Body.html">Mail::Body</a>
+  
+    <li><a href="../Mail/CcField.html">Mail::CcField</a>
+  
+    <li><a href="../Mail/CheckDeliveryParams.html">Mail::CheckDeliveryParams</a>
+  
+    <li><a href="../Mail/CommentsField.html">Mail::CommentsField</a>
+  
+    <li><a href="../Mail/CommonAddress.html">Mail::CommonAddress</a>
+  
+    <li><a href="../Mail/CommonDate.html">Mail::CommonDate</a>
+  
+    <li><a href="../Mail/CommonField.html">Mail::CommonField</a>
+  
+    <li><a href="../Mail/CommonMessageId.html">Mail::CommonMessageId</a>
+  
+    <li><a href="../Mail/Configuration.html">Mail::Configuration</a>
+  
+    <li><a href="../Mail/Constants.html">Mail::Constants</a>
+  
+    <li><a href="../Mail/Constants/Encoding.html">Mail::Constants::Encoding</a>
+  
+    <li><a href="../Mail/ContentDescriptionField.html">Mail::ContentDescriptionField</a>
+  
+    <li><a href="../Mail/ContentDispositionElement.html">Mail::ContentDispositionElement</a>
+  
+    <li><a href="../Mail/ContentDispositionField.html">Mail::ContentDispositionField</a>
+  
+    <li><a href="../Mail/ContentIdField.html">Mail::ContentIdField</a>
+  
+    <li><a href="../Mail/ContentLocationElement.html">Mail::ContentLocationElement</a>
+  
+    <li><a href="../Mail/ContentLocationField.html">Mail::ContentLocationField</a>
+  
+    <li><a href="../Mail/ContentTransferEncodingElement.html">Mail::ContentTransferEncodingElement</a>
+  
+    <li><a href="../Mail/ContentTransferEncodingField.html">Mail::ContentTransferEncodingField</a>
+  
+    <li><a href="../Mail/ContentTypeElement.html">Mail::ContentTypeElement</a>
+  
+    <li><a href="../Mail/ContentTypeField.html">Mail::ContentTypeField</a>
+  
+    <li><a href="../Mail/DateField.html">Mail::DateField</a>
+  
+    <li><a href="../Mail/DateTimeElement.html">Mail::DateTimeElement</a>
+  
+    <li><a href="../Mail/Encodings.html">Mail::Encodings</a>
+  
+    <li><a href="../Mail/Encodings/Base64.html">Mail::Encodings::Base64</a>
+  
+    <li><a href="../Mail/Encodings/Binary.html">Mail::Encodings::Binary</a>
+  
+    <li><a href="../Mail/Encodings/EightBit.html">Mail::Encodings::EightBit</a>
+  
+    <li><a href="../Mail/Encodings/QuotedPrintable.html">Mail::Encodings::QuotedPrintable</a>
+  
+    <li><a href="../Mail/Encodings/SevenBit.html">Mail::Encodings::SevenBit</a>
+  
+    <li><a href="../Mail/Encodings/TransferEncoding.html">Mail::Encodings::TransferEncoding</a>
+  
+    <li><a href="../Mail/Encodings/UnixToUnix.html">Mail::Encodings::UnixToUnix</a>
+  
+    <li><a href="../Mail/Envelope.html">Mail::Envelope</a>
+  
+    <li><a href="../Mail/EnvelopeFromElement.html">Mail::EnvelopeFromElement</a>
+  
+    <li><a href="../Mail/Exim.html">Mail::Exim</a>
+  
+    <li><a href="../Mail/Field.html">Mail::Field</a>
+  
+    <li><a href="../Mail/Field/FieldError.html">Mail::Field::FieldError</a>
+  
+    <li><a href="../Mail/Field/ParseError.html">Mail::Field::ParseError</a>
+  
+    <li><a href="../Mail/Field/SyntaxError.html">Mail::Field::SyntaxError</a>
+  
+    <li><a href="../Mail/FieldList.html">Mail::FieldList</a>
+  
+    <li><a href="../Mail/FileDelivery.html">Mail::FileDelivery</a>
+  
+    <li><a href="../Mail/FromField.html">Mail::FromField</a>
+  
+    <li><a href="../Mail/Header.html">Mail::Header</a>
+  
+    <li><a href="../Mail/IMAP.html">Mail::IMAP</a>
+  
+    <li><a href="../Mail/InReplyToField.html">Mail::InReplyToField</a>
+  
+    <li><a href="../Mail/IndifferentHash.html">Mail::IndifferentHash</a>
+  
+    <li><a href="../Mail/KeywordsField.html">Mail::KeywordsField</a>
+  
+    <li><a href="../Mail/Matchers.html">Mail::Matchers</a>
+  
+    <li><a href="../Mail/Matchers/HasSentEmailMatcher.html">Mail::Matchers::HasSentEmailMatcher</a>
+  
+    <li><a href="../Mail/Message.html">Mail::Message</a>
+  
+    <li><a href="../Mail/MessageIdField.html">Mail::MessageIdField</a>
+  
+    <li><a href="../Mail/MessageIdsElement.html">Mail::MessageIdsElement</a>
+  
+    <li><a href="../Mail/MimeVersionElement.html">Mail::MimeVersionElement</a>
+  
+    <li><a href="../Mail/MimeVersionField.html">Mail::MimeVersionField</a>
+  
+    <li><a href="../Mail/Multibyte.html">Mail::Multibyte</a>
+  
+    <li><a href="../Mail/Multibyte.html">Mail::Multibyte</a>
+  
+    <li><a href="../Mail/Multibyte/Chars.html">Mail::Multibyte::Chars</a>
+  
+    <li><a href="../Mail/Multibyte/EncodingError.html">Mail::Multibyte::EncodingError</a>
+  
+    <li><a href="../Mail/Multibyte/Unicode.html">Mail::Multibyte::Unicode</a>
+  
+    <li><a href="../Mail/Multibyte/Unicode/Codepoint.html">Mail::Multibyte::Unicode::Codepoint</a>
+  
+    <li><a href="../Mail/Multibyte/Unicode/UnicodeDatabase.html">Mail::Multibyte::Unicode::UnicodeDatabase</a>
+  
+    <li><a href="../Mail/OptionalField.html">Mail::OptionalField</a>
+  
+    <li><a href="../Mail/POP3.html">Mail::POP3</a>
+  
+    <li><a href="../Mail/ParameterHash.html">Mail::ParameterHash</a>
+  
+    <li><a href="../Mail/Parsers.html">Mail::Parsers</a>
+  
+    <li><a href="../Mail/Parsers/AddressListsParser.html">Mail::Parsers::AddressListsParser</a>
+  
+    <li><a href="../Mail/Parsers/ContentDispositionParser.html">Mail::Parsers::ContentDispositionParser</a>
+  
+    <li><a href="../Mail/Parsers/ContentLocationParser.html">Mail::Parsers::ContentLocationParser</a>
+  
+    <li><a href="../Mail/Parsers/ContentTransferEncodingParser.html">Mail::Parsers::ContentTransferEncodingParser</a>
+  
+    <li><a href="../Mail/Parsers/ContentTypeParser.html">Mail::Parsers::ContentTypeParser</a>
+  
+    <li><a href="../Mail/Parsers/DateTimeParser.html">Mail::Parsers::DateTimeParser</a>
+  
+    <li><a href="../Mail/Parsers/EnvelopeFromParser.html">Mail::Parsers::EnvelopeFromParser</a>
+  
+    <li><a href="../Mail/Parsers/MessageIdsParser.html">Mail::Parsers::MessageIdsParser</a>
+  
+    <li><a href="../Mail/Parsers/MimeVersionParser.html">Mail::Parsers::MimeVersionParser</a>
+  
+    <li><a href="../Mail/Parsers/PhraseListsParser.html">Mail::Parsers::PhraseListsParser</a>
+  
+    <li><a href="../Mail/Parsers/Ragel.html">Mail::Parsers::Ragel</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/AddressListsMachine.html">Mail::Parsers::Ragel::AddressListsMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/ContentDispositionMachine.html">Mail::Parsers::Ragel::ContentDispositionMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/ContentLocationMachine.html">Mail::Parsers::Ragel::ContentLocationMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/ContentTransferEncodingMachine.html">Mail::Parsers::Ragel::ContentTransferEncodingMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/ContentTypeMachine.html">Mail::Parsers::Ragel::ContentTypeMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/DateTimeMachine.html">Mail::Parsers::Ragel::DateTimeMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/EnvelopeFromMachine.html">Mail::Parsers::Ragel::EnvelopeFromMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/MessageIdsMachine.html">Mail::Parsers::Ragel::MessageIdsMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/MimeVersionMachine.html">Mail::Parsers::Ragel::MimeVersionMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/PhraseListsMachine.html">Mail::Parsers::Ragel::PhraseListsMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/ReceivedMachine.html">Mail::Parsers::Ragel::ReceivedMachine</a>
+  
+    <li><a href="../Mail/Parsers/Ragel/Ruby.html">Mail::Parsers::Ragel::Ruby</a>
+  
+    <li><a href="../Mail/Parsers/ReceivedParser.html">Mail::Parsers::ReceivedParser</a>
+  
+    <li><a href="../Mail/Part.html">Mail::Part</a>
+  
+    <li><a href="../Mail/PartsList.html">Mail::PartsList</a>
+  
+    <li><a href="../Mail/PhraseList.html">Mail::PhraseList</a>
+  
+    <li><a href="../Mail/ReceivedElement.html">Mail::ReceivedElement</a>
+  
+    <li><a href="../Mail/ReceivedField.html">Mail::ReceivedField</a>
+  
+    <li><a href="../Mail/ReferencesField.html">Mail::ReferencesField</a>
+  
+    <li><a href="../Mail/ReplyToField.html">Mail::ReplyToField</a>
+  
+    <li><a href="../Mail/ResentBccField.html">Mail::ResentBccField</a>
+  
+    <li><a href="../Mail/ResentCcField.html">Mail::ResentCcField</a>
+  
+    <li><a href="../Mail/ResentDateField.html">Mail::ResentDateField</a>
+  
+    <li><a href="../Mail/ResentFromField.html">Mail::ResentFromField</a>
+  
+    <li><a href="../Mail/ResentMessageIdField.html">Mail::ResentMessageIdField</a>
+  
+    <li><a href="../Mail/ResentSenderField.html">Mail::ResentSenderField</a>
+  
+    <li><a href="../Mail/ResentToField.html">Mail::ResentToField</a>
+  
+    <li><a href="../Mail/Retriever.html">Mail::Retriever</a>
+  
+    <li><a href="../Mail/ReturnPathField.html">Mail::ReturnPathField</a>
+  
+    <li><a href="../Mail/Ruby18.html">Mail::Ruby18</a>
+  
+    <li><a href="../Mail/Ruby19.html">Mail::Ruby19</a>
+  
+    <li><a href="../Mail/Ruby19/BestEffortCharsetEncoder.html">Mail::Ruby19::BestEffortCharsetEncoder</a>
+  
+    <li><a href="../Mail/Ruby19/StrictCharsetEncoder.html">Mail::Ruby19::StrictCharsetEncoder</a>
+  
+    <li><a href="../Mail/SMTP.html">Mail::SMTP</a>
+  
+    <li><a href="../Mail/SMTPConnection.html">Mail::SMTPConnection</a>
+  
+    <li><a href="../Mail/SenderField.html">Mail::SenderField</a>
+  
+    <li><a href="../Mail/Sendmail.html">Mail::Sendmail</a>
+  
+    <li><a href="../Mail/StructuredField.html">Mail::StructuredField</a>
+  
+    <li><a href="../Mail/SubjectField.html">Mail::SubjectField</a>
+  
+    <li><a href="../Mail/TestMailer.html">Mail::TestMailer</a>
+  
+    <li><a href="../Mail/TestRetriever.html">Mail::TestRetriever</a>
+  
+    <li><a href="../Mail/ToField.html">Mail::ToField</a>
+  
+    <li><a href="../Mail/UnknownEncodingType.html">Mail::UnknownEncodingType</a>
+  
+    <li><a href="../Mail/UnstructuredField.html">Mail::UnstructuredField</a>
+  
+    <li><a href="../Mail/Utilities.html">Mail::Utilities</a>
+  
+    <li><a href="../Mail/VERSION.html">Mail::VERSION</a>
+  
+    <li><a href="../Net.html">Net</a>
+  
+    <li><a href="../Net/SMTP.html">Net::SMTP</a>
+  
+    <li><a href="../NilClass.html">NilClass</a>
+  
+    <li><a href="../Object.html">Object</a>
+  
+    <li><a href="../String.html">String</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Mail::IndifferentHash</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(constructor = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/mail/indifferent_hash.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">constructor</span> = {})
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">constructor</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+    <span class="ruby-keyword">super</span>()
+    <span class="ruby-identifier">update</span>(<span class="ruby-identifier">constructor</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">super</span>(<span class="ruby-identifier">constructor</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+      <div id="method-c-new_from_hash_copying_default" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new_from_hash_copying_default</span><span
+            class="method-args">(hash)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new_from_hash_copying_default-source">
+            <pre><span class="ruby-comment"># File lib/mail/indifferent_hash.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new_from_hash_copying_default</span>(<span class="ruby-identifier">hash</span>)
+  <span class="ruby-constant">IndifferentHash</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">hash</span>).<span class="ruby-identifier">tap</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">new_hash</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">new_hash</span>.<span class="ruby-identifier">default</span> = <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">default</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new_from_hash_copying_default-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new_from_hash_copying_default-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-5B-5D-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]=</span><span
+            class="method-args">(key, value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Assigns a new value to the hash:</p>
+
+<pre>hash = HashWithIndifferentAccess.new
+hash[:key] = &quot;value&quot;</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-3D-source">
+            <pre><span class="ruby-comment"># File lib/mail/indifferent_hash.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]=</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">regular_writer</span>(<span class="ruby-identifier">convert_key</span>(<span class="ruby-identifier">key</span>), <span class="ruby-identifier">convert_value</span>(<span class="ruby-identifier">value</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- 5B-5D-3D-source -->
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="IndifferentHash.html#method-i-regular_writer">regular_writer</a>, <a href="IndifferentHash.html#method-i-store">store</a>
+        </div>
+        
+
+        
+      </div><!-- 5B-5D-3D-method -->
+
+    
+      <div id="method-i-default" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default</span><span
+            class="method-args">(key = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="default-source">
+            <pre><span class="ruby-comment"># File lib/mail/indifferent_hash.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default</span>(<span class="ruby-identifier">key</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span> = <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>)
+    <span class="ruby-keyword">self</span>[<span class="ruby-identifier">key</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">super</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- default-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- default-method -->
+
+    
+      <div id="method-i-delete" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete</span><span
+            class="method-args">(key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Removes a specified key from the hash.</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="delete-source">
+            <pre><span class="ruby-comment"># File lib/mail/indifferent_hash.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">convert_key</span>(<span class="ruby-identifier">key</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- delete-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- delete-method -->
+
+    
+      <div id="method-i-dup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns an exact copy of the hash.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dup-source">
+            <pre><span class="ruby-comment"># File lib/mail/indifferent_hash.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dup</span>
+  <span class="ruby-constant">IndifferentHash</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- dup-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- dup-method -->
+
+    
+      <div id="method-i-fetch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fetch</span><span
+            class="method-args">(key, *extras)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fetches the value for the specified key, same as doing <a
+href="http://key">hash</a></p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="fetch-source">
+            <pre><span class="ruby-comment"># File lib/mail/indifferent_hash.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">key</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">extras</span>)
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">convert_key</span>(<span class="ruby-identifier">key</span>), <span class="ruby-operator">*</span><span class="ruby-identifier">extras</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- fetch-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- fetch-method -->
+
+    
+      <div id="method-i-has_key-3F" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">has_key?</span><span
+            class="method-args">(key)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="IndifferentHash.html#method-i-key-3F">key?</a>
+        </div>
+        
+      </div><!-- has_key-3F-method -->
+
+    
+      <div id="method-i-include-3F" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">include?</span><span
+            class="method-args">(key)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="IndifferentHash.html#method-i-key-3F">key?</a>
+        </div>
+        
+      </div><!-- include-3F-method -->
+
+    
+      <div id="method-i-key-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">key?</span><span
+            class="method-args">(key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks the hash for a key matching the argument passed in:</p>
+
+<pre class="ruby"><span class="ruby-identifier">hash</span> = <span class="ruby-constant">HashWithIndifferentAccess</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">hash</span>[<span class="ruby-string">&quot;key&quot;</span>] = <span class="ruby-string">&quot;value&quot;</span>
+<span class="ruby-identifier">hash</span>.<span class="ruby-identifier">key?</span> :<span class="ruby-identifier">key</span>  <span class="ruby-comment"># =&gt; true</span>
+<span class="ruby-identifier">hash</span>.<span class="ruby-identifier">key?</span> <span class="ruby-string">&quot;key&quot;</span> <span class="ruby-comment"># =&gt; true</span>
+</pre>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="key-3F-source">
+            <pre><span class="ruby-comment"># File lib/mail/indifferent_hash.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">key?</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">convert_key</span>(<span class="ruby-identifier">key</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- key-3F-source -->
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="IndifferentHash.html#method-i-include-3F">include?</a>, <a href="IndifferentHash.html#method-i-has_key-3F">has_key?</a>, <a href="IndifferentHash.html#method-i-member-3F">member?</a>
+        </div>
+        
+
+        
+      </div><!-- key-3F-method -->
+
+    
+      <div id="method-i-member-3F" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">member?</span><span
+            class="method-args">(key)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="IndifferentHash.html#method-i-key-3F">key?</a>
+        </div>
+        
+      </div><!-- member-3F-method -->
+
+    
+      <div id="method-i-merge" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">merge</span><span
+            class="method-args">(hash)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Merges the instantized and the specified hashes together, giving precedence
+to the values from the second hash Does not overwrite the existing hash.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="merge-source">
+            <pre><span class="ruby-comment"># File lib/mail/indifferent_hash.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">merge</span>(<span class="ruby-identifier">hash</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">hash</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- merge-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- merge-method -->
+
+    
+      <div id="method-i-merge-21" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">merge!</span><span
+            class="method-args">(other_hash)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="IndifferentHash.html#method-i-update">update</a>
+        </div>
+        
+      </div><!-- merge-21-method -->
+
+    
+      <div id="method-i-regular_update" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">regular_update</span><span
+            class="method-args">(other_hash)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="IndifferentHash.html#method-i-update">update</a>
+        </div>
+        
+      </div><!-- regular_update-method -->
+
+    
+      <div id="method-i-regular_writer" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">regular_writer</span><span
+            class="method-args">(key, value)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="IndifferentHash.html#method-i-5B-5D-3D">[]=</a>
+        </div>
+        
+      </div><!-- regular_writer-method -->
+
+    
+      <div id="method-i-reverse_merge" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reverse_merge</span><span
+            class="method-args">(other_hash)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Performs the opposite of merge, with the keys and values from the first
+hash taking precedence over the second. This overloaded definition prevents
+returning a regular hash, if <a
+href="IndifferentHash.html#method-i-reverse_merge">#reverse_merge</a> is
+called on a HashWithDifferentAccess.</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="reverse_merge-source">
+            <pre><span class="ruby-comment"># File lib/mail/indifferent_hash.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reverse_merge</span>(<span class="ruby-identifier">other_hash</span>)
+  <span class="ruby-keyword">super</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new_from_hash_copying_default</span>(<span class="ruby-identifier">other_hash</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- reverse_merge-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- reverse_merge-method -->
+
+    
+      <div id="method-i-reverse_merge-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reverse_merge!</span><span
+            class="method-args">(other_hash)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="reverse_merge-21-source">
+            <pre><span class="ruby-comment"># File lib/mail/indifferent_hash.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reverse_merge!</span>(<span class="ruby-identifier">other_hash</span>)
+  <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">reverse_merge</span>( <span class="ruby-identifier">other_hash</span> ))
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- reverse_merge-21-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- reverse_merge-21-method -->
+
+    
+      <div id="method-i-store" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">store</span><span
+            class="method-args">(key, value)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="IndifferentHash.html#method-i-5B-5D-3D">[]=</a>
+        </div>
+        
+      </div><!-- store-method -->
+
+    
+      <div id="method-i-stringify_keys" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stringify_keys</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="stringify_keys-source">
+            <pre><span class="ruby-comment"># File lib/mail/indifferent_hash.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stringify_keys</span>; <span class="ruby-identifier">dup</span> <span class="ruby-keyword">end</span></pre>
+          </div><!-- stringify_keys-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- stringify_keys-method -->
+
+    
+      <div id="method-i-stringify_keys-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stringify_keys!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="stringify_keys-21-source">
+            <pre><span class="ruby-comment"># File lib/mail/indifferent_hash.rb, line 119</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stringify_keys!</span>; <span class="ruby-keyword">self</span> <span class="ruby-keyword">end</span></pre>
+          </div><!-- stringify_keys-21-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- stringify_keys-21-method -->
+
+    
+      <div id="method-i-symbolize_keys" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">symbolize_keys</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="symbolize_keys-source">
+            <pre><span class="ruby-comment"># File lib/mail/indifferent_hash.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">symbolize_keys</span>; <span class="ruby-identifier">to_hash</span>.<span class="ruby-identifier">symbolize_keys</span> <span class="ruby-keyword">end</span></pre>
+          </div><!-- symbolize_keys-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- symbolize_keys-method -->
+
+    
+      <div id="method-i-to_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_hash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_hash-source">
+            <pre><span class="ruby-comment"># File lib/mail/indifferent_hash.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_hash</span>
+  <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">default</span>).<span class="ruby-identifier">merge!</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_hash-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_hash-method -->
+
+    
+      <div id="method-i-to_options-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_options!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_options-21-source">
+            <pre><span class="ruby-comment"># File lib/mail/indifferent_hash.rb, line 122</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_options!</span>; <span class="ruby-keyword">self</span> <span class="ruby-keyword">end</span></pre>
+          </div><!-- to_options-21-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_options-21-method -->
+
+    
+      <div id="method-i-update" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update</span><span
+            class="method-args">(other_hash)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Updates the instantized hash with values from the second:</p>
+
+<pre class="ruby"><span class="ruby-identifier">hash_1</span> = <span class="ruby-constant">HashWithIndifferentAccess</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">hash_1</span>[:<span class="ruby-identifier">key</span>] = <span class="ruby-string">&quot;value&quot;</span>
+
+<span class="ruby-identifier">hash_2</span> = <span class="ruby-constant">HashWithIndifferentAccess</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">hash_2</span>[:<span class="ruby-identifier">key</span>] = <span class="ruby-string">&quot;New Value!&quot;</span>
+
+<span class="ruby-identifier">hash_1</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">hash_2</span>) <span class="ruby-comment"># =&gt; {&quot;key&quot;=&gt;&quot;New Value!&quot;}</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="update-source">
+            <pre><span class="ruby-comment"># File lib/mail/indifferent_hash.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>(<span class="ruby-identifier">other_hash</span>)
+  <span class="ruby-identifier">other_hash</span>.<span class="ruby-identifier">each_pair</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span> <span class="ruby-identifier">regular_writer</span>(<span class="ruby-identifier">convert_key</span>(<span class="ruby-identifier">key</span>), <span class="ruby-identifier">convert_value</span>(<span class="ruby-identifier">value</span>)) }
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- update-source -->
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="IndifferentHash.html#method-i-regular_update">regular_update</a>, <a href="IndifferentHash.html#method-i-merge-21">merge!</a>
+        </div>
+        
+
+        
+      </div><!-- update-method -->
+
+    
+      <div id="method-i-values_at" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">values_at</span><span
+            class="method-args">(*indices)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns an array of the values at the specified indices:</p>
+
+<pre class="ruby"><span class="ruby-identifier">hash</span> = <span class="ruby-constant">HashWithIndifferentAccess</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">hash</span>[:<span class="ruby-identifier">a</span>] = <span class="ruby-string">&quot;x&quot;</span>
+<span class="ruby-identifier">hash</span>[:<span class="ruby-identifier">b</span>] = <span class="ruby-string">&quot;y&quot;</span>
+<span class="ruby-identifier">hash</span>.<span class="ruby-identifier">values_at</span>(<span class="ruby-string">&quot;a&quot;</span>, <span class="ruby-string">&quot;b&quot;</span>) <span class="ruby-comment"># =&gt; [&quot;x&quot;, &quot;y&quot;]</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="values_at-source">
+            <pre><span class="ruby-comment"># File lib/mail/indifferent_hash.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">values_at</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">indices</span>)
+  <span class="ruby-identifier">indices</span>.<span class="ruby-identifier">collect</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span> <span class="ruby-keyword">self</span>[<span class="ruby-identifier">convert_key</span>(<span class="ruby-identifier">key</span>)]}
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- values_at-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- values_at-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Protected Instance Methods</h3>
+
+    
+      <div id="method-i-convert_key" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">convert_key</span><span
+            class="method-args">(key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="convert_key-source">
+            <pre><span class="ruby-comment"># File lib/mail/indifferent_hash.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">convert_key</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">key</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Symbol</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">key</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- convert_key-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- convert_key-method -->
+
+    
+      <div id="method-i-convert_value" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">convert_value</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="convert_value-source">
+            <pre><span class="ruby-comment"># File lib/mail/indifferent_hash.rb, line 134</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">convert_value</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Hash</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new_from_hash_copying_default</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>)
+    <span class="ruby-identifier">value</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-identifier">value</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">convert_value</span>(<span class="ruby-identifier">e</span>) })
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- convert_value-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- convert_value-method -->
+
+    
+    </section><!-- protected-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

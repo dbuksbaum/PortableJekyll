@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class TZInfo::RubyDataSource - TZInfo</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/tzinfo/ruby_data_source.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="DataSource.html">TZInfo::DataSource</a>
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-load_country_index">::load_country_index</a>
+    
+    <li ><a href="#method-c-load_timezone_index">::load_timezone_index</a>
+    
+    <li ><a href="#method-c-require_data">::require_data</a>
+    
+    <li ><a href="#method-c-require_index">::require_index</a>
+    
+    <li ><a href="#method-i-country_codes">#country_codes</a>
+    
+    <li ><a href="#method-i-data_timezone_identifiers">#data_timezone_identifiers</a>
+    
+    <li ><a href="#method-i-linked_timezone_identifiers">#linked_timezone_identifiers</a>
+    
+    <li ><a href="#method-i-load_country_index">#load_country_index</a>
+    
+    <li ><a href="#method-i-load_country_info">#load_country_info</a>
+    
+    <li ><a href="#method-i-load_timezone_index">#load_timezone_index</a>
+    
+    <li ><a href="#method-i-load_timezone_info">#load_timezone_info</a>
+    
+    <li ><a href="#method-i-require_data">#require_data</a>
+    
+    <li ><a href="#method-i-require_definition">#require_definition</a>
+    
+    <li ><a href="#method-i-timezone_identifiers">#timezone_identifiers</a>
+    
+    <li ><a href="#method-i-to_s">#to_s</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../CHANGES_md.html">CHANGES</a>
+  
+    <li class="file"><a href="../LICENSE.html">LICENSE</a>
+  
+    <li class="file"><a href="../README_md.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../TZInfo.html">TZInfo</a>
+  
+    <li><a href="../TZInfo/AmbiguousTime.html">TZInfo::AmbiguousTime</a>
+  
+    <li><a href="../TZInfo/Country.html">TZInfo::Country</a>
+  
+    <li><a href="../TZInfo/CountryIndexDefinition.html">TZInfo::CountryIndexDefinition</a>
+  
+    <li><a href="../TZInfo/CountryIndexDefinition/ClassMethods.html">TZInfo::CountryIndexDefinition::ClassMethods</a>
+  
+    <li><a href="../TZInfo/CountryInfo.html">TZInfo::CountryInfo</a>
+  
+    <li><a href="../TZInfo/CountryTimezone.html">TZInfo::CountryTimezone</a>
+  
+    <li><a href="../TZInfo/DataSource.html">TZInfo::DataSource</a>
+  
+    <li><a href="../TZInfo/DataSourceNotFound.html">TZInfo::DataSourceNotFound</a>
+  
+    <li><a href="../TZInfo/DataTimezone.html">TZInfo::DataTimezone</a>
+  
+    <li><a href="../TZInfo/DataTimezoneInfo.html">TZInfo::DataTimezoneInfo</a>
+  
+    <li><a href="../TZInfo/InfoTimezone.html">TZInfo::InfoTimezone</a>
+  
+    <li><a href="../TZInfo/InvalidCountryCode.html">TZInfo::InvalidCountryCode</a>
+  
+    <li><a href="../TZInfo/InvalidDataSource.html">TZInfo::InvalidDataSource</a>
+  
+    <li><a href="../TZInfo/InvalidTimezoneIdentifier.html">TZInfo::InvalidTimezoneIdentifier</a>
+  
+    <li><a href="../TZInfo/InvalidZoneinfoDirectory.html">TZInfo::InvalidZoneinfoDirectory</a>
+  
+    <li><a href="../TZInfo/InvalidZoneinfoFile.html">TZInfo::InvalidZoneinfoFile</a>
+  
+    <li><a href="../TZInfo/LinkedTimezone.html">TZInfo::LinkedTimezone</a>
+  
+    <li><a href="../TZInfo/LinkedTimezoneInfo.html">TZInfo::LinkedTimezoneInfo</a>
+  
+    <li><a href="../TZInfo/NoOffsetsDefined.html">TZInfo::NoOffsetsDefined</a>
+  
+    <li><a href="../TZInfo/OffsetRationals.html">TZInfo::OffsetRationals</a>
+  
+    <li><a href="../TZInfo/PeriodNotFound.html">TZInfo::PeriodNotFound</a>
+  
+    <li><a href="../TZInfo/RubyCoreSupport.html">TZInfo::RubyCoreSupport</a>
+  
+    <li><a href="../TZInfo/RubyCountryInfo.html">TZInfo::RubyCountryInfo</a>
+  
+    <li><a href="../TZInfo/RubyCountryInfo/Zones.html">TZInfo::RubyCountryInfo::Zones</a>
+  
+    <li><a href="../TZInfo/RubyDataSource.html">TZInfo::RubyDataSource</a>
+  
+    <li><a href="../TZInfo/TimeOrDateTime.html">TZInfo::TimeOrDateTime</a>
+  
+    <li><a href="../TZInfo/Timezone.html">TZInfo::Timezone</a>
+  
+    <li><a href="../TZInfo/TimezoneDefinition.html">TZInfo::TimezoneDefinition</a>
+  
+    <li><a href="../TZInfo/TimezoneDefinition/ClassMethods.html">TZInfo::TimezoneDefinition::ClassMethods</a>
+  
+    <li><a href="../TZInfo/TimezoneIndexDefinition.html">TZInfo::TimezoneIndexDefinition</a>
+  
+    <li><a href="../TZInfo/TimezoneIndexDefinition/ClassMethods.html">TZInfo::TimezoneIndexDefinition::ClassMethods</a>
+  
+    <li><a href="../TZInfo/TimezoneInfo.html">TZInfo::TimezoneInfo</a>
+  
+    <li><a href="../TZInfo/TimezoneOffset.html">TZInfo::TimezoneOffset</a>
+  
+    <li><a href="../TZInfo/TimezonePeriod.html">TZInfo::TimezonePeriod</a>
+  
+    <li><a href="../TZInfo/TimezoneProxy.html">TZInfo::TimezoneProxy</a>
+  
+    <li><a href="../TZInfo/TimezoneTransition.html">TZInfo::TimezoneTransition</a>
+  
+    <li><a href="../TZInfo/TimezoneTransitionDefinition.html">TZInfo::TimezoneTransitionDefinition</a>
+  
+    <li><a href="../TZInfo/TransitionDataTimezoneInfo.html">TZInfo::TransitionDataTimezoneInfo</a>
+  
+    <li><a href="../TZInfo/UnknownTimezone.html">TZInfo::UnknownTimezone</a>
+  
+    <li><a href="../TZInfo/ZoneinfoCountryInfo.html">TZInfo::ZoneinfoCountryInfo</a>
+  
+    <li><a href="../TZInfo/ZoneinfoDataSource.html">TZInfo::ZoneinfoDataSource</a>
+  
+    <li><a href="../TZInfo/ZoneinfoDirectoryNotFound.html">TZInfo::ZoneinfoDirectoryNotFound</a>
+  
+    <li><a href="../TZInfo/ZoneinfoTimezoneInfo.html">TZInfo::ZoneinfoTimezoneInfo</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class TZInfo::RubyDataSource</h1>
+
+  <div id="description" class="description">
+    
+<p>A <a href="DataSource.html">DataSource</a> that loads data from the set of
+Ruby modules included in the TZInfo::Data library (tzinfo-data gem).</p>
+
+<p>To have <a href="../TZInfo.html">TZInfo</a> use this <a
+href="DataSource.html">DataSource</a>, call <a
+href="DataSource.html#method-c-set">TZInfo::DataSource.set</a> as follows:</p>
+
+<pre>TZInfo::DataSource.set(:ruby)</pre>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="REQUIRE_PATH">REQUIRE_PATH
+        
+        <dd class="description"><p>Base path for require.</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="private-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Class Methods</h3>
+
+    
+      <div id="method-c-load_country_index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_country_index</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Loads in the index of countries if it hasn&#39;t already been loaded.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="load_country_index-source">
+            <pre><span class="ruby-comment"># File lib/tzinfo/ruby_data_source.rb, line 129</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">load_country_index</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">@@country_index_loaded</span>
+    <span class="ruby-identifier">require_index</span>(<span class="ruby-string">&#39;countries&#39;</span>)
+    <span class="ruby-identifier">@@country_index_loaded</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- load_country_index-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- load_country_index-method -->
+
+    
+      <div id="method-c-load_timezone_index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_timezone_index</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Loads in the index of timezones if it hasn&#39;t already been loaded.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="load_timezone_index-source">
+            <pre><span class="ruby-comment"># File lib/tzinfo/ruby_data_source.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">load_timezone_index</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">@@timezone_index_loaded</span>
+    <span class="ruby-identifier">require_index</span>(<span class="ruby-string">&#39;timezones&#39;</span>)
+    <span class="ruby-identifier">@@timezone_index_loaded</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>        
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- load_timezone_index-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- load_timezone_index-method -->
+
+    
+      <div id="method-c-require_data" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">require_data</span><span
+            class="method-args">(*file)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Requires a file from tzinfo/data.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="require_data-source">
+            <pre><span class="ruby-comment"># File lib/tzinfo/ruby_data_source.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">require_data</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">file</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;tzinfo&#39;</span>, <span class="ruby-string">&#39;data&#39;</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">file</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- require_data-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- require_data-method -->
+
+    
+      <div id="method-c-require_index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">require_index</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Requires an index by its name.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="require_index-source">
+            <pre><span class="ruby-comment"># File lib/tzinfo/ruby_data_source.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">require_index</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">require_data</span>(<span class="ruby-operator">*</span>[<span class="ruby-string">&#39;indexes&#39;</span>, <span class="ruby-identifier">name</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- require_index-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- require_index-method -->
+
+    
+    </section><!-- private-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-country_codes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">country_codes</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns an array of all the available ISO 3166-1 alpha-2 country codes.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="country_codes-source">
+            <pre><span class="ruby-comment"># File lib/tzinfo/ruby_data_source.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">country_codes</span>
+  <span class="ruby-identifier">load_country_index</span>
+  <span class="ruby-constant">Data</span><span class="ruby-operator">::</span><span class="ruby-constant">Indexes</span><span class="ruby-operator">::</span><span class="ruby-constant">Countries</span>.<span class="ruby-identifier">countries</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">freeze</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- country_codes-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- country_codes-method -->
+
+    
+      <div id="method-i-data_timezone_identifiers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">data_timezone_identifiers</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns an array of all the available timezone identifiers for data
+timezones (i.e. those that actually contain definitions).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="data_timezone_identifiers-source">
+            <pre><span class="ruby-comment"># File lib/tzinfo/ruby_data_source.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">data_timezone_identifiers</span>
+  <span class="ruby-identifier">load_timezone_index</span>
+  <span class="ruby-constant">Data</span><span class="ruby-operator">::</span><span class="ruby-constant">Indexes</span><span class="ruby-operator">::</span><span class="ruby-constant">Timezones</span>.<span class="ruby-identifier">data_timezones</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- data_timezone_identifiers-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- data_timezone_identifiers-method -->
+
+    
+      <div id="method-i-linked_timezone_identifiers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">linked_timezone_identifiers</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns an array of all the available timezone identifiers that are links
+to other timezones.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="linked_timezone_identifiers-source">
+            <pre><span class="ruby-comment"># File lib/tzinfo/ruby_data_source.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">linked_timezone_identifiers</span>
+  <span class="ruby-identifier">load_timezone_index</span>
+  <span class="ruby-constant">Data</span><span class="ruby-operator">::</span><span class="ruby-constant">Indexes</span><span class="ruby-operator">::</span><span class="ruby-constant">Timezones</span>.<span class="ruby-identifier">linked_timezones</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- linked_timezone_identifiers-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- linked_timezone_identifiers-method -->
+
+    
+      <div id="method-i-load_country_info" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_country_info</span><span
+            class="method-args">(code)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a <a href="CountryInfo.html">CountryInfo</a> instance for the given
+ISO 3166-1 alpha-2 country code. Raises <a
+href="InvalidCountryCode.html">InvalidCountryCode</a> if the country could
+not be found or the code is invalid.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="load_country_info-source">
+            <pre><span class="ruby-comment"># File lib/tzinfo/ruby_data_source.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load_country_info</span>(<span class="ruby-identifier">code</span>)
+  <span class="ruby-identifier">load_country_index</span>
+  <span class="ruby-identifier">info</span> = <span class="ruby-constant">Data</span><span class="ruby-operator">::</span><span class="ruby-constant">Indexes</span><span class="ruby-operator">::</span><span class="ruby-constant">Countries</span>.<span class="ruby-identifier">countries</span>[<span class="ruby-identifier">code</span>]
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidCountryCode</span>, <span class="ruby-string">&#39;Invalid country code&#39;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">info</span>
+  <span class="ruby-identifier">info</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- load_country_info-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- load_country_info-method -->
+
+    
+      <div id="method-i-load_timezone_info" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_timezone_info</span><span
+            class="method-args">(identifier)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a <a href="TimezoneInfo.html">TimezoneInfo</a> instance for a given
+identifier.  Raises <a
+href="InvalidTimezoneIdentifier.html">InvalidTimezoneIdentifier</a> if the
+timezone is not found or the  identifier is invalid.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="load_timezone_info-source">
+            <pre><span class="ruby-comment"># File lib/tzinfo/ruby_data_source.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load_timezone_info</span>(<span class="ruby-identifier">identifier</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidTimezoneIdentifier</span>, <span class="ruby-string">&#39;Invalid identifier&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">identifier</span> <span class="ruby-operator">!~</span> <span class="ruby-regexp">/^[A-Za-z0-9\+\-_]+(\/[A-Za-z0-9\+\-_]+)*$/</span>
+  
+  <span class="ruby-identifier">identifier</span> = <span class="ruby-identifier">identifier</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/-/</span>, <span class="ruby-string">&#39;__m__&#39;</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/\+/</span>, <span class="ruby-string">&#39;__p__&#39;</span>)
+  
+  <span class="ruby-comment"># Untaint identifier after it has been reassigned to a new string. We</span>
+  <span class="ruby-comment"># don&#39;t want to modify the original identifier. identifier may also be </span>
+  <span class="ruby-comment"># frozen and therefore cannot be untainted.</span>
+  <span class="ruby-identifier">identifier</span>.<span class="ruby-identifier">untaint</span>
+  
+  <span class="ruby-identifier">identifier</span> = <span class="ruby-identifier">identifier</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;/&#39;</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">require_definition</span>(<span class="ruby-identifier">identifier</span>)
+    
+    <span class="ruby-identifier">m</span> = <span class="ruby-constant">Data</span><span class="ruby-operator">::</span><span class="ruby-constant">Definitions</span>
+    <span class="ruby-identifier">identifier</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">part</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">m</span> = <span class="ruby-identifier">m</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">part</span>)
+    }
+    
+    <span class="ruby-identifier">m</span>.<span class="ruby-identifier">get</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">LoadError</span>, <span class="ruby-constant">NameError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidTimezoneIdentifier</span>, <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- load_timezone_info-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- load_timezone_info-method -->
+
+    
+      <div id="method-i-timezone_identifiers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">timezone_identifiers</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns an array of all the available timezone identifiers.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="timezone_identifiers-source">
+            <pre><span class="ruby-comment"># File lib/tzinfo/ruby_data_source.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">timezone_identifiers</span>
+  <span class="ruby-identifier">load_timezone_index</span>
+  <span class="ruby-constant">Data</span><span class="ruby-operator">::</span><span class="ruby-constant">Indexes</span><span class="ruby-operator">::</span><span class="ruby-constant">Timezones</span>.<span class="ruby-identifier">timezones</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- timezone_identifiers-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- timezone_identifiers-method -->
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the name of this <a href="DataSource.html">DataSource</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File lib/tzinfo/ruby_data_source.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+  <span class="ruby-string">&quot;Ruby DataSource&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_s-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_s-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-load_country_index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_country_index</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Loads in the index of countries if it hasn&#39;t already been loaded.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="load_country_index-source">
+            <pre><span class="ruby-comment"># File lib/tzinfo/ruby_data_source.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load_country_index</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">load_country_index</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- load_country_index-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- load_country_index-method -->
+
+    
+      <div id="method-i-load_timezone_index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_timezone_index</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Loads in the index of timezones if it hasn&#39;t already been loaded.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="load_timezone_index-source">
+            <pre><span class="ruby-comment"># File lib/tzinfo/ruby_data_source.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load_timezone_index</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">load_timezone_index</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- load_timezone_index-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- load_timezone_index-method -->
+
+    
+      <div id="method-i-require_data" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">require_data</span><span
+            class="method-args">(*file)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Requires a file from tzinfo/data.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="require_data-source">
+            <pre><span class="ruby-comment"># File lib/tzinfo/ruby_data_source.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">require_data</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">file</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">require_data</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">file</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- require_data-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- require_data-method -->
+
+    
+      <div id="method-i-require_definition" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">require_definition</span><span
+            class="method-args">(identifier)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Requires a zone definition by its identifier (split on /).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="require_definition-source">
+            <pre><span class="ruby-comment"># File lib/tzinfo/ruby_data_source.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">require_definition</span>(<span class="ruby-identifier">identifier</span>)
+  <span class="ruby-identifier">require_data</span>(<span class="ruby-operator">*</span>([<span class="ruby-string">&#39;definitions&#39;</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">identifier</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- require_definition-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- require_definition-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

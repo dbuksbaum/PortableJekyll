@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module Viewpoint::EWS::Types::GenericFolder - viewpoint-1.0.0 Documentation</title>
+
+<link type="text/css" media="screen" href="../../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../../index.html">Home</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/ews/types/generic_folder.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    <!-- Included Modules -->
+<nav id="includes-section" class="section">
+  <h3 class="section-header">Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="../../EWS.html">Viewpoint::EWS</a>
+  
+  
+  
+    <li><a class="include" href="../Types.html">Viewpoint::EWS::Types</a>
+  
+  
+  
+    <li><a class="include" href="../ItemAccessors.html">Viewpoint::EWS::ItemAccessors</a>
+  
+  
+  
+    <li><a class="include" href="../../StringUtils.html">Viewpoint::StringUtils</a>
+  
+  
+  </ul>
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-available_categories">#available_categories</a>
+    
+    <li ><a href="#method-i-delete-21">#delete!</a>
+    
+    <li ><a href="#method-i-get_all_properties-21">#get_all_properties!</a>
+    
+    <li ><a href="#method-i-get_events">#get_events</a>
+    
+    <li ><a href="#method-i-get_folder">#get_folder</a>
+    
+    <li ><a href="#method-i-get_folder_args">#get_folder_args</a>
+    
+    <li ><a href="#method-i-get_folder_parser">#get_folder_parser</a>
+    
+    <li ><a href="#method-i-items">#items</a>
+    
+    <li ><a href="#method-i-items_args">#items_args</a>
+    
+    <li ><a href="#method-i-items_between">#items_between</a>
+    
+    <li ><a href="#method-i-items_parser">#items_parser</a>
+    
+    <li ><a href="#method-i-items_since">#items_since</a>
+    
+    <li class="calls-super" ><a href="#method-i-key_alias">#key_alias</a>
+    
+    <li class="calls-super" ><a href="#method-i-key_paths">#key_paths</a>
+    
+    <li class="calls-super" ><a href="#method-i-key_types">#key_types</a>
+    
+    <li ><a href="#method-i-merge_restrictions-21">#merge_restrictions!</a>
+    
+    <li ><a href="#method-i-normalize_event_names">#normalize_event_names</a>
+    
+    <li ><a href="#method-i-push_subscribe">#push_subscribe</a>
+    
+    <li ><a href="#method-i-search_by_subject">#search_by_subject</a>
+    
+    <li ><a href="#method-i-simplify-21">#simplify!</a>
+    
+    <li ><a href="#method-i-subscribe">#subscribe</a>
+    
+    <li ><a href="#method-i-subscribed-3F">#subscribed?</a>
+    
+    <li ><a href="#method-i-sync_items-21">#sync_items!</a>
+    
+    <li ><a href="#method-i-synced-3F">#synced?</a>
+    
+    <li ><a href="#method-i-todays_items">#todays_items</a>
+    
+    <li ><a href="#method-i-unsubscribe">#unsubscribe</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../../README_md.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../Viewpoint.html">Viewpoint</a>
+  
+    <li><a href="../../../Viewpoint/EWS.html">Viewpoint::EWS</a>
+  
+    <li><a href="../../../Viewpoint/EWS/CalendarAccessors.html">Viewpoint::EWS::CalendarAccessors</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Connection.html">Viewpoint::EWS::Connection</a>
+  
+    <li><a href="../../../Viewpoint/EWS/ConnectionHelper.html">Viewpoint::EWS::ConnectionHelper</a>
+  
+    <li><a href="../../../Viewpoint/EWS/ConvertAccessors.html">Viewpoint::EWS::ConvertAccessors</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Errors.html">Viewpoint::EWS::Errors</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Errors/ResponseError.html">Viewpoint::EWS::Errors::ResponseError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Errors/ServerError.html">Viewpoint::EWS::Errors::ServerError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Errors/SoapResponseError.html">Viewpoint::EWS::Errors::SoapResponseError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Errors/UnauthorizedResponseError.html">Viewpoint::EWS::Errors::UnauthorizedResponseError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Errors/UnhandledResponseError.html">Viewpoint::EWS::Errors::UnhandledResponseError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsBadArgumentError.html">Viewpoint::EWS::EwsBadArgumentError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsCreateItemError.html">Viewpoint::EWS::EwsCreateItemError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsError.html">Viewpoint::EWS::EwsError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsFolderNotFound.html">Viewpoint::EWS::EwsFolderNotFound</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsFrozenObjectError.html">Viewpoint::EWS::EwsFrozenObjectError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsItemNotFound.html">Viewpoint::EWS::EwsItemNotFound</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsLoginError.html">Viewpoint::EWS::EwsLoginError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsMinimalObjectError.html">Viewpoint::EWS::EwsMinimalObjectError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsNotImplemented.html">Viewpoint::EWS::EwsNotImplemented</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsSendItemError.html">Viewpoint::EWS::EwsSendItemError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsServerVersionError.html">Viewpoint::EWS::EwsServerVersionError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsSubscriptionError.html">Viewpoint::EWS::EwsSubscriptionError</a>
+  
+    <li><a href="../../../Viewpoint/EWS/EwsSubscriptionTimeout.html">Viewpoint::EWS::EwsSubscriptionTimeout</a>
+  
+    <li><a href="../../../Viewpoint/EWS/FolderAccessors.html">Viewpoint::EWS::FolderAccessors</a>
+  
+    <li><a href="../../../Viewpoint/EWS/ItemAccessors.html">Viewpoint::EWS::ItemAccessors</a>
+  
+    <li><a href="../../../Viewpoint/EWS/ItemFieldUriMap.html">Viewpoint::EWS::ItemFieldUriMap</a>
+  
+    <li><a href="../../../Viewpoint/EWS/MailboxAccessors.html">Viewpoint::EWS::MailboxAccessors</a>
+  
+    <li><a href="../../../Viewpoint/EWS/MessageAccessors.html">Viewpoint::EWS::MessageAccessors</a>
+  
+    <li><a href="../../../Viewpoint/EWS/PushSubscriptionAccessors.html">Viewpoint::EWS::PushSubscriptionAccessors</a>
+  
+    <li><a href="../../../Viewpoint/EWS/RoomAccessors.html">Viewpoint::EWS::RoomAccessors</a>
+  
+    <li><a href="../../../Viewpoint/EWS/RoomlistAccessors.html">Viewpoint::EWS::RoomlistAccessors</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP.html">Viewpoint::EWS::SOAP</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/CreateAttachmentResponseMessage.html">Viewpoint::EWS::SOAP::CreateAttachmentResponseMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/CreateItemResponseMessage.html">Viewpoint::EWS::SOAP::CreateItemResponseMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/EwsBuilder.html">Viewpoint::EWS::SOAP::EwsBuilder</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/EwsParser.html">Viewpoint::EWS::SOAP::EwsParser</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/EwsResponse.html">Viewpoint::EWS::SOAP::EwsResponse</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/EwsSaxDocument.html">Viewpoint::EWS::SOAP::EwsSaxDocument</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/EwsSoapAvailabilityResponse.html">Viewpoint::EWS::SOAP::EwsSoapAvailabilityResponse</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/EwsSoapFreeBusyResponse.html">Viewpoint::EWS::SOAP::EwsSoapFreeBusyResponse</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/EwsSoapResponse.html">Viewpoint::EWS::SOAP::EwsSoapResponse</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/EwsSoapRoomResponse.html">Viewpoint::EWS::SOAP::EwsSoapRoomResponse</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/EwsSoapRoomlistResponse.html">Viewpoint::EWS::SOAP::EwsSoapRoomlistResponse</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/ExchangeAvailability.html">Viewpoint::EWS::SOAP::ExchangeAvailability</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/ExchangeDataServices.html">Viewpoint::EWS::SOAP::ExchangeDataServices</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/ExchangeNotification.html">Viewpoint::EWS::SOAP::ExchangeNotification</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/ExchangeSynchronization.html">Viewpoint::EWS::SOAP::ExchangeSynchronization</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/ExchangeTimeZones.html">Viewpoint::EWS::SOAP::ExchangeTimeZones</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/ExchangeUserConfiguration.html">Viewpoint::EWS::SOAP::ExchangeUserConfiguration</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/ExchangeWebService.html">Viewpoint::EWS::SOAP::ExchangeWebService</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/FindItemResponseMessage.html">Viewpoint::EWS::SOAP::FindItemResponseMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/GetEventsResponseMessage.html">Viewpoint::EWS::SOAP::GetEventsResponseMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/ResponseMessage.html">Viewpoint::EWS::SOAP::ResponseMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/RootFolder.html">Viewpoint::EWS::SOAP::RootFolder</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/SendNotificationResponseMessage.html">Viewpoint::EWS::SOAP::SendNotificationResponseMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/SubscribeResponseMessage.html">Viewpoint::EWS::SOAP::SubscribeResponseMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/SyncFolderHierarchyResponseMessage.html">Viewpoint::EWS::SOAP::SyncFolderHierarchyResponseMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SOAP/SyncFolderItemsResponseMessage.html">Viewpoint::EWS::SOAP::SyncFolderItemsResponseMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/SaveFailed.html">Viewpoint::EWS::SaveFailed</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Template.html">Viewpoint::EWS::Template</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Template/CalendarItem.html">Viewpoint::EWS::Template::CalendarItem</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Template/ForwardItem.html">Viewpoint::EWS::Template::ForwardItem</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Template/Message.html">Viewpoint::EWS::Template::Message</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Template/ReplyToItem.html">Viewpoint::EWS::Template::ReplyToItem</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Template/Task.html">Viewpoint::EWS::Template::Task</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types.html">Viewpoint::EWS::Types</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/Attachment.html">Viewpoint::EWS::Types::Attachment</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/Attendee.html">Viewpoint::EWS::Types::Attendee</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/CalendarFolder.html">Viewpoint::EWS::Types::CalendarFolder</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/CalendarItem.html">Viewpoint::EWS::Types::CalendarItem</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/Contact.html">Viewpoint::EWS::Types::Contact</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/ContactsFolder.html">Viewpoint::EWS::Types::ContactsFolder</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/CopiedEvent.html">Viewpoint::EWS::Types::CopiedEvent</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/CreatedEvent.html">Viewpoint::EWS::Types::CreatedEvent</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/DeletedEvent.html">Viewpoint::EWS::Types::DeletedEvent</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/DistributionList.html">Viewpoint::EWS::Types::DistributionList</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/Event.html">Viewpoint::EWS::Types::Event</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/ExportItemsResponseMessage.html">Viewpoint::EWS::Types::ExportItemsResponseMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/FileAttachment.html">Viewpoint::EWS::Types::FileAttachment</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/Folder.html">Viewpoint::EWS::Types::Folder</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/FreeBusyChangedEvent.html">Viewpoint::EWS::Types::FreeBusyChangedEvent</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/GenericFolder.html">Viewpoint::EWS::Types::GenericFolder</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/Item.html">Viewpoint::EWS::Types::Item</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/Item/ClassMethods.html">Viewpoint::EWS::Types::Item::ClassMethods</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/ItemAttachment.html">Viewpoint::EWS::Types::ItemAttachment</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/MailboxUser.html">Viewpoint::EWS::Types::MailboxUser</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/MeetingCancellation.html">Viewpoint::EWS::Types::MeetingCancellation</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/MeetingMessage.html">Viewpoint::EWS::Types::MeetingMessage</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/MeetingRequest.html">Viewpoint::EWS::Types::MeetingRequest</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/MeetingResponse.html">Viewpoint::EWS::Types::MeetingResponse</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/Message.html">Viewpoint::EWS::Types::Message</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/ModifiedEvent.html">Viewpoint::EWS::Types::ModifiedEvent</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/MovedEvent.html">Viewpoint::EWS::Types::MovedEvent</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/NewMailEvent.html">Viewpoint::EWS::Types::NewMailEvent</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/OutOfOffice.html">Viewpoint::EWS::Types::OutOfOffice</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/SearchFolder.html">Viewpoint::EWS::Types::SearchFolder</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/StatusEvent.html">Viewpoint::EWS::Types::StatusEvent</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/Task.html">Viewpoint::EWS::Types::Task</a>
+  
+    <li><a href="../../../Viewpoint/EWS/Types/TasksFolder.html">Viewpoint::EWS::Types::TasksFolder</a>
+  
+    <li><a href="../../../Viewpoint/EWSClient.html">Viewpoint::EWSClient</a>
+  
+    <li><a href="../../../Viewpoint/StringFormatException.html">Viewpoint::StringFormatException</a>
+  
+    <li><a href="../../../Viewpoint/StringUtils.html">Viewpoint::StringUtils</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module Viewpoint::EWS::Types::GenericFolder</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="GFOLDER_KEY_ALIAS">GFOLDER_KEY_ALIAS
+        
+        <dd class="description">
+        
+      
+        <dt id="GFOLDER_KEY_PATHS">GFOLDER_KEY_PATHS
+        
+        <dd class="description">
+        
+      
+        <dt id="GFOLDER_KEY_TYPES">GFOLDER_KEY_TYPES
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-subscription_id" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">subscription_id</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-sync_state" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">sync_state</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-watermark" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">watermark</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(ews, ews_item)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param [SOAP::ExchangeWebService] ews the <a href="../../EWS.html">EWS</a>
+reference @param [Hash] ews_item the <a href="../../EWS.html">EWS</a>
+parsed response document</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="../Types.html#method-c-new">Viewpoint::EWS::Types.new</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/generic_folder.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">ews</span>, <span class="ruby-identifier">ews_item</span>)
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-identifier">simplify!</span>
+  <span class="ruby-ivar">@sync_state</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@synced</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-available_categories" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">available_categories</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="available_categories-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/generic_folder.rb, line 161</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">available_categories</span>
+  <span class="ruby-identifier">opts</span> = {
+    <span class="ruby-identifier">user_config_name</span><span class="ruby-operator">:</span> {
+      <span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;CategoryList&#39;</span>,
+      <span class="ruby-identifier">distinguished_folder_id</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">id</span><span class="ruby-operator">:</span> <span class="ruby-value">:calendar</span>}
+    },
+    <span class="ruby-identifier">user_config_props</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;XmlData&#39;</span>
+  }
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">ews</span>.<span class="ruby-identifier">get_user_configuration</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-comment">#txt = resp.response_message[:elems][:get_user_configuration_response_message][:elems][1][:user_configuration][:elems][1][:xml_data][:text]</span>
+  <span class="ruby-comment">#Base64.decode64 txt</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- available_categories-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- available_categories-method -->
+
+    
+      <div id="method-i-delete-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="delete-21-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/generic_folder.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete!</span>
+  <span class="ruby-identifier">opts</span> = {
+    <span class="ruby-value">:folder_ids</span>   =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">id</span>],
+    <span class="ruby-value">:delete_type</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;HardDelete&#39;</span>
+  }
+  <span class="ruby-identifier">resp</span> = <span class="ruby-ivar">@ews</span>.<span class="ruby-identifier">delete_folder</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">success?</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">EwsError</span>, <span class="ruby-node">&quot;Could not delete folder. #{resp.code}: #{resp.message}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- delete-21-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- delete-21-method -->
+
+    
+      <div id="method-i-get_all_properties-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_all_properties!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_all_properties-21-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/generic_folder.rb, line 156</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_all_properties!</span>
+  <span class="ruby-ivar">@ews_item</span> = <span class="ruby-identifier">get_folder</span>(<span class="ruby-value">:base_shape</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;AllProperties&#39;</span>)
+  <span class="ruby-identifier">simplify!</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_all_properties-21-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_all_properties-21-method -->
+
+    
+      <div id="method-i-get_events" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_events</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks a subscribed folder for events @return [Array] An array of <a
+href="Event.html">Event</a> items</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_events-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/generic_folder.rb, line 287</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_events</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">subscribed?</span>
+      <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">ews</span>.<span class="ruby-identifier">get_events</span>(<span class="ruby-ivar">@subscription_id</span>, <span class="ruby-ivar">@watermark</span>)
+      <span class="ruby-identifier">rmsg</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">response_messages</span>[<span class="ruby-value">0</span>]
+      <span class="ruby-ivar">@watermark</span> = <span class="ruby-identifier">rmsg</span>.<span class="ruby-identifier">new_watermark</span>
+      <span class="ruby-comment"># @todo if parms[:more_events] # get more events</span>
+      <span class="ruby-identifier">rmsg</span>.<span class="ruby-identifier">events</span>.<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">ev</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">type</span> = <span class="ruby-identifier">ev</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">first</span>
+        <span class="ruby-identifier">class_by_name</span>(<span class="ruby-identifier">type</span>).<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ews</span>, <span class="ruby-identifier">ev</span>[<span class="ruby-identifier">type</span>])
+      }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">EwsSubscriptionError</span>, <span class="ruby-node">&quot;Folder &lt;#{self.display_name}&gt; not subscribed to. Issue a Folder#subscribe before checking events.&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">EwsSubscriptionTimeout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-ivar">@subscription_id</span>, <span class="ruby-ivar">@watermark</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_events-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_events-method -->
+
+    
+      <div id="method-i-items" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">items</span><span
+            class="method-args">(opts = {}) { |obj| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="items-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/generic_folder.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">items</span>(<span class="ruby-identifier">opts</span> = {})
+  <span class="ruby-identifier">args</span> = <span class="ruby-identifier">items_args</span>(<span class="ruby-identifier">opts</span>.<span class="ruby-identifier">clone</span>)
+  <span class="ruby-identifier">obj</span> = <span class="ruby-constant">OpenStruct</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">opts</span><span class="ruby-operator">:</span> <span class="ruby-identifier">args</span>, <span class="ruby-identifier">restriction</span><span class="ruby-operator">:</span> {})
+  <span class="ruby-keyword">yield</span> <span class="ruby-identifier">obj</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-identifier">merge_restrictions!</span> <span class="ruby-identifier">obj</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">ews</span>.<span class="ruby-identifier">find_item</span>(<span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">items_parser</span> <span class="ruby-identifier">resp</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- items-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- items-method -->
+
+    
+      <div id="method-i-items_between" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">items_between</span><span
+            class="method-args">(start_date, end_date, opts={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fetch items between a given time period @param [DateTime] start_date the
+time to start fetching Items from @param [DateTime] end_date the time to
+stop fetching Items from</p>
+          
+          
+
+          
+          <div class="method-source-code" id="items_between-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/generic_folder.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">items_between</span>(<span class="ruby-identifier">start_date</span>, <span class="ruby-identifier">end_date</span>, <span class="ruby-identifier">opts</span>={})
+  <span class="ruby-identifier">items</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">restriction</span> = { <span class="ruby-value">:and</span> =<span class="ruby-operator">&gt;</span>
+      [
+        {<span class="ruby-value">:is_greater_than_or_equal_to</span> =<span class="ruby-operator">&gt;</span>
+          [
+            {<span class="ruby-value">:field_uRI</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:field_uRI=</span><span class="ruby-operator">&gt;</span><span class="ruby-string">&#39;item:DateTimeReceived&#39;</span>}},
+            {<span class="ruby-value">:field_uRI_or_constant=</span><span class="ruby-operator">&gt;</span>{<span class="ruby-value">:constant</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:value</span> =<span class="ruby-operator">&gt;</span><span class="ruby-identifier">start_date</span>}}}
+          ]
+        },
+        {<span class="ruby-value">:is_less_than_or_equal_to</span> =<span class="ruby-operator">&gt;</span>
+          [
+            {<span class="ruby-value">:field_uRI</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:field_uRI=</span><span class="ruby-operator">&gt;</span><span class="ruby-string">&#39;item:DateTimeReceived&#39;</span>}},
+            {<span class="ruby-value">:field_uRI_or_constant=</span><span class="ruby-operator">&gt;</span>{<span class="ruby-value">:constant</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:value</span> =<span class="ruby-operator">&gt;</span><span class="ruby-identifier">end_date</span>}}}
+          ]
+        }
+      ]
+    }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- items_between-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- items_between-method -->
+
+    
+      <div id="method-i-items_since" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">items_since</span><span
+            class="method-args">(date_time, opts = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fetch items since a give DateTime @param [DateTime] date_time the time to
+fetch Items since.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="items_since-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/generic_folder.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">items_since</span>(<span class="ruby-identifier">date_time</span>, <span class="ruby-identifier">opts</span> = {})
+  <span class="ruby-identifier">opts</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">clone</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">date_time</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Date</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">EwsBadArgumentError</span>, <span class="ruby-string">&quot;First argument must be a Date or DateTime&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">restr</span> = {<span class="ruby-value">:restriction</span> =<span class="ruby-operator">&gt;</span>
+    {<span class="ruby-value">:is_greater_than_or_equal_to</span> =<span class="ruby-operator">&gt;</span>
+      [{<span class="ruby-value">:field_uRI</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:field_uRI=</span><span class="ruby-operator">&gt;</span><span class="ruby-string">&#39;item:DateTimeReceived&#39;</span>}},
+        {<span class="ruby-value">:field_uRI_or_constant</span> =<span class="ruby-operator">&gt;</span>{<span class="ruby-value">:constant</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:value=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">date_time</span>.<span class="ruby-identifier">to_datetime</span>}}}]
+    }}
+    <span class="ruby-identifier">items</span>(<span class="ruby-identifier">opts</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">restr</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- items_since-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- items_since-method -->
+
+    
+      <div id="method-i-push_subscribe" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">push_subscribe</span><span
+            class="method-args">(url, evtypes = [:all], watermark = nil, status_frequency = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="push_subscribe-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/generic_folder.rb, line 247</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">push_subscribe</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">evtypes</span> = [<span class="ruby-value">:all</span>], <span class="ruby-identifier">watermark</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">status_frequency</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-comment"># Refresh the subscription if already subscribed</span>
+  <span class="ruby-identifier">unsubscribe</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">subscribed?</span>
+
+  <span class="ruby-identifier">event_types</span> = <span class="ruby-identifier">normalize_event_names</span>(<span class="ruby-identifier">evtypes</span>)
+  <span class="ruby-identifier">folder</span> = {<span class="ruby-identifier">id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">id</span>, <span class="ruby-identifier">change_key</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">change_key</span>}
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">ews</span>.<span class="ruby-identifier">push_subscribe_folder</span>(<span class="ruby-identifier">folder</span>, <span class="ruby-identifier">event_types</span>, <span class="ruby-identifier">url</span>, <span class="ruby-identifier">status_frequency</span>, <span class="ruby-identifier">watermark</span>)
+  <span class="ruby-identifier">rmsg</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">response_messages</span>.<span class="ruby-identifier">first</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">rmsg</span>.<span class="ruby-identifier">success?</span>
+    <span class="ruby-ivar">@subscription_id</span> = <span class="ruby-identifier">rmsg</span>.<span class="ruby-identifier">subscription_id</span>
+    <span class="ruby-ivar">@watermark</span> = <span class="ruby-identifier">rmsg</span>.<span class="ruby-identifier">watermark</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">EwsSubscriptionError</span>, <span class="ruby-node">&quot;Could not subscribe: #{rmsg.code}: #{rmsg.message_text}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- push_subscribe-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- push_subscribe-method -->
+
+    
+      <div id="method-i-search_by_subject" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">search_by_subject</span><span
+            class="method-args">(match_str, exclude_str = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Search on the item subject @param [String] match_str A simple string
+paramater to match against the</p>
+
+<pre>subject.  The search ignores case and does not accept regexes... only strings.</pre>
+
+<p>@param [String,nil] exclude_str A string to exclude from matches against</p>
+
+<pre>the subject.  This is optional.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="search_by_subject-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/generic_folder.rb, line 132</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">search_by_subject</span>(<span class="ruby-identifier">match_str</span>, <span class="ruby-identifier">exclude_str</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">items</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">match</span> = {<span class="ruby-value">:contains</span> =<span class="ruby-operator">&gt;</span> {
+      <span class="ruby-value">:containment_mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Substring&#39;</span>,
+      <span class="ruby-value">:containment_comparison</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;IgnoreCase&#39;</span>,
+      <span class="ruby-value">:field_uRI</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:field_uRI=</span><span class="ruby-operator">&gt;</span><span class="ruby-string">&#39;item:Subject&#39;</span>},
+      <span class="ruby-value">:constant</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:value</span> =<span class="ruby-operator">&gt;</span><span class="ruby-identifier">match_str</span>}
+    }}
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">exclude_str</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">excl</span> = {<span class="ruby-value">:not</span> =<span class="ruby-operator">&gt;</span>
+        {<span class="ruby-value">:contains</span> =<span class="ruby-operator">&gt;</span> {
+          <span class="ruby-value">:containment_mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Substring&#39;</span>,
+          <span class="ruby-value">:containment_comparison</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;IgnoreCase&#39;</span>,
+          <span class="ruby-value">:field_uRI</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:field_uRI=</span><span class="ruby-operator">&gt;</span><span class="ruby-string">&#39;item:Subject&#39;</span>},
+          <span class="ruby-value">:constant</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:value</span> =<span class="ruby-operator">&gt;</span><span class="ruby-identifier">exclude_str</span>}
+        }}
+      }
+
+      <span class="ruby-identifier">match</span>[<span class="ruby-value">:and</span>] = [{<span class="ruby-value">:contains</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">match</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:contains</span>)}, <span class="ruby-identifier">excl</span>]
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">restriction</span> = <span class="ruby-identifier">match</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- search_by_subject-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- search_by_subject-method -->
+
+    
+      <div id="method-i-subscribe" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">subscribe</span><span
+            class="method-args">(evtypes = [:all], watermark = nil, timeout = 240)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Subscribe this folder to events.  This method initiates an Exchange pull
+type subscription.</p>
+
+<p>@param event_types [Array] Which event types to subscribe to. By default</p>
+
+<pre>we subscribe to all Exchange event types: :all, :copied, :created,
+:deleted, :modified, :moved, :new_mail, :free_busy_changed</pre>
+
+<p>@param watermark [String] pass a watermark if you wish to start the</p>
+
+<pre>subscription at a specific point.</pre>
+
+<p>@param timeout [Fixnum] the time in minutes that the subscription can</p>
+
+<pre>remain idle between calls to #get_events. default: 240 minutes</pre>
+
+<p>@return [Boolean] Did the subscription happen successfully?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="subscribe-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/generic_folder.rb, line 230</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">subscribe</span>(<span class="ruby-identifier">evtypes</span> = [<span class="ruby-value">:all</span>], <span class="ruby-identifier">watermark</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">timeout</span> = <span class="ruby-value">240</span>)
+  <span class="ruby-comment"># Refresh the subscription if already subscribed</span>
+  <span class="ruby-identifier">unsubscribe</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">subscribed?</span>
+
+  <span class="ruby-identifier">event_types</span> = <span class="ruby-identifier">normalize_event_names</span>(<span class="ruby-identifier">evtypes</span>)
+  <span class="ruby-identifier">folder</span> = {<span class="ruby-identifier">id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">id</span>, <span class="ruby-identifier">change_key</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">change_key</span>}
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">ews</span>.<span class="ruby-identifier">pull_subscribe_folder</span>(<span class="ruby-identifier">folder</span>, <span class="ruby-identifier">event_types</span>, <span class="ruby-identifier">timeout</span>, <span class="ruby-identifier">watermark</span>)
+  <span class="ruby-identifier">rmsg</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">response_messages</span>.<span class="ruby-identifier">first</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">rmsg</span>.<span class="ruby-identifier">success?</span>
+    <span class="ruby-ivar">@subscription_id</span> = <span class="ruby-identifier">rmsg</span>.<span class="ruby-identifier">subscription_id</span>
+    <span class="ruby-ivar">@watermark</span> = <span class="ruby-identifier">rmsg</span>.<span class="ruby-identifier">watermark</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">EwsSubscriptionError</span>, <span class="ruby-node">&quot;Could not subscribe: #{rmsg.code}: #{rmsg.message_text}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- subscribe-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- subscribe-method -->
+
+    
+      <div id="method-i-subscribed-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">subscribed?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Check if there is a subscription for this folder. @return [Boolean] Are we
+subscribed to this folder?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="subscribed-3F-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/generic_folder.rb, line 266</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">subscribed?</span>
+  ( <span class="ruby-ivar">@subscription_id</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">or</span> <span class="ruby-ivar">@watermark</span>.<span class="ruby-identifier">nil?</span> )<span class="ruby-operator">?</span> <span class="ruby-keyword">false</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- subscribed-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- subscribed-3F-method -->
+
+    
+      <div id="method-i-sync_items-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sync_items!</span><span
+            class="method-args">(sync_state = nil, sync_amount = 256, sync_all = false, opts = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Syncronize Items in this folder. If this method is issued multiple times it
+will continue where the last sync completed. @param [Integer] sync_amount
+The number of items to synchronize per sync @param [Boolean] sync_all
+Whether to sync all the data by looping through.</p>
+
+<pre>The default is to just sync the first set.  You can manually loop through
+with multiple calls to #sync_items!</pre>
+
+<p>@return [Hash] Returns a hash with keys for each change type that ocurred.</p>
+
+<pre>Possible key values are:
+  (:create/:udpate/:delete/:read_flag_change).
+For :deleted and :read_flag_change items a simple hash with :id and
+:change_key is returned.
+See: http://msdn.microsoft.com/en-us/library/aa565609.aspx</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="sync_items-21-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/generic_folder.rb, line 186</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sync_items!</span>(<span class="ruby-identifier">sync_state</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">sync_amount</span> = <span class="ruby-value">256</span>, <span class="ruby-identifier">sync_all</span> = <span class="ruby-keyword">false</span>, <span class="ruby-identifier">opts</span> = {})
+  <span class="ruby-identifier">item_shape</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value">:item_shape</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:item_shape</span>) <span class="ruby-operator">:</span> {<span class="ruby-value">:base_shape</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:default</span>}
+  <span class="ruby-identifier">sync_state</span> <span class="ruby-operator">||=</span> <span class="ruby-ivar">@sync_state</span>
+
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">ews</span>.<span class="ruby-identifier">sync_folder_items</span> <span class="ruby-identifier">item_shape</span><span class="ruby-operator">:</span> <span class="ruby-identifier">item_shape</span>,
+    <span class="ruby-identifier">sync_folder_id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">folder_id</span>, <span class="ruby-identifier">max_changes_returned</span><span class="ruby-operator">:</span> <span class="ruby-identifier">sync_amount</span>, <span class="ruby-identifier">sync_state</span><span class="ruby-operator">:</span> <span class="ruby-identifier">sync_state</span>
+  <span class="ruby-identifier">rmsg</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">response_messages</span>[<span class="ruby-value">0</span>]
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">rmsg</span>.<span class="ruby-identifier">success?</span>
+    <span class="ruby-ivar">@synced</span> = <span class="ruby-identifier">rmsg</span>.<span class="ruby-identifier">includes_last_item_in_range?</span>
+    <span class="ruby-ivar">@sync_state</span> = <span class="ruby-identifier">rmsg</span>.<span class="ruby-identifier">sync_state</span>
+    <span class="ruby-identifier">rhash</span> = {}
+    <span class="ruby-identifier">rmsg</span>.<span class="ruby-identifier">changes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">ctype</span> = <span class="ruby-identifier">c</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">rhash</span>[<span class="ruby-identifier">ctype</span>] = [] <span class="ruby-keyword">unless</span> <span class="ruby-identifier">rhash</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">ctype</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">ctype</span> <span class="ruby-operator">==</span> <span class="ruby-value">:delete</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">ctype</span> <span class="ruby-operator">==</span> <span class="ruby-value">:read_flag_change</span>
+        <span class="ruby-identifier">rhash</span>[<span class="ruby-identifier">ctype</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">c</span>[<span class="ruby-identifier">ctype</span>][<span class="ruby-value">:elems</span>][<span class="ruby-value">0</span>][<span class="ruby-value">:item_id</span>][<span class="ruby-value">:attribs</span>]
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">type</span> = <span class="ruby-identifier">c</span>[<span class="ruby-identifier">ctype</span>][<span class="ruby-value">:elems</span>][<span class="ruby-value">0</span>].<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">first</span>
+        <span class="ruby-identifier">item</span> = <span class="ruby-identifier">class_by_name</span>(<span class="ruby-identifier">type</span>).<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ews</span>, <span class="ruby-identifier">c</span>[<span class="ruby-identifier">ctype</span>][<span class="ruby-value">:elems</span>][<span class="ruby-value">0</span>][<span class="ruby-identifier">type</span>])
+        <span class="ruby-identifier">rhash</span>[<span class="ruby-identifier">ctype</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">item</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">rhash</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">EwsError</span>, <span class="ruby-node">&quot;Could not synchronize: #{rmsg.code}: #{rmsg.message_text}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- sync_items-21-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- sync_items-21-method -->
+
+    
+      <div id="method-i-synced-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">synced?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="synced-3F-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/generic_folder.rb, line 215</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">synced?</span>
+  <span class="ruby-ivar">@synced</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- synced-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- synced-3F-method -->
+
+    
+      <div id="method-i-todays_items" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">todays_items</span><span
+            class="method-args">(opts = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fetch only items from today (since midnight)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="todays_items-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/generic_folder.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">todays_items</span>(<span class="ruby-identifier">opts</span> = {})
+  <span class="ruby-identifier">items_since</span>(<span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- todays_items-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- todays_items-method -->
+
+    
+      <div id="method-i-unsubscribe" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unsubscribe</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Unsubscribe this folder from further Exchange events. @return [Boolean] Did
+we unsubscribe successfully?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="unsubscribe-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/generic_folder.rb, line 272</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unsubscribe</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@subscription_id</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">ews</span>.<span class="ruby-identifier">unsubscribe</span>(<span class="ruby-ivar">@subscription_id</span>)
+  <span class="ruby-identifier">rmsg</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">response_messages</span>.<span class="ruby-identifier">first</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">rmsg</span>.<span class="ruby-identifier">success?</span>
+    <span class="ruby-ivar">@subscription_id</span>, <span class="ruby-ivar">@watermark</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">EwsSubscriptionError</span>, <span class="ruby-node">&quot;Could not unsubscribe: #{rmsg.code}: #{rmsg.message_text}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- unsubscribe-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- unsubscribe-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-get_folder" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_folder</span><span
+            class="method-args">(opts = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get a specific folder by its ID. @param [Hash] opts Misc options to control
+request @option opts [String] :base_shape IdOnly/Default/AllProperties
+@raise [EwsError] raised when the backend <a href="../SOAP.html">SOAP</a>
+method returns an error.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_folder-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/generic_folder.rb, line 343</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_folder</span>(<span class="ruby-identifier">opts</span> = {})
+  <span class="ruby-identifier">args</span> = <span class="ruby-identifier">get_folder_args</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">ews</span>.<span class="ruby-identifier">get_folder</span>(<span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">get_folder_parser</span>(<span class="ruby-identifier">resp</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_folder-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_folder-method -->
+
+    
+      <div id="method-i-get_folder_args" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_folder_args</span><span
+            class="method-args">(opts)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Build up the arguements for <a
+href="GenericFolder.html#method-i-get_folder">get_folder</a> @todo: should
+we really pass the ChangeKey or do we want the freshest obj?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_folder_args-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/generic_folder.rb, line 351</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_folder_args</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-identifier">opts</span>[<span class="ruby-value">:base_shape</span>] <span class="ruby-operator">||=</span> <span class="ruby-string">&#39;Default&#39;</span>
+  <span class="ruby-identifier">default_args</span> = {
+    <span class="ruby-value">:folder_ids</span>   =<span class="ruby-operator">&gt;</span> [{<span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">id</span>, <span class="ruby-value">:change_key</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">change_key</span>}],
+    <span class="ruby-value">:folder_shape</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:base_shape</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">opts</span>[<span class="ruby-value">:base_shape</span>]}
+  }
+  <span class="ruby-identifier">default_args</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">opts</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_folder_args-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_folder_args-method -->
+
+    
+      <div id="method-i-get_folder_parser" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_folder_parser</span><span
+            class="method-args">(resp)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_folder_parser-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/generic_folder.rb, line 360</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_folder_parser</span>(<span class="ruby-identifier">resp</span>)
+  <span class="ruby-keyword">if</span>(<span class="ruby-identifier">resp</span>.<span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Success&#39;</span>)
+    <span class="ruby-identifier">f</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">response_message</span>[<span class="ruby-value">:elems</span>][<span class="ruby-value">:folders</span>][<span class="ruby-value">:elems</span>][<span class="ruby-value">0</span>]
+    <span class="ruby-identifier">f</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">first</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">EwsError</span>, <span class="ruby-node">&quot;Could not retrieve folder. #{resp.code}: #{resp.message}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_folder_parser-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_folder_parser-method -->
+
+    
+      <div id="method-i-items_args" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">items_args</span><span
+            class="method-args">(opts)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="items_args-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/generic_folder.rb, line 369</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">items_args</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-identifier">default_args</span> = {
+    <span class="ruby-value">:parent_folder_ids</span> =<span class="ruby-operator">&gt;</span> [{<span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">id</span>}],
+    <span class="ruby-value">:traversal</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Shallow&#39;</span>,
+    <span class="ruby-value">:item_shape</span>  =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:base_shape</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Default&#39;</span>}
+  }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">opts</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- items_args-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- items_args-method -->
+
+    
+      <div id="method-i-items_parser" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">items_parser</span><span
+            class="method-args">(resp)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="items_parser-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/generic_folder.rb, line 377</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">items_parser</span>(<span class="ruby-identifier">resp</span>)
+  <span class="ruby-identifier">rm</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">response_messages</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-keyword">if</span>(<span class="ruby-identifier">rm</span>.<span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Success&#39;</span>)
+    <span class="ruby-identifier">items</span> = []
+    <span class="ruby-identifier">rm</span>.<span class="ruby-identifier">root_folder</span>.<span class="ruby-identifier">items</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">type</span> = <span class="ruby-identifier">i</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">items</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">class_by_name</span>(<span class="ruby-identifier">type</span>).<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ews</span>, <span class="ruby-identifier">i</span>[<span class="ruby-identifier">type</span>], <span class="ruby-keyword">self</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">items</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">EwsError</span>, <span class="ruby-node">&quot;Could not retrieve folder. #{rm.code}: #{rm.message_text}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- items_parser-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- items_parser-method -->
+
+    
+      <div id="method-i-key_alias" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">key_alias</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="../Types.html#method-i-key_alias">Viewpoint::EWS::Types#key_alias</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="key_alias-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/generic_folder.rb, line 319</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">key_alias</span>
+  <span class="ruby-ivar">@key_alias</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">super</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-constant">GFOLDER_KEY_ALIAS</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- key_alias-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- key_alias-method -->
+
+    
+      <div id="method-i-key_paths" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">key_paths</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="../Types.html#method-i-key_paths">Viewpoint::EWS::Types#key_paths</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="key_paths-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/generic_folder.rb, line 311</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">key_paths</span>
+  <span class="ruby-ivar">@key_paths</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">super</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-constant">GFOLDER_KEY_PATHS</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- key_paths-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- key_paths-method -->
+
+    
+      <div id="method-i-key_types" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">key_types</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="../Types.html#method-i-key_types">Viewpoint::EWS::Types#key_types</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="key_types-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/generic_folder.rb, line 315</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">key_types</span>
+  <span class="ruby-ivar">@key_types</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">super</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-constant">GFOLDER_KEY_TYPES</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- key_types-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- key_types-method -->
+
+    
+      <div id="method-i-merge_restrictions-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">merge_restrictions!</span><span
+            class="method-args">(obj, merge_type = :and)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="merge_restrictions-21-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/generic_folder.rb, line 391</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">merge_restrictions!</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">merge_type</span> = <span class="ruby-value">:and</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">opts</span>[<span class="ruby-value">:restriction</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">obj</span>.<span class="ruby-identifier">opts</span>[<span class="ruby-value">:restriction</span>].<span class="ruby-identifier">empty?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">obj</span>.<span class="ruby-identifier">restriction</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">opts</span>[<span class="ruby-value">:restriction</span>] = {
+      <span class="ruby-identifier">merge_type</span> =<span class="ruby-operator">&gt;</span> [
+        <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:restriction</span>),
+        <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">restriction</span>
+    ]
+    }
+  <span class="ruby-keyword">elsif</span> <span class="ruby-operator">!</span><span class="ruby-identifier">obj</span>.<span class="ruby-identifier">restriction</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">opts</span>[<span class="ruby-value">:restriction</span>] = <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">restriction</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- merge_restrictions-21-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- merge_restrictions-21-method -->
+
+    
+      <div id="method-i-normalize_event_names" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">normalize_event_names</span><span
+            class="method-args">(events)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="normalize_event_names-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/generic_folder.rb, line 404</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">normalize_event_names</span>(<span class="ruby-identifier">events</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">events</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-value">:all</span>)
+    <span class="ruby-identifier">events</span> = [<span class="ruby-value">:copied</span>, <span class="ruby-value">:created</span>, <span class="ruby-value">:deleted</span>, <span class="ruby-value">:modified</span>, <span class="ruby-value">:moved</span>, <span class="ruby-value">:new_mail</span>, <span class="ruby-value">:free_busy_changed</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">events</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ev</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">nev</span> = <span class="ruby-identifier">ruby_case</span>(<span class="ruby-identifier">ev</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">nev</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&#39;_event&#39;</span>)
+      <span class="ruby-identifier">nev</span>.<span class="ruby-identifier">to_sym</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-node">&quot;#{nev}_event&quot;</span>.<span class="ruby-identifier">to_sym</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- normalize_event_names-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- normalize_event_names-method -->
+
+    
+      <div id="method-i-simplify-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">simplify!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="simplify-21-source">
+            <pre><span class="ruby-comment"># File lib/ews/types/generic_folder.rb, line 323</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">simplify!</span>
+  <span class="ruby-ivar">@ews_item</span> = <span class="ruby-ivar">@ews_item</span>[<span class="ruby-value">:elems</span>].<span class="ruby-identifier">inject</span>({}) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">o</span>,<span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">key</span> = <span class="ruby-identifier">i</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">first</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">o</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">key</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">o</span>[<span class="ruby-identifier">key</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>)
+        <span class="ruby-identifier">o</span>[<span class="ruby-identifier">key</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">i</span>[<span class="ruby-identifier">key</span>]
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">o</span>[<span class="ruby-identifier">key</span>] = [<span class="ruby-identifier">o</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">key</span>), <span class="ruby-identifier">i</span>[<span class="ruby-identifier">key</span>]]
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">o</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">i</span>[<span class="ruby-identifier">key</span>]
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">o</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- simplify-21-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- simplify-21-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

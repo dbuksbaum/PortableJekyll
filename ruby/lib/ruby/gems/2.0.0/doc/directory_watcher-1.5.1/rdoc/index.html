@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>directory_watcher-1.5.1 Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body>
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./History_txt.html">History</a>
+  
+    <li class="file"><a href="./README_txt.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./DirectoryWatcher.html">DirectoryWatcher</a>
+  
+    <li><a href="./DirectoryWatcher/Collector.html">DirectoryWatcher::Collector</a>
+  
+    <li><a href="./DirectoryWatcher/Configuration.html">DirectoryWatcher::Configuration</a>
+  
+    <li><a href="./DirectoryWatcher/CoolioScanner.html">DirectoryWatcher::CoolioScanner</a>
+  
+    <li><a href="./DirectoryWatcher/EmScanner.html">DirectoryWatcher::EmScanner</a>
+  
+    <li><a href="./DirectoryWatcher/Event.html">DirectoryWatcher::Event</a>
+  
+    <li><a href="./DirectoryWatcher/EventableScanner.html">DirectoryWatcher::EventableScanner</a>
+  
+    <li><a href="./DirectoryWatcher/FileStat.html">DirectoryWatcher::FileStat</a>
+  
+    <li><a href="./DirectoryWatcher/Logable.html">DirectoryWatcher::Logable</a>
+  
+    <li><a href="./DirectoryWatcher/Notifier.html">DirectoryWatcher::Notifier</a>
+  
+    <li><a href="./DirectoryWatcher/NullLogger.html">DirectoryWatcher::NullLogger</a>
+  
+    <li><a href="./DirectoryWatcher/Paths.html">DirectoryWatcher::Paths</a>
+  
+    <li><a href="./DirectoryWatcher/RevScanner.html">DirectoryWatcher::RevScanner</a>
+  
+    <li><a href="./DirectoryWatcher/Scan.html">DirectoryWatcher::Scan</a>
+  
+    <li><a href="./DirectoryWatcher/ScanAndQueue.html">DirectoryWatcher::ScanAndQueue</a>
+  
+    <li><a href="./DirectoryWatcher/Scanner.html">DirectoryWatcher::Scanner</a>
+  
+    <li><a href="./DirectoryWatcher/Threaded.html">DirectoryWatcher::Threaded</a>
+  
+    <li><a href="./DirectoryWatcher/Version.html">DirectoryWatcher::Version</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation" class="description">
+
+<p>Directory Watcher</p>
+
+<pre>by Tim Pease
+http://codeforpeople.rubyforge.org/directory_watcher</pre>
+
+<h2 id="label-DESCRIPTION%3A">DESCRIPTION:<span><a href="#label-DESCRIPTION%3A">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>The directory watcher operates by scanning a directory at some interval and
+generating a list of files based on a user supplied glob pattern. As the
+file list changes from one interval to the next, events are generated and
+dispatched to registered observers. Three types of events are supported –
+added, modified, and removed.</p>
+
+<h2 id="label-FEATURES%3A">FEATURES:<span><a href="#label-FEATURES%3A">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>See <a href="DirectoryWatcher.html">DirectoryWatcher</a> for detailed
+documentation and usage.</p>
+
+<h2 id="label-REQUIREMENTS%3A">REQUIREMENTS:<span><a href="#label-REQUIREMENTS%3A">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>This is a pure ruby library. There are no requirements for using this code.</p>
+
+<h2 id="label-INSTALL%3A">INSTALL:<span><a href="#label-INSTALL%3A">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<pre>sudo gem install directory_watcher</pre>
+
+<p>You will need have Mr Bones installed in order to develop or modify
+directory watcher.</p>
+
+<pre>sudo gem install bones</pre>
+
+<h2 id="label-NOTES%3A">NOTES:<span><a href="#label-NOTES%3A">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>The support for EventMachine based file notifications is fairly new and
+experimental. Please feel free to experiment and report any issues on the
+github issue tracker.</p>
+
+<pre>http://github.com/TwP/directory_watcher/issues</pre>
+
+<p>The support for Rev based file notifications is also fairly new and subject
+to the same disclaimer as the EventMachine functionality.</p>
+
+<h2 id="label-LICENSE%3A">LICENSE:<span><a href="#label-LICENSE%3A">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>MIT License Copyright © 2007 - 2013</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the
+&#39;Software&#39;), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons to whom the Software is furnished to do so, subject to the
+following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED &#39;AS IS&#39;, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+</div>
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

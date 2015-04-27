@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>History - logging-2.0.0 Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body class="file">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+<div id="table-of-contents">
+  <nav class="section">
+    <h3 class="section-header">Table of Contents</h3>
+    <ul>
+      <li><a href="#label-2.0.0+%2F+2015-03-28">2.0.0 / 2015-03-28</a>
+      <li><a href="#label-1.8.2+%2F+2014-01-29">1.8.2 / 2014-01-29</a>
+      <li><a href="#label-1.8.1+%2F+2013-01-02">1.8.1 / 2013-01-02</a>
+      <li><a href="#label-1.8.0+%2F+2012-09-13">1.8.0 / 2012-09-13</a>
+      <li><a href="#label-1.7.2+%2F+2012-04-03">1.7.2 / 2012-04-03</a>
+      <li><a href="#label-1.7.1+%2F+2012-03-05">1.7.1 / 2012-03-05</a>
+      <li><a href="#label-1.7.0+%2F+2012-02-18">1.7.0 / 2012-02-18</a>
+      <li><a href="#label-1.6.2+%2F+2012-01-05">1.6.2 / 2012-01-05</a>
+      <li><a href="#label-1.6.1+%2F+2011-09-09">1.6.1 / 2011-09-09</a>
+      <li><a href="#label-1.6.0+%2F+2011-08-22">1.6.0 / 2011-08-22</a>
+      <li><a href="#label-1.5.2+%2F+2011-07-07">1.5.2 / 2011-07-07</a>
+      <li><a href="#label-1.5.1+%2F+2011-06-03">1.5.1 / 2011-06-03</a>
+      <li><a href="#label-1.5.0+%2F+2011-03-22">1.5.0 / 2011-03-22</a>
+      <li><a href="#label-1.4.3+%2F+2010-05-31">1.4.3 / 2010-05-31</a>
+      <li><a href="#label-1.4.2+%2F+2010-04-18">1.4.2 / 2010-04-18</a>
+      <li><a href="#label-1.4.1+%2F+2010-03-23">1.4.1 / 2010-03-23</a>
+      <li><a href="#label-1.4.0+%2F+2010-03-16">1.4.0 / 2010-03-16</a>
+      <li><a href="#label-1.3.0+%2F+2009-12-18">1.3.0 / 2009-12-18</a>
+      <li><a href="#label-1.2.3+%2F+2009-12-01">1.2.3 / 2009-12-01</a>
+      <li><a href="#label-1.2.2+%2F+2009-08-18">1.2.2 / 2009-08-18</a>
+      <li><a href="#label-1.2.1+%2F+2009-08-14">1.2.1 / 2009-08-14</a>
+      <li><a href="#label-1.2.0+%2F+2009-08-14">1.2.0 / 2009-08-14</a>
+      <li><a href="#label-1.1.4+%2F+2009-05-28">1.1.4 / 2009-05-28</a>
+      <li><a href="#label-1.1.3+%2F+2009-05-13">1.1.3 / 2009-05-13</a>
+      <li><a href="#label-1.1.2+%2F+2009-05-05">1.1.2 / 2009-05-05</a>
+      <li><a href="#label-1.1.1+%2F+2009-04-30">1.1.1 / 2009-04-30</a>
+      <li><a href="#label-1.1.0+%2F+2009-04-21">1.1.0 / 2009-04-21</a>
+      <li><a href="#label-1.0.0+%2F+2009-04-17">1.0.0 / 2009-04-17</a>
+      <li><a href="#label-0.9.8+%2F+2009-04-11">0.9.8 / 2009-04-11</a>
+      <li><a href="#label-0.9.7+%2F+2009-03-17">0.9.7 / 2009-03-17</a>
+      <li><a href="#label-0.9.6+%2F+2009-02-02">0.9.6 / 2009-02-02</a>
+      <li><a href="#label-0.9.5+%2F+2009-01-25">0.9.5 / 2009-01-25</a>
+      <li><a href="#label-0.9.4+%2F+2008-10-04">0.9.4 / 2008-10-04</a>
+      <li><a href="#label-0.9.3+%2F+2008-09-12">0.9.3 / 2008-09-12</a>
+      <li><a href="#label-0.9.2+%2F+2008-09-03">0.9.2 / 2008-09-03</a>
+      <li><a href="#label-0.9.1+%2F+2008-08-14">0.9.1 / 2008-08-14</a>
+      <li><a href="#label-0.9.0+%2F+2008-07-16">0.9.0 / 2008-07-16</a>
+      <li><a href="#label-0.8.0+%2F+2008-07-02">0.8.0 / 2008-07-02</a>
+      <li><a href="#label-0.7.1+%2F+2008-02-25">0.7.1 / 2008-02-25</a>
+      <li><a href="#label-0.7.0+%2F+2008-02-12">0.7.0 / 2008-02-12</a>
+      <li><a href="#label-0.6.3+%2F+2008-02-08">0.6.3 / 2008-02-08</a>
+      <li><a href="#label-0.6.2+%2F+2008-02-06">0.6.2 / 2008-02-06</a>
+      <li><a href="#label-0.6.1+%2F+2008-01-01">0.6.1 / 2008-01-01</a>
+      <li><a href="#label-0.6.0+%2F+2007-12-26">0.6.0 / 2007-12-26</a>
+      <li><a href="#label-0.5.3+%2F+2007-12-08">0.5.3 / 2007-12-08</a>
+      <li><a href="#label-0.5.2+%2F+2007-11-28">0.5.2 / 2007-11-28</a>
+      <li><a href="#label-0.5.1+%2F+2007-11-18">0.5.1 / 2007-11-18</a>
+      <li><a href="#label-0.5.0+%2F+2007-11-18">0.5.0 / 2007-11-18</a>
+      <li><a href="#label-0.4.0+%2F+2007-03-21">0.4.0 / 2007-03-21</a>
+      <li><a href="#label-0.3.1+%2F+2007-02-08">0.3.1 / 2007-02-08</a>
+      <li><a href="#label-0.3.0+%2F+2007-02-01">0.3.0 / 2007-02-01</a>
+      <li><a href="#label-0.2.0+%2F+2007-01-29">0.2.0 / 2007-01-29</a>
+      <li><a href="#label-0.1.0+%2F+2007-01-12">0.1.0 / 2007-01-12</a>
+    </ul>
+  </nav>
+</div>
+
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./History_txt.html">History</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./File.html">File</a>
+  
+    <li><a href="./FileUtils.html">FileUtils</a>
+  
+    <li><a href="./Logging.html">Logging</a>
+  
+    <li><a href="./Logging/Appender.html">Logging::Appender</a>
+  
+    <li><a href="./Logging/Appenders.html">Logging::Appenders</a>
+  
+    <li><a href="./Logging/Appenders/Buffering.html">Logging::Appenders::Buffering</a>
+  
+    <li><a href="./Logging/Appenders/File.html">Logging::Appenders::File</a>
+  
+    <li><a href="./Logging/Appenders/IO.html">Logging::Appenders::IO</a>
+  
+    <li><a href="./Logging/Appenders/RollingFile.html">Logging::Appenders::RollingFile</a>
+  
+    <li><a href="./Logging/Appenders/RollingFile/Roller.html">Logging::Appenders::RollingFile::Roller</a>
+  
+    <li><a href="./Logging/Appenders/Stderr.html">Logging::Appenders::Stderr</a>
+  
+    <li><a href="./Logging/Appenders/Stdout.html">Logging::Appenders::Stdout</a>
+  
+    <li><a href="./Logging/Appenders/StringIo.html">Logging::Appenders::StringIo</a>
+  
+    <li><a href="./Logging/Appenders/Syslog.html">Logging::Appenders::Syslog</a>
+  
+    <li><a href="./Logging/ColorScheme.html">Logging::ColorScheme</a>
+  
+    <li><a href="./Logging/Filter.html">Logging::Filter</a>
+  
+    <li><a href="./Logging/Filters.html">Logging::Filters</a>
+  
+    <li><a href="./Logging/Filters/Level.html">Logging::Filters::Level</a>
+  
+    <li><a href="./Logging/Layout.html">Logging::Layout</a>
+  
+    <li><a href="./Logging/Layouts.html">Logging::Layouts</a>
+  
+    <li><a href="./Logging/Layouts/Basic.html">Logging::Layouts::Basic</a>
+  
+    <li><a href="./Logging/Layouts/Parseable.html">Logging::Layouts::Parseable</a>
+  
+    <li><a href="./Logging/Layouts/Parseable/layout;.html">Logging::Layouts::Parseable::layout;</a>
+  
+    <li><a href="./Logging/Layouts/Pattern.html">Logging::Layouts::Pattern</a>
+  
+    <li><a href="./Logging/Logger.html">Logging::Logger</a>
+  
+    <li><a href="./Logging/Logger.html">Logging::Logger</a>
+  
+    <li><a href="./Logging/MappedDiagnosticContext.html">Logging::MappedDiagnosticContext</a>
+  
+    <li><a href="./Logging/NestedDiagnosticContext.html">Logging::NestedDiagnosticContext</a>
+  
+    <li><a href="./Logging/Proxy.html">Logging::Proxy</a>
+  
+    <li><a href="./Logging/RailsCompat.html">Logging::RailsCompat</a>
+  
+    <li><a href="./Logging/Repository.html">Logging::Repository</a>
+  
+    <li><a href="./Logging/Repository/Singleton.html">Logging::Repository::Singleton</a>
+  
+    <li><a href="./Logging/RootLogger.html">Logging::RootLogger</a>
+  
+    <li><a href="./Logging/logger.html">Logging::logger</a>
+  
+    <li><a href="./Module.html">Module</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./RSpec.html">RSpec</a>
+  
+    <li><a href="./RSpec/Core.html">RSpec::Core</a>
+  
+    <li><a href="./RSpec/Core/Configuration.html">RSpec::Core::Configuration</a>
+  
+    <li><a href="./RSpec/LoggingHelper.html">RSpec::LoggingHelper</a>
+  
+    <li><a href="./RSpec/LoggingHelper.html">RSpec::LoggingHelper</a>
+  
+    <li><a href="./ReentrantMutex.html">ReentrantMutex</a>
+  
+    <li><a href="./Spec.html">Spec</a>
+  
+    <li><a href="./Spec/Runner.html">Spec::Runner</a>
+  
+    <li><a href="./Spec/Runner/Configuration.html">Spec::Runner::Configuration</a>
+  
+    <li><a href="./String.html">String</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation" class="description">
+  
+<h2 id="label-2.0.0+%2F+2015-03-28">2.0.0 / 2015-03-28<span><a href="#label-2.0.0+%2F+2015-03-28">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Enhancements</p>
+<ul><li>
+<p>added event filtering via the Filter framework</p>
+</li><li>
+<p>improvements to buffered logging</p>
+</li><li>
+<p>code readability improvements around meta-programming</p>
+</li></ul>
+
+<p>Bug Fixes</p>
+<ul><li>
+<p>fixed an `already initialized error`</p>
+</li><li>
+<p>avoid unnecessary mutex-ing in logger lookup</p>
+</li></ul>
+
+<p>Deprecations</p>
+<ul><li>
+<p>dropped Ruby 1.8 support</p>
+</li><li>
+<p>removed logger consolidation</p>
+</li><li>
+<p>removed YAML style configuration</p>
+</li><li>
+<p>removed the Logging::Stats module</p>
+</li><li>
+<p>removed the Hash#getopt method</p>
+</li><li>
+<p>removed the Growl appender</p>
+</li><li>
+<p>moved the Email appender to the logging-email plugin gem</p>
+</li></ul>
+
+<h2 id="label-1.8.2+%2F+2014-01-29">1.8.2 / 2014-01-29<span><a href="#label-1.8.2+%2F+2014-01-29">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Bug Fixes</p>
+<ul><li>
+<p>Adding a `formatter` method for Rails 4 compatibility</p>
+</li></ul>
+
+<h2 id="label-1.8.1+%2F+2013-01-02">1.8.1 / 2013-01-02<span><a href="#label-1.8.1+%2F+2013-01-02">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Bug Fixes</p>
+<ul><li>
+<p>Diagnostic context thread inheritance [issue #56]</p>
+</li><li>
+<p>Fixing trace reporting in JRuby 1.7</p>
+</li></ul>
+
+<h2 id="label-1.8.0+%2F+2012-09-13">1.8.0 / 2012-09-13<span><a href="#label-1.8.0+%2F+2012-09-13">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Enhancements</p>
+<ul><li>
+<p>Appenders handle string encodings [issue #46]</p>
+</li><li>
+<p>Support for diagnostic contexts [issues #23, #32, #42]</p>
+</li><li>
+<p>Enable JSON formatting of log message [issue #34]</p>
+</li></ul>
+
+<p>Bug Fixes</p>
+<ul><li>
+<p>Fix clash with ActiveSupport autoloader (chewie) [issue #39]</p>
+</li></ul>
+
+<h2 id="label-1.7.2+%2F+2012-04-03">1.7.2 / 2012-04-03<span><a href="#label-1.7.2+%2F+2012-04-03">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Bug Fixes</p>
+<ul><li>
+<p>Fixed segmentation fault on exit [issue #30]</p>
+</li><li>
+<p>Fixed syswrite warning when IO contains unflushed data in buffer [issue
+#31]</p>
+</li><li>
+<p>Added “mingw” to the list of Windows host versions</p>
+</li></ul>
+
+<h2 id="label-1.7.1+%2F+2012-03-05">1.7.1 / 2012-03-05<span><a href="#label-1.7.1+%2F+2012-03-05">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Bug Fixes</p>
+<ul><li>
+<p>Fixed deprecated use of Config::* [issue #29]</p>
+</li></ul>
+
+<h2 id="label-1.7.0+%2F+2012-02-18">1.7.0 / 2012-02-18<span><a href="#label-1.7.0+%2F+2012-02-18">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Enhancements</p>
+<ul><li>
+<p>Move appender factories [issue #28]</p>
+</li><li>
+<p>ActionMail compatible options in the email appender [issue #27]</p>
+</li><li>
+<p>Add TLS support to the email appender [issue #25]</p>
+</li><li>
+<p>Refactoring appender shutdown [issue #20]</p>
+</li></ul>
+
+<p>Bug Fixes</p>
+<ul><li>
+<p><a href="File.html">File</a> locking fails on windows using JRuby [issue
+#22]</p>
+</li></ul>
+
+<h2 id="label-1.6.2+%2F+2012-01-05">1.6.2 / 2012-01-05<span><a href="#label-1.6.2+%2F+2012-01-05">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Bug Fixes</p>
+<ul><li>
+<p>Fix typo in the Readme [issue #14]</p>
+</li><li>
+<p>Fix spelling in a variety of places [issue #15]</p>
+</li><li>
+<p>Solaris does not have Syslog#LOG_PERROR defined [issue #17]</p>
+</li><li>
+<p>Fix failing tests for Ruby 1.9.3 [issue #18]</p>
+</li><li>
+<p>Check for RUBY_ENGINE for Ruby 1.8.7 [issue #19]</p>
+</li><li>
+<p>Whitespace and &#39;# EOF&#39; cleanup</p>
+</li><li>
+<p>Support for Rubinious</p>
+</li></ul>
+
+<h2 id="label-1.6.1+%2F+2011-09-09">1.6.1 / 2011-09-09<span><a href="#label-1.6.1+%2F+2011-09-09">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Bug Fixes</p>
+<ul><li>
+<p>Rails compatibility methods [issue #11]</p>
+</li><li>
+<p>Blocked rolling file appender [issue #12]</p>
+</li></ul>
+
+<h2 id="label-1.6.0+%2F+2011-08-22">1.6.0 / 2011-08-22<span><a href="#label-1.6.0+%2F+2011-08-22">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Enhancements</p>
+<ul><li>
+<p>Adding periodic flushing of buffered messages [issue #10]</p>
+</li><li>
+<p>Accessor for a logger&#39;s appenders [issue #9]</p>
+</li><li>
+<p>Better support for capturing log messages in <a href="RSpec.html">RSpec</a>
+version 1 &amp; 2</p>
+</li></ul>
+
+<h2 id="label-1.5.2+%2F+2011-07-07">1.5.2 / 2011-07-07<span><a href="#label-1.5.2+%2F+2011-07-07">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Bug Fixes</p>
+<ul><li>
+<p>Changing working directory breaks rolling file appenders [issue #8]</p>
+</li></ul>
+
+<h2 id="label-1.5.1+%2F+2011-06-03">1.5.1 / 2011-06-03<span><a href="#label-1.5.1+%2F+2011-06-03">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Bug Fixes</p>
+<ul><li>
+<p>IO streams cannot be buffered when using syswrite</p>
+</li><li>
+<p>JRuby does not allow shared locks on write only file descriptors</p>
+</li><li>
+<p>Fixing tests for JRuby 1.6.X</p>
+</li></ul>
+
+<h2 id="label-1.5.0+%2F+2011-03-22">1.5.0 / 2011-03-22<span><a href="#label-1.5.0+%2F+2011-03-22">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Minor Enhancements</p>
+<ul><li>
+<p>removed mutexes in favor of IO#syswrite</p>
+</li><li>
+<p>no round tripping through the buffer array when auto_flushing is true</p>
+</li><li>
+<p>added a Proxy object that will log all methods called on it</p>
+</li><li>
+<p>colorization of log messages</p>
+</li></ul>
+
+<h2 id="label-1.4.3+%2F+2010-05-31">1.4.3 / 2010-05-31<span><a href="#label-1.4.3+%2F+2010-05-31">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Bug Fixes</p>
+<ul><li>
+<p>rolling file appender calling “super” within a block [Sebastian Georgi]</p>
+</li></ul>
+
+<h2 id="label-1.4.2+%2F+2010-04-18">1.4.2 / 2010-04-18<span><a href="#label-1.4.2+%2F+2010-04-18">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Bug Fixes</p>
+<ul><li>
+<p>missing require for fileutils</p>
+</li></ul>
+
+<h2 id="label-1.4.1+%2F+2010-03-23">1.4.1 / 2010-03-23<span><a href="#label-1.4.1+%2F+2010-03-23">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Bug Fixes</p>
+<ul><li>
+<p>flock(LOCK_UN) was causing errors on windows [issue 4]</p>
+</li></ul>
+
+<h2 id="label-1.4.0+%2F+2010-03-16">1.4.0 / 2010-03-16<span><a href="#label-1.4.0+%2F+2010-03-16">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Minor Enhancements</p>
+<ul><li>
+<p>Compatibility with the Rack::CommonLogger</p>
+</li></ul>
+
+<h2 id="label-1.3.0+%2F+2009-12-18">1.3.0 / 2009-12-18<span><a href="#label-1.3.0+%2F+2009-12-18">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Minor Enhancements</p>
+<ul><li>
+<p>Using copy/truncate semantics for a faster RollingFile appender</p>
+</li><li>
+<p>Global reopen method for using <a href="Logging.html">Logging</a> in forked
+environments</p>
+</li><li>
+<p>RollingFile appender can use date stamps instead of numbers</p>
+</li></ul>
+
+<h2 id="label-1.2.3+%2F+2009-12-01">1.2.3 / 2009-12-01<span><a href="#label-1.2.3+%2F+2009-12-01">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>1 bug fix</p>
+
+<pre>- Using a reentrant mutex to avoid deadlock in some Rails applications</pre>
+
+<h2 id="label-1.2.2+%2F+2009-08-18">1.2.2 / 2009-08-18<span><a href="#label-1.2.2+%2F+2009-08-18">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>1 minor enhancement</p>
+
+<pre>- Created a reset method for the logging framework</pre>
+
+<h2 id="label-1.2.1+%2F+2009-08-14">1.2.1 / 2009-08-14<span><a href="#label-1.2.1+%2F+2009-08-14">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>1 bug fix</p>
+
+<pre>- Using a bug-fix version of little-plugger</pre>
+
+<h2 id="label-1.2.0+%2F+2009-08-14">1.2.0 / 2009-08-14<span><a href="#label-1.2.0+%2F+2009-08-14">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>2 minor enhancements</p>
+
+<pre>- Added a gem based plugin system
+- LogEvent is now a struct (slightly faster)</pre>
+
+<h2 id="label-1.1.4+%2F+2009-05-28">1.1.4 / 2009-05-28<span><a href="#label-1.1.4+%2F+2009-05-28">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>1 minor enhancement</p>
+
+<pre>- Added a Logging.shutdown method to close out all appenders</pre>
+
+<h2 id="label-1.1.3+%2F+2009-05-13">1.1.3 / 2009-05-13<span><a href="#label-1.1.3+%2F+2009-05-13">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>1 bug fix</p>
+
+<pre>- Fixing an alias bug on the JRuby platform</pre>
+
+<h2 id="label-1.1.2+%2F+2009-05-05">1.1.2 / 2009-05-05<span><a href="#label-1.1.2+%2F+2009-05-05">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>1 minor enhancement</p>
+
+<pre class="ruby"><span class="ruby-operator">-</span> <span class="ruby-constant">Added</span> <span class="ruby-identifier">two</span> <span class="ruby-identifier">new</span> <span class="ruby-identifier">require</span> <span class="ruby-identifier">methods</span> <span class="ruby-identifier">to</span> <span class="ruby-constant">Kernel</span>
+</pre>
+
+<h2 id="label-1.1.1+%2F+2009-04-30">1.1.1 / 2009-04-30<span><a href="#label-1.1.1+%2F+2009-04-30">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>1 minor enhancement</p>
+
+<pre>- Added a &#39;filename&#39; method to the file appenders</pre>
+
+<h2 id="label-1.1.0+%2F+2009-04-21">1.1.0 / 2009-04-21<span><a href="#label-1.1.0+%2F+2009-04-21">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>3 minor enhancements</p>
+
+<pre>- Added a &quot;global&quot; logger method
+- Loggers can be consolidated on a per-namespace basis
+- Added a precision to the logger name specifier in the pattern layout
+  [addresses http://github.com/TwP/logging/issues#issue/1]</pre>
+
+<h2 id="label-1.0.0+%2F+2009-04-17">1.0.0 / 2009-04-17<span><a href="#label-1.0.0+%2F+2009-04-17">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>2 major enhancements</p>
+
+<pre>- Refactored access to the appenders
+- Created a much cleaner way to initialize the logging framework</pre>
+
+<p>3 minor enhancements</p>
+
+<pre>- Added a YAML layout option
+- Added a JSON layout option
+- Cration of an &quot;examples&quot; directory</pre>
+
+<p>1 bug fix</p>
+
+<pre>- Logging initialization happens implicitly when a logger, layout, or
+  appender is created</pre>
+
+<h2 id="label-0.9.8+%2F+2009-04-11">0.9.8 / 2009-04-11<span><a href="#label-0.9.8+%2F+2009-04-11">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>2 minor enhancements</p>
+
+<pre class="ruby"><span class="ruby-operator">-</span> <span class="ruby-constant">Adding</span> <span class="ruby-identifier">a</span> <span class="ruby-identifier">to_s</span> <span class="ruby-identifier">method</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">the</span> <span class="ruby-constant">StringIo</span> <span class="ruby-identifier">appender</span><span class="ruby-string">&#39;s StringIO object
+- Added a Spec::LoggingHelper class that will capture log messages
+  when using rspec style testing
+</span></pre>
+
+<h2 id="label-0.9.7+%2F+2009-03-17">0.9.7 / 2009-03-17<span><a href="#label-0.9.7+%2F+2009-03-17">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>1 minor enhancement</p>
+
+<pre>- Added a StringIO appender</pre>
+
+<p>1 bug fix</p>
+
+<pre>- Handling objects that cannot be dumped via YAML [Tim Galeckas]</pre>
+
+<h2 id="label-0.9.6+%2F+2009-02-02">0.9.6 / 2009-02-02<span><a href="#label-0.9.6+%2F+2009-02-02">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>2 minor enhancements</p>
+
+<pre>- Ruby 1.9.1 compatability
+- JRuby 1.1.5 compatability</pre>
+
+<h2 id="label-0.9.5+%2F+2009-01-25">0.9.5 / 2009-01-25<span><a href="#label-0.9.5+%2F+2009-01-25">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>2 minor enhancements</p>
+
+<pre>- The pattern layout can output the current thread name
+  if set using Thread.current[:name]         [valodzka]
+- Added buffered logging to all IO based loggers
+  (console, file, rolling file)</pre>
+
+<p>1 bug fix</p>
+
+<pre>- Uncaught TimeoutError in the e-mail appender</pre>
+
+<h2 id="label-0.9.4+%2F+2008-10-04">0.9.4 / 2008-10-04<span><a href="#label-0.9.4+%2F+2008-10-04">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>2 minor enhancements</p>
+
+<pre>- Flag to suppress exception backtraces from being logged
+- Cleaning up color codes on Growl output</pre>
+
+<p>4 bug fixes</p>
+
+<pre>- Child loggers were not being found in some cases
+- RollingFileAppender fails to reopen the log file if
+  the log file is deleted.
+- Fixed a copy/paste error in the YAML configurator
+- Bug in the configurator where a nil object was being used</pre>
+
+<h2 id="label-0.9.3+%2F+2008-09-12">0.9.3 / 2008-09-12<span><a href="#label-0.9.3+%2F+2008-09-12">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>2 minor enhancement</p>
+
+<pre class="ruby"><span class="ruby-operator">-</span> <span class="ruby-constant">Added</span> <span class="ruby-identifier">a</span> <span class="ruby-keyword">class</span> <span class="ruby-keyword">for</span> <span class="ruby-identifier">tracking</span> <span class="ruby-identifier">basic</span> <span class="ruby-identifier">statistics</span>
+<span class="ruby-operator">-</span> <span class="ruby-constant">Will</span> <span class="ruby-identifier">use</span> <span class="ruby-identifier">the</span> <span class="ruby-string">&#39;fastthread&#39;</span> <span class="ruby-identifier">gem</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">availble</span>
+</pre>
+
+<h2 id="label-0.9.2+%2F+2008-09-03">0.9.2 / 2008-09-03<span><a href="#label-0.9.2+%2F+2008-09-03">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>2 bug fixes</p>
+
+<pre>- Properly generates logger names for anonymous classes and
+  modules and meta-classes
+- Fixed the rescue clause when &#39;turn&#39; cannot be required</pre>
+
+<h2 id="label-0.9.1+%2F+2008-08-14">0.9.1 / 2008-08-14<span><a href="#label-0.9.1+%2F+2008-08-14">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>1 minor enhancement</p>
+
+<pre>- added a method to show the logging configuration</pre>
+
+<p>2 bug fixes</p>
+
+<pre>- checking for sync method on the IO streams before calling
+- fixed the internal logging levels</pre>
+
+<h2 id="label-0.9.0+%2F+2008-07-16">0.9.0 / 2008-07-16<span><a href="#label-0.9.0+%2F+2008-07-16">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>2 minor enhancement</p>
+
+<pre>- Exceptions from appenders are captured and logged
+- Internal logger for the Logging framework (disabled by default)
+- Added a DSL configuration format (more readable than YAML)</pre>
+
+<p>1 bug fix</p>
+
+<pre>- Modules could not have their own logger instance</pre>
+
+<h2 id="label-0.8.0+%2F+2008-07-02">0.8.0 / 2008-07-02<span><a href="#label-0.8.0+%2F+2008-07-02">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>1 minor enhancement</p>
+
+<pre>- Setting the log level of a parent will cause this level to
+  be propagated to the children</pre>
+
+<p>1 bug fix</p>
+
+<pre>- Fixed error with the e-mail appender and missing hostname</pre>
+
+<h2 id="label-0.7.1+%2F+2008-02-25">0.7.1 / 2008-02-25<span><a href="#label-0.7.1+%2F+2008-02-25">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>1 minor enhancement</p>
+
+<pre>- Removed dependency on the Lockfile gem (brought the ruby
+  file into the logging/stelan directory)</pre>
+
+<p>1 bug fix</p>
+
+<pre>- Fixed bug with age based rolling: was not multi-process safe</pre>
+
+<h2 id="label-0.7.0+%2F+2008-02-12">0.7.0 / 2008-02-12<span><a href="#label-0.7.0+%2F+2008-02-12">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>1 major enhancement</p>
+
+<pre>- Rails compatibility
+  * renamed Logger#add method to Logger#add_appenders
+  * renamed Logger#remove method to Logger#remove_appenders
+  * renamed Logger#clear method to Logger#clear_appenders
+  * added a new Logger#add method that conforms to the calling
+    semantics of the Ruby stdlib Logger</pre>
+
+<p>2 minor enhancements</p>
+
+<pre>- Speed improvements and test coverage
+- Created a top-level Logging.init method that is used to
+  define the default logging levels</pre>
+
+<p>1 bug fix</p>
+
+<pre>- Tweaked windows detection code</pre>
+
+<h2 id="label-0.6.3+%2F+2008-02-08">0.6.3 / 2008-02-08<span><a href="#label-0.6.3+%2F+2008-02-08">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>2 minor enhancements</p>
+
+<pre>- YAML configuration now supports multiple keys -- i.e. development
+  or production or whatever
+- Reorganized a lot of files so that requiring files is cleaner and
+  more deterministic</pre>
+
+<h2 id="label-0.6.2+%2F+2008-02-06">0.6.2 / 2008-02-06<span><a href="#label-0.6.2+%2F+2008-02-06">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>2 bug fixes</p>
+
+<pre>- An extra e-mail was being pushed out when the e-mail
+  appender was closed
+- Created an at_exit handler to close all appenders</pre>
+
+<h2 id="label-0.6.1+%2F+2008-01-01">0.6.1 / 2008-01-01<span><a href="#label-0.6.1+%2F+2008-01-01">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>1 bug fix</p>
+
+<pre>- Fixed include order to avoid double loading when testing</pre>
+
+<h2 id="label-0.6.0+%2F+2007-12-26">0.6.0 / 2007-12-26<span><a href="#label-0.6.0+%2F+2007-12-26">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+<ul><li>
+<p>Using the new &#39;getopt&#39; method for handling option hashes</p>
+</li><li>
+<p>Rolling file appender is safe for multiple processes</p>
+</li><li>
+<p>Added an e-mail appender from Jeremy Hinegardner</p>
+</li><li>
+<p>Updated tests for the appenders</p>
+</li></ul>
+
+<h2 id="label-0.5.3+%2F+2007-12-08">0.5.3 / 2007-12-08<span><a href="#label-0.5.3+%2F+2007-12-08">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+<ul><li>
+<p>Fixed the quoting for messages sent to the growl appender</p>
+</li></ul>
+
+<h2 id="label-0.5.2+%2F+2007-11-28">0.5.2 / 2007-11-28<span><a href="#label-0.5.2+%2F+2007-11-28">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+<ul><li>
+<p>Updated the library to work with Ruby 1.9</p>
+</li><li>
+<p>Fixed coalescing with the growl appender</p>
+</li></ul>
+
+<h2 id="label-0.5.1+%2F+2007-11-18">0.5.1 / 2007-11-18<span><a href="#label-0.5.1+%2F+2007-11-18">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+<ul><li>
+<p>Fixed a bug on Windows when attempting to load the syslog library</p>
+</li></ul>
+
+<h2 id="label-0.5.0+%2F+2007-11-18">0.5.0 / 2007-11-18<span><a href="#label-0.5.0+%2F+2007-11-18">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+<ul><li>
+<p>Added the ability to log via the syslog daemon</p>
+</li><li>
+<p>Can send messages to the Growl notification system on Mac OS X</p>
+</li><li>
+<p>The Growl appender can coalesce messages of the same title/priority</p>
+</li></ul>
+
+<h2 id="label-0.4.0+%2F+2007-03-21">0.4.0 / 2007-03-21<span><a href="#label-0.4.0+%2F+2007-03-21">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+<ul><li>
+<p>Added a microsecond flag to the Pattern layout</p>
+</li><li>
+<p>All appenders write immediately upon receipt of a logging event</p>
+</li><li>
+<p>Added a basic logging method that returns a logger object configured in the
+same manner as the standard Ruby logger</p>
+</li><li>
+<p>Fixed a bug caused by nil log messages</p>
+</li></ul>
+
+<h2 id="label-0.3.1+%2F+2007-02-08">0.3.1 / 2007-02-08<span><a href="#label-0.3.1+%2F+2007-02-08">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+<ul><li>
+<p>Bugfix Release</p>
+</li></ul>
+
+<h2 id="label-0.3.0+%2F+2007-02-01">0.3.0 / 2007-02-01<span><a href="#label-0.3.0+%2F+2007-02-01">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+<ul><li>
+<p>Remove the ability to log multiple objects from a single log method call</p>
+</li></ul>
+
+<h2 id="label-0.2.0+%2F+2007-01-29">0.2.0 / 2007-01-29<span><a href="#label-0.2.0+%2F+2007-01-29">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+<ul><li>
+<p>The “once every four years” release</p>
+</li><li>
+<p>Storage and retrieval of appenders by name</p>
+</li><li>
+<p>YAML configuration support</p>
+</li><li>
+<p>Rolling file appender</p>
+</li></ul>
+
+<h2 id="label-0.1.0+%2F+2007-01-12">0.1.0 / 2007-01-12<span><a href="#label-0.1.0+%2F+2007-01-12">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+<ul><li>
+<p>Birthday!</p>
+</li></ul>
+
+</div>
+
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

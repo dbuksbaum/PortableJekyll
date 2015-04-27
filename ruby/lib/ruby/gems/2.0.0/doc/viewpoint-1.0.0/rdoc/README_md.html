@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>README - viewpoint-1.0.0 Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body class="file">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+<div id="table-of-contents">
+  <nav class="section">
+    <h3 class="section-header">Table of Contents</h3>
+    <ul>
+      <li><a href="#label-Viewpoint+for+Exchange+Web+Services+1.0">Viewpoint for Exchange Web Services 1.0</a>
+      <li><a href="#label-Features">Features</a>
+      <li><a href="#label-New+in+1.0">New in 1.0</a>
+      <li><a href="#label-Enhanced+in+1.0">Enhanced in 1.0</a>
+      <li><a href="#label-Using+Viewpoint">Using Viewpoint</a>
+      <li><a href="#label-The+Setup">The Setup</a>
+      <li><a href="#label-Accessors">Accessors</a>
+      <li><a href="#label-Folder+Accessors">Folder Accessors</a>
+      <li><a href="#label-Listing+Folders">Listing Folders</a>
+      <li><a href="#label-Finding+single+folders">Finding single folders</a>
+      <li><a href="#label-Creating%2FDeleting+a+folder">Creating/Deleting a folder</a>
+      <li><a href="#label-Item+Accessors">Item Accessors</a>
+      <li><a href="#label-Finding+items">Finding items</a>
+      <li><a href="#label-Free%2FBusy+Calendar+Accessors">Free/Busy Calendar Accessors</a>
+      <li><a href="#label-Mailbox+Accessors">Mailbox Accessors</a>
+      <li><a href="#label-Message+Accessors">Message Accessors</a>
+      <li><a href="#label-Thanks+go+out+to...">Thanks go out to…</a>
+      <li><a href="#label-Cheers%21">Cheers!</a>
+    </ul>
+  </nav>
+</div>
+
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./README_md.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Viewpoint.html">Viewpoint</a>
+  
+    <li><a href="./Viewpoint/EWS.html">Viewpoint::EWS</a>
+  
+    <li><a href="./Viewpoint/EWS/CalendarAccessors.html">Viewpoint::EWS::CalendarAccessors</a>
+  
+    <li><a href="./Viewpoint/EWS/Connection.html">Viewpoint::EWS::Connection</a>
+  
+    <li><a href="./Viewpoint/EWS/ConnectionHelper.html">Viewpoint::EWS::ConnectionHelper</a>
+  
+    <li><a href="./Viewpoint/EWS/ConvertAccessors.html">Viewpoint::EWS::ConvertAccessors</a>
+  
+    <li><a href="./Viewpoint/EWS/Errors.html">Viewpoint::EWS::Errors</a>
+  
+    <li><a href="./Viewpoint/EWS/Errors/ResponseError.html">Viewpoint::EWS::Errors::ResponseError</a>
+  
+    <li><a href="./Viewpoint/EWS/Errors/ServerError.html">Viewpoint::EWS::Errors::ServerError</a>
+  
+    <li><a href="./Viewpoint/EWS/Errors/SoapResponseError.html">Viewpoint::EWS::Errors::SoapResponseError</a>
+  
+    <li><a href="./Viewpoint/EWS/Errors/UnauthorizedResponseError.html">Viewpoint::EWS::Errors::UnauthorizedResponseError</a>
+  
+    <li><a href="./Viewpoint/EWS/Errors/UnhandledResponseError.html">Viewpoint::EWS::Errors::UnhandledResponseError</a>
+  
+    <li><a href="./Viewpoint/EWS/EwsBadArgumentError.html">Viewpoint::EWS::EwsBadArgumentError</a>
+  
+    <li><a href="./Viewpoint/EWS/EwsCreateItemError.html">Viewpoint::EWS::EwsCreateItemError</a>
+  
+    <li><a href="./Viewpoint/EWS/EwsError.html">Viewpoint::EWS::EwsError</a>
+  
+    <li><a href="./Viewpoint/EWS/EwsFolderNotFound.html">Viewpoint::EWS::EwsFolderNotFound</a>
+  
+    <li><a href="./Viewpoint/EWS/EwsFrozenObjectError.html">Viewpoint::EWS::EwsFrozenObjectError</a>
+  
+    <li><a href="./Viewpoint/EWS/EwsItemNotFound.html">Viewpoint::EWS::EwsItemNotFound</a>
+  
+    <li><a href="./Viewpoint/EWS/EwsLoginError.html">Viewpoint::EWS::EwsLoginError</a>
+  
+    <li><a href="./Viewpoint/EWS/EwsMinimalObjectError.html">Viewpoint::EWS::EwsMinimalObjectError</a>
+  
+    <li><a href="./Viewpoint/EWS/EwsNotImplemented.html">Viewpoint::EWS::EwsNotImplemented</a>
+  
+    <li><a href="./Viewpoint/EWS/EwsSendItemError.html">Viewpoint::EWS::EwsSendItemError</a>
+  
+    <li><a href="./Viewpoint/EWS/EwsServerVersionError.html">Viewpoint::EWS::EwsServerVersionError</a>
+  
+    <li><a href="./Viewpoint/EWS/EwsSubscriptionError.html">Viewpoint::EWS::EwsSubscriptionError</a>
+  
+    <li><a href="./Viewpoint/EWS/EwsSubscriptionTimeout.html">Viewpoint::EWS::EwsSubscriptionTimeout</a>
+  
+    <li><a href="./Viewpoint/EWS/FolderAccessors.html">Viewpoint::EWS::FolderAccessors</a>
+  
+    <li><a href="./Viewpoint/EWS/ItemAccessors.html">Viewpoint::EWS::ItemAccessors</a>
+  
+    <li><a href="./Viewpoint/EWS/ItemFieldUriMap.html">Viewpoint::EWS::ItemFieldUriMap</a>
+  
+    <li><a href="./Viewpoint/EWS/MailboxAccessors.html">Viewpoint::EWS::MailboxAccessors</a>
+  
+    <li><a href="./Viewpoint/EWS/MessageAccessors.html">Viewpoint::EWS::MessageAccessors</a>
+  
+    <li><a href="./Viewpoint/EWS/PushSubscriptionAccessors.html">Viewpoint::EWS::PushSubscriptionAccessors</a>
+  
+    <li><a href="./Viewpoint/EWS/RoomAccessors.html">Viewpoint::EWS::RoomAccessors</a>
+  
+    <li><a href="./Viewpoint/EWS/RoomlistAccessors.html">Viewpoint::EWS::RoomlistAccessors</a>
+  
+    <li><a href="./Viewpoint/EWS/SOAP.html">Viewpoint::EWS::SOAP</a>
+  
+    <li><a href="./Viewpoint/EWS/SOAP/CreateAttachmentResponseMessage.html">Viewpoint::EWS::SOAP::CreateAttachmentResponseMessage</a>
+  
+    <li><a href="./Viewpoint/EWS/SOAP/CreateItemResponseMessage.html">Viewpoint::EWS::SOAP::CreateItemResponseMessage</a>
+  
+    <li><a href="./Viewpoint/EWS/SOAP/EwsBuilder.html">Viewpoint::EWS::SOAP::EwsBuilder</a>
+  
+    <li><a href="./Viewpoint/EWS/SOAP/EwsParser.html">Viewpoint::EWS::SOAP::EwsParser</a>
+  
+    <li><a href="./Viewpoint/EWS/SOAP/EwsResponse.html">Viewpoint::EWS::SOAP::EwsResponse</a>
+  
+    <li><a href="./Viewpoint/EWS/SOAP/EwsSaxDocument.html">Viewpoint::EWS::SOAP::EwsSaxDocument</a>
+  
+    <li><a href="./Viewpoint/EWS/SOAP/EwsSoapAvailabilityResponse.html">Viewpoint::EWS::SOAP::EwsSoapAvailabilityResponse</a>
+  
+    <li><a href="./Viewpoint/EWS/SOAP/EwsSoapFreeBusyResponse.html">Viewpoint::EWS::SOAP::EwsSoapFreeBusyResponse</a>
+  
+    <li><a href="./Viewpoint/EWS/SOAP/EwsSoapResponse.html">Viewpoint::EWS::SOAP::EwsSoapResponse</a>
+  
+    <li><a href="./Viewpoint/EWS/SOAP/EwsSoapRoomResponse.html">Viewpoint::EWS::SOAP::EwsSoapRoomResponse</a>
+  
+    <li><a href="./Viewpoint/EWS/SOAP/EwsSoapRoomlistResponse.html">Viewpoint::EWS::SOAP::EwsSoapRoomlistResponse</a>
+  
+    <li><a href="./Viewpoint/EWS/SOAP/ExchangeAvailability.html">Viewpoint::EWS::SOAP::ExchangeAvailability</a>
+  
+    <li><a href="./Viewpoint/EWS/SOAP/ExchangeDataServices.html">Viewpoint::EWS::SOAP::ExchangeDataServices</a>
+  
+    <li><a href="./Viewpoint/EWS/SOAP/ExchangeNotification.html">Viewpoint::EWS::SOAP::ExchangeNotification</a>
+  
+    <li><a href="./Viewpoint/EWS/SOAP/ExchangeSynchronization.html">Viewpoint::EWS::SOAP::ExchangeSynchronization</a>
+  
+    <li><a href="./Viewpoint/EWS/SOAP/ExchangeTimeZones.html">Viewpoint::EWS::SOAP::ExchangeTimeZones</a>
+  
+    <li><a href="./Viewpoint/EWS/SOAP/ExchangeUserConfiguration.html">Viewpoint::EWS::SOAP::ExchangeUserConfiguration</a>
+  
+    <li><a href="./Viewpoint/EWS/SOAP/ExchangeWebService.html">Viewpoint::EWS::SOAP::ExchangeWebService</a>
+  
+    <li><a href="./Viewpoint/EWS/SOAP/FindItemResponseMessage.html">Viewpoint::EWS::SOAP::FindItemResponseMessage</a>
+  
+    <li><a href="./Viewpoint/EWS/SOAP/GetEventsResponseMessage.html">Viewpoint::EWS::SOAP::GetEventsResponseMessage</a>
+  
+    <li><a href="./Viewpoint/EWS/SOAP/ResponseMessage.html">Viewpoint::EWS::SOAP::ResponseMessage</a>
+  
+    <li><a href="./Viewpoint/EWS/SOAP/RootFolder.html">Viewpoint::EWS::SOAP::RootFolder</a>
+  
+    <li><a href="./Viewpoint/EWS/SOAP/SendNotificationResponseMessage.html">Viewpoint::EWS::SOAP::SendNotificationResponseMessage</a>
+  
+    <li><a href="./Viewpoint/EWS/SOAP/SubscribeResponseMessage.html">Viewpoint::EWS::SOAP::SubscribeResponseMessage</a>
+  
+    <li><a href="./Viewpoint/EWS/SOAP/SyncFolderHierarchyResponseMessage.html">Viewpoint::EWS::SOAP::SyncFolderHierarchyResponseMessage</a>
+  
+    <li><a href="./Viewpoint/EWS/SOAP/SyncFolderItemsResponseMessage.html">Viewpoint::EWS::SOAP::SyncFolderItemsResponseMessage</a>
+  
+    <li><a href="./Viewpoint/EWS/SaveFailed.html">Viewpoint::EWS::SaveFailed</a>
+  
+    <li><a href="./Viewpoint/EWS/Template.html">Viewpoint::EWS::Template</a>
+  
+    <li><a href="./Viewpoint/EWS/Template/CalendarItem.html">Viewpoint::EWS::Template::CalendarItem</a>
+  
+    <li><a href="./Viewpoint/EWS/Template/ForwardItem.html">Viewpoint::EWS::Template::ForwardItem</a>
+  
+    <li><a href="./Viewpoint/EWS/Template/Message.html">Viewpoint::EWS::Template::Message</a>
+  
+    <li><a href="./Viewpoint/EWS/Template/ReplyToItem.html">Viewpoint::EWS::Template::ReplyToItem</a>
+  
+    <li><a href="./Viewpoint/EWS/Template/Task.html">Viewpoint::EWS::Template::Task</a>
+  
+    <li><a href="./Viewpoint/EWS/Types.html">Viewpoint::EWS::Types</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/Attachment.html">Viewpoint::EWS::Types::Attachment</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/Attendee.html">Viewpoint::EWS::Types::Attendee</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/CalendarFolder.html">Viewpoint::EWS::Types::CalendarFolder</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/CalendarItem.html">Viewpoint::EWS::Types::CalendarItem</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/Contact.html">Viewpoint::EWS::Types::Contact</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/ContactsFolder.html">Viewpoint::EWS::Types::ContactsFolder</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/CopiedEvent.html">Viewpoint::EWS::Types::CopiedEvent</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/CreatedEvent.html">Viewpoint::EWS::Types::CreatedEvent</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/DeletedEvent.html">Viewpoint::EWS::Types::DeletedEvent</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/DistributionList.html">Viewpoint::EWS::Types::DistributionList</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/Event.html">Viewpoint::EWS::Types::Event</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/ExportItemsResponseMessage.html">Viewpoint::EWS::Types::ExportItemsResponseMessage</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/FileAttachment.html">Viewpoint::EWS::Types::FileAttachment</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/Folder.html">Viewpoint::EWS::Types::Folder</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/FreeBusyChangedEvent.html">Viewpoint::EWS::Types::FreeBusyChangedEvent</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/GenericFolder.html">Viewpoint::EWS::Types::GenericFolder</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/Item.html">Viewpoint::EWS::Types::Item</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/Item/ClassMethods.html">Viewpoint::EWS::Types::Item::ClassMethods</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/ItemAttachment.html">Viewpoint::EWS::Types::ItemAttachment</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/MailboxUser.html">Viewpoint::EWS::Types::MailboxUser</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/MeetingCancellation.html">Viewpoint::EWS::Types::MeetingCancellation</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/MeetingMessage.html">Viewpoint::EWS::Types::MeetingMessage</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/MeetingRequest.html">Viewpoint::EWS::Types::MeetingRequest</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/MeetingResponse.html">Viewpoint::EWS::Types::MeetingResponse</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/Message.html">Viewpoint::EWS::Types::Message</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/ModifiedEvent.html">Viewpoint::EWS::Types::ModifiedEvent</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/MovedEvent.html">Viewpoint::EWS::Types::MovedEvent</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/NewMailEvent.html">Viewpoint::EWS::Types::NewMailEvent</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/OutOfOffice.html">Viewpoint::EWS::Types::OutOfOffice</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/SearchFolder.html">Viewpoint::EWS::Types::SearchFolder</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/StatusEvent.html">Viewpoint::EWS::Types::StatusEvent</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/Task.html">Viewpoint::EWS::Types::Task</a>
+  
+    <li><a href="./Viewpoint/EWS/Types/TasksFolder.html">Viewpoint::EWS::Types::TasksFolder</a>
+  
+    <li><a href="./Viewpoint/EWSClient.html">Viewpoint::EWSClient</a>
+  
+    <li><a href="./Viewpoint/StringFormatException.html">Viewpoint::StringFormatException</a>
+  
+    <li><a href="./Viewpoint/StringUtils.html">Viewpoint::StringUtils</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation" class="description">
+  
+<p><a href="https://travis-ci.org/WinRb/Viewpoint.svg?branch=master">{Build
+Status</a>]</p>
+
+<h1 id="label-Viewpoint+for+Exchange+Web+Services+1.0"><a href="Viewpoint.html">Viewpoint</a> for Exchange Web Services 1.0<span><a href="#label-Viewpoint+for+Exchange+Web+Services+1.0">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
+
+<p><a
+href="http://github.com/zenchild/Viewpoint/wiki">github.com/zenchild/Viewpoint/wiki</a></p>
+
+<p><a href="Viewpoint.html">Viewpoint</a> for EWS provides a thin Ruby layer
+on top of Microsoft Exchange
+Web Services(EWS). It also includes a bunch of
+model classes that add an
+additional layer of abstraction on top of EWS for
+use in implementing
+programs with <a href="Viewpoint.html">Viewpoint</a>.</p>
+
+<p>BLOG: <a
+href="http://distributed-frostbite.blogspot.com">distributed-frostbite.blogspot.com</a>/</p>
+
+<p>Add me in LinkedIn: <a
+href="http://www.linkedin.com/in/danwanek">www.linkedin.com/in/danwanek</a></p>
+
+<p>Find me on irc.freenode.net in ruby-lang (zenChild)</p>
+
+<h1 id="label-Features">Features<span><a href="#label-Features">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
+
+<h2 id="label-New+in+1.0">New in 1.0<span><a href="#label-New+in+1.0">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+<ul><li>
+<p>SOAP backend is now only dependant on Nokogiri. Before version 1.0 <a
+href="Viewpoint.html">Viewpoint</a>
+went through a number of iterations in
+backends including SOAP4r and Handsoap.
+Each of these approaches had major
+issues so in the end I decided it was
+easiest to just build the SOAP
+messages with Nokogiri since I was using it as
+the parser for response
+messages already.</p>
+</li><li>
+<p><a href="Viewpoint.html">Viewpoint</a> is no longer built on a Singleton
+pattern. The reason it was
+previously is because of the Handsoap backend.
+Handsoap itself uses a
+Singleton pattern for connection to the SOAP
+endpoint so with authentication
+I was forced to implement <a
+href="Viewpoint.html">Viewpoint</a> as a Singleton as well. Now with
+Handsoap
+out of the picture this is no longer required. Go crazy ;)</p>
+</li></ul>
+
+<h2 id="label-Enhanced+in+1.0">Enhanced in 1.0<span><a href="#label-Enhanced+in+1.0">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+<ul><li>
+<p><em>Delegate access is supported</em>
+ One thing that was often asked for,
+but missing from the previous version was delegate access to mailboxes and
+calendars. This is now supported via the &#39;act_as&#39; parameter to the
+GenericFolder::get_folder method.</p>
+</li></ul>
+
+<blockquote>
+<blockquote>
+<p>Inbox example:
+ <code>ofolder = Folder.get_folder(:inbox, opts = {act_as:
+&quot;user@host.com&quot;})</code></p>
+
+<p>If your user has delegate access to the Inbox for user@host.com this
+operation will retrieve their inbox and allow you to manipulate it as you
+would with your own Inbox.</p>
+
+<p>Calendar example:
+ <code>oCalendar = cli.get_folder(:calendar, opts =
+{act_as: &quot;user@host.com&quot;})</code></p>
+
+<p>If your user has delegate access to the Calendar for user@host.com this
+operation will retrieve their calendar and allow you to manipulate it as
+you would with your own Calendar, depending on the permissions the other
+user has granted you.</p>
+</blockquote>
+</blockquote>
+<ul><li>
+<p>There is also some support for manipulation of delegate access itself via
+
+the methods MailboxUser#add_delegate!, MailboxUser#update_delegate!, and
+
+MailboxUser#get_delegate_info.</p>
+</li></ul>
+
+<h1 id="label-Using+Viewpoint">Using <a href="Viewpoint.html">Viewpoint</a><span><a href="#label-Using+Viewpoint">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
+
+<p>The version 1.0 API is quite a departure from the 0.1.x code base. If you
+have a lot of legacy code and aren&#39;t suffering from performance issues,
+think twice about upgrading. That said, I hope you&#39;ll find the new API
+much clean and more intuitive than previous versions.</p>
+
+<p>I also try and document the code to the base of my ability. Included in
+that code are links to the official Microsoft EWS documentation that might
+be helpful when troubleshooting "interesting" issues. You can either
+generate the documentation yourself with yard or check it out on <a
+href="http://rdoc.info/github/zenchild/Viewpoint/frames">rdoc.info</a>.</p>
+
+<p>Note the <code>cli</code> variable in the setup code directly below. I will
+use that variable throughout without the setup code.</p>
+
+<h2 id="label-The+Setup">The Setup<span><a href="#label-The+Setup">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;viewpoint&#39;</span>
+<span class="ruby-identifier">include</span> <span class="ruby-constant">Viewpoint</span><span class="ruby-operator">::</span><span class="ruby-constant">EWS</span>
+
+<span class="ruby-identifier">endpoint</span> = <span class="ruby-string">&#39;https://example.com/ews/Exchange.asmx&#39;</span>
+<span class="ruby-identifier">user</span> = <span class="ruby-string">&#39;username&#39;</span>
+<span class="ruby-identifier">pass</span> = <span class="ruby-string">&#39;password&#39;</span>
+
+<span class="ruby-identifier">cli</span> = <span class="ruby-constant">Viewpoint</span><span class="ruby-operator">::</span><span class="ruby-constant">EWSClient</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">endpoint</span>, <span class="ruby-identifier">user</span>, <span class="ruby-identifier">pass</span>
+</pre>
+
+<p>There are also various options you can pass to EWSClient.</p>
+
+<p>If you are testing in an environment using a self-signed certificate you
+can pass a connection parameter to ignore SSL verification by passing
+<code>http_opts: {ssl_verify_mode: 0}</code>.</p>
+
+<p>If you want to target a specific version of Exchange you can pass
+<code>server_version: SOAP::ExchangeWebService::VERSION_2010_SP1</code>.
+You really shouldn&#39;t have to use this unless you know why.</p>
+
+<h2 id="label-Accessors">Accessors<span><a href="#label-Accessors">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>There are some basic accessors available on the <a
+href="Viewpoint/EWSClient.html">Viewpoint::EWSClient</a> instance. In prior
+versions these were typically class methods off of the models themselves
+(ex: Folder.get_folder(id)). Now all accessors are available through
+EWSClient.</p>
+
+<h3 id="label-Folder+Accessors">Folder Accessors<span><a href="#label-Folder+Accessors">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<h4 id="label-Listing+Folders">Listing Folders<span><a href="#label-Listing+Folders">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-comment"># Find all folders under :msgfolderroot</span>
+<span class="ruby-identifier">folders</span> = <span class="ruby-identifier">cli</span>.<span class="ruby-identifier">folders</span>
+
+<span class="ruby-comment"># Find all folders under Inbox</span>
+<span class="ruby-identifier">inbox_folders</span> = <span class="ruby-identifier">cli</span>.<span class="ruby-identifier">folders</span> <span class="ruby-identifier">root</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">inbox</span>
+
+<span class="ruby-comment"># Find all folders under :root and do a Deep search</span>
+<span class="ruby-identifier">all_folders</span> = <span class="ruby-identifier">cli</span>.<span class="ruby-identifier">folders</span> <span class="ruby-identifier">root</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">root</span>, <span class="ruby-identifier">traversal</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">deep</span>
+</pre>
+
+<h4 id="label-Finding+single+folders">Finding single folders<span><a href="#label-Finding+single+folders">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-comment"># If you know the EWS id</span>
+<span class="ruby-identifier">cli</span>.<span class="ruby-identifier">get_folder</span> <span class="ruby-operator">&lt;</span><span class="ruby-identifier">folder_id</span><span class="ruby-operator">&gt;</span>
+<span class="ruby-comment"># ... or if it&#39;s a standard folder pass its symbol</span>
+<span class="ruby-identifier">cli</span>.<span class="ruby-identifier">get_folder</span> :<span class="ruby-identifier">index</span>
+<span class="ruby-comment"># or by name</span>
+<span class="ruby-identifier">cli</span>.<span class="ruby-identifier">get_folder_by_name</span> <span class="ruby-string">&#39;test&#39;</span>
+<span class="ruby-comment"># by name as a subfolder under &quot;Inbox&quot;</span>
+<span class="ruby-identifier">cli</span>.<span class="ruby-identifier">get_folder_by_name</span> <span class="ruby-string">&#39;test&#39;</span>, <span class="ruby-identifier">parent</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">inbox</span>
+</pre>
+
+<h4 id="label-Creating%2FDeleting+a+folder">Creating/Deleting a folder<span><a href="#label-Creating%2FDeleting+a+folder">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-comment"># make a folder under :msgfolderroot</span>
+<span class="ruby-identifier">cli</span>.<span class="ruby-identifier">make_folder</span> <span class="ruby-string">&#39;myfolder&#39;</span>
+
+<span class="ruby-comment"># make a folder under Inbox</span>
+<span class="ruby-identifier">my_folder</span> = <span class="ruby-identifier">cli</span>.<span class="ruby-identifier">make_folder</span> <span class="ruby-string">&#39;My Stuff&#39;</span>, <span class="ruby-identifier">parent</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">inbox</span>
+
+<span class="ruby-comment"># make a new Tasks folder</span>
+<span class="ruby-identifier">tasks</span> = <span class="ruby-identifier">cli</span>.<span class="ruby-identifier">make_folder</span> <span class="ruby-string">&#39;New Tasks&#39;</span>, <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">tasks</span>
+
+<span class="ruby-comment"># delete a folder</span>
+<span class="ruby-identifier">my_folder</span>.<span class="ruby-identifier">delete!</span>
+</pre>
+
+<h3 id="label-Item+Accessors">Item Accessors<span><a href="#label-Item+Accessors">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<h4 id="label-Finding+items">Finding items<span><a href="#label-Finding+items">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">items</span> = <span class="ruby-identifier">inbox</span>.<span class="ruby-identifier">items</span>
+
+<span class="ruby-comment"># for today</span>
+<span class="ruby-identifier">inbox</span>.<span class="ruby-identifier">todays_items</span>
+
+<span class="ruby-comment"># since a specific date</span>
+<span class="ruby-identifier">sd</span> = <span class="ruby-constant">Date</span>.<span class="ruby-identifier">iso8601</span> <span class="ruby-string">&#39;2013-01-01&#39;</span>
+<span class="ruby-identifier">inbox</span>.<span class="ruby-identifier">items_since</span> <span class="ruby-identifier">sd</span>
+
+<span class="ruby-comment"># between 2 dates</span>
+<span class="ruby-identifier">sd</span> = <span class="ruby-constant">Date</span>.<span class="ruby-identifier">iso8601</span> <span class="ruby-string">&#39;2013-01-01&#39;</span>
+<span class="ruby-identifier">ed</span> = <span class="ruby-constant">Date</span>.<span class="ruby-identifier">iso8601</span> <span class="ruby-string">&#39;2013-02-01&#39;</span>
+<span class="ruby-identifier">inbox</span>.<span class="ruby-identifier">items_between</span> <span class="ruby-identifier">sd</span>, <span class="ruby-identifier">ed</span>
+</pre>
+
+<h3 id="label-Free%2FBusy+Calendar+Accessors">Free/Busy Calendar Accessors<span><a href="#label-Free%2FBusy+Calendar+Accessors">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<pre class="ruby"><span class="ruby-comment"># Find when a user is busy</span>
+<span class="ruby-identifier">require</span> <span class="ruby-string">&#39;time&#39;</span>
+<span class="ruby-identifier">start_time</span> = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&quot;2013-02-19&quot;</span>).<span class="ruby-identifier">iso8601</span>
+<span class="ruby-identifier">end_time</span> = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&quot;2013-02-20&quot;</span>).<span class="ruby-identifier">iso8601</span>
+<span class="ruby-identifier">user_free_busy</span> = <span class="ruby-identifier">cli</span>.<span class="ruby-identifier">get_user_availability</span>([<span class="ruby-string">&#39;joe.user@exchange.site.com&#39;</span>],
+  <span class="ruby-identifier">start_time</span><span class="ruby-operator">:</span> <span class="ruby-identifier">start_time</span>,
+  <span class="ruby-identifier">end_time</span><span class="ruby-operator">:</span>   <span class="ruby-identifier">end_time</span>,
+  <span class="ruby-identifier">requested_view</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">free_busy</span>)
+<span class="ruby-identifier">busy_times</span> = <span class="ruby-identifier">user_free_busy</span>.<span class="ruby-identifier">calendar_event_array</span>
+
+<span class="ruby-comment"># Parse events from the calendar event array for start/end times and type</span>
+<span class="ruby-identifier">busy_times</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span> <span class="ruby-identifier">event</span> <span class="ruby-operator">|</span>
+  <span class="ruby-identifier">cli</span>.<span class="ruby-identifier">event_busy_type</span>(<span class="ruby-identifier">event</span>)
+  <span class="ruby-identifier">cli</span>.<span class="ruby-identifier">event_start_time</span>(<span class="ruby-identifier">event</span>)
+  <span class="ruby-identifier">cli</span>.<span class="ruby-identifier">event_end_time</span>(<span class="ruby-identifier">event</span>)
+}
+
+<span class="ruby-comment"># Find the user&#39;s working hours</span>
+<span class="ruby-identifier">user_free_busy</span>.<span class="ruby-identifier">working_hours</span>
+</pre>
+
+<h3 id="label-Mailbox+Accessors">Mailbox Accessors<span><a href="#label-Mailbox+Accessors">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<h3 id="label-Message+Accessors">Message Accessors<span><a href="#label-Message+Accessors">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<pre class="ruby"><span class="ruby-identifier">cli</span>.<span class="ruby-identifier">send_message</span> <span class="ruby-identifier">subject</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Test&quot;</span>, <span class="ruby-identifier">body</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Test&quot;</span>, <span class="ruby-identifier">to_recipients</span><span class="ruby-operator">:</span> [<span class="ruby-string">&#39;test@example.com&#39;</span>]
+
+<span class="ruby-comment"># or</span>
+<span class="ruby-identifier">cli</span>.<span class="ruby-identifier">send_message</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">m</span>.<span class="ruby-identifier">subject</span> = <span class="ruby-string">&quot;Test&quot;</span>
+  <span class="ruby-identifier">m</span>.<span class="ruby-identifier">body</span>    = <span class="ruby-string">&quot;Test&quot;</span>
+  <span class="ruby-identifier">m</span>.<span class="ruby-identifier">to_recipients</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;test@example.com&#39;</span>
+  <span class="ruby-identifier">m</span>.<span class="ruby-identifier">to_recipients</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;test2@example.com&#39;</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-comment"># set :draft =&gt; true or use cli.draft_message to only create a draft and not send.</span>
+</pre>
+
+<h2 id="label-Thanks+go+out+to...">Thanks go out to…<span><a href="#label-Thanks+go+out+to...">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+<ul><li>
+<p>Handl.it for sponsoring a good portion of the development effort.
+** <a
+href="https://www.handle.com">www.handle.com</a>/</p>
+</li><li>
+<p>The National Association of REALTORS® for providing a testing account
+ and
+much appreciated input and support.</p>
+</li><li>
+<p>The Holmes Group Limited for providing Exchange 2013 test accounts.</p>
+</li></ul>
+
+<p>—
+DISCLAIMER: If you see something that could be done better or would
+like
+to help out in the development of this code please feel free to clone
+the
+&#39;git&#39; repository and send me patches:
+git clone
+git://github.com/zenchild/Viewpoint.git
+or add an issue on GitHub:
+<a
+href="http://github.com/zenchild/Viewpoint/issues">github.com/zenchild/Viewpoint/issues</a></p>
+
+<h2 id="label-Cheers%21">Cheers!<span><a href="#label-Cheers%21">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+</div>
+
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

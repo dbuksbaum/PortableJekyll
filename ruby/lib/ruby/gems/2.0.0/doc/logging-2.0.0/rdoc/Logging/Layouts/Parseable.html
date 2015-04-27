@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Logging::Layouts::Parseable - logging-2.0.0 Documentation</title>
+
+<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../index.html">Home</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/logging/layouts/parseable.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="../Layout.html">Logging::Layout</a>
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-json">::json</a>
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-yaml">::yaml</a>
+    
+    <li ><a href="#method-i-create_format_method">#create_format_method</a>
+    
+    <li ><a href="#method-i-format_obj">#format_obj</a>
+    
+    <li ><a href="#method-i-iso8601_format">#iso8601_format</a>
+    
+    <li ><a href="#method-i-items-3D">#items=</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../History_txt.html">History</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../File.html">File</a>
+  
+    <li><a href="../../FileUtils.html">FileUtils</a>
+  
+    <li><a href="../../Logging.html">Logging</a>
+  
+    <li><a href="../../Logging/Appender.html">Logging::Appender</a>
+  
+    <li><a href="../../Logging/Appenders.html">Logging::Appenders</a>
+  
+    <li><a href="../../Logging/Appenders/Buffering.html">Logging::Appenders::Buffering</a>
+  
+    <li><a href="../../Logging/Appenders/File.html">Logging::Appenders::File</a>
+  
+    <li><a href="../../Logging/Appenders/IO.html">Logging::Appenders::IO</a>
+  
+    <li><a href="../../Logging/Appenders/RollingFile.html">Logging::Appenders::RollingFile</a>
+  
+    <li><a href="../../Logging/Appenders/RollingFile/Roller.html">Logging::Appenders::RollingFile::Roller</a>
+  
+    <li><a href="../../Logging/Appenders/Stderr.html">Logging::Appenders::Stderr</a>
+  
+    <li><a href="../../Logging/Appenders/Stdout.html">Logging::Appenders::Stdout</a>
+  
+    <li><a href="../../Logging/Appenders/StringIo.html">Logging::Appenders::StringIo</a>
+  
+    <li><a href="../../Logging/Appenders/Syslog.html">Logging::Appenders::Syslog</a>
+  
+    <li><a href="../../Logging/ColorScheme.html">Logging::ColorScheme</a>
+  
+    <li><a href="../../Logging/Filter.html">Logging::Filter</a>
+  
+    <li><a href="../../Logging/Filters.html">Logging::Filters</a>
+  
+    <li><a href="../../Logging/Filters/Level.html">Logging::Filters::Level</a>
+  
+    <li><a href="../../Logging/Layout.html">Logging::Layout</a>
+  
+    <li><a href="../../Logging/Layouts.html">Logging::Layouts</a>
+  
+    <li><a href="../../Logging/Layouts/Basic.html">Logging::Layouts::Basic</a>
+  
+    <li><a href="../../Logging/Layouts/Parseable.html">Logging::Layouts::Parseable</a>
+  
+    <li><a href="../../Logging/Layouts/Parseable/layout;.html">Logging::Layouts::Parseable::layout;</a>
+  
+    <li><a href="../../Logging/Layouts/Pattern.html">Logging::Layouts::Pattern</a>
+  
+    <li><a href="../../Logging/Logger.html">Logging::Logger</a>
+  
+    <li><a href="../../Logging/Logger.html">Logging::Logger</a>
+  
+    <li><a href="../../Logging/MappedDiagnosticContext.html">Logging::MappedDiagnosticContext</a>
+  
+    <li><a href="../../Logging/NestedDiagnosticContext.html">Logging::NestedDiagnosticContext</a>
+  
+    <li><a href="../../Logging/Proxy.html">Logging::Proxy</a>
+  
+    <li><a href="../../Logging/RailsCompat.html">Logging::RailsCompat</a>
+  
+    <li><a href="../../Logging/Repository.html">Logging::Repository</a>
+  
+    <li><a href="../../Logging/Repository/Singleton.html">Logging::Repository::Singleton</a>
+  
+    <li><a href="../../Logging/RootLogger.html">Logging::RootLogger</a>
+  
+    <li><a href="../../Logging/logger.html">Logging::logger</a>
+  
+    <li><a href="../../Module.html">Module</a>
+  
+    <li><a href="../../Object.html">Object</a>
+  
+    <li><a href="../../RSpec.html">RSpec</a>
+  
+    <li><a href="../../RSpec/Core.html">RSpec::Core</a>
+  
+    <li><a href="../../RSpec/Core/Configuration.html">RSpec::Core::Configuration</a>
+  
+    <li><a href="../../RSpec/LoggingHelper.html">RSpec::LoggingHelper</a>
+  
+    <li><a href="../../RSpec/LoggingHelper.html">RSpec::LoggingHelper</a>
+  
+    <li><a href="../../ReentrantMutex.html">ReentrantMutex</a>
+  
+    <li><a href="../../Spec.html">Spec</a>
+  
+    <li><a href="../../Spec/Runner.html">Spec::Runner</a>
+  
+    <li><a href="../../Spec/Runner/Configuration.html">Spec::Runner::Configuration</a>
+  
+    <li><a href="../../String.html">String</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Logging::Layouts::Parseable</h1>
+
+  <div id="description" class="description">
+    
+<p>This layout will produce parseable log output in either JSON or YAML
+format. This makes it much easier for machines to parse log files and
+perform analysis on those logs.</p>
+
+<p>The information about the log event can be configured when the layout is
+created. Any or all of the following labels can be set as the
+<em>items</em> to log:</p>
+
+<pre>&#39;logger&#39;     Used to output the name of the logger that generated the
+             log event.
+&#39;timestamp&#39;  Used to output the timestamp of the log event.
+&#39;level&#39;      Used to output the level of the log event.
+&#39;message&#39;    Used to output the application supplied message
+             associated with the log event.
+&#39;file&#39;       Used to output the file name where the logging request
+             was issued.
+&#39;line&#39;       Used to output the line number where the logging request
+             was issued.
+&#39;method&#39;     Used to output the method name where the logging request
+             was issued.
+&#39;hostname&#39;   Used to output the hostname
+&#39;pid&#39;        Used to output the process ID of the currently running
+             program.
+&#39;millis&#39;     Used to output the number of milliseconds elapsed from
+             the construction of the Layout until creation of the log
+             event.
+&#39;thread_id&#39;  Used to output the object ID of the thread that generated
+             the log event.
+&#39;thread&#39;     Used to output the name of the thread that generated the
+             log event. Name can be specified using Thread.current[:name]
+             notation. Output empty string if name not specified. This
+             option helps to create more human readable output for
+             multithread application logs.</pre>
+
+<p>These items are supplied to the layout as an array of strings. The items
+&#39;file&#39;, &#39;line&#39;, and &#39;method&#39; will only work if the
+<a href="../Logger.html">Logger</a> generating the events is configured to
+generate tracing information. If this is not the case these fields will
+always be empty.</p>
+
+<p>When configured to output log events in YAML format, each log message will
+be formatted as a hash in it&#39;s own YAML document. The hash keys are the
+name of the item, and the value is what you would expect it to be.
+Therefore, for the default set of times log message would appear as
+follows:</p>
+
+<pre>---
+timestamp: 2009-04-17T16:15:42
+level: INFO
+logger: Foo::Bar
+message: this is a log message
+---
+timestamp: 2009-04-17T16:15:43
+level: ERROR
+logger: Foo
+message: &lt;RuntimeError&gt; Oooops!!</pre>
+
+<p>The output order of the fields is not guaranteed to be the same as the
+order specified in the <em>items</em> list. This is because Ruby hashes are
+not ordered by default (unless you&#39;re running this in Ruby 1.9).</p>
+
+<p>When configured to output log events in JSON format, each log message will
+be formatted as an object (in the JSON sense of the word) on it&#39;s own
+line in the log output. Therefore, to parse the output you must read it
+line by line and parse the individual objects. Taking the same example
+above the JSON output would be:</p>
+
+<pre>{&quot;timestamp&quot;:&quot;2009-04-17T16:15:42&quot;,&quot;level&quot;:&quot;INFO&quot;,&quot;logger&quot;:&quot;Foo::Bar&quot;,&quot;message&quot;:&quot;this is a log message&quot;}
+{&quot;timestamp&quot;:&quot;2009-04-17T16:15:43&quot;,&quot;level&quot;:&quot;ERROR&quot;,&quot;logger&quot;:&quot;Foo&quot;,&quot;message&quot;:&quot;&lt;RuntimeError&gt; Oooops!!&quot;}</pre>
+
+<p>The output order of the fields is guaranteed to be the same as the order
+specified in the <em>items</em> list.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-items" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">items</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-json" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            json( opts )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Create a new <a href="Parseable.html">Parseable</a> layout that outputs log
+events using JSON style formatting. See the initializer documentation for
+available options.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="json-source">
+            <pre><span class="ruby-comment"># File lib/logging/layouts/parseable.rb, line 159</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">json</span>( <span class="ruby-identifier">opts</span> = {} )
+  <span class="ruby-identifier">opts</span>[<span class="ruby-value">:style</span>] = <span class="ruby-string">&#39;json&#39;</span>
+  <span class="ruby-identifier">new</span>(<span class="ruby-identifier">opts</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- json-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- json-method -->
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            new( opts )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new <a href="Parseable.html">Parseable</a> layout using the
+following options:</p>
+
+<pre class="ruby">:<span class="ruby-identifier">style</span>  =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">json</span> <span class="ruby-keyword">or</span> :<span class="ruby-identifier">yaml</span>
+:<span class="ruby-identifier">items</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-node">%w[timestamp level logger message]</span>
+</pre>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="../Layout.html#method-c-new">Logging::Layout.new</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/logging/layouts/parseable.rb, line 183</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>( <span class="ruby-identifier">opts</span> = {} )
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-ivar">@created_at</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+  <span class="ruby-ivar">@style</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:style</span>, <span class="ruby-string">&#39;json&#39;</span>).<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">intern</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">items</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:items</span>, <span class="ruby-node">%w[timestamp level logger message]</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+      <div id="method-c-yaml" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            yaml( opts )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Create a new <a href="Parseable.html">Parseable</a> layout that outputs log
+events using YAML style formatting. See the initializer documentation for
+available options.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="yaml-source">
+            <pre><span class="ruby-comment"># File lib/logging/layouts/parseable.rb, line 170</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">yaml</span>( <span class="ruby-identifier">opts</span> = {} )
+  <span class="ruby-identifier">opts</span>[<span class="ruby-value">:style</span>] = <span class="ruby-string">&#39;yaml&#39;</span>
+  <span class="ruby-identifier">new</span>(<span class="ruby-identifier">opts</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- yaml-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- yaml-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-format_obj" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">format_obj</span><span
+            class="method-args">( obj )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public: Take a given object and convert it into a format suitable for
+inclusion as a log message. The conversion allows the object to be more
+easily expressed in YAML or JSON form.</p>
+
+<p>If the object is an Exception, then this method will return a Hash
+containing the exception class name, message, and backtrace (if any).</p>
+
+<p>obj - The <a href="../../Object.html">Object</a> to format</p>
+
+<p>Returns the formatted <a href="../../Object.html">Object</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="format_obj-source">
+            <pre><span class="ruby-comment"># File lib/logging/layouts/parseable.rb, line 218</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">format_obj</span>( <span class="ruby-identifier">obj</span> )
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">obj</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Exception</span>
+    <span class="ruby-identifier">h</span> = { <span class="ruby-value">:class</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>,
+          <span class="ruby-value">:message</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">message</span> }
+    <span class="ruby-identifier">h</span>[<span class="ruby-value">:backtrace</span>] = <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">backtrace</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@backtrace</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">obj</span>.<span class="ruby-identifier">backtrace</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">h</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Time</span>
+    <span class="ruby-identifier">iso8601_format</span>(<span class="ruby-identifier">obj</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">obj</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- format_obj-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- format_obj-method -->
+
+    
+      <div id="method-i-items-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            items = %w[timestamp level logger message]
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Set the log event items that will be formatted by this layout. These items,
+and only these items, will appear in the log output.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="items-3D-source">
+            <pre><span class="ruby-comment"># File lib/logging/layouts/parseable.rb, line 198</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">items=</span>( <span class="ruby-identifier">ary</span> )
+  <span class="ruby-ivar">@items</span> = <span class="ruby-constant">Array</span>(<span class="ruby-identifier">ary</span>).<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>}
+  <span class="ruby-identifier">valid</span> = <span class="ruby-constant">DIRECTIVE_TABLE</span>.<span class="ruby-identifier">keys</span>
+  <span class="ruby-ivar">@items</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;unknown item - #{name.inspect}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">valid</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">name</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">create_format_method</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- items-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- items-3D-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-create_format_method" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_format_method</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Call the appropriate class level create format method based on the style of
+this parseable layout.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="create_format_method-source">
+            <pre><span class="ruby-comment"># File lib/logging/layouts/parseable.rb, line 237</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_format_method</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-ivar">@style</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:json</span>; <span class="ruby-constant">Parseable</span>.<span class="ruby-identifier">create_json_format_method</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:yaml</span>; <span class="ruby-constant">Parseable</span>.<span class="ruby-identifier">create_yaml_format_method</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">else</span> <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;unknown format style &#39;#@style&#39;&quot;</span> <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- create_format_method-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- create_format_method-method -->
+
+    
+      <div id="method-i-iso8601_format" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">iso8601_format</span><span
+            class="method-args">( value )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Convert the given time <em>value</em> into an ISO8601 formatted time
+string.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="iso8601_format-source">
+            <pre><span class="ruby-comment"># File lib/logging/layouts/parseable.rb, line 246</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">iso8601_format</span>( <span class="ruby-identifier">value</span> )
+  <span class="ruby-identifier">str</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-string">&#39;%Y-%m-%dT%H:%M:%S&#39;</span>)
+  <span class="ruby-identifier">str</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-string">&#39;.%06d&#39;</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">usec</span>)
+
+  <span class="ruby-identifier">offset</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">gmt_offset</span>.<span class="ruby-identifier">abs</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">str</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;Z&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">offset</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+
+  <span class="ruby-identifier">offset</span> = <span class="ruby-identifier">sprintf</span>(<span class="ruby-string">&#39;%02d:%02d&#39;</span>, <span class="ruby-identifier">offset</span> <span class="ruby-operator">/</span> <span class="ruby-value">3600</span>, <span class="ruby-identifier">offset</span> <span class="ruby-operator">%</span> <span class="ruby-value">3600</span> <span class="ruby-operator">/</span> <span class="ruby-value">60</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">str</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">value</span>.<span class="ruby-identifier">gmt_offset</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;-&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;+&#39;</span>) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">offset</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- iso8601_format-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- iso8601_format-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

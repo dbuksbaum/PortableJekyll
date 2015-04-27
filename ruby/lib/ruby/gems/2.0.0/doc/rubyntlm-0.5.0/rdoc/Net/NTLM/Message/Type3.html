@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Net::NTLM::Message::Type3 - rubyntlm-0.5.0 Documentation</title>
+
+<link type="text/css" media="screen" href="../../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../../index.html">Home</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/net/ntlm/message/type3.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="../Message.html">Net::NTLM::Message</a>
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-create">::create</a>
+    
+    <li ><a href="#method-i-blank_password-3F">#blank_password?</a>
+    
+    <li ><a href="#method-i-ntlm2_session_password-3F">#ntlm2_session_password?</a>
+    
+    <li ><a href="#method-i-ntlm_version">#ntlm_version</a>
+    
+    <li ><a href="#method-i-ntlmv2_password-3F">#ntlmv2_password?</a>
+    
+    <li ><a href="#method-i-password-3F">#password?</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../Net.html">Net</a>
+  
+    <li><a href="../../../Net/NTLM.html">Net::NTLM</a>
+  
+    <li><a href="../../../Net/NTLM/Blob.html">Net::NTLM::Blob</a>
+  
+    <li><a href="../../../Net/NTLM/Client.html">Net::NTLM::Client</a>
+  
+    <li><a href="../../../Net/NTLM/Client/Session.html">Net::NTLM::Client::Session</a>
+  
+    <li><a href="../../../Net/NTLM/EncodeUtil.html">Net::NTLM::EncodeUtil</a>
+  
+    <li><a href="../../../Net/NTLM/Field.html">Net::NTLM::Field</a>
+  
+    <li><a href="../../../Net/NTLM/FieldSet.html">Net::NTLM::FieldSet</a>
+  
+    <li><a href="../../../Net/NTLM/Int16LE.html">Net::NTLM::Int16LE</a>
+  
+    <li><a href="../../../Net/NTLM/Int32LE.html">Net::NTLM::Int32LE</a>
+  
+    <li><a href="../../../Net/NTLM/Int64LE.html">Net::NTLM::Int64LE</a>
+  
+    <li><a href="../../../Net/NTLM/Message.html">Net::NTLM::Message</a>
+  
+    <li><a href="../../../Net/NTLM/Message/Type0.html">Net::NTLM::Message::Type0</a>
+  
+    <li><a href="../../../Net/NTLM/Message/Type1.html">Net::NTLM::Message::Type1</a>
+  
+    <li><a href="../../../Net/NTLM/Message/Type2.html">Net::NTLM::Message::Type2</a>
+  
+    <li><a href="../../../Net/NTLM/Message/Type3.html">Net::NTLM::Message::Type3</a>
+  
+    <li><a href="../../../Net/NTLM/SecurityBuffer.html">Net::NTLM::SecurityBuffer</a>
+  
+    <li><a href="../../../Net/NTLM/String.html">Net::NTLM::String</a>
+  
+    <li><a href="../../../Net/NTLM/VERSION.html">Net::NTLM::VERSION</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Net::NTLM::Message::Type3</h1>
+
+  <div id="description" class="description">
+    
+<p>@private false</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-create" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create</span><span
+            class="method-args">(arg, opt ={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Builds a Type 3 packet @note All options must be properly encoded with
+either unicode or oem encoding @return [Type3] @option arg [String]
+:lm_response The LM hash @option arg [String] :ntlm_response The <a
+href="../../NTLM.html">NTLM</a> hash @option arg [String] :domain The
+domain to authenticate to @option arg [String] :workstation The name of the
+calling workstation @option arg [String] :session_key The session key
+@option arg [Integer] :flag Flags for the packet</p>
+          
+          
+
+          
+          <div class="method-source-code" id="create-source">
+            <pre><span class="ruby-comment"># File lib/net/ntlm/message/type3.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>(<span class="ruby-identifier">arg</span>, <span class="ruby-identifier">opt</span> ={})
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">lm_response</span> = <span class="ruby-identifier">arg</span>[<span class="ruby-value">:lm_response</span>]
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">ntlm_response</span> = <span class="ruby-identifier">arg</span>[<span class="ruby-value">:ntlm_response</span>]
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">domain</span> = <span class="ruby-identifier">arg</span>[<span class="ruby-value">:domain</span>]
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">user</span> = <span class="ruby-identifier">arg</span>[<span class="ruby-value">:user</span>]
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">arg</span>[<span class="ruby-value">:workstation</span>]
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">workstation</span> = <span class="ruby-identifier">arg</span>[<span class="ruby-value">:workstation</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">arg</span>[<span class="ruby-value">:session_key</span>]
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">enable</span>(<span class="ruby-value">:session_key</span>)
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">session_key</span> = <span class="ruby-identifier">arg</span>[<span class="ruby-value">:session_key</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">arg</span>[<span class="ruby-value">:flag</span>]
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">enable</span>(<span class="ruby-value">:session_key</span>)
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">enable</span>(<span class="ruby-value">:flag</span>)
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">flag</span> = <span class="ruby-identifier">arg</span>[<span class="ruby-value">:flag</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">t</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- create-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- create-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-blank_password-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blank_password?</span><span
+            class="method-args">(server_challenge)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param server_challenge (see <a
+href="Type3.html#method-i-password-3F">password?</a>)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="blank_password-3F-source">
+            <pre><span class="ruby-comment"># File lib/net/ntlm/message/type3.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blank_password?</span>(<span class="ruby-identifier">server_challenge</span>)
+  <span class="ruby-identifier">password?</span>(<span class="ruby-string">&#39;&#39;</span>, <span class="ruby-identifier">server_challenge</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- blank_password-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- blank_password-3F-method -->
+
+    
+      <div id="method-i-ntlm_version" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ntlm_version</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [Symbol]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ntlm_version-source">
+            <pre><span class="ruby-comment"># File lib/net/ntlm/message/type3.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ntlm_version</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">ntlm_response</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">24</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">lm_response</span>[<span class="ruby-value">0</span>,<span class="ruby-value">8</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&quot;\x00&quot;</span><span class="ruby-operator">*</span><span class="ruby-value">8</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">lm_response</span>[<span class="ruby-value">8</span>,<span class="ruby-value">16</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;\x00&quot;</span><span class="ruby-operator">*</span><span class="ruby-value">16</span>
+    <span class="ruby-value">:ntlm2_session</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ntlm_response</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">24</span>
+    <span class="ruby-value">:ntlmv1</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ntlm_response</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">24</span>
+    <span class="ruby-value">:ntlmv2</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- ntlm_version-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- ntlm_version-method -->
+
+    
+      <div id="method-i-password-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">password?</span><span
+            class="method-args">(password, server_challenge)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param password [String] @param server_challenge [String] The server&#39;s
+{Type2#challenge challenge} from the</p>
+
+<pre>{Type2} message for which this object is a response.</pre>
+
+<p>@return [true] if <code>password</code> was the password used to generate
+this</p>
+
+<pre>{Type3} message</pre>
+
+<p>@return [false] otherwise</p>
+          
+          
+
+          
+          <div class="method-source-code" id="password-3F-source">
+            <pre><span class="ruby-comment"># File lib/net/ntlm/message/type3.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">password?</span>(<span class="ruby-identifier">password</span>, <span class="ruby-identifier">server_challenge</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">ntlm_version</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:ntlm2_session</span>
+    <span class="ruby-identifier">ntlm2_session_password?</span>(<span class="ruby-identifier">password</span>, <span class="ruby-identifier">server_challenge</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:ntlmv2</span>
+    <span class="ruby-identifier">ntlmv2_password?</span>(<span class="ruby-identifier">password</span>, <span class="ruby-identifier">server_challenge</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- password-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- password-3F-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-ntlm2_session_password-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ntlm2_session_password?</span><span
+            class="method-args">(password, server_challenge)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ntlm2_session_password-3F-source">
+            <pre><span class="ruby-comment"># File lib/net/ntlm/message/type3.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ntlm2_session_password?</span>(<span class="ruby-identifier">password</span>, <span class="ruby-identifier">server_challenge</span>)
+  <span class="ruby-identifier">hash</span> = <span class="ruby-identifier">ntlm_response</span>
+  <span class="ruby-identifier">_lm</span>, <span class="ruby-identifier">empty_hash</span> = <span class="ruby-constant">NTLM</span>.<span class="ruby-identifier">ntlm2_session</span>(
+    {
+      <span class="ruby-value">:ntlm_hash</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">NTLM</span>.<span class="ruby-identifier">ntlm_hash</span>(<span class="ruby-identifier">password</span>),
+      <span class="ruby-value">:challenge</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">server_challenge</span>,
+    },
+    {
+      <span class="ruby-value">:client_challenge</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">lm_response</span>[<span class="ruby-value">0</span>,<span class="ruby-value">8</span>]
+    }
+  )
+  <span class="ruby-identifier">hash</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">empty_hash</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- ntlm2_session_password-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- ntlm2_session_password-3F-method -->
+
+    
+      <div id="method-i-ntlmv2_password-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ntlmv2_password?</span><span
+            class="method-args">(password, server_challenge)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ntlmv2_password-3F-source">
+            <pre><span class="ruby-comment"># File lib/net/ntlm/message/type3.rb, line 103</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ntlmv2_password?</span>(<span class="ruby-identifier">password</span>, <span class="ruby-identifier">server_challenge</span>)
+
+  <span class="ruby-comment"># The first 16 bytes of the ntlm_response are the HMAC of the blob</span>
+  <span class="ruby-comment"># that follows it.</span>
+  <span class="ruby-identifier">blob</span> = <span class="ruby-constant">Blob</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">blob</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">ntlm_response</span>[<span class="ruby-value">16</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>])
+
+  <span class="ruby-identifier">empty_hash</span> = <span class="ruby-constant">NTLM</span>.<span class="ruby-identifier">ntlmv2_response</span>(
+    {
+      <span class="ruby-comment"># user and domain came from the serialized data here, so</span>
+      <span class="ruby-comment"># they&#39;re already unicode</span>
+      <span class="ruby-value">:ntlmv2_hash</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">NTLM</span>.<span class="ruby-identifier">ntlmv2_hash</span>(<span class="ruby-identifier">user</span>, <span class="ruby-string">&#39;&#39;</span>, <span class="ruby-identifier">domain</span>, <span class="ruby-value">:unicode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>),
+      <span class="ruby-value">:challenge</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">server_challenge</span>,
+      <span class="ruby-value">:target_info</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">blob</span>.<span class="ruby-identifier">target_info</span>
+    },
+    {
+      <span class="ruby-value">:client_challenge</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">blob</span>.<span class="ruby-identifier">challenge</span>,
+      <span class="ruby-comment"># The blob&#39;s timestamp is already in milliseconds since 1601,</span>
+      <span class="ruby-comment"># so convert it back to epoch time first</span>
+      <span class="ruby-value">:timestamp</span> =<span class="ruby-operator">&gt;</span> (<span class="ruby-identifier">blob</span>.<span class="ruby-identifier">timestamp</span> <span class="ruby-operator">/</span> <span class="ruby-value">10_000_000</span>) <span class="ruby-operator">-</span> <span class="ruby-constant">NTLM</span><span class="ruby-operator">::</span><span class="ruby-constant">TIME_OFFSET</span>,
+    }
+  )
+
+  <span class="ruby-identifier">empty_hash</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">ntlm_response</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- ntlmv2_password-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- ntlmv2_password-3F-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

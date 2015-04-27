@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module HighLine::SystemExtensions::WinAPI - HighLine Documentation</title>
+
+<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../index.html">Home</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/highline/system_extensions.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    <!-- Included Modules -->
+<nav id="includes-section" class="section">
+  <h3 class="section-header">Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><span class="include">Fiddle</span>
+  
+  
+  </ul>
+</nav>
+
+    <!-- Extension Modules -->
+<nav id="extends-section" class="section">
+  <h3 class="section-header">Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><span class="extend">DL::Importer</span>
+  
+  
+  
+    <li><span class="extend">DL::Importable</span>
+  
+  
+  </ul>
+</nav>
+
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-GetConsoleScreenBufferInfo">::GetConsoleScreenBufferInfo</a>
+    
+    <li ><a href="#method-c-GetStdHandle">::GetStdHandle</a>
+    
+    <li ><a href="#method-c-_getch">::_getch</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../Changelog_md.html">Changelog</a>
+  
+    <li class="file"><a href="../../INSTALL.html">INSTALL</a>
+  
+    <li class="file"><a href="../../LICENSE.html">LICENSE</a>
+  
+    <li class="file"><a href="../../README_rdoc.html">README</a>
+  
+    <li class="file"><a href="../../TODO.html">TODO</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../HighLine.html">HighLine</a>
+  
+    <li><a href="../../HighLine/ColorScheme.html">HighLine::ColorScheme</a>
+  
+    <li><a href="../../HighLine/HighLine.html">HighLine::HighLine</a>
+  
+    <li><a href="../../HighLine/HighLine/HighLine.html">HighLine::HighLine::HighLine</a>
+  
+    <li><a href="../../HighLine/HighLine/HighLine/String.html">HighLine::HighLine::HighLine::String</a>
+  
+    <li><a href="../../HighLine/Menu.html">HighLine::Menu</a>
+  
+    <li><a href="../../HighLine/Question.html">HighLine::Question</a>
+  
+    <li><a href="../../HighLine/Question/NoAutoCompleteMatch.html">HighLine::Question::NoAutoCompleteMatch</a>
+  
+    <li><a href="../../HighLine/QuestionError.html">HighLine::QuestionError</a>
+  
+    <li><a href="../../HighLine/SampleColorScheme.html">HighLine::SampleColorScheme</a>
+  
+    <li><a href="../../HighLine/Simulate.html">HighLine::Simulate</a>
+  
+    <li><a href="../../HighLine/StringExtensions.html">HighLine::StringExtensions</a>
+  
+    <li><a href="../../HighLine/Style.html">HighLine::Style</a>
+  
+    <li><a href="../../HighLine/SystemExtensions.html">HighLine::SystemExtensions</a>
+  
+    <li><a href="../../HighLine/SystemExtensions/WinAPI.html">HighLine::SystemExtensions::WinAPI</a>
+  
+    <li><a href="../../HighLine/SystemExtensions/WinAPI/DL.html">HighLine::SystemExtensions::WinAPI::DL</a>
+  
+    <li><a href="../../IO.html">IO</a>
+  
+    <li><a href="../../Kernel.html">Kernel</a>
+  
+    <li><a href="../../Object.html">Object</a>
+  
+    <li><a href="../../String.html">String</a>
+  
+    <li><a href="../../StringIO.html">StringIO</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module HighLine::SystemExtensions::WinAPI</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="Crt">Crt
+        
+        <dd class="description">
+        
+      
+        <dt id="Handle">Handle
+        
+        <dd class="description">
+        
+      
+        <dt id="Kernel32">Kernel32
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-GetConsoleScreenBufferInfo" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">GetConsoleScreenBufferInfo</span><span
+            class="method-args">(cons_handle, lp_buffer)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="GetConsoleScreenBufferInfo-source">
+            <pre><span class="ruby-comment"># File lib/highline/system_extensions.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-constant">GetConsoleScreenBufferInfo</span>(<span class="ruby-identifier">cons_handle</span>, <span class="ruby-identifier">lp_buffer</span>)
+  <span class="ruby-identifier">@@get_console_screen_buffer_info</span> <span class="ruby-operator">||=</span>
+    <span class="ruby-constant">Function</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Kernel32</span>[<span class="ruby-string">&quot;GetConsoleScreenBufferInfo&quot;</span>], [<span class="ruby-constant">TYPE_LONG</span>, <span class="ruby-constant">TYPE_VOIDP</span>], <span class="ruby-constant">TYPE_INT</span>)
+  <span class="ruby-identifier">@@get_console_screen_buffer_info</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">cons_handle</span>, <span class="ruby-identifier">lp_buffer</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- GetConsoleScreenBufferInfo-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- GetConsoleScreenBufferInfo-method -->
+
+    
+      <div id="method-c-GetStdHandle" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">GetStdHandle</span><span
+            class="method-args">(handle_type)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="GetStdHandle-source">
+            <pre><span class="ruby-comment"># File lib/highline/system_extensions.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-constant">GetStdHandle</span>(<span class="ruby-identifier">handle_type</span>)
+  <span class="ruby-identifier">@@get_std_handle</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Function</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Kernel32</span>[<span class="ruby-string">&quot;GetStdHandle&quot;</span>], [<span class="ruby-operator">-</span><span class="ruby-constant">TYPE_INT</span>], <span class="ruby-operator">-</span><span class="ruby-constant">TYPE_INT</span>)
+  <span class="ruby-identifier">@@get_std_handle</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">handle_type</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- GetStdHandle-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- GetStdHandle-method -->
+
+    
+      <div id="method-c-_getch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_getch</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_getch-source">
+            <pre><span class="ruby-comment"># File lib/highline/system_extensions.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">_getch</span>
+  <span class="ruby-identifier">@@_m_getch</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Function</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Crt</span>[<span class="ruby-string">&quot;_getch&quot;</span>], [], <span class="ruby-constant">TYPE_INT</span>)
+  <span class="ruby-identifier">@@_m_getch</span>.<span class="ruby-identifier">call</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- _getch-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- _getch-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

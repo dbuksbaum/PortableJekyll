@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Syntax::Javascript - syntax-1.2.0 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/syntax/lang/javascript.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="Tokenizer.html">Syntax::Tokenizer</a>
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-i-step">#step</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Syntax.html">Syntax</a>
+  
+    <li><a href="../Syntax/AnsiC.html">Syntax::AnsiC</a>
+  
+    <li><a href="../Syntax/CSS21.html">Syntax::CSS21</a>
+  
+    <li><a href="../Syntax/Convertors.html">Syntax::Convertors</a>
+  
+    <li><a href="../Syntax/Convertors/Abstract.html">Syntax::Convertors::Abstract</a>
+  
+    <li><a href="../Syntax/Convertors/HTML.html">Syntax::Convertors::HTML</a>
+  
+    <li><a href="../Syntax/Default.html">Syntax::Default</a>
+  
+    <li><a href="../Syntax/Fortran.html">Syntax::Fortran</a>
+  
+    <li><a href="../Syntax/Javascript.html">Syntax::Javascript</a>
+  
+    <li><a href="../Syntax/Ruby.html">Syntax::Ruby</a>
+  
+    <li><a href="../Syntax/SQLite.html">Syntax::SQLite</a>
+  
+    <li><a href="../Syntax/Token.html">Syntax::Token</a>
+  
+    <li><a href="../Syntax/Tokenizer.html">Syntax::Tokenizer</a>
+  
+    <li><a href="../Syntax/Version.html">Syntax::Version</a>
+  
+    <li><a href="../Syntax/XML.html">Syntax::XML</a>
+  
+    <li><a href="../Syntax/YAML.html">Syntax::YAML</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Syntax::Javascript</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="JAVASCRIPT_KEYWORDS">JAVASCRIPT_KEYWORDS
+        
+        <dd class="description">
+        
+      
+        <dt id="JAVASCRIPT_PREDEFINED_CONSTANTS">JAVASCRIPT_PREDEFINED_CONSTANTS
+        
+        <dd class="description">
+        
+      
+        <dt id="JAVASCRIPT_PREDEFINED_TYPES">JAVASCRIPT_PREDEFINED_TYPES
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-step" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">step</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="step-source">
+            <pre><span class="ruby-comment"># File lib/syntax/lang/javascript.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">step</span>
+  <span class="ruby-keyword">case</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/\s+/</span>)
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:normal</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/\u[0-9a-f]{4}/</span>)
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:unicode</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/0[xX][0-9A-Fa-f]+/</span>)
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:hex</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/(?:0[0-7]+)(?![89.eEfF])/</span>)
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:oct</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/(?:\d+)(?![.eEfF])/</span>)
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:integer</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/\d[fF]?|\d*\.\d+(?:[eE][+-]?\d+)?[fF]?|\d+[eE][+-]?\d+[fF]?/</span>)
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:float</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">when</span> (<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/&quot;(?:[^&quot;\]|\.)*&quot;/</span>) <span class="ruby-keyword">or</span> <span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/&#39;(?:[^&#39;\]|\.)*&#39;/</span>) )
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:string</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/[a-z_$][a-z_\d]*/</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">JAVASCRIPT_KEYWORDS</span>.<span class="ruby-identifier">include?</span>( <span class="ruby-identifier">matched</span> )
+      <span class="ruby-identifier">start_group</span> <span class="ruby-value">:keyword</span>, <span class="ruby-identifier">matched</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-constant">JAVASCRIPT_PREDEFINED_TYPES</span>.<span class="ruby-identifier">include?</span>( <span class="ruby-identifier">matched</span> )
+      <span class="ruby-identifier">start_group</span> <span class="ruby-value">:predefined_types</span>, <span class="ruby-identifier">matched</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">start_group</span> <span class="ruby-value">:ident</span>, <span class="ruby-identifier">matched</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">scan</span>(<span class="ruby-regexp">%r // [^\n\]* (?: \. [^\n\]* )* | /\* (?: .*? \*/ | .* ) !</span><span class="ruby-identifier">x</span>)
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:comment</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:other</span>, <span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/./</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- step-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- step-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

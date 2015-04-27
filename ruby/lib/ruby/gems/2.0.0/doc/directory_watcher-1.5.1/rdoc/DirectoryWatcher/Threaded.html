@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module DirectoryWatcher::Threaded - directory_watcher-1.5.1 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+<div id="table-of-contents">
+  <nav class="section">
+    <h3 class="section-header">Table of Contents</h3>
+    <ul>
+      <li><a href="#label-Synopsis">Synopsis</a>
+      <li><a href="#label-Details">Details</a>
+    </ul>
+  </nav>
+</div>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/directory_watcher/threaded.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-i-continue_on_error-3D">#continue_on_error=</a>
+    
+    <li ><a href="#method-i-continue_on_error-3F">#continue_on_error?</a>
+    
+    <li ><a href="#method-i-finished_iterations-3F">#finished_iterations?</a>
+    
+    <li ><a href="#method-i-interval">#interval</a>
+    
+    <li ><a href="#method-i-interval-3D">#interval=</a>
+    
+    <li ><a href="#method-i-iterations">#iterations</a>
+    
+    <li ><a href="#method-i-join">#join</a>
+    
+    <li ><a href="#method-i-maximum_iterations">#maximum_iterations</a>
+    
+    <li ><a href="#method-i-maximum_iterations-3D">#maximum_iterations=</a>
+    
+    <li ><a href="#method-i-pause">#pause</a>
+    
+    <li ><a href="#method-i-resume">#resume</a>
+    
+    <li ><a href="#method-i-run">#run</a>
+    
+    <li ><a href="#method-i-running-3F">#running?</a>
+    
+    <li ><a href="#method-i-start">#start</a>
+    
+    <li ><a href="#method-i-status">#status</a>
+    
+    <li ><a href="#method-i-stop">#stop</a>
+    
+    <li ><a href="#method-i-wait">#wait</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../History_txt.html">History</a>
+  
+    <li class="file"><a href="../README_txt.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../DirectoryWatcher.html">DirectoryWatcher</a>
+  
+    <li><a href="../DirectoryWatcher/Collector.html">DirectoryWatcher::Collector</a>
+  
+    <li><a href="../DirectoryWatcher/Configuration.html">DirectoryWatcher::Configuration</a>
+  
+    <li><a href="../DirectoryWatcher/CoolioScanner.html">DirectoryWatcher::CoolioScanner</a>
+  
+    <li><a href="../DirectoryWatcher/EmScanner.html">DirectoryWatcher::EmScanner</a>
+  
+    <li><a href="../DirectoryWatcher/Event.html">DirectoryWatcher::Event</a>
+  
+    <li><a href="../DirectoryWatcher/EventableScanner.html">DirectoryWatcher::EventableScanner</a>
+  
+    <li><a href="../DirectoryWatcher/FileStat.html">DirectoryWatcher::FileStat</a>
+  
+    <li><a href="../DirectoryWatcher/Logable.html">DirectoryWatcher::Logable</a>
+  
+    <li><a href="../DirectoryWatcher/Notifier.html">DirectoryWatcher::Notifier</a>
+  
+    <li><a href="../DirectoryWatcher/NullLogger.html">DirectoryWatcher::NullLogger</a>
+  
+    <li><a href="../DirectoryWatcher/Paths.html">DirectoryWatcher::Paths</a>
+  
+    <li><a href="../DirectoryWatcher/RevScanner.html">DirectoryWatcher::RevScanner</a>
+  
+    <li><a href="../DirectoryWatcher/Scan.html">DirectoryWatcher::Scan</a>
+  
+    <li><a href="../DirectoryWatcher/ScanAndQueue.html">DirectoryWatcher::ScanAndQueue</a>
+  
+    <li><a href="../DirectoryWatcher/Scanner.html">DirectoryWatcher::Scanner</a>
+  
+    <li><a href="../DirectoryWatcher/Threaded.html">DirectoryWatcher::Threaded</a>
+  
+    <li><a href="../DirectoryWatcher/Version.html">DirectoryWatcher::Version</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module DirectoryWatcher::Threaded</h1>
+
+  <div id="description" class="description">
+    
+<h2 id="label-Synopsis">Synopsis<span><a href="#label-Synopsis">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>The <a href="Threaded.html">Threaded</a> module is used to perform some
+activity at a specified interval.</p>
+
+<h2 id="label-Details">Details<span><a href="#label-Details">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Sometimes it is useful for an object to have its own thread of execution to
+perform a task at a recurring interval. The <a
+href="Threaded.html">Threaded</a> module encapsulates this functionality so
+you don&#39;t have to write it yourself. It can be used with any object
+that responds to the <code>run</code> method.</p>
+
+<p>The threaded object is run by calling the <code>start</code> method. This
+will create a new thread that will invoke the <code>run</code> method at
+the desired interval. Just before the thread is created the
+<code>before_starting</code> method will be called (if it is defined by the
+threaded object). Likewise, after the thread is created the
+<code>after_starting</code> method will be called (if it is defined by the
+threaded object).</p>
+
+<p>The threaded object is stopped by calling the <code>stop</code> method.
+This sets an internal flag and then wakes up the thread. The thread
+gracefully exits after checking the flag. Like the start method, before and
+after methods are defined for stopping as well. Just before the thread is
+stopped the <code>before_stopping</code> method will be called (if it is
+defined by the threaded object). Likewise, after the thread has died the
+<code>after_stopping</code> method will be called (if it is defined by the
+threaded object).</p>
+
+<p>Calling the <code>join</code> method on a threaded object will cause the
+calling thread to wait until the threaded object has stopped. An optional
+timeout parameter can be given.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-continue_on_error-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">continue_on_error=</span><span
+            class="method-args">( value )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set to <code>true</code> to continue running the threaded object even if an
+error is raised by the <code>run</code> method. The default behavior is to
+stop the activity thread when an error is raised by the run method.</p>
+
+<p>A SystemExit will never be caught; it will always cause the Ruby
+interpreter to exit.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="continue_on_error-3D-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/threaded.rb, line 194</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">continue_on_error=</span>( <span class="ruby-identifier">value</span> )
+  <span class="ruby-identifier">_activity_thread</span>.<span class="ruby-identifier">continue_on_error</span> = (<span class="ruby-identifier">value</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- continue_on_error-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- continue_on_error-3D-method -->
+
+    
+      <div id="method-i-continue_on_error-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">continue_on_error?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns <code>true</code> if the threaded object should continue running
+even if an error is raised by the run method. The default is to return
+<code>false</code>. The threaded object will stop running when an error is
+raised.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="continue_on_error-3F-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/threaded.rb, line 202</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">continue_on_error?</span>
+  <span class="ruby-identifier">_activity_thread</span>.<span class="ruby-identifier">continue_on_error</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- continue_on_error-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- continue_on_error-3F-method -->
+
+    
+      <div id="method-i-finished_iterations-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">finished_iterations?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns <code>true</code> if the activity thread has finished its maximum
+number of iterations or the thread is no longer running. Returns
+<code>false</code> otherwise.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="finished_iterations-3F-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/threaded.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">finished_iterations?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">_activity_thread</span>.<span class="ruby-identifier">running?</span>
+  <span class="ruby-ivar">@_activity_thread</span>.<span class="ruby-identifier">finished_iterations?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- finished_iterations-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- finished_iterations-3F-method -->
+
+    
+      <div id="method-i-interval" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">interval</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the number of seconds to sleep between invocations of the threaded
+object&#39;s &#39;run&#39; method.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="interval-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/threaded.rb, line 157</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">interval</span>
+  <span class="ruby-identifier">_activity_thread</span>.<span class="ruby-identifier">interval</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- interval-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- interval-method -->
+
+    
+      <div id="method-i-interval-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">interval=</span><span
+            class="method-args">( value )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets the number of seconds to sleep between invocations of the threaded
+object&#39;s &#39;run&#39; method.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="interval-3D-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/threaded.rb, line 148</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">interval=</span>( <span class="ruby-identifier">value</span> )
+  <span class="ruby-identifier">value</span> = <span class="ruby-constant">Float</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;Sleep interval must be &gt;= 0&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">0</span>
+  <span class="ruby-identifier">_activity_thread</span>.<span class="ruby-identifier">interval</span> = <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- interval-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- interval-3D-method -->
+
+    
+      <div id="method-i-iterations" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">iterations</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the number of iterations of the threaded object&#39;s &#39;run&#39;
+method completed thus far.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="iterations-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/threaded.rb, line 183</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">iterations</span>
+  <span class="ruby-identifier">_activity_thread</span>.<span class="ruby-identifier">iterations</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- iterations-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- iterations-method -->
+
+    
+      <div id="method-i-join" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">join</span><span
+            class="method-args">( limit = nil )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>If the activity thread is running, the calling thread will suspend
+execution and run the activity thread. This method does not return until
+the activity thread is stopped or until <em>limit</em> seconds have passed.</p>
+
+<p>If the activity thread is not running, this method returns immediately with
+<code>nil</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="join-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/threaded.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">join</span>( <span class="ruby-identifier">limit</span> = <span class="ruby-keyword">nil</span> )
+  <span class="ruby-identifier">_activity_thread</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">limit</span>) <span class="ruby-operator">?</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- join-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- join-method -->
+
+    
+      <div id="method-i-maximum_iterations" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">maximum_iterations</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the maximum number of invocations of the threaded object&#39;s
+&#39;run&#39; method</p>
+          
+          
+
+          
+          <div class="method-source-code" id="maximum_iterations-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/threaded.rb, line 176</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">maximum_iterations</span>
+  <span class="ruby-identifier">_activity_thread</span>.<span class="ruby-identifier">maximum_iterations</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- maximum_iterations-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- maximum_iterations-method -->
+
+    
+      <div id="method-i-maximum_iterations-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">maximum_iterations=</span><span
+            class="method-args">( value )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets the maximum number of invocations of the threaded object&#39;s
+&#39;run&#39; method</p>
+          
+          
+
+          
+          <div class="method-source-code" id="maximum_iterations-3D-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/threaded.rb, line 164</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">maximum_iterations=</span>( <span class="ruby-identifier">value</span> )
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-constant">Integer</span>(<span class="ruby-identifier">value</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;maximum iterations must be &gt;= 1&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">_activity_thread</span>.<span class="ruby-identifier">maximum_iterations</span> = <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- maximum_iterations-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- maximum_iterations-3D-method -->
+
+    
+      <div id="method-i-pause" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pause</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Stop the activity thread from doing work. This will not stop the activity
+thread, it will just stop it from calling the &#39;run&#39; method on every
+iteration. It will also not increment the number of iterations it has run.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="pause-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/threaded.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pause</span>
+  <span class="ruby-ivar">@_activity_thread</span>.<span class="ruby-identifier">working</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- pause-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- pause-method -->
+
+    
+      <div id="method-i-resume" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">resume</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Resume the activity thread</p>
+          
+          
+
+          
+          <div class="method-source-code" id="resume-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/threaded.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">resume</span>
+  <span class="ruby-ivar">@_activity_thread</span>.<span class="ruby-identifier">working</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- resume-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- resume-method -->
+
+    
+      <div id="method-i-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method will be called by the activity thread at the desired interval.
+Implementing classes are expect to provide this functionality.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/threaded.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>,
+       <span class="ruby-string">&#39;The run method must be defined by the threaded object.&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- run-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- run-method -->
+
+    
+      <div id="method-i-running-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">running?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns <code>true</code> if the activity thread is running. Returns
+<code>false</code> otherwise.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="running-3F-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/threaded.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">running?</span>
+  <span class="ruby-identifier">_activity_thread</span>.<span class="ruby-identifier">running?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- running-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- running-3F-method -->
+
+    
+      <div id="method-i-start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Start the activity thread. If already started this method will return
+without taking any action.</p>
+
+<p>If the including class defines a &#39;before_starting&#39; method, it will
+be called before the thread is created and run. Likewise, if the including
+class defines an &#39;after_starting&#39; method, it will be called after
+the thread is created.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="start-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/threaded.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">start</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">_activity_thread</span>.<span class="ruby-identifier">running?</span>
+
+  <span class="ruby-identifier">before_starting</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:before_starting</span>)
+  <span class="ruby-ivar">@_activity_thread</span>.<span class="ruby-identifier">start</span> <span class="ruby-keyword">self</span>
+  <span class="ruby-identifier">after_starting</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:after_starting</span>)
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- start-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- start-method -->
+
+    
+      <div id="method-i-status" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">status</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the status of threaded object.</p>
+
+<pre>&#39;sleep&#39;    : sleeping or waiting on I/O
+&#39;run&#39;      : executing
+&#39;aborting&#39; : aborting
+false      : not running or terminated normally
+nil        : terminated with an exception</pre>
+
+<p>If this method returns <code>nil</code>, then calling join on the threaded
+object will cause the exception to be raised in the calling thread.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="status-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/threaded.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">status</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">_activity_thread</span>.<span class="ruby-identifier">thread</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-ivar">@_activity_thread</span>.<span class="ruby-identifier">thread</span>.<span class="ruby-identifier">status</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- status-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- status-method -->
+
+    
+      <div id="method-i-stop" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stop</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Stop the activity thread. If already stopped this method will return
+without taking any action.</p>
+
+<p>If the including class defines a &#39;before_stopping&#39; method, it will
+be called before the thread is stopped. Likewise, if the including class
+defines an &#39;after_stopping&#39; method, it will be called after the
+thread has stopped.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="stop-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/threaded.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stop</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">_activity_thread</span>.<span class="ruby-identifier">running?</span>
+
+  <span class="ruby-identifier">before_stopping</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:before_stopping</span>)
+  <span class="ruby-ivar">@_activity_thread</span>.<span class="ruby-identifier">stop</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- stop-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- stop-method -->
+
+    
+      <div id="method-i-wait" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">wait</span><span
+            class="method-args">( limit = nil )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Wait on the activity thread.  If the thread is already stopped, this method
+will return without taking any action.  Otherwise, this method does not
+return until the activity thread has stopped, or a specific number of
+iterations has passed since this method was called.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="wait-source">
+            <pre><span class="ruby-comment"># File lib/directory_watcher/threaded.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">wait</span>( <span class="ruby-identifier">limit</span> = <span class="ruby-keyword">nil</span> )
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">_activity_thread</span>.<span class="ruby-identifier">running?</span>
+  <span class="ruby-identifier">initial_iterations</span> = <span class="ruby-ivar">@_activity_thread</span>.<span class="ruby-identifier">iterations</span>
+  <span class="ruby-identifier">loop</span> {
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@_activity_thread</span>.<span class="ruby-identifier">running?</span>
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">limit</span> <span class="ruby-keyword">and</span> <span class="ruby-ivar">@_activity_thread</span>.<span class="ruby-identifier">iterations</span> <span class="ruby-operator">&gt;</span> ( <span class="ruby-identifier">initial_iterations</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">limit</span> )
+    <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">pass</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- wait-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- wait-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

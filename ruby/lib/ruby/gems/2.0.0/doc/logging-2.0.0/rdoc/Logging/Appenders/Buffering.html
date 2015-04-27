@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module Logging::Appenders::Buffering - logging-2.0.0 Documentation</title>
+
+<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../index.html">Home</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/logging/appenders/buffering.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-_parse_hours_minutes_seconds">#_parse_hours_minutes_seconds</a>
+    
+    <li ><a href="#method-i-_parse_numeric">#_parse_numeric</a>
+    
+    <li ><a href="#method-i-_setup_periodic_flusher">#_setup_periodic_flusher</a>
+    
+    <li ><a href="#method-i-auto_flushing-3D">#auto_flushing=</a>
+    
+    <li ><a href="#method-i-clear-21">#clear!</a>
+    
+    <li class="calls-super" ><a href="#method-i-close">#close</a>
+    
+    <li ><a href="#method-i-configure_buffering">#configure_buffering</a>
+    
+    <li ><a href="#method-i-flush">#flush</a>
+    
+    <li ><a href="#method-i-flush_period-3D">#flush_period=</a>
+    
+    <li ><a href="#method-i-immediate-3F">#immediate?</a>
+    
+    <li ><a href="#method-i-immediate_at-3D">#immediate_at=</a>
+    
+    <li class="calls-super" ><a href="#method-i-reopen">#reopen</a>
+    
+    <li ><a href="#method-i-write">#write</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../History_txt.html">History</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../File.html">File</a>
+  
+    <li><a href="../../FileUtils.html">FileUtils</a>
+  
+    <li><a href="../../Logging.html">Logging</a>
+  
+    <li><a href="../../Logging/Appender.html">Logging::Appender</a>
+  
+    <li><a href="../../Logging/Appenders.html">Logging::Appenders</a>
+  
+    <li><a href="../../Logging/Appenders/Buffering.html">Logging::Appenders::Buffering</a>
+  
+    <li><a href="../../Logging/Appenders/File.html">Logging::Appenders::File</a>
+  
+    <li><a href="../../Logging/Appenders/IO.html">Logging::Appenders::IO</a>
+  
+    <li><a href="../../Logging/Appenders/RollingFile.html">Logging::Appenders::RollingFile</a>
+  
+    <li><a href="../../Logging/Appenders/RollingFile/Roller.html">Logging::Appenders::RollingFile::Roller</a>
+  
+    <li><a href="../../Logging/Appenders/Stderr.html">Logging::Appenders::Stderr</a>
+  
+    <li><a href="../../Logging/Appenders/Stdout.html">Logging::Appenders::Stdout</a>
+  
+    <li><a href="../../Logging/Appenders/StringIo.html">Logging::Appenders::StringIo</a>
+  
+    <li><a href="../../Logging/Appenders/Syslog.html">Logging::Appenders::Syslog</a>
+  
+    <li><a href="../../Logging/ColorScheme.html">Logging::ColorScheme</a>
+  
+    <li><a href="../../Logging/Filter.html">Logging::Filter</a>
+  
+    <li><a href="../../Logging/Filters.html">Logging::Filters</a>
+  
+    <li><a href="../../Logging/Filters/Level.html">Logging::Filters::Level</a>
+  
+    <li><a href="../../Logging/Layout.html">Logging::Layout</a>
+  
+    <li><a href="../../Logging/Layouts.html">Logging::Layouts</a>
+  
+    <li><a href="../../Logging/Layouts/Basic.html">Logging::Layouts::Basic</a>
+  
+    <li><a href="../../Logging/Layouts/Parseable.html">Logging::Layouts::Parseable</a>
+  
+    <li><a href="../../Logging/Layouts/Parseable/layout;.html">Logging::Layouts::Parseable::layout;</a>
+  
+    <li><a href="../../Logging/Layouts/Pattern.html">Logging::Layouts::Pattern</a>
+  
+    <li><a href="../../Logging/Logger.html">Logging::Logger</a>
+  
+    <li><a href="../../Logging/Logger.html">Logging::Logger</a>
+  
+    <li><a href="../../Logging/MappedDiagnosticContext.html">Logging::MappedDiagnosticContext</a>
+  
+    <li><a href="../../Logging/NestedDiagnosticContext.html">Logging::NestedDiagnosticContext</a>
+  
+    <li><a href="../../Logging/Proxy.html">Logging::Proxy</a>
+  
+    <li><a href="../../Logging/RailsCompat.html">Logging::RailsCompat</a>
+  
+    <li><a href="../../Logging/Repository.html">Logging::Repository</a>
+  
+    <li><a href="../../Logging/Repository/Singleton.html">Logging::Repository::Singleton</a>
+  
+    <li><a href="../../Logging/RootLogger.html">Logging::RootLogger</a>
+  
+    <li><a href="../../Logging/logger.html">Logging::logger</a>
+  
+    <li><a href="../../Module.html">Module</a>
+  
+    <li><a href="../../Object.html">Object</a>
+  
+    <li><a href="../../RSpec.html">RSpec</a>
+  
+    <li><a href="../../RSpec/Core.html">RSpec::Core</a>
+  
+    <li><a href="../../RSpec/Core/Configuration.html">RSpec::Core::Configuration</a>
+  
+    <li><a href="../../RSpec/LoggingHelper.html">RSpec::LoggingHelper</a>
+  
+    <li><a href="../../RSpec/LoggingHelper.html">RSpec::LoggingHelper</a>
+  
+    <li><a href="../../ReentrantMutex.html">ReentrantMutex</a>
+  
+    <li><a href="../../Spec.html">Spec</a>
+  
+    <li><a href="../../Spec/Runner.html">Spec::Runner</a>
+  
+    <li><a href="../../Spec/Runner/Configuration.html">Spec::Runner::Configuration</a>
+  
+    <li><a href="../../String.html">String</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module Logging::Appenders::Buffering</h1>
+
+  <div id="description" class="description">
+    
+<p>The <a href="Buffering.html">Buffering</a> module is used to implement
+buffering of the log messages in a given appender. The size of the buffer
+can be specified, and the buffer can be configured to auto-flush at a given
+threshold. The threshold can be a single message or a very large number of
+messages.</p>
+
+<p>Log messages of a certain level can cause the buffer to be flushed
+immediately. If an error occurs, all previous messages and the error
+message will be written immediately to the logging destination if the
+buffer is configured to do so.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="DEFAULT_BUFFER_SIZE">DEFAULT_BUFFER_SIZE
+        
+        <dd class="description"><p>Default buffer size</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-auto_flushing" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">auto_flushing</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The auto-flushing setting. When the buffer reaches this size, all messages
+will be be flushed automatically.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-buffer" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">buffer</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The buffer holding the log messages</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-flush_period" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">flush_period</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>When set, the buffer will be flushed at regular intervals defined by the
+flush_period.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-write_size" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">write_size</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Messages will be written in chunks. This controls the number of messages to
+pull from the buffer for each write operation. The default is to pull all
+messages from the buffer at once.</p>
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">( *args, &block )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Setup the message buffer and other variables for automatically and
+periodically flushing the buffer.</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/logging/appenders/buffering.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>( <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span> )
+  <span class="ruby-ivar">@buffer</span> = []
+  <span class="ruby-ivar">@immediate</span> = []
+  <span class="ruby-ivar">@auto_flushing</span> = <span class="ruby-value">1</span>
+  <span class="ruby-ivar">@flush_period</span> = <span class="ruby-ivar">@periodic_flusher</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-keyword">super</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-auto_flushing-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">auto_flushing=</span><span
+            class="method-args">( period )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Configure the auto-flushing threshold. Auto-flushing is used to flush the
+contents of the logging buffer to the logging destination automatically
+when the buffer reaches a certain threshold.</p>
+
+<p>By default, the auto-flushing will be configured to flush after each log
+message.</p>
+
+<p>The allowed settings are as follows:</p>
+
+<pre>N      : flush after every N messages (N is an integer)
+true   : flush after each log message
+false  OR
+nil    OR
+0      : only flush when the buffer is full (500 messages)</pre>
+
+<p>If the default buffer size of 500 is too small, then you can manually
+configure it to be as large as you want. This will consume more memory.</p>
+
+<pre>auto_flushing = 42_000</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="auto_flushing-3D-source">
+            <pre><span class="ruby-comment"># File lib/logging/appenders/buffering.rb, line 155</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">auto_flushing=</span>( <span class="ruby-identifier">period</span> )
+  <span class="ruby-ivar">@auto_flushing</span> =
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">period</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-keyword">true</span>;             <span class="ruby-value">1</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-keyword">false</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-value">0</span>;    <span class="ruby-constant">DEFAULT_BUFFER_SIZE</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Integer</span>;          <span class="ruby-identifier">period</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>;           <span class="ruby-constant">Integer</span>(<span class="ruby-identifier">period</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>,
+            <span class="ruby-node">&quot;unrecognized auto_flushing period: #{period.inspect}&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@auto_flushing</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>,
+      <span class="ruby-node">&quot;auto_flushing period must be greater than zero: #{period.inspect}&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@auto_flushing</span> = <span class="ruby-constant">DEFAULT_BUFFER_SIZE</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@flush_period</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@auto_flushing</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">1</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- auto_flushing-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- auto_flushing-3D-method -->
+
+    
+      <div id="method-i-clear-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clear!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Clear the underlying buffer of all log events. These events will not be
+appended to the logging destination; they will be lost.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="clear-21-source">
+            <pre><span class="ruby-comment"># File lib/logging/appenders/buffering.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clear!</span>
+  <span class="ruby-identifier">sync</span> { <span class="ruby-ivar">@buffer</span>.<span class="ruby-identifier">clear</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- clear-21-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- clear-21-method -->
+
+    
+      <div id="method-i-close" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">close</span><span
+            class="method-args">( *args )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Close the message buffer by flushing all log events to the appender. If a
+periodic flusher thread is running, shut it down and allow it to exit.</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="close-source">
+            <pre><span class="ruby-comment"># File lib/logging/appenders/buffering.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">close</span>( <span class="ruby-operator">*</span><span class="ruby-identifier">args</span> )
+  <span class="ruby-identifier">flush</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@periodic_flusher</span>
+    <span class="ruby-ivar">@periodic_flusher</span>.<span class="ruby-identifier">stop</span>
+    <span class="ruby-ivar">@periodic_flusher</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">pass</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">super</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- close-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- close-method -->
+
+    
+      <div id="method-i-flush" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">flush</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Call `flush` to force an appender to write out any buffered log events.
+Similar to `IO#flush`, so use in a similar fashion.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="flush-source">
+            <pre><span class="ruby-comment"># File lib/logging/appenders/buffering.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">flush</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@buffer</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-identifier">ary</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">sync</span> {
+    <span class="ruby-identifier">ary</span> = <span class="ruby-ivar">@buffer</span>.<span class="ruby-identifier">dup</span>
+    <span class="ruby-ivar">@buffer</span>.<span class="ruby-identifier">clear</span>
+  }
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">ary</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">write_size</span>
+    <span class="ruby-identifier">str</span> = <span class="ruby-identifier">ary</span>.<span class="ruby-identifier">join</span>
+    <span class="ruby-identifier">canonical_write</span> <span class="ruby-identifier">str</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">ary</span>.<span class="ruby-identifier">each_slice</span>(<span class="ruby-identifier">write_size</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">str</span> = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">join</span>
+      <span class="ruby-identifier">canonical_write</span> <span class="ruby-identifier">str</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- flush-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- flush-method -->
+
+    
+      <div id="method-i-flush_period-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">flush_period=</span><span
+            class="method-args">( period )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Configure periodic flushing of the message buffer. Periodic flushing is
+used to flush the contents of the logging buffer at some regular interval.
+Periodic flushing is disabled by default.</p>
+
+<p>When enabling periodic flushing the flush period should be set using one of
+the following formats: “HH:MM:SS” or seconds as an numeric or string.</p>
+
+<pre>&quot;01:00:00&quot;  : every hour
+&quot;00:05:00&quot;  : every 5 minutes
+&quot;00:00:30&quot;  : every 30 seconds
+60          : every 60 seconds (1 minute)
+&quot;120&quot;       : every 120 seconds (2 minutes)</pre>
+
+<p>For the periodic flusher to work properly, the auto-flushing threshold will
+be set to the default value of 500. The auto-flushing threshold can be
+changed, but it must be greater than 1.</p>
+
+<p>To disable the periodic flusher simply set the flush period to
+<code>nil</code>. The auto-flushing threshold will not be changed; it must
+be disabled manually if so desired.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="flush_period-3D-source">
+            <pre><span class="ruby-comment"># File lib/logging/appenders/buffering.rb, line 196</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">flush_period=</span>( <span class="ruby-identifier">period</span> )
+  <span class="ruby-identifier">period</span> =
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">period</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Integer</span>, <span class="ruby-constant">Float</span>, <span class="ruby-keyword">nil</span>; <span class="ruby-identifier">period</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>;
+      <span class="ruby-identifier">num</span> = <span class="ruby-identifier">_parse_hours_minutes_seconds</span>(<span class="ruby-identifier">period</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">_parse_numeric</span>(<span class="ruby-identifier">period</span>)
+      <span class="ruby-identifier">num</span> = <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;unrecognized flush period: #{period.inspect}&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">num</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">num</span>
+    <span class="ruby-keyword">else</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;unrecognized flush period: #{period.inspect}&quot;</span>) <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">raise</span> <span class="ruby-identifier">period</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">period</span>
+  <span class="ruby-ivar">@flush_period</span> = <span class="ruby-identifier">period</span>
+
+  <span class="ruby-identifier">_setup_periodic_flusher</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- flush_period-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- flush_period-3D-method -->
+
+    
+      <div id="method-i-immediate_at-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">immediate_at=</span><span
+            class="method-args">( level )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Configure the levels that will trigger an immediate flush of the logging
+buffer. When a log event of the given level is seen, the buffer will be
+flushed immediately. Only the levels explicitly given in this assignment
+will flush the buffer; if an “error” message is configured to immediately
+flush the buffer, a “fatal” message will not even though it is a higher
+level. Both must be explicitly passed to this assignment.</p>
+
+<p>You can pass in a single level name or number, an array of level names or
+numbers, or a string containing a comma separated list of level names or
+numbers.</p>
+
+<pre>immediate_at = :error
+immediate_at = [:error, :fatal]
+immediate_at = &quot;warn, error&quot;</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="immediate_at-3D-source">
+            <pre><span class="ruby-comment"># File lib/logging/appenders/buffering.rb, line 117</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">immediate_at=</span>( <span class="ruby-identifier">level</span> )
+  <span class="ruby-ivar">@immediate</span>.<span class="ruby-identifier">clear</span>
+
+  <span class="ruby-comment"># get the immediate levels -- no buffering occurs at these levels, and</span>
+  <span class="ruby-comment"># a log message is written to the logging destination immediately</span>
+  <span class="ruby-identifier">immediate_at</span> =
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">level</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>; <span class="ruby-identifier">level</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;,&#39;</span>).<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">strip</span>}
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Array</span>; <span class="ruby-identifier">level</span>
+    <span class="ruby-keyword">else</span> <span class="ruby-constant">Array</span>(<span class="ruby-identifier">level</span>) <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">immediate_at</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">lvl</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">num</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span>.<span class="ruby-identifier">level_num</span>(<span class="ruby-identifier">lvl</span>)
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">num</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-ivar">@immediate</span>[<span class="ruby-identifier">num</span>] = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- immediate_at-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- immediate_at-3D-method -->
+
+    
+      <div id="method-i-reopen" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reopen</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Reopen the connection to the underlying logging destination. In addition if
+the appender is configured for periodic flushing, then the flushing thread
+will be stopped and restarted.</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="reopen-source">
+            <pre><span class="ruby-comment"># File lib/logging/appenders/buffering.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reopen</span>
+  <span class="ruby-identifier">_setup_periodic_flusher</span>
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- reopen-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- reopen-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Protected Instance Methods</h3>
+
+    
+      <div id="method-i-configure_buffering" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">configure_buffering</span><span
+            class="method-args">( opts )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Configure the buffering using the arguments found in the give options hash.
+This method must be called in order to use the message buffer. The
+supported options are “immediate_at” and “auto_flushing”. Please refer to
+the documentation for those methods to see the allowed options.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="configure_buffering-source">
+            <pre><span class="ruby-comment"># File lib/logging/appenders/buffering.rb, line 220</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">configure_buffering</span>( <span class="ruby-identifier">opts</span> )
+  <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span>.<span class="ruby-identifier">init</span> <span class="ruby-keyword">unless</span> <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span>.<span class="ruby-identifier">initialized?</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">immediate_at</span>  = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:immediate_at</span>, <span class="ruby-string">&#39;&#39;</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">auto_flushing</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:auto_flushing</span>, <span class="ruby-keyword">true</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">flush_period</span>  = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:flush_period</span>, <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">write_size</span>    = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:write_size</span>, <span class="ruby-constant">DEFAULT_BUFFER_SIZE</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- configure_buffering-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- configure_buffering-method -->
+
+    
+      <div id="method-i-immediate-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">immediate?</span><span
+            class="method-args">( event )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns true if the <em>event</em> level matches one of the configured
+immediate logging levels. Otherwise returns false.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="immediate-3F-source">
+            <pre><span class="ruby-comment"># File lib/logging/appenders/buffering.rb, line 232</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">immediate?</span>( <span class="ruby-identifier">event</span> )
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">event</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-value">:level</span>
+  <span class="ruby-ivar">@immediate</span>[<span class="ruby-identifier">event</span>.<span class="ruby-identifier">level</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- immediate-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- immediate-3F-method -->
+
+    
+    </section><!-- protected-instance-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-_parse_hours_minutes_seconds" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_parse_hours_minutes_seconds</span><span
+            class="method-args">( str )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Attempt to parse an hours/minutes/seconds value from the string and return
+an integer number of seconds.</p>
+
+<pre class="ruby"><span class="ruby-identifier">_parse_hours_minutes_seconds</span>(<span class="ruby-string">&quot;14:12:42&quot;</span>)  <span class="ruby-comment">#=&gt; 51162</span>
+<span class="ruby-identifier">_parse_hours_minutes_seconds</span>(<span class="ruby-string">&quot;foo&quot;</span>)       <span class="ruby-comment">#=&gt; nil</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="_parse_hours_minutes_seconds-source">
+            <pre><span class="ruby-comment"># File lib/logging/appenders/buffering.rb, line 276</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_parse_hours_minutes_seconds</span>( <span class="ruby-identifier">str</span> )
+  <span class="ruby-identifier">m</span> = <span class="ruby-regexp">/^\s*(\d{2,}):(\d{2}):(\d{2}(?:\.\d+)?)\s*$/</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">m</span>.<span class="ruby-identifier">nil?</span>
+
+  (<span class="ruby-value">3600</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">m</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">to_i</span>) <span class="ruby-operator">+</span> (<span class="ruby-value">60</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">m</span>[<span class="ruby-value">2</span>].<span class="ruby-identifier">to_i</span>) <span class="ruby-operator">+</span> (<span class="ruby-identifier">m</span>[<span class="ruby-value">3</span>].<span class="ruby-identifier">to_f</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- _parse_hours_minutes_seconds-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- _parse_hours_minutes_seconds-method -->
+
+    
+      <div id="method-i-_parse_numeric" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_parse_numeric</span><span
+            class="method-args">( str )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Convert the string into a numeric value. If the string does not represent a
+valid Integer or Float then <code>nil</code> is returned.</p>
+
+<pre class="ruby"><span class="ruby-identifier">_parse_numeric</span>(<span class="ruby-string">&quot;10&quot;</span>)   <span class="ruby-comment">#=&gt; 10</span>
+<span class="ruby-identifier">_parse_numeric</span>(<span class="ruby-string">&quot;1.0&quot;</span>)  <span class="ruby-comment">#=&gt; 1.0</span>
+<span class="ruby-identifier">_parse_numeric</span>(<span class="ruby-string">&quot;foo&quot;</span>)  <span class="ruby-comment">#=&gt; nil</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="_parse_numeric-source">
+            <pre><span class="ruby-comment"># File lib/logging/appenders/buffering.rb, line 290</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_parse_numeric</span>( <span class="ruby-identifier">str</span> )
+  <span class="ruby-constant">Integer</span>(<span class="ruby-identifier">str</span>) <span class="ruby-keyword">rescue</span> (<span class="ruby-constant">Float</span>(<span class="ruby-identifier">str</span>) <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- _parse_numeric-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- _parse_numeric-method -->
+
+    
+      <div id="method-i-_setup_periodic_flusher" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_setup_periodic_flusher</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Using the <a
+href="Buffering.html#attribute-i-flush_period">#flush_period</a>, create a
+new PeriodicFlusher attached to this appender. If the <a
+href="Buffering.html#attribute-i-flush_period">#flush_period</a> is nil,
+then no action will be taken. If a PeriodicFlusher already exists, it will
+be stopped and a new one will be created.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="_setup_periodic_flusher-source">
+            <pre><span class="ruby-comment"># File lib/logging/appenders/buffering.rb, line 299</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_setup_periodic_flusher</span>
+  <span class="ruby-comment"># stop and remove any existing periodic flusher instance</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@periodic_flusher</span>
+    <span class="ruby-ivar">@periodic_flusher</span>.<span class="ruby-identifier">stop</span>
+    <span class="ruby-ivar">@periodic_flusher</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">pass</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># create a new periodic flusher if we have a valid flush period</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@flush_period</span>
+    <span class="ruby-ivar">@auto_flushing</span> = <span class="ruby-constant">DEFAULT_BUFFER_SIZE</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@auto_flushing</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+    <span class="ruby-ivar">@periodic_flusher</span> = <span class="ruby-constant">PeriodicFlusher</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>, <span class="ruby-ivar">@flush_period</span>)
+    <span class="ruby-ivar">@periodic_flusher</span>.<span class="ruby-identifier">start</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- _setup_periodic_flusher-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- _setup_periodic_flusher-method -->
+
+    
+      <div id="method-i-write" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            write( event )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Writes the given <em>event</em> to the logging destination. The
+<em>event</em> can be either a LogEvent or a <a
+href="../../String.html">String</a>. If a LogEvent, then it will be
+formatted using the layout given to the appender when it was created.</p>
+
+<p>The <em>event</em> will be formatted and then buffered until the
+“auto_flushing” level has been reached. At this time the canonical_write
+method will be used to log all events stored in the buffer.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="write-source">
+            <pre><span class="ruby-comment"># File lib/logging/appenders/buffering.rb, line 251</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">write</span>( <span class="ruby-identifier">event</span> )
+  <span class="ruby-identifier">str</span> = <span class="ruby-identifier">event</span>.<span class="ruby-identifier">instance_of?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">LogEvent</span>) <span class="ruby-operator">?</span>
+        <span class="ruby-identifier">layout</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">event</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">event</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@auto_flushing</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">canonical_write</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">sync</span> {
+      <span class="ruby-identifier">str</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-identifier">encoding</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">encoding</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">encoding</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">encoding</span>
+      <span class="ruby-ivar">@buffer</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">str</span>
+    }
+    <span class="ruby-ivar">@periodic_flusher</span>.<span class="ruby-identifier">signal</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@periodic_flusher</span>
+    <span class="ruby-identifier">flush</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@buffer</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-ivar">@auto_flushing</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">immediate?</span>(<span class="ruby-identifier">event</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- write-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- write-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

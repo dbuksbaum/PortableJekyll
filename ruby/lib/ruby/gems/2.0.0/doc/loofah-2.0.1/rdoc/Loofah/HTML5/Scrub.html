@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module Loofah::HTML5::Scrub - loofah-2.0.1 Documentation</title>
+
+<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../index.html">Home</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/loofah/html5/scrub.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-allowed_element-3F">::allowed_element?</a>
+    
+    <li ><a href="#method-c-scrub_attributes">::scrub_attributes</a>
+    
+    <li ><a href="#method-c-scrub_css">::scrub_css</a>
+    
+    <li ><a href="#method-c-scrub_css_attribute">::scrub_css_attribute</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../CHANGELOG_rdoc.html">CHANGELOG</a>
+  
+    <li class="file"><a href="../../MIT-LICENSE_txt.html">MIT-LICENSE</a>
+  
+    <li class="file"><a href="../../Manifest_txt.html">Manifest</a>
+  
+    <li class="file"><a href="../../README_rdoc.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../Loofah.html">Loofah</a>
+  
+    <li><a href="../../Loofah/DocumentDecorator.html">Loofah::DocumentDecorator</a>
+  
+    <li><a href="../../Loofah/Elements.html">Loofah::Elements</a>
+  
+    <li><a href="../../Loofah/HTML.html">Loofah::HTML</a>
+  
+    <li><a href="../../Loofah/HTML5.html">Loofah::HTML5</a>
+  
+    <li><a href="../../Loofah/HTML5/Scrub.html">Loofah::HTML5::Scrub</a>
+  
+    <li><a href="../../Loofah/HTML5/WhiteList.html">Loofah::HTML5::WhiteList</a>
+  
+    <li><a href="../../Loofah/HTML/Document.html">Loofah::HTML::Document</a>
+  
+    <li><a href="../../Loofah/HTML/DocumentFragment.html">Loofah::HTML::DocumentFragment</a>
+  
+    <li><a href="../../Loofah/Helpers.html">Loofah::Helpers</a>
+  
+    <li><a href="../../Loofah/Helpers/ActionView.html">Loofah::Helpers::ActionView</a>
+  
+    <li><a href="../../Loofah/Helpers/ActionView/ClassMethods.html">Loofah::Helpers::ActionView::ClassMethods</a>
+  
+    <li><a href="../../Loofah/Helpers/ActionView/FullSanitizer.html">Loofah::Helpers::ActionView::FullSanitizer</a>
+  
+    <li><a href="../../Loofah/Helpers/ActionView/WhiteListSanitizer.html">Loofah::Helpers::ActionView::WhiteListSanitizer</a>
+  
+    <li><a href="../../Loofah/MetaHelpers.html">Loofah::MetaHelpers</a>
+  
+    <li><a href="../../Loofah/ScrubBehavior.html">Loofah::ScrubBehavior</a>
+  
+    <li><a href="../../Loofah/ScrubBehavior/Node.html">Loofah::ScrubBehavior::Node</a>
+  
+    <li><a href="../../Loofah/ScrubBehavior/NodeSet.html">Loofah::ScrubBehavior::NodeSet</a>
+  
+    <li><a href="../../Loofah/Scrubber.html">Loofah::Scrubber</a>
+  
+    <li><a href="../../Loofah/ScrubberNotFound.html">Loofah::ScrubberNotFound</a>
+  
+    <li><a href="../../Loofah/Scrubbers.html">Loofah::Scrubbers</a>
+  
+    <li><a href="../../Loofah/Scrubbers/Escape.html">Loofah::Scrubbers::Escape</a>
+  
+    <li><a href="../../Loofah/Scrubbers/NewlineBlockElements.html">Loofah::Scrubbers::NewlineBlockElements</a>
+  
+    <li><a href="../../Loofah/Scrubbers/NoFollow.html">Loofah::Scrubbers::NoFollow</a>
+  
+    <li><a href="../../Loofah/Scrubbers/Prune.html">Loofah::Scrubbers::Prune</a>
+  
+    <li><a href="../../Loofah/Scrubbers/Strip.html">Loofah::Scrubbers::Strip</a>
+  
+    <li><a href="../../Loofah/Scrubbers/Unprintable.html">Loofah::Scrubbers::Unprintable</a>
+  
+    <li><a href="../../Loofah/Scrubbers/Whitewash.html">Loofah::Scrubbers::Whitewash</a>
+  
+    <li><a href="../../Loofah/TextBehavior.html">Loofah::TextBehavior</a>
+  
+    <li><a href="../../Loofah/XML.html">Loofah::XML</a>
+  
+    <li><a href="../../Loofah/XML/Document.html">Loofah::XML::Document</a>
+  
+    <li><a href="../../Loofah/XML/DocumentFragment.html">Loofah::XML::DocumentFragment</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module Loofah::HTML5::Scrub</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="CONTROL_CHARACTERS">CONTROL_CHARACTERS
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-allowed_element-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">allowed_element?</span><span
+            class="method-args">(element_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="allowed_element-3F-source">
+            <pre><span class="ruby-comment"># File lib/loofah/html5/scrub.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">allowed_element?</span> <span class="ruby-identifier">element_name</span>
+  <span class="ruby-operator">::</span><span class="ruby-constant">Loofah</span><span class="ruby-operator">::</span><span class="ruby-constant">HTML5</span><span class="ruby-operator">::</span><span class="ruby-constant">WhiteList</span><span class="ruby-operator">::</span><span class="ruby-constant">ALLOWED_ELEMENTS_WITH_LIBXML2</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">element_name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- allowed_element-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- allowed_element-3F-method -->
+
+    
+      <div id="method-c-scrub_attributes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">scrub_attributes</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>alternative implementation of the html5lib attribute scrubbing algorithm</p>
+          
+          
+
+          
+          <div class="method-source-code" id="scrub_attributes-source">
+            <pre><span class="ruby-comment"># File lib/loofah/html5/scrub.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">scrub_attributes</span> <span class="ruby-identifier">node</span>
+  <span class="ruby-identifier">node</span>.<span class="ruby-identifier">attribute_nodes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attr_node</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">attr_name</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">attr_node</span>.<span class="ruby-identifier">namespace</span>
+                  <span class="ruby-node">&quot;#{attr_node.namespace.prefix}:#{attr_node.node_name}&quot;</span>
+                <span class="ruby-keyword">else</span>
+                  <span class="ruby-identifier">attr_node</span>.<span class="ruby-identifier">node_name</span>
+                <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">attr_name</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/\Adata-\w+\z/</span>
+      <span class="ruby-keyword">next</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">unless</span> <span class="ruby-constant">WhiteList</span><span class="ruby-operator">::</span><span class="ruby-constant">ALLOWED_ATTRIBUTES</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">attr_name</span>)
+      <span class="ruby-identifier">attr_node</span>.<span class="ruby-identifier">remove</span>
+      <span class="ruby-keyword">next</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">WhiteList</span><span class="ruby-operator">::</span><span class="ruby-constant">ATTR_VAL_IS_URI</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">attr_name</span>)
+      <span class="ruby-comment"># this block lifted nearly verbatim from HTML5 sanitization</span>
+      <span class="ruby-identifier">val_unescaped</span> = <span class="ruby-constant">CGI</span>.<span class="ruby-identifier">unescapeHTML</span>(<span class="ruby-identifier">attr_node</span>.<span class="ruby-identifier">value</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-constant">CONTROL_CHARACTERS</span>,<span class="ruby-string">&#39;&#39;</span>).<span class="ruby-identifier">downcase</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">val_unescaped</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^[a-z0-9][-+.a-z0-9]*:/</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span> <span class="ruby-constant">WhiteList</span><span class="ruby-operator">::</span><span class="ruby-constant">ALLOWED_PROTOCOLS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">val_unescaped</span>.<span class="ruby-identifier">split</span>(<span class="ruby-constant">WhiteList</span><span class="ruby-operator">::</span><span class="ruby-constant">PROTOCOL_SEPARATOR</span>)[<span class="ruby-value">0</span>])
+        <span class="ruby-identifier">attr_node</span>.<span class="ruby-identifier">remove</span>
+        <span class="ruby-keyword">next</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">WhiteList</span><span class="ruby-operator">::</span><span class="ruby-constant">SVG_ATTR_VAL_ALLOWS_REF</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">attr_name</span>)
+      <span class="ruby-identifier">attr_node</span>.<span class="ruby-identifier">value</span> = <span class="ruby-identifier">attr_node</span>.<span class="ruby-identifier">value</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-node">/url\s*\(\s*[^#\s][^)]+?\)/</span>, <span class="ruby-string">&#39; &#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">attr_node</span>.<span class="ruby-identifier">value</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">WhiteList</span><span class="ruby-operator">::</span><span class="ruby-constant">SVG_ALLOW_LOCAL_HREF</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">node</span>.<span class="ruby-identifier">name</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">attr_name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;xlink:href&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">attr_node</span>.<span class="ruby-identifier">value</span> <span class="ruby-operator">=~</span> <span class="ruby-node">/^\s*[^#\s].*/</span>
+      <span class="ruby-identifier">attr_node</span>.<span class="ruby-identifier">remove</span>
+      <span class="ruby-keyword">next</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">scrub_css_attribute</span> <span class="ruby-identifier">node</span>
+
+  <span class="ruby-identifier">node</span>.<span class="ruby-identifier">attribute_nodes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attr_node</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">node</span>.<span class="ruby-identifier">remove_attribute</span>(<span class="ruby-identifier">attr_node</span>.<span class="ruby-identifier">name</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">attr_node</span>.<span class="ruby-identifier">value</span> <span class="ruby-operator">!~</span> <span class="ruby-regexp">/[^[:space:]]/</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- scrub_attributes-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- scrub_attributes-method -->
+
+    
+      <div id="method-c-scrub_css" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">scrub_css</span><span
+            class="method-args">(style)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>lifted nearly verbatim from html5lib</p>
+          
+          
+
+          
+          <div class="method-source-code" id="scrub_css-source">
+            <pre><span class="ruby-comment"># File lib/loofah/html5/scrub.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">scrub_css</span> <span class="ruby-identifier">style</span>
+  <span class="ruby-comment"># disallow urls</span>
+  <span class="ruby-identifier">style</span> = <span class="ruby-identifier">style</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/url\s*\(\s*[^\s)]+?\s*\)\s*/</span>, <span class="ruby-string">&#39; &#39;</span>)
+
+  <span class="ruby-comment"># gauntlet</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&#39;&#39;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">style</span> <span class="ruby-operator">=~</span> <span class="ruby-node">/\A([-:,;#%.\sa-zA-Z0-9!]|\w-\w|\[\s\w]+\|\&quot;[\s\w]+\&quot;|\([\d,\s]+\))*\z/</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&#39;&#39;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">style</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/\A\s*([-\w]+\s*:[^:;]*(;\s*|$))*\z/</span>
+
+  <span class="ruby-identifier">clean</span> = []
+  <span class="ruby-identifier">style</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/([-\w]+)\s*:\s*([^:;]*)/</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">prop</span>, <span class="ruby-identifier">val</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">prop</span>.<span class="ruby-identifier">downcase!</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">WhiteList</span><span class="ruby-operator">::</span><span class="ruby-constant">ALLOWED_CSS_PROPERTIES</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">prop</span>)
+      <span class="ruby-identifier">clean</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{prop}: #{val};&quot;</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-constant">WhiteList</span><span class="ruby-operator">::</span><span class="ruby-constant">SHORTHAND_CSS_PROPERTIES</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">prop</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;-&#39;</span>)[<span class="ruby-value">0</span>])
+      <span class="ruby-identifier">clean</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{prop}: #{val};&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">split</span>().<span class="ruby-identifier">any?</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">keyword</span><span class="ruby-operator">|</span>
+        <span class="ruby-operator">!</span><span class="ruby-constant">WhiteList</span><span class="ruby-operator">::</span><span class="ruby-constant">ALLOWED_CSS_KEYWORDS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">keyword</span>) <span class="ruby-operator">&amp;&amp;</span>
+          <span class="ruby-identifier">keyword</span> <span class="ruby-operator">!~</span> <span class="ruby-node">/\A(#[0-9a-f]+|rgb\(\d+%?,\d*%?,?\d*%?\)?|\d{0,2}\.?\d{0,2}(cm|em|ex|in|mm|pc|pt|px|%|,|\))?)\z/</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-constant">WhiteList</span><span class="ruby-operator">::</span><span class="ruby-constant">ALLOWED_SVG_PROPERTIES</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">prop</span>)
+      <span class="ruby-identifier">clean</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{prop}: #{val};&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">style</span> = <span class="ruby-identifier">clean</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; &#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- scrub_css-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- scrub_css-method -->
+
+    
+      <div id="method-c-scrub_css_attribute" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">scrub_css_attribute</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="scrub_css_attribute-source">
+            <pre><span class="ruby-comment"># File lib/loofah/html5/scrub.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">scrub_css_attribute</span> <span class="ruby-identifier">node</span>
+  <span class="ruby-identifier">style</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-string">&#39;style&#39;</span>]
+  <span class="ruby-identifier">style</span>.<span class="ruby-identifier">value</span> = <span class="ruby-identifier">scrub_css</span>(<span class="ruby-identifier">style</span>.<span class="ruby-identifier">value</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">style</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- scrub_css_attribute-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- scrub_css_attribute-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Syntax::CSS21 - syntax-1.2.0 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/syntax/lang/css21.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="Tokenizer.html">Syntax::Tokenizer</a>
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-i-m">#m</a>
+    
+    <li ><a href="#method-i-macro">#macro</a>
+    
+    <li ><a href="#method-i-setup">#setup</a>
+    
+    <li ><a href="#method-i-step">#step</a>
+    
+    <li ><a href="#method-i-token">#token</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Syntax.html">Syntax</a>
+  
+    <li><a href="../Syntax/AnsiC.html">Syntax::AnsiC</a>
+  
+    <li><a href="../Syntax/CSS21.html">Syntax::CSS21</a>
+  
+    <li><a href="../Syntax/Convertors.html">Syntax::Convertors</a>
+  
+    <li><a href="../Syntax/Convertors/Abstract.html">Syntax::Convertors::Abstract</a>
+  
+    <li><a href="../Syntax/Convertors/HTML.html">Syntax::Convertors::HTML</a>
+  
+    <li><a href="../Syntax/Default.html">Syntax::Default</a>
+  
+    <li><a href="../Syntax/Fortran.html">Syntax::Fortran</a>
+  
+    <li><a href="../Syntax/Javascript.html">Syntax::Javascript</a>
+  
+    <li><a href="../Syntax/Ruby.html">Syntax::Ruby</a>
+  
+    <li><a href="../Syntax/SQLite.html">Syntax::SQLite</a>
+  
+    <li><a href="../Syntax/Token.html">Syntax::Token</a>
+  
+    <li><a href="../Syntax/Tokenizer.html">Syntax::Tokenizer</a>
+  
+    <li><a href="../Syntax/Version.html">Syntax::Version</a>
+  
+    <li><a href="../Syntax/XML.html">Syntax::XML</a>
+  
+    <li><a href="../Syntax/YAML.html">Syntax::YAML</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Syntax::CSS21</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="CSS21_KEYWORDS">CSS21_KEYWORDS
+        
+        <dd class="description">
+        
+      
+        <dt id="CSS21_PROPERTIES">CSS21_PROPERTIES
+        
+        <dd class="description">
+        
+      
+        <dt id="HTML_TAGS">HTML_TAGS
+        
+        <dd class="description">
+        
+      
+        <dt id="MATHML_TAGS">MATHML_TAGS
+        
+        <dd class="description">
+        
+      
+        <dt id="MY_TAGS">MY_TAGS
+        
+        <dd class="description">
+        
+      
+        <dt id="SVG_TAGS">SVG_TAGS
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-setup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup-source">
+            <pre><span class="ruby-comment"># File lib/syntax/lang/css21.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>
+  <span class="ruby-ivar">@selector</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-ivar">@macros</span> = {}
+  <span class="ruby-ivar">@tokens</span> = {}
+
+  <span class="ruby-comment"># http://www.w3.org/TR/CSS21/syndata.html</span>
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:h</span>, <span class="ruby-regexp">/([0-9a-fA-F])/</span> ) <span class="ruby-comment"># uppercase A-Z added?</span>
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:nonascii</span>, <span class="ruby-regexp">/([^\000-\177])/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:nl</span>, <span class="ruby-regexp">/(\n|\r\n|\r|\f)/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:unicode</span>, <span class="ruby-node">/(\#{m(:h)}{1,6}(\r\n|[ \t\r\n\f])?)/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:escape</span>, <span class="ruby-node">/(#{m(:unicode)}|\[^\r\n\f0-9a-f])/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:nmstart</span>, <span class="ruby-node">/([_a-z]|#{m(:nonascii)}|#{m(:escape)})/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:nmchar</span>, <span class="ruby-node">/([_a-z0-9-]|#{m(:nonascii)}|#{m(:escape)})/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:string1</span>, <span class="ruby-node">/(\&quot;([^\n\r\f\\&quot;]|\#{m(:nl)}|#{m(:escape)})*\&quot;)/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:string2</span>, <span class="ruby-node">/(\([^\n\r\f\&#39;]|\#{m(:nl)}|#{m(:escape)})*\)/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:invalid1</span>, <span class="ruby-node">/(\&quot;([^\n\r\f\\&quot;]|\#{m(:nl)}|#{m(:escape)})*)/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:invalid2</span>, <span class="ruby-node">/(\([^\n\r\f\&#39;]|\#{m(:nl)}|#{m(:escape)})*)/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:comment</span>, <span class="ruby-regexp">/(\/\*[^*]*\*+([^\/*][^*]*\*+)*\/)/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:ident</span>, <span class="ruby-node">/(-?#{m(:nmstart)}#{m(:nmchar)}*)/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:name</span>, <span class="ruby-node">/(#{m(:nmchar)}+)/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:num</span>, <span class="ruby-regexp">/([0-9]+|[0-9]*\.[0-9]+)/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:string</span>, <span class="ruby-node">/(#{m(:string1)}|#{m(:string2)})/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:invalid</span>, <span class="ruby-node">/(#{m(:invalid1)}|#{m(:invalid2)})/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:s</span>, <span class="ruby-regexp">/([ \t\r\n\f]+)/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:w</span>, <span class="ruby-node">/(#{m(:s)}?)/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:A</span>, <span class="ruby-regexp">/(a|\0{0,4}(41|61)(\r\n|[ \t\r\n\f])?)/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:C</span>, <span class="ruby-regexp">/(c|\0{0,4}(43|63)(\r\n|[ \t\r\n\f])?)/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:D</span>, <span class="ruby-regexp">/(d|\0{0,4}(44|64)(\r\n|[ \t\r\n\f])?)/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:E</span>, <span class="ruby-regexp">/(e|\0{0,4}(45|65)(\r\n|[ \t\r\n\f])?)/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:G</span>, <span class="ruby-regexp">/(g|\0{0,4}(47|67)(\r\n|[ \t\r\n\f])?|\g)/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:H</span>, <span class="ruby-regexp">/(h|\0{0,4}(48|68)(\r\n|[ \t\r\n\f])?|\h)/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:I</span>, <span class="ruby-regexp">/(i|\0{0,4}(49|69)(\r\n|[ \t\r\n\f])?|\i)/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:K</span>, <span class="ruby-regexp">/(k|\0{0,4}(4b|6b)(\r\n|[ \t\r\n\f])?|\k)/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:M</span>, <span class="ruby-regexp">/(m|\0{0,4}(4d|6d)(\r\n|[ \t\r\n\f])?|\m)/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:N</span>, <span class="ruby-regexp">/(n|\0{0,4}(4e|6e)(\r\n|[ \t\r\n\f])?|\n)/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:O</span>, <span class="ruby-regexp">/(o|\0{0,4}(51|71)(\r\n|[ \t\r\n\f])?|\o)/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:P</span>, <span class="ruby-regexp">/(p|\0{0,4}(50|70)(\r\n|[ \t\r\n\f])?|\p)/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:R</span>, <span class="ruby-regexp">/(r|\0{0,4}(52|72)(\r\n|[ \t\r\n\f])?|\r)/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:S</span>, <span class="ruby-regexp">/(s|\0{0,4}(53|73)(\r\n|[ \t\r\n\f])?|\s)/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:T</span>, <span class="ruby-regexp">/(t|\0{0,4}(54|74)(\r\n|[ \t\r\n\f])?|\t)/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:X</span>, <span class="ruby-regexp">/(x|\0{0,4}(58|78)(\r\n|[ \t\r\n\f])?|\x)/</span> )
+  <span class="ruby-identifier">macro</span>(<span class="ruby-value">:Z</span>, <span class="ruby-regexp">/(z|\0{0,4}(5a|7a)(\r\n|[ \t\r\n\f])?|\z)/</span> )
+
+  <span class="ruby-identifier">token</span>(<span class="ruby-value">:COMMENT</span>, <span class="ruby-node">/#{m(:comment)}/</span>)
+
+  <span class="ruby-identifier">token</span>(<span class="ruby-value">:HASH</span>, <span class="ruby-node">/\#/</span>)
+  <span class="ruby-identifier">token</span>(<span class="ruby-value">:IDENT</span>, <span class="ruby-node">/#{m(:ident)}/</span>)
+  <span class="ruby-identifier">token</span>(<span class="ruby-value">:LBRACE</span>, <span class="ruby-node">/#{m(:w)}\{/</span>)
+  <span class="ruby-identifier">token</span>(<span class="ruby-value">:RBRACE</span>, <span class="ruby-node">/#{m(:w)}\}/</span>)
+
+  <span class="ruby-identifier">token</span>(<span class="ruby-value">:S</span>, <span class="ruby-node">/#{m(:s)}/</span>)
+
+  <span class="ruby-identifier">token</span>(<span class="ruby-value">:FUNCTION</span>, <span class="ruby-node">/#{m(:ident)}(?=\()/</span>)
+
+  <span class="ruby-identifier">token</span>(<span class="ruby-value">:PLUS</span>, <span class="ruby-node">/#{m(:w)}\+/</span>)
+  <span class="ruby-identifier">token</span>(<span class="ruby-value">:GREATER</span>, <span class="ruby-node">/#{m(:w)}&gt;/</span>)
+  <span class="ruby-identifier">token</span>(<span class="ruby-value">:COMMA</span>, <span class="ruby-node">/#{m(:w)},/</span>)
+
+  <span class="ruby-identifier">token</span>(<span class="ruby-value">:CDO</span>, <span class="ruby-regexp">/&lt;!--/</span>)
+  <span class="ruby-identifier">token</span>(<span class="ruby-value">:CDC</span>, <span class="ruby-regexp">/--&gt;/</span>)
+  <span class="ruby-identifier">token</span>(<span class="ruby-value">:INCLUDES</span>, <span class="ruby-regexp">/~=/</span>)
+  <span class="ruby-identifier">token</span>(<span class="ruby-value">:DASHMATCH</span>, <span class="ruby-regexp">/\|=/</span>)
+  <span class="ruby-identifier">token</span>(<span class="ruby-value">:STRING</span>, <span class="ruby-node">/#{m(:string)}/</span>)
+  <span class="ruby-identifier">token</span>(<span class="ruby-value">:INVALID</span>, <span class="ruby-node">/#{m(:invalid)}/</span>)
+  <span class="ruby-identifier">token</span>(<span class="ruby-value">:IMPORT_SYM</span>, <span class="ruby-node">/@#{m(:I)}#{m(:M)}#{m(:P)}#{m(:O)}#{m(:R)}#{m(:T)}/</span>)
+  <span class="ruby-identifier">token</span>(<span class="ruby-value">:PAGE_SYM</span>, <span class="ruby-node">/@#{m(:P)}#{m(:A)}#{m(:G)}#{m(:E)}/</span>)
+  <span class="ruby-identifier">token</span>(<span class="ruby-value">:MEDIA_SYM</span>, <span class="ruby-node">/@#{m(:M)}#{m(:E)}#{m(:D)}#{m(:I)}#{m(:A)}/</span>)
+  <span class="ruby-identifier">token</span>(<span class="ruby-value">:CHARSET_SYM</span>, <span class="ruby-node">/@#{m(:C)}#{m(:H)}#{m(:A)}#{m(:R)}#{m(:S)}#{m(:E)}#{m(:T)}/</span>)
+  <span class="ruby-identifier">token</span>(<span class="ruby-value">:IMPORTANT_SYM</span>, <span class="ruby-node">/!(#{m(:w)}|#{m(:comment)})*#{m(:I)}#{m(:M)}#{m(:P)}#{m(:O)}#{m(:R)}#{m(:T)}#{m(:A)}#{m(:N)}#{m(:T)}/</span>)
+  <span class="ruby-identifier">token</span>(<span class="ruby-value">:EMS</span>, <span class="ruby-node">/#{m(:num)}#{m(:E)}#{m(:M)}/</span>)
+  <span class="ruby-identifier">token</span>(<span class="ruby-value">:EXS</span>, <span class="ruby-node">/#{m(:num)}#{m(:E)}#{m(:X)}/</span>)
+
+  <span class="ruby-identifier">token</span> <span class="ruby-value">:LENGTH</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">patterns</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">patterns</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">/#{m(:num)}#{m(:P)}#{m(:X)}/</span>
+    <span class="ruby-identifier">patterns</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">/#{m(:num)}#{m(:C)}#{m(:M)}/</span>
+    <span class="ruby-identifier">patterns</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">/#{m(:num)}#{m(:M)}#{m(:M)}/</span>
+    <span class="ruby-identifier">patterns</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">/#{m(:num)}#{m(:I)}#{m(:N)}/</span>
+    <span class="ruby-identifier">patterns</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">/#{m(:num)}#{m(:P)}#{m(:T)}/</span>
+    <span class="ruby-identifier">patterns</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">/#{m(:num)}#{m(:P)}#{m(:C)}/</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">token</span> <span class="ruby-value">:ANGLE</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">patterns</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">patterns</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">/#{m(:num)}#{m(:D)}#{m(:E)}#{m(:G)}/</span>
+    <span class="ruby-identifier">patterns</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">/#{m(:num)}#{m(:R)}#{m(:A)}#{m(:D)}/</span>
+    <span class="ruby-identifier">patterns</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">/#{m(:num)}#{m(:G)}#{m(:R)}#{m(:A)}#{m(:D)}/</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">token</span> <span class="ruby-value">:TIME</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">patterns</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">patterns</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">/#{m(:num)}#{m(:M)}#{m(:S)}/</span>
+    <span class="ruby-identifier">patterns</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">/#{m(:num)}#{m(:S)}/</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">token</span> <span class="ruby-value">:FREQ</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">patterns</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">patterns</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">/#{m(:num)}#{m(:H)}#{m(:Z)}/</span>
+    <span class="ruby-identifier">patterns</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">/#{m(:num)}#{m(:K)}#{m(:H)}#{m(:Z)}/</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">token</span> <span class="ruby-value">:URI</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">patterns</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">patterns</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">/url\(#{m(:w)}#{m(:string)}#{m(:w)}\)/</span>
+    <span class="ruby-identifier">patterns</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">/url\(#{m(:w)}([!$%&amp;*-~]|#{m(:nonascii)}|#{m(:escape)})*#{m(:w)}\)/</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">token</span>(<span class="ruby-value">:DIMENSION</span>, <span class="ruby-node">/#{m(:num)}#{m(:ident)}/</span>)
+  <span class="ruby-identifier">token</span>(<span class="ruby-value">:PERCENTAGE</span>, <span class="ruby-node">/#{m(:num)}%/</span>)
+  <span class="ruby-identifier">token</span>(<span class="ruby-value">:HEXNUM</span>, <span class="ruby-node">/##{m(:h)}{2,6}/</span>)
+  <span class="ruby-identifier">token</span>(<span class="ruby-value">:NUMBER</span>, <span class="ruby-node">/#{m(:num)}/</span>)
+
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- setup-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- setup-method -->
+
+    
+      <div id="method-i-step" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">step</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="step-source">
+            <pre><span class="ruby-comment"># File lib/syntax/lang/css21.rb, line 207</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">step</span>
+
+  <span class="ruby-keyword">case</span>
+
+  <span class="ruby-comment"># scanning selectors only</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-ivar">@selector</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">scan</span>(<span class="ruby-ivar">@tokens</span>[<span class="ruby-value">:LBRACE</span>])
+    <span class="ruby-ivar">@selector</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:normal</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-ivar">@selector</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">scan</span>(<span class="ruby-ivar">@tokens</span>[<span class="ruby-value">:IMPORT_SYM</span>])
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:import</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-ivar">@selector</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">scan</span>(<span class="ruby-ivar">@tokens</span>[<span class="ruby-value">:PAGE_SYM</span>])
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:page</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-ivar">@selector</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">scan</span>(<span class="ruby-ivar">@tokens</span>[<span class="ruby-value">:MEDIA_SYM</span>])
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:media</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-ivar">@selector</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">scan</span>(<span class="ruby-ivar">@tokens</span>[<span class="ruby-value">:CHARSET_SYM</span>])
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:charset</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-ivar">@selector</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">scan</span>(<span class="ruby-ivar">@tokens</span>[<span class="ruby-value">:HASH</span>])
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:normal</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-ivar">@selector</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">scan</span>(<span class="ruby-ivar">@tokens</span>[<span class="ruby-value">:URI</span>])
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:uri</span>, <span class="ruby-identifier">matched</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-ivar">@selector</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">scan</span>(<span class="ruby-ivar">@tokens</span>[<span class="ruby-value">:IDENT</span>])
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">MY_TAGS</span>.<span class="ruby-identifier">include?</span>( <span class="ruby-identifier">matched</span> )
+      <span class="ruby-identifier">start_group</span> <span class="ruby-value">:tag</span>, <span class="ruby-identifier">matched</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">start_group</span> <span class="ruby-value">:ident</span>, <span class="ruby-identifier">matched</span>
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># scanning declarations only</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@selector</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">scan</span>(<span class="ruby-ivar">@tokens</span>[<span class="ruby-value">:RBRACE</span>])
+    <span class="ruby-ivar">@selector</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:normal</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@selector</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">scan</span>(<span class="ruby-ivar">@tokens</span>[<span class="ruby-value">:FUNCTION</span>])
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:function</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@selector</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">scan</span>(<span class="ruby-ivar">@tokens</span>[<span class="ruby-value">:EMS</span>])
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:ems</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@selector</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">scan</span>(<span class="ruby-ivar">@tokens</span>[<span class="ruby-value">:EXS</span>])
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:exs</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@selector</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">scan</span>(<span class="ruby-ivar">@tokens</span>[<span class="ruby-value">:LENGTH</span>])
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:length</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@selector</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">scan</span>(<span class="ruby-ivar">@tokens</span>[<span class="ruby-value">:ANGLE</span>])
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:angle</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@selector</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">scan</span>(<span class="ruby-ivar">@tokens</span>[<span class="ruby-value">:TIME</span>])
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:time</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@selector</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">scan</span>(<span class="ruby-ivar">@tokens</span>[<span class="ruby-value">:FREQ</span>])
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:freq</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@selector</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">scan</span>(<span class="ruby-ivar">@tokens</span>[<span class="ruby-value">:PERCENTAGE</span>])
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:percentage</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@selector</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">scan</span>(<span class="ruby-ivar">@tokens</span>[<span class="ruby-value">:DIMENSION</span>])
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:dimension</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@selector</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">scan</span>(<span class="ruby-ivar">@tokens</span>[<span class="ruby-value">:NUMBER</span>])
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:number</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@selector</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">scan</span>(<span class="ruby-ivar">@tokens</span>[<span class="ruby-value">:HEXNUM</span>])
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:number</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@selector</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">scan</span>(<span class="ruby-ivar">@tokens</span>[<span class="ruby-value">:IMPORTANT_SYM</span>])
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:important</span>, <span class="ruby-identifier">matched</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@selector</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">scan</span>(<span class="ruby-ivar">@tokens</span>[<span class="ruby-value">:IDENT</span>])
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">CSS21_PROPERTIES</span>.<span class="ruby-identifier">include?</span>( <span class="ruby-identifier">matched</span> ) <span class="ruby-comment"># are they disjoint?</span>
+      <span class="ruby-identifier">start_group</span> <span class="ruby-value">:property</span>, <span class="ruby-identifier">matched</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-constant">CSS21_KEYWORDS</span>.<span class="ruby-identifier">include?</span>( <span class="ruby-identifier">matched</span> )
+      <span class="ruby-identifier">start_group</span> <span class="ruby-value">:keyword</span>, <span class="ruby-identifier">matched</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">start_group</span> <span class="ruby-value">:ident</span>, <span class="ruby-identifier">matched</span>
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># scanning both</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">scan</span>(<span class="ruby-ivar">@tokens</span>[<span class="ruby-value">:S</span>])
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:normal</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">scan</span>(<span class="ruby-ivar">@tokens</span>[<span class="ruby-value">:COMMENT</span>])
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:comment</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">scan</span>(<span class="ruby-ivar">@tokens</span>[<span class="ruby-value">:STRING</span>])
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:string</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">scan</span>(<span class="ruby-ivar">@tokens</span>[<span class="ruby-value">:CDO</span>])
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:cdo</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">scan</span>(<span class="ruby-ivar">@tokens</span>[<span class="ruby-value">:CDC</span>])
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:cdc</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">scan</span>(<span class="ruby-ivar">@tokens</span>[<span class="ruby-value">:INVALID</span>])
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:invalid</span>, <span class="ruby-identifier">matched</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">start_group</span> <span class="ruby-value">:normal</span>, <span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/./</span>)
+  <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- step-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- step-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-m" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">m</span><span
+            class="method-args">(name, regex=nil)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="CSS21.html#method-i-macro">macro</a>
+        </div>
+        
+      </div><!-- m-method -->
+
+    
+      <div id="method-i-macro" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">macro</span><span
+            class="method-args">(name, regex=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="macro-source">
+            <pre><span class="ruby-comment"># File lib/syntax/lang/css21.rb, line 294</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">macro</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">regex</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">regex</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@macros</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">regex</span> <span class="ruby-operator">:</span> <span class="ruby-ivar">@macros</span>[<span class="ruby-identifier">name</span>].<span class="ruby-identifier">source</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- macro-source -->
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="CSS21.html#method-i-m">m</a>
+        </div>
+        
+
+        
+      </div><!-- macro-method -->
+
+    
+      <div id="method-i-token" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">token</span><span
+            class="method-args">(name, pattern=nil) { |patterns| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="token-source">
+            <pre><span class="ruby-comment"># File lib/syntax/lang/css21.rb, line 298</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">token</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">pattern</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;name required&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">name</span>
+
+  <span class="ruby-identifier">patterns</span> = []
+  <span class="ruby-identifier">patterns</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">pattern</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">pattern</span>
+  <span class="ruby-keyword">yield</span>(<span class="ruby-identifier">patterns</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">patterns</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;at least one pattern required&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">patterns</span>.<span class="ruby-identifier">collect!</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">pattern</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">source</span> = <span class="ruby-identifier">pattern</span>.<span class="ruby-identifier">source</span>
+    <span class="ruby-identifier">source</span> = <span class="ruby-node">&quot;\\A#{source}&quot;</span>
+    <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">source</span>, <span class="ruby-constant">Regexp</span><span class="ruby-operator">::</span><span class="ruby-constant">IGNORECASE</span> <span class="ruby-operator">+</span> <span class="ruby-constant">Regexp</span><span class="ruby-operator">::</span><span class="ruby-constant">MULTILINE</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@tokens</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">union</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">patterns</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- token-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- token-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

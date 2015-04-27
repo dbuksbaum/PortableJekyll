@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class HTTPClient::CookieManager - httpclient-2.6.0.1 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/httpclient/cookie.rb
+    <li>lib/httpclient/webagent-cookie.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    <!-- Included Modules -->
+<nav id="includes-section" class="section">
+  <h3 class="section-header">Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="../WebAgent/CookieUtils.html">WebAgent::CookieUtils</a>
+  
+  
+  </ul>
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-add">#add</a>
+    
+    <li ><a href="#method-i-check_cookie_accept_domain">#check_cookie_accept_domain</a>
+    
+    <li ><a href="#method-i-check_cookies_file">#check_cookies_file</a>
+    
+    <li ><a href="#method-i-check_domain">#check_domain</a>
+    
+    <li ><a href="#method-i-check_expired_cookies">#check_expired_cookies</a>
+    
+    <li ><a href="#method-i-cookie_error">#cookie_error</a>
+    
+    <li ><a href="#method-i-cookie_value">#cookie_value</a>
+    
+    <li ><a href="#method-i-cookies">#cookies</a>
+    
+    <li ><a href="#method-i-cookies-3D">#cookies=</a>
+    
+    <li ><a href="#method-i-find">#find</a>
+    
+    <li ><a href="#method-i-load_cookies">#load_cookies</a>
+    
+    <li ><a href="#method-i-make_cookie_str">#make_cookie_str</a>
+    
+    <li ><a href="#method-i-parse">#parse</a>
+    
+    <li ><a href="#method-i-save_all_cookies">#save_all_cookies</a>
+    
+    <li ><a href="#method-i-save_cookies">#save_cookies</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../lib/httpclient/cacert_p7s.html">cacert.p7s</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Encoding.html">Encoding</a>
+  
+    <li><a href="../HTTP.html">HTTP</a>
+  
+    <li><a href="../HTTP/Message.html">HTTP::Message</a>
+  
+    <li><a href="../HTTP/Message/Array.html">HTTP::Message::Array</a>
+  
+    <li><a href="../HTTP/Message/Body.html">HTTP::Message::Body</a>
+  
+    <li><a href="../HTTP/Message/Body/Parts.html">HTTP::Message::Body::Parts</a>
+  
+    <li><a href="../HTTP/Message/Headers.html">HTTP::Message::Headers</a>
+  
+    <li><a href="../HTTP/Status.html">HTTP::Status</a>
+  
+    <li><a href="../HTTPAccess2.html">HTTPAccess2</a>
+  
+    <li><a href="../HTTPAccess2/Client.html">HTTPAccess2::Client</a>
+  
+    <li><a href="../HTTPAccess2/Client/RetryableResponse.html">HTTPAccess2::Client::RetryableResponse</a>
+  
+    <li><a href="../HTTPAccess2/Session.html">HTTPAccess2::Session</a>
+  
+    <li><a href="../HTTPAccess2/Session/BadResponse.html">HTTPAccess2::Session::BadResponse</a>
+  
+    <li><a href="../HTTPAccess2/Session/Error.html">HTTPAccess2::Session::Error</a>
+  
+    <li><a href="../HTTPAccess2/Session/InvalidState.html">HTTPAccess2::Session::InvalidState</a>
+  
+    <li><a href="../HTTPAccess2/Session/KeepAliveDisconnected.html">HTTPAccess2::Session::KeepAliveDisconnected</a>
+  
+    <li><a href="../HTTPClient.html">HTTPClient</a>
+  
+    <li><a href="../HTTPClient/AuthBase.html">HTTPClient::AuthBase</a>
+  
+    <li><a href="../HTTPClient/AuthFilterBase.html">HTTPClient::AuthFilterBase</a>
+  
+    <li><a href="../HTTPClient/BadResponse.html">HTTPClient::BadResponse</a>
+  
+    <li><a href="../HTTPClient/BadResponseError.html">HTTPClient::BadResponseError</a>
+  
+    <li><a href="../HTTPClient/BasicAuth.html">HTTPClient::BasicAuth</a>
+  
+    <li><a href="../HTTPClient/ConfigurationError.html">HTTPClient::ConfigurationError</a>
+  
+    <li><a href="../HTTPClient/ConnectTimeoutError.html">HTTPClient::ConnectTimeoutError</a>
+  
+    <li><a href="../HTTPClient/Connection.html">HTTPClient::Connection</a>
+  
+    <li><a href="../HTTPClient/CookieManager.html">HTTPClient::CookieManager</a>
+  
+    <li><a href="../HTTPClient/DebugSocket.html">HTTPClient::DebugSocket</a>
+  
+    <li><a href="../HTTPClient/DigestAuth.html">HTTPClient::DigestAuth</a>
+  
+    <li><a href="../HTTPClient/IncludeClient.html">HTTPClient::IncludeClient</a>
+  
+    <li><a href="../HTTPClient/KeepAliveDisconnected.html">HTTPClient::KeepAliveDisconnected</a>
+  
+    <li><a href="../HTTPClient/LoopBackSocket.html">HTTPClient::LoopBackSocket</a>
+  
+    <li><a href="../HTTPClient/NegotiateAuth.html">HTTPClient::NegotiateAuth</a>
+  
+    <li><a href="../HTTPClient/OAuth.html">HTTPClient::OAuth</a>
+  
+    <li><a href="../HTTPClient/OAuth/Config.html">HTTPClient::OAuth::Config</a>
+  
+    <li><a href="../HTTPClient/ProxyAuth.html">HTTPClient::ProxyAuth</a>
+  
+    <li><a href="../HTTPClient/ProxyBasicAuth.html">HTTPClient::ProxyBasicAuth</a>
+  
+    <li><a href="../HTTPClient/ProxyDigestAuth.html">HTTPClient::ProxyDigestAuth</a>
+  
+    <li><a href="../HTTPClient/ReceiveTimeoutError.html">HTTPClient::ReceiveTimeoutError</a>
+  
+    <li><a href="../HTTPClient/RetryableResponse.html">HTTPClient::RetryableResponse</a>
+  
+    <li><a href="../HTTPClient/SSLConfig.html">HTTPClient::SSLConfig</a>
+  
+    <li><a href="../HTTPClient/SSLSocketWrap.html">HTTPClient::SSLSocketWrap</a>
+  
+    <li><a href="../HTTPClient/SSPINegotiateAuth.html">HTTPClient::SSPINegotiateAuth</a>
+  
+    <li><a href="../HTTPClient/SendTimeoutError.html">HTTPClient::SendTimeoutError</a>
+  
+    <li><a href="../HTTPClient/Session.html">HTTPClient::Session</a>
+  
+    <li><a href="../HTTPClient/SessionManager.html">HTTPClient::SessionManager</a>
+  
+    <li><a href="../HTTPClient/Site.html">HTTPClient::Site</a>
+  
+    <li><a href="../HTTPClient/SocketWrap.html">HTTPClient::SocketWrap</a>
+  
+    <li><a href="../HTTPClient/Timeout.html">HTTPClient::Timeout</a>
+  
+    <li><a href="../HTTPClient/TimeoutError.html">HTTPClient::TimeoutError</a>
+  
+    <li><a href="../HTTPClient/TimeoutScheduler.html">HTTPClient::TimeoutScheduler</a>
+  
+    <li><a href="../HTTPClient/TimeoutScheduler/Period.html">HTTPClient::TimeoutScheduler::Period</a>
+  
+    <li><a href="../HTTPClient/Util.html">HTTPClient::Util</a>
+  
+    <li><a href="../HTTPClient/Util/Addressable.html">HTTPClient::Util::Addressable</a>
+  
+    <li><a href="../HTTPClient/Util/AddressableURI.html">HTTPClient::Util::AddressableURI</a>
+  
+    <li><a href="../HTTPClient/WWWAuth.html">HTTPClient::WWWAuth</a>
+  
+    <li><a href="../HTTPClient/WebAgentSaver.html">HTTPClient::WebAgentSaver</a>
+  
+    <li><a href="../HexDump.html">HexDump</a>
+  
+    <li><a href="../JSONClient.html">JSONClient</a>
+  
+    <li><a href="../OAuthClient.html">OAuthClient</a>
+  
+    <li><a href="../String.html">String</a>
+  
+    <li><a href="../URI.html">URI</a>
+  
+    <li><a href="../URI/Generic.html">URI::Generic</a>
+  
+    <li><a href="../WebAgent.html">WebAgent</a>
+  
+    <li><a href="../WebAgent/Cookie.html">WebAgent::Cookie</a>
+  
+    <li><a href="../WebAgent/CookieManager.html">WebAgent::CookieManager</a>
+  
+    <li><a href="../WebAgent/CookieManager/Error.html">WebAgent::CookieManager::Error</a>
+  
+    <li><a href="../WebAgent/CookieManager/ErrorOverrideOK.html">WebAgent::CookieManager::ErrorOverrideOK</a>
+  
+    <li><a href="../WebAgent/CookieManager/SpecialError.html">WebAgent::CookieManager::SpecialError</a>
+  
+    <li><a href="../WebAgent/CookieUtils.html">WebAgent::CookieUtils</a>
+  
+    <li><a href="../WebAgent/SynchronizedArray.html">WebAgent::SynchronizedArray</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class HTTPClient::CookieManager</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="SPECIAL_DOMAIN">SPECIAL_DOMAIN
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-accept_domains" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">accept_domains</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-cookies_file" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">cookies_file</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-format" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">format</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-netscape_rule" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">netscape_rule</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>for conformance to <a
+href="http://wp.netscape.com/newsref/std/cookie_spec.html">wp.netscape.com/newsref/std/cookie_spec.html</a></p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-reject_domains" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">reject_domains</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(cookies_file = nil, format = WebAgentSaver)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/httpclient/cookie.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">cookies_file</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">format</span> = <span class="ruby-constant">WebAgentSaver</span>)
+  <span class="ruby-ivar">@cookies_file</span> = <span class="ruby-identifier">cookies_file</span>
+  <span class="ruby-ivar">@format</span> = <span class="ruby-identifier">format</span>
+  <span class="ruby-ivar">@jar</span> = <span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">CookieJar</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">load_cookies</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@cookies_file</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-add" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add</span><span
+            class="method-args">(cookie)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add-source">
+            <pre><span class="ruby-comment"># File lib/httpclient/cookie.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add</span>(<span class="ruby-identifier">cookie</span>)
+  <span class="ruby-ivar">@jar</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">cookie</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- add-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- add-method -->
+
+    
+      <div id="method-i-check_cookie_accept_domain" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check_cookie_accept_domain</span><span
+            class="method-args">(domain)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Who use it?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="check_cookie_accept_domain-source">
+            <pre><span class="ruby-comment"># File lib/httpclient/webagent-cookie.rb, line 379</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">check_cookie_accept_domain</span>(<span class="ruby-identifier">domain</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">domain</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@accept_domains</span>.<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">dom</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">domain_match</span>(<span class="ruby-identifier">domain</span>, <span class="ruby-identifier">dom</span>)
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+  }
+  <span class="ruby-ivar">@reject_domains</span>.<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">dom</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">domain_match</span>(<span class="ruby-identifier">domain</span>, <span class="ruby-identifier">dom</span>)
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">end</span>
+  }
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- check_cookie_accept_domain-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- check_cookie_accept_domain-method -->
+
+    
+      <div id="method-i-check_expired_cookies" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check_expired_cookies</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="check_expired_cookies-source">
+            <pre><span class="ruby-comment"># File lib/httpclient/webagent-cookie.rb, line 283</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">check_expired_cookies</span>
+  <span class="ruby-ivar">@cookies</span>.<span class="ruby-identifier">reject!</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">cookie</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">is_expired</span> = (<span class="ruby-identifier">cookie</span>.<span class="ruby-identifier">expires</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">cookie</span>.<span class="ruby-identifier">expires</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">gmtime</span>))
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">is_expired</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">cookie</span>.<span class="ruby-identifier">discard?</span>
+      <span class="ruby-ivar">@is_saved</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">is_expired</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- check_expired_cookies-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- check_expired_cookies-method -->
+
+    
+      <div id="method-i-cookie_value" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cookie_value</span><span
+            class="method-args">(uri)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="cookie_value-source">
+            <pre><span class="ruby-comment"># File lib/httpclient/cookie.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cookie_value</span>(<span class="ruby-identifier">uri</span>)
+  <span class="ruby-identifier">cookies</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cookies</span>(<span class="ruby-identifier">uri</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">cookies</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Cookie</span>.<span class="ruby-identifier">cookie_value</span>(<span class="ruby-identifier">cookies</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- cookie_value-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- cookie_value-method -->
+
+    
+      <div id="method-i-cookies" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cookies</span><span
+            class="method-args">(uri = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="cookies-source">
+            <pre><span class="ruby-comment"># File lib/httpclient/cookie.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cookies</span>(<span class="ruby-identifier">uri</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">cookies</span> = <span class="ruby-ivar">@jar</span>.<span class="ruby-identifier">cookies</span>(<span class="ruby-identifier">uri</span>)
+  <span class="ruby-comment"># TODO: return HTTP::Cookie in the future</span>
+  <span class="ruby-identifier">cookies</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">cookie</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">WebAgent</span><span class="ruby-operator">::</span><span class="ruby-constant">Cookie</span>.<span class="ruby-identifier">new</span>(
+      <span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">cookie</span>.<span class="ruby-identifier">name</span>,
+      <span class="ruby-value">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">cookie</span>.<span class="ruby-identifier">value</span>,
+      <span class="ruby-value">:domain</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">cookie</span>.<span class="ruby-identifier">domain</span>,
+      <span class="ruby-value">:path</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">cookie</span>.<span class="ruby-identifier">path</span>,
+      <span class="ruby-value">:origin</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">cookie</span>.<span class="ruby-identifier">origin</span>,
+      <span class="ruby-value">:for_domain</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">cookie</span>.<span class="ruby-identifier">for_domain</span>,
+      <span class="ruby-value">:expires</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">cookie</span>.<span class="ruby-identifier">expires</span>,
+      <span class="ruby-value">:httponly</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">cookie</span>.<span class="ruby-identifier">httponly</span>,
+      <span class="ruby-value">:secure</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">cookie</span>.<span class="ruby-identifier">secure</span>
+    )
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- cookies-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- cookies-method -->
+
+    
+      <div id="method-i-cookies-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cookies=</span><span
+            class="method-args">(cookies)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="cookies-3D-source">
+            <pre><span class="ruby-comment"># File lib/httpclient/cookie.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cookies=</span>(<span class="ruby-identifier">cookies</span>)
+  <span class="ruby-ivar">@jar</span>.<span class="ruby-identifier">clear</span>
+  <span class="ruby-identifier">cookies</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cookie</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">add</span>(<span class="ruby-identifier">cookie</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- cookies-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- cookies-3D-method -->
+
+    
+      <div id="method-i-find" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find</span><span
+            class="method-args">(uri)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="find-source">
+            <pre><span class="ruby-comment"># File lib/httpclient/cookie.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find</span>(<span class="ruby-identifier">uri</span>)
+  <span class="ruby-identifier">warn</span>(<span class="ruby-string">&#39;CookieManager#find is deprecated and will be removed in near future. Use HTTP::Cookie.cookie_value(CookieManager#cookies) instead&#39;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">cookie</span> = <span class="ruby-identifier">cookies</span>(<span class="ruby-identifier">uri</span>)
+    <span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Cookie</span>.<span class="ruby-identifier">cookie_value</span>(<span class="ruby-identifier">cookie</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- find-source -->
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: cookie_value
+        </div>
+        
+
+        
+      </div><!-- find-method -->
+
+    
+      <div id="method-i-load_cookies" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_cookies</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="load_cookies-source">
+            <pre><span class="ruby-comment"># File lib/httpclient/cookie.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load_cookies</span>
+  <span class="ruby-identifier">check_cookies_file</span>
+  <span class="ruby-ivar">@jar</span>.<span class="ruby-identifier">clear</span>
+  <span class="ruby-ivar">@jar</span>.<span class="ruby-identifier">load</span>(<span class="ruby-ivar">@cookies_file</span>, <span class="ruby-value">:format</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@format</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- load_cookies-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- load_cookies-method -->
+
+    
+      <div id="method-i-parse" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse</span><span
+            class="method-args">(value, uri)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse-source">
+            <pre><span class="ruby-comment"># File lib/httpclient/cookie.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">uri</span>)
+  <span class="ruby-ivar">@jar</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">uri</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- parse-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- parse-method -->
+
+    
+      <div id="method-i-save_all_cookies" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">save_all_cookies</span><span
+            class="method-args">(force = nil, save_unused = true, save_discarded = true)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="save_all_cookies-source">
+            <pre><span class="ruby-comment"># File lib/httpclient/webagent-cookie.rb, line 255</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">save_all_cookies</span>(<span class="ruby-identifier">force</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">save_unused</span> = <span class="ruby-keyword">true</span>, <span class="ruby-identifier">save_discarded</span> = <span class="ruby-keyword">true</span>)
+  <span class="ruby-ivar">@cookies</span>.<span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">check_expired_cookies</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@is_saved</span> <span class="ruby-keyword">and</span> <span class="ruby-operator">!</span><span class="ruby-identifier">force</span>
+      <span class="ruby-keyword">return</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-ivar">@cookies_file</span>, <span class="ruby-string">&#39;w&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+      <span class="ruby-ivar">@cookies</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cookie</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">if</span> (<span class="ruby-identifier">cookie</span>.<span class="ruby-identifier">use?</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">save_unused</span>) <span class="ruby-keyword">and</span>
+          (<span class="ruby-operator">!</span><span class="ruby-identifier">cookie</span>.<span class="ruby-identifier">discard?</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">save_discarded</span>)
+          <span class="ruby-identifier">f</span>.<span class="ruby-identifier">print</span>(<span class="ruby-identifier">cookie</span>.<span class="ruby-identifier">url</span>.<span class="ruby-identifier">to_s</span>,<span class="ruby-string">&quot;\t&quot;</span>,
+                  <span class="ruby-identifier">cookie</span>.<span class="ruby-identifier">name</span>,<span class="ruby-string">&quot;\t&quot;</span>,
+                  <span class="ruby-identifier">cookie</span>.<span class="ruby-identifier">value</span>,<span class="ruby-string">&quot;\t&quot;</span>,
+                  <span class="ruby-identifier">cookie</span>.<span class="ruby-identifier">expires</span>.<span class="ruby-identifier">to_i</span>,<span class="ruby-string">&quot;\t&quot;</span>,
+                  <span class="ruby-identifier">cookie</span>.<span class="ruby-identifier">domain</span>,<span class="ruby-string">&quot;\t&quot;</span>,
+                  <span class="ruby-identifier">cookie</span>.<span class="ruby-identifier">path</span>,<span class="ruby-string">&quot;\t&quot;</span>,
+                  <span class="ruby-identifier">cookie</span>.<span class="ruby-identifier">flag</span>,<span class="ruby-string">&quot;\n&quot;</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@is_saved</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- save_all_cookies-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- save_all_cookies-method -->
+
+    
+      <div id="method-i-save_cookies" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">save_cookies</span><span
+            class="method-args">(session = false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="save_cookies-source">
+            <pre><span class="ruby-comment"># File lib/httpclient/cookie.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">save_cookies</span>(<span class="ruby-identifier">session</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">check_cookies_file</span>
+  <span class="ruby-ivar">@jar</span>.<span class="ruby-identifier">save</span>(<span class="ruby-ivar">@cookies_file</span>, <span class="ruby-value">:format</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@format</span>, <span class="ruby-value">:session</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">session</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- save_cookies-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- save_cookies-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-check_cookies_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check_cookies_file</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="check_cookies_file-source">
+            <pre><span class="ruby-comment"># File lib/httpclient/cookie.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">check_cookies_file</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@cookies_file</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Cookies file not specified&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- check_cookies_file-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- check_cookies_file-method -->
+
+    
+      <div id="method-i-check_domain" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check_domain</span><span
+            class="method-args">(domain, hostname, override)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="check_domain-source">
+            <pre><span class="ruby-comment"># File lib/httpclient/webagent-cookie.rb, line 416</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">check_domain</span>(<span class="ruby-identifier">domain</span>, <span class="ruby-identifier">hostname</span>, <span class="ruby-identifier">override</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">domain</span>
+
+  <span class="ruby-comment"># [DRAFT 12] s. 4.2.2 (does not apply in the case that</span>
+  <span class="ruby-comment"># host name is the same as domain attribute for version 0</span>
+  <span class="ruby-comment"># cookie)</span>
+  <span class="ruby-comment"># I think that this rule has almost the same effect as the</span>
+  <span class="ruby-comment"># tail match of [NETSCAPE].</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">domain</span> <span class="ruby-operator">!~</span> <span class="ruby-regexp">/^\./</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">hostname</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">domain</span>
+    <span class="ruby-identifier">domain</span> = <span class="ruby-string">&#39;.&#39;</span><span class="ruby-operator">+</span><span class="ruby-identifier">domain</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># [NETSCAPE] rule</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@netscape_rule</span>
+    <span class="ruby-identifier">n</span> = <span class="ruby-identifier">domain</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/\./</span>).<span class="ruby-identifier">length</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">2</span>
+      <span class="ruby-identifier">cookie_error</span>(<span class="ruby-constant">SpecialError</span>.<span class="ruby-identifier">new</span>, <span class="ruby-identifier">override</span>)
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span>
+      <span class="ruby-comment">## [NETSCAPE] rule</span>
+      <span class="ruby-identifier">ok</span> = <span class="ruby-constant">SPECIAL_DOMAIN</span>.<span class="ruby-identifier">select</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">sdomain</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">sdomain</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">domain</span>[<span class="ruby-operator">-</span>(<span class="ruby-identifier">sdomain</span>.<span class="ruby-identifier">length</span>)<span class="ruby-operator">..</span><span class="ruby-value">-1</span>]
+      }
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">ok</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-identifier">cookie_error</span>(<span class="ruby-constant">SpecialError</span>.<span class="ruby-identifier">new</span>, <span class="ruby-identifier">override</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># this implementation does not check RFC2109 4.3.2 case 2;</span>
+  <span class="ruby-comment"># the portion of host not in domain does not contain a dot.</span>
+  <span class="ruby-comment"># according to nsCookieService.cpp in Firefox 3.0.4, Firefox 3.0.4</span>
+  <span class="ruby-comment"># and IE does not check, too.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- check_domain-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- check_domain-method -->
+
+    
+      <div id="method-i-cookie_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cookie_error</span><span
+            class="method-args">(err, override)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>not tested well; used only <a
+href="CookieManager.html#attribute-i-netscape_rule">#netscape_rule</a> =
+true.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="cookie_error-source">
+            <pre><span class="ruby-comment"># File lib/httpclient/webagent-cookie.rb, line 449</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cookie_error</span>(<span class="ruby-identifier">err</span>, <span class="ruby-identifier">override</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">err</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">ErrorOverrideOK</span>) <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-identifier">override</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-identifier">err</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- cookie_error-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- cookie_error-method -->
+
+    
+      <div id="method-i-make_cookie_str" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">make_cookie_str</span><span
+            class="method-args">(cookie_list)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="make_cookie_str-source">
+            <pre><span class="ruby-comment"># File lib/httpclient/webagent-cookie.rb, line 398</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">make_cookie_str</span>(<span class="ruby-identifier">cookie_list</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">cookie_list</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">ret</span> = <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-identifier">c</span> = <span class="ruby-identifier">cookie_list</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-identifier">ret</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;#{c.name}=#{c.value}&quot;</span>
+  <span class="ruby-identifier">cookie_list</span>.<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">cookie</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">ret</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;; #{cookie.name}=#{cookie.value}&quot;</span>
+  }
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">ret</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- make_cookie_str-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- make_cookie_str-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

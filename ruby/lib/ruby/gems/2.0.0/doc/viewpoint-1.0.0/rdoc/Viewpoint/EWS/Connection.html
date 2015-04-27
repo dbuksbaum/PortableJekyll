@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Viewpoint::EWS::Connection - viewpoint-1.0.0 Documentation</title>
+
+<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../index.html">Home</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/ews/connection.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    <!-- Included Modules -->
+<nav id="includes-section" class="section">
+  <h3 class="section-header">Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="ConnectionHelper.html">Viewpoint::EWS::ConnectionHelper</a>
+  
+  
+  
+    <li><a class="include" href="../EWS.html">Viewpoint::EWS</a>
+  
+  
+  </ul>
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-authenticate">#authenticate</a>
+    
+    <li ><a href="#method-i-check_response">#check_response</a>
+    
+    <li ><a href="#method-i-dispatch">#dispatch</a>
+    
+    <li ><a href="#method-i-get">#get</a>
+    
+    <li ><a href="#method-i-parse_soap_error">#parse_soap_error</a>
+    
+    <li ><a href="#method-i-post">#post</a>
+    
+    <li ><a href="#method-i-set_auth">#set_auth</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../README_md.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../Viewpoint.html">Viewpoint</a>
+  
+    <li><a href="../../Viewpoint/EWS.html">Viewpoint::EWS</a>
+  
+    <li><a href="../../Viewpoint/EWS/CalendarAccessors.html">Viewpoint::EWS::CalendarAccessors</a>
+  
+    <li><a href="../../Viewpoint/EWS/Connection.html">Viewpoint::EWS::Connection</a>
+  
+    <li><a href="../../Viewpoint/EWS/ConnectionHelper.html">Viewpoint::EWS::ConnectionHelper</a>
+  
+    <li><a href="../../Viewpoint/EWS/ConvertAccessors.html">Viewpoint::EWS::ConvertAccessors</a>
+  
+    <li><a href="../../Viewpoint/EWS/Errors.html">Viewpoint::EWS::Errors</a>
+  
+    <li><a href="../../Viewpoint/EWS/Errors/ResponseError.html">Viewpoint::EWS::Errors::ResponseError</a>
+  
+    <li><a href="../../Viewpoint/EWS/Errors/ServerError.html">Viewpoint::EWS::Errors::ServerError</a>
+  
+    <li><a href="../../Viewpoint/EWS/Errors/SoapResponseError.html">Viewpoint::EWS::Errors::SoapResponseError</a>
+  
+    <li><a href="../../Viewpoint/EWS/Errors/UnauthorizedResponseError.html">Viewpoint::EWS::Errors::UnauthorizedResponseError</a>
+  
+    <li><a href="../../Viewpoint/EWS/Errors/UnhandledResponseError.html">Viewpoint::EWS::Errors::UnhandledResponseError</a>
+  
+    <li><a href="../../Viewpoint/EWS/EwsBadArgumentError.html">Viewpoint::EWS::EwsBadArgumentError</a>
+  
+    <li><a href="../../Viewpoint/EWS/EwsCreateItemError.html">Viewpoint::EWS::EwsCreateItemError</a>
+  
+    <li><a href="../../Viewpoint/EWS/EwsError.html">Viewpoint::EWS::EwsError</a>
+  
+    <li><a href="../../Viewpoint/EWS/EwsFolderNotFound.html">Viewpoint::EWS::EwsFolderNotFound</a>
+  
+    <li><a href="../../Viewpoint/EWS/EwsFrozenObjectError.html">Viewpoint::EWS::EwsFrozenObjectError</a>
+  
+    <li><a href="../../Viewpoint/EWS/EwsItemNotFound.html">Viewpoint::EWS::EwsItemNotFound</a>
+  
+    <li><a href="../../Viewpoint/EWS/EwsLoginError.html">Viewpoint::EWS::EwsLoginError</a>
+  
+    <li><a href="../../Viewpoint/EWS/EwsMinimalObjectError.html">Viewpoint::EWS::EwsMinimalObjectError</a>
+  
+    <li><a href="../../Viewpoint/EWS/EwsNotImplemented.html">Viewpoint::EWS::EwsNotImplemented</a>
+  
+    <li><a href="../../Viewpoint/EWS/EwsSendItemError.html">Viewpoint::EWS::EwsSendItemError</a>
+  
+    <li><a href="../../Viewpoint/EWS/EwsServerVersionError.html">Viewpoint::EWS::EwsServerVersionError</a>
+  
+    <li><a href="../../Viewpoint/EWS/EwsSubscriptionError.html">Viewpoint::EWS::EwsSubscriptionError</a>
+  
+    <li><a href="../../Viewpoint/EWS/EwsSubscriptionTimeout.html">Viewpoint::EWS::EwsSubscriptionTimeout</a>
+  
+    <li><a href="../../Viewpoint/EWS/FolderAccessors.html">Viewpoint::EWS::FolderAccessors</a>
+  
+    <li><a href="../../Viewpoint/EWS/ItemAccessors.html">Viewpoint::EWS::ItemAccessors</a>
+  
+    <li><a href="../../Viewpoint/EWS/ItemFieldUriMap.html">Viewpoint::EWS::ItemFieldUriMap</a>
+  
+    <li><a href="../../Viewpoint/EWS/MailboxAccessors.html">Viewpoint::EWS::MailboxAccessors</a>
+  
+    <li><a href="../../Viewpoint/EWS/MessageAccessors.html">Viewpoint::EWS::MessageAccessors</a>
+  
+    <li><a href="../../Viewpoint/EWS/PushSubscriptionAccessors.html">Viewpoint::EWS::PushSubscriptionAccessors</a>
+  
+    <li><a href="../../Viewpoint/EWS/RoomAccessors.html">Viewpoint::EWS::RoomAccessors</a>
+  
+    <li><a href="../../Viewpoint/EWS/RoomlistAccessors.html">Viewpoint::EWS::RoomlistAccessors</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP.html">Viewpoint::EWS::SOAP</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/CreateAttachmentResponseMessage.html">Viewpoint::EWS::SOAP::CreateAttachmentResponseMessage</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/CreateItemResponseMessage.html">Viewpoint::EWS::SOAP::CreateItemResponseMessage</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/EwsBuilder.html">Viewpoint::EWS::SOAP::EwsBuilder</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/EwsParser.html">Viewpoint::EWS::SOAP::EwsParser</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/EwsResponse.html">Viewpoint::EWS::SOAP::EwsResponse</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/EwsSaxDocument.html">Viewpoint::EWS::SOAP::EwsSaxDocument</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/EwsSoapAvailabilityResponse.html">Viewpoint::EWS::SOAP::EwsSoapAvailabilityResponse</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/EwsSoapFreeBusyResponse.html">Viewpoint::EWS::SOAP::EwsSoapFreeBusyResponse</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/EwsSoapResponse.html">Viewpoint::EWS::SOAP::EwsSoapResponse</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/EwsSoapRoomResponse.html">Viewpoint::EWS::SOAP::EwsSoapRoomResponse</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/EwsSoapRoomlistResponse.html">Viewpoint::EWS::SOAP::EwsSoapRoomlistResponse</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/ExchangeAvailability.html">Viewpoint::EWS::SOAP::ExchangeAvailability</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/ExchangeDataServices.html">Viewpoint::EWS::SOAP::ExchangeDataServices</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/ExchangeNotification.html">Viewpoint::EWS::SOAP::ExchangeNotification</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/ExchangeSynchronization.html">Viewpoint::EWS::SOAP::ExchangeSynchronization</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/ExchangeTimeZones.html">Viewpoint::EWS::SOAP::ExchangeTimeZones</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/ExchangeUserConfiguration.html">Viewpoint::EWS::SOAP::ExchangeUserConfiguration</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/ExchangeWebService.html">Viewpoint::EWS::SOAP::ExchangeWebService</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/FindItemResponseMessage.html">Viewpoint::EWS::SOAP::FindItemResponseMessage</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/GetEventsResponseMessage.html">Viewpoint::EWS::SOAP::GetEventsResponseMessage</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/ResponseMessage.html">Viewpoint::EWS::SOAP::ResponseMessage</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/RootFolder.html">Viewpoint::EWS::SOAP::RootFolder</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/SendNotificationResponseMessage.html">Viewpoint::EWS::SOAP::SendNotificationResponseMessage</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/SubscribeResponseMessage.html">Viewpoint::EWS::SOAP::SubscribeResponseMessage</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/SyncFolderHierarchyResponseMessage.html">Viewpoint::EWS::SOAP::SyncFolderHierarchyResponseMessage</a>
+  
+    <li><a href="../../Viewpoint/EWS/SOAP/SyncFolderItemsResponseMessage.html">Viewpoint::EWS::SOAP::SyncFolderItemsResponseMessage</a>
+  
+    <li><a href="../../Viewpoint/EWS/SaveFailed.html">Viewpoint::EWS::SaveFailed</a>
+  
+    <li><a href="../../Viewpoint/EWS/Template.html">Viewpoint::EWS::Template</a>
+  
+    <li><a href="../../Viewpoint/EWS/Template/CalendarItem.html">Viewpoint::EWS::Template::CalendarItem</a>
+  
+    <li><a href="../../Viewpoint/EWS/Template/ForwardItem.html">Viewpoint::EWS::Template::ForwardItem</a>
+  
+    <li><a href="../../Viewpoint/EWS/Template/Message.html">Viewpoint::EWS::Template::Message</a>
+  
+    <li><a href="../../Viewpoint/EWS/Template/ReplyToItem.html">Viewpoint::EWS::Template::ReplyToItem</a>
+  
+    <li><a href="../../Viewpoint/EWS/Template/Task.html">Viewpoint::EWS::Template::Task</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types.html">Viewpoint::EWS::Types</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/Attachment.html">Viewpoint::EWS::Types::Attachment</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/Attendee.html">Viewpoint::EWS::Types::Attendee</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/CalendarFolder.html">Viewpoint::EWS::Types::CalendarFolder</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/CalendarItem.html">Viewpoint::EWS::Types::CalendarItem</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/Contact.html">Viewpoint::EWS::Types::Contact</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/ContactsFolder.html">Viewpoint::EWS::Types::ContactsFolder</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/CopiedEvent.html">Viewpoint::EWS::Types::CopiedEvent</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/CreatedEvent.html">Viewpoint::EWS::Types::CreatedEvent</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/DeletedEvent.html">Viewpoint::EWS::Types::DeletedEvent</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/DistributionList.html">Viewpoint::EWS::Types::DistributionList</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/Event.html">Viewpoint::EWS::Types::Event</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/ExportItemsResponseMessage.html">Viewpoint::EWS::Types::ExportItemsResponseMessage</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/FileAttachment.html">Viewpoint::EWS::Types::FileAttachment</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/Folder.html">Viewpoint::EWS::Types::Folder</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/FreeBusyChangedEvent.html">Viewpoint::EWS::Types::FreeBusyChangedEvent</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/GenericFolder.html">Viewpoint::EWS::Types::GenericFolder</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/Item.html">Viewpoint::EWS::Types::Item</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/Item/ClassMethods.html">Viewpoint::EWS::Types::Item::ClassMethods</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/ItemAttachment.html">Viewpoint::EWS::Types::ItemAttachment</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/MailboxUser.html">Viewpoint::EWS::Types::MailboxUser</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/MeetingCancellation.html">Viewpoint::EWS::Types::MeetingCancellation</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/MeetingMessage.html">Viewpoint::EWS::Types::MeetingMessage</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/MeetingRequest.html">Viewpoint::EWS::Types::MeetingRequest</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/MeetingResponse.html">Viewpoint::EWS::Types::MeetingResponse</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/Message.html">Viewpoint::EWS::Types::Message</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/ModifiedEvent.html">Viewpoint::EWS::Types::ModifiedEvent</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/MovedEvent.html">Viewpoint::EWS::Types::MovedEvent</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/NewMailEvent.html">Viewpoint::EWS::Types::NewMailEvent</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/OutOfOffice.html">Viewpoint::EWS::Types::OutOfOffice</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/SearchFolder.html">Viewpoint::EWS::Types::SearchFolder</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/StatusEvent.html">Viewpoint::EWS::Types::StatusEvent</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/Task.html">Viewpoint::EWS::Types::Task</a>
+  
+    <li><a href="../../Viewpoint/EWS/Types/TasksFolder.html">Viewpoint::EWS::Types::TasksFolder</a>
+  
+    <li><a href="../../Viewpoint/EWSClient.html">Viewpoint::EWSClient</a>
+  
+    <li><a href="../../Viewpoint/StringFormatException.html">Viewpoint::StringFormatException</a>
+  
+    <li><a href="../../Viewpoint/StringUtils.html">Viewpoint::StringUtils</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Viewpoint::EWS::Connection</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-endpoint" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">endpoint</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(endpoint, opts = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param [String] endpoint the URL of the web service.</p>
+
+<pre>@example https://&lt;site&gt;/ews/Exchange.asmx</pre>
+
+<p>@param [Hash] opts Misc config options (mostly for developement) @option
+opts [Fixnum] :ssl_verify_mode @option opts [Array]  :trust_ca an array of
+hashed dir paths or a file</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/ews/connection.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">endpoint</span>, <span class="ruby-identifier">opts</span> = {})
+  <span class="ruby-ivar">@log</span> = <span class="ruby-constant">Logging</span>.<span class="ruby-identifier">logger</span>[<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">to_sym</span>]
+  <span class="ruby-ivar">@httpcli</span> = <span class="ruby-constant">HTTPClient</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>[<span class="ruby-value">:trust_ca</span>]
+    <span class="ruby-ivar">@httpcli</span>.<span class="ruby-identifier">ssl_config</span>.<span class="ruby-identifier">clear_cert_store</span>
+    <span class="ruby-identifier">opts</span>[<span class="ruby-value">:trust_ca</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ca</span><span class="ruby-operator">|</span>
+      <span class="ruby-ivar">@httpcli</span>.<span class="ruby-identifier">ssl_config</span>.<span class="ruby-identifier">add_trust_ca</span> <span class="ruby-identifier">ca</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@httpcli</span>.<span class="ruby-identifier">ssl_config</span>.<span class="ruby-identifier">verify_mode</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:ssl_verify_mode</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>[<span class="ruby-value">:ssl_verify_mode</span>]
+  <span class="ruby-comment"># Up the keep-alive so we don&#39;t have to do the NTLM dance as often.</span>
+  <span class="ruby-ivar">@httpcli</span>.<span class="ruby-identifier">keep_alive_timeout</span> = <span class="ruby-value">60</span>
+  <span class="ruby-ivar">@endpoint</span> = <span class="ruby-identifier">endpoint</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-authenticate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">authenticate</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Authenticate to the web service. You don&#39;t have to do this because
+authentication will happen on the first request if you don&#39;t do it
+here. @return [Boolean] true if authentication is successful, false
+otherwise</p>
+          
+          
+
+          
+          <div class="method-source-code" id="authenticate-source">
+            <pre><span class="ruby-comment"># File lib/ews/connection.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">authenticate</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">get</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- authenticate-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- authenticate-method -->
+
+    
+      <div id="method-i-dispatch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dispatch</span><span
+            class="method-args">(ews, soapmsg, opts)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Every <a href="Connection.html">Connection</a> class must have the dispatch
+method. It is what sends the SOAP request to the server and calls the
+parser method on the EWS instance.</p>
+
+<p>This was originally in the ExchangeWebService class but it was added here
+to make the processing chain easier to modify. For example, it allows the
+reactor pattern to handle the request with a callback. @param ews
+[Viewpoint::EWS::SOAP::ExchangeWebService] used to call</p>
+
+<pre>#parse_soap_response</pre>
+
+<p>@param soapmsg [String] @param opts [Hash] misc opts for handling the
+Response</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dispatch-source">
+            <pre><span class="ruby-comment"># File lib/ews/connection.rb, line 66</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">dispatch</span>(<span class="ruby-identifier">ews</span>, <span class="ruby-identifier">soapmsg</span>, <span class="ruby-identifier">opts</span>)
+    <span class="ruby-identifier">respmsg</span> = <span class="ruby-identifier">post</span>(<span class="ruby-identifier">soapmsg</span>)
+    <span class="ruby-ivar">@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-string">&quot;      Received SOAP Response:
+      ----------------
+      #{Nokogiri::XML(respmsg).to_xml}
+      ----------------
+&quot;</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/^ {6}/</span>, <span class="ruby-string">&#39;&#39;</span>)
+    <span class="ruby-identifier">opts</span>[<span class="ruby-value">:raw_response</span>] <span class="ruby-operator">?</span> <span class="ruby-identifier">respmsg</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">ews</span>.<span class="ruby-identifier">parse_soap_response</span>(<span class="ruby-identifier">respmsg</span>, <span class="ruby-identifier">opts</span>)
+  <span class="ruby-keyword">end</span></pre>
+          </div><!-- dispatch-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- dispatch-method -->
+
+    
+      <div id="method-i-get" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Send a GET to the web service @return [String] If the request is successful
+(200) it returns the body of</p>
+
+<pre>the response.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="get-source">
+            <pre><span class="ruby-comment"># File lib/ews/connection.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get</span>
+  <span class="ruby-identifier">check_response</span>( <span class="ruby-ivar">@httpcli</span>.<span class="ruby-identifier">get</span>(<span class="ruby-ivar">@endpoint</span>) )
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get-method -->
+
+    
+      <div id="method-i-post" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">post</span><span
+            class="method-args">(xmldoc)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Send a POST to the web service @return [String] If the request is
+successful (200) it returns the body of</p>
+
+<pre>the response.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="post-source">
+            <pre><span class="ruby-comment"># File lib/ews/connection.rb, line 87</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">post</span>(<span class="ruby-identifier">xmldoc</span>)
+  <span class="ruby-identifier">headers</span> = {<span class="ruby-string">&#39;Content-Type&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;text/xml&#39;</span>}
+  <span class="ruby-identifier">check_response</span>( <span class="ruby-ivar">@httpcli</span>.<span class="ruby-identifier">post</span>(<span class="ruby-ivar">@endpoint</span>, <span class="ruby-identifier">xmldoc</span>, <span class="ruby-identifier">headers</span>) )
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- post-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- post-method -->
+
+    
+      <div id="method-i-set_auth" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_auth</span><span
+            class="method-args">(user,pass)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_auth-source">
+            <pre><span class="ruby-comment"># File lib/ews/connection.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_auth</span>(<span class="ruby-identifier">user</span>,<span class="ruby-identifier">pass</span>)
+  <span class="ruby-ivar">@httpcli</span>.<span class="ruby-identifier">set_auth</span>(<span class="ruby-ivar">@endpoint</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">user</span>, <span class="ruby-identifier">pass</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- set_auth-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- set_auth-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-check_response" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check_response</span><span
+            class="method-args">(resp)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="check_response-source">
+            <pre><span class="ruby-comment"># File lib/ews/connection.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">check_response</span>(<span class="ruby-identifier">resp</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">status</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">200</span>
+    <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">body</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">302</span>
+    <span class="ruby-comment"># @todo redirect</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Errors</span><span class="ruby-operator">::</span><span class="ruby-constant">UnhandledResponseError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Unhandled HTTP Redirect&quot;</span>, <span class="ruby-identifier">resp</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-value">401</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Errors</span><span class="ruby-operator">::</span><span class="ruby-constant">UnauthorizedResponseError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Unauthorized request&quot;</span>, <span class="ruby-identifier">resp</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-value">500</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">headers</span>[<span class="ruby-string">&#39;Content-Type&#39;</span>] <span class="ruby-operator">=~</span> <span class="ruby-regexp">/xml/</span>
+      <span class="ruby-identifier">err_string</span>, <span class="ruby-identifier">err_code</span> = <span class="ruby-identifier">parse_soap_error</span>(<span class="ruby-identifier">resp</span>.<span class="ruby-identifier">body</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">Errors</span><span class="ruby-operator">::</span><span class="ruby-constant">SoapResponseError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;SOAP Error: Message: #{err_string}  Code: #{err_code}&quot;</span>, <span class="ruby-identifier">resp</span>, <span class="ruby-identifier">err_code</span>, <span class="ruby-identifier">err_string</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">Errors</span><span class="ruby-operator">::</span><span class="ruby-constant">ServerError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Internal Server Error. Message: #{resp.body}&quot;</span>, <span class="ruby-identifier">resp</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Errors</span><span class="ruby-operator">::</span><span class="ruby-constant">ResponseError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;HTTP Error Code: #{resp.status}, Msg: #{resp.body}&quot;</span>, <span class="ruby-identifier">resp</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- check_response-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- check_response-method -->
+
+    
+      <div id="method-i-parse_soap_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_soap_error</span><span
+            class="method-args">(xml)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param [String] xml to parse the errors from.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parse_soap_error-source">
+            <pre><span class="ruby-comment"># File lib/ews/connection.rb, line 117</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse_soap_error</span>(<span class="ruby-identifier">xml</span>)
+  <span class="ruby-identifier">ndoc</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span>(<span class="ruby-identifier">xml</span>)
+  <span class="ruby-identifier">ns</span> = <span class="ruby-identifier">ndoc</span>.<span class="ruby-identifier">collect_namespaces</span>
+  <span class="ruby-identifier">err_string</span>  = <span class="ruby-identifier">ndoc</span>.<span class="ruby-identifier">xpath</span>(<span class="ruby-string">&quot;//faultstring&quot;</span>,<span class="ruby-identifier">ns</span>).<span class="ruby-identifier">text</span>
+  <span class="ruby-identifier">err_code</span>    = <span class="ruby-identifier">ndoc</span>.<span class="ruby-identifier">xpath</span>(<span class="ruby-string">&quot;//faultcode&quot;</span>,<span class="ruby-identifier">ns</span>).<span class="ruby-identifier">text</span>
+  <span class="ruby-ivar">@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-node">&quot;Internal SOAP error. Message: #{err_string}, Code: #{err_code}&quot;</span>
+  [<span class="ruby-identifier">err_string</span>, <span class="ruby-identifier">err_code</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- parse_soap_error-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- parse_soap_error-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

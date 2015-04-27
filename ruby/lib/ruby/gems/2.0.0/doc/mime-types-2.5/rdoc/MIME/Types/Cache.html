@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module MIME::Types::Cache - mime-types-2.5 Documentation</title>
+
+<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../index.html">Home</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/mime/types/cache.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-load">::load</a>
+    
+    <li ><a href="#method-c-save">::save</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../Contributing_rdoc.html">Contributing</a>
+  
+    <li class="file"><a href="../../History-Types_rdoc.html">History-Types</a>
+  
+    <li class="file"><a href="../../History_rdoc.html">History</a>
+  
+    <li class="file"><a href="../../Licence_rdoc.html">Licence</a>
+  
+    <li class="file"><a href="../../Manifest_txt.html">Manifest</a>
+  
+    <li class="file"><a href="../../README_rdoc.html">README</a>
+  
+    <li class="file"><a href="../../docs/COPYING_txt.html">COPYING</a>
+  
+    <li class="file"><a href="../../docs/artistic_txt.html">artistic</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../MIME.html">MIME</a>
+  
+    <li><a href="../../MIME/Type.html">MIME::Type</a>
+  
+    <li><a href="../../MIME/Type/InvalidContentType.html">MIME::Type::InvalidContentType</a>
+  
+    <li><a href="../../MIME/Type/InvalidEncoding.html">MIME::Type::InvalidEncoding</a>
+  
+    <li><a href="../../MIME/Types.html">MIME::Types</a>
+  
+    <li><a href="../../MIME/Types/Cache.html">MIME::Types::Cache</a>
+  
+    <li><a href="../../MIME/Types/Container.html">MIME::Types::Container</a>
+  
+    <li><a href="../../MIME/Types/Loader.html">MIME::Types::Loader</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module MIME::Types::Cache</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-load" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load</span><span
+            class="method-args">(cache_file = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Attempts to load the cache from the file provided as a parameter or in the
+environment variable <code>RUBY_MIME_TYPES_CACHE</code>. Returns
+<code>nil</code> if the file does not exist, if the file cannot be loaded,
+or if the data in the cache version is different than this version.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="load-source">
+            <pre><span class="ruby-comment"># File lib/mime/types/cache.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load</span>(<span class="ruby-identifier">cache_file</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">cache_file</span> = <span class="ruby-identifier">cache_file</span> <span class="ruby-operator">||</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;RUBY_MIME_TYPES_CACHE&#39;</span>]
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">cache_file</span> <span class="ruby-keyword">and</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">cache_file</span>)
+
+  <span class="ruby-identifier">cache</span> = <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">load</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">binread</span>(<span class="ruby-identifier">cache_file</span>))
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">cache</span>.<span class="ruby-identifier">version</span> <span class="ruby-operator">==</span> <span class="ruby-constant">MIME</span><span class="ruby-operator">::</span><span class="ruby-constant">Types</span><span class="ruby-operator">::</span><span class="ruby-constant">VERSION</span>
+    <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">cache</span>.<span class="ruby-identifier">data</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">warn</span> <span class="ruby-string">&quot;Could not load MIME::Types cache: invalid version&quot;</span>
+    <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;Could not load MIME::Types cache: #{e}&quot;</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- load-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- load-method -->
+
+    
+      <div id="method-c-save" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">save</span><span
+            class="method-args">(types = nil, cache_file = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Attempts to save the types provided to the cache file provided.</p>
+
+<p>If <code>types</code> is not provided or is <code>nil</code>, the cache
+will contain the current <a href="../Types.html">MIME::Types</a> default
+registry.</p>
+
+<p>If <code>cache_file</code> is not provided or is <code>nil</code>, the
+cache will be written to the file specified in the environment variable
+<code>RUBY_MIME_TYPES_CACHE</code>. If there is no cache file specified
+either directly or through the environment, this method will return
+<code>nil</code></p>
+          
+          
+
+          
+          <div class="method-source-code" id="save-source">
+            <pre><span class="ruby-comment"># File lib/mime/types/cache.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">save</span>(<span class="ruby-identifier">types</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">cache_file</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">cache_file</span> = <span class="ruby-identifier">cache_file</span> <span class="ruby-operator">||</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;RUBY_MIME_TYPES_CACHE&#39;</span>]
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">cache_file</span>
+
+  <span class="ruby-identifier">types</span>      = <span class="ruby-identifier">types</span> <span class="ruby-operator">||</span> <span class="ruby-constant">MIME</span><span class="ruby-operator">::</span><span class="ruby-constant">Types</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:__types__</span>)
+
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">cache_file</span>, <span class="ruby-string">&#39;wb&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">f</span>.<span class="ruby-identifier">write</span>(<span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">new</span>(<span class="ruby-identifier">types</span>.<span class="ruby-identifier">data_version</span>, <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">types</span>))))
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- save-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- save-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

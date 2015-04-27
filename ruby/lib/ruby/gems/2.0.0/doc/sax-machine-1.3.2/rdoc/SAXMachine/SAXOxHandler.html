@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class SAXMachine::SAXOxHandler - sax-machine-1.3.2 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/sax-machine/handlers/sax_ox_handler.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Ox::Sax
+  
+</nav>
+
+    <!-- Included Modules -->
+<nav id="includes-section" class="section">
+  <h3 class="section-header">Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="SAXAbstractHandler.html">SAXMachine::SAXAbstractHandler</a>
+  
+  
+  </ul>
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-_reset_element">#_reset_element</a>
+    
+    <li ><a href="#method-i-attr">#attr</a>
+    
+    <li ><a href="#method-i-attrs_done">#attrs_done</a>
+    
+    <li ><a href="#method-i-cdata">#cdata</a>
+    
+    <li ><a href="#method-i-error">#error</a>
+    
+    <li ><a href="#method-i-sax_parse">#sax_parse</a>
+    
+    <li ><a href="#method-i-start_element">#start_element</a>
+    
+    <li ><a href="#method-i-text">#text</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../SAXMachine.html">SAXMachine</a>
+  
+    <li><a href="../SAXMachine/ClassMethods.html">SAXMachine::ClassMethods</a>
+  
+    <li><a href="../SAXMachine/InstanceMethods.html">SAXMachine::InstanceMethods</a>
+  
+    <li><a href="../SAXMachine/LightWeightSaxMachine.html">SAXMachine::LightWeightSaxMachine</a>
+  
+    <li><a href="../SAXMachine/SAXAbstractHandler.html">SAXMachine::SAXAbstractHandler</a>
+  
+    <li><a href="../SAXMachine/SAXAbstractHandler/StackNode.html">SAXMachine::SAXAbstractHandler::StackNode</a>
+  
+    <li><a href="../SAXMachine/SAXConfig.html">SAXMachine::SAXConfig</a>
+  
+    <li><a href="../SAXMachine/SAXConfig/AncestorConfig.html">SAXMachine::SAXConfig::AncestorConfig</a>
+  
+    <li><a href="../SAXMachine/SAXConfig/AttributeConfig.html">SAXMachine::SAXConfig::AttributeConfig</a>
+  
+    <li><a href="../SAXMachine/SAXConfig/CollectionConfig.html">SAXMachine::SAXConfig::CollectionConfig</a>
+  
+    <li><a href="../SAXMachine/SAXConfig/ElementConfig.html">SAXMachine::SAXConfig::ElementConfig</a>
+  
+    <li><a href="../SAXMachine/SAXConfig/ElementValueConfig.html">SAXMachine::SAXConfig::ElementValueConfig</a>
+  
+    <li><a href="../SAXMachine/SAXNokogiriHandler.html">SAXMachine::SAXNokogiriHandler</a>
+  
+    <li><a href="../SAXMachine/SAXOgaHandler.html">SAXMachine::SAXOgaHandler</a>
+  
+    <li><a href="../SAXMachine/SAXOxHandler.html">SAXMachine::SAXOxHandler</a>
+  
+    <li><a href="../SAXMachine/clazz;.html">SAXMachine::clazz;</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class SAXMachine::SAXOxHandler</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/sax-machine/handlers/sax_ox_handler.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">_initialize</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">_reset_element</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-attr" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">attr</span><span
+            class="method-args">(name, str)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="attr-source">
+            <pre><span class="ruby-comment"># File lib/sax-machine/handlers/sax_ox_handler.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">attr</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">str</span>)
+  <span class="ruby-ivar">@attrs</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">str</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- attr-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- attr-method -->
+
+    
+      <div id="method-i-attrs_done" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">attrs_done</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="attrs_done-source">
+            <pre><span class="ruby-comment"># File lib/sax-machine/handlers/sax_ox_handler.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">attrs_done</span>
+  <span class="ruby-identifier">_start_element</span>(<span class="ruby-ivar">@element</span>, <span class="ruby-ivar">@attrs</span>)
+  <span class="ruby-identifier">_reset_element</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- attrs_done-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- attrs_done-method -->
+
+    
+      <div id="method-i-cdata" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">cdata</span><span
+            class="method-args">(value)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="SAXOxHandler.html#method-i-text">text</a>
+        </div>
+        
+      </div><!-- cdata-method -->
+
+    
+      <div id="method-i-error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">error</span><span
+            class="method-args">(message, line, column)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="error-source">
+            <pre><span class="ruby-comment"># File lib/sax-machine/handlers/sax_ox_handler.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">error</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">line</span>, <span class="ruby-identifier">column</span>)
+  <span class="ruby-identifier">_error</span>(<span class="ruby-node">&quot;#{message} on line #{line} column #{column}&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- error-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- error-method -->
+
+    
+      <div id="method-i-sax_parse" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sax_parse</span><span
+            class="method-args">(xml_input)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sax_parse-source">
+            <pre><span class="ruby-comment"># File lib/sax-machine/handlers/sax_ox_handler.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sax_parse</span>(<span class="ruby-identifier">xml_input</span>)
+  <span class="ruby-comment"># Ox requires input to be streamable</span>
+  <span class="ruby-identifier">xml_input</span> = <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">xml_input</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">xml_input</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+
+  <span class="ruby-constant">Ox</span>.<span class="ruby-identifier">sax_parse</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">xml_input</span>,
+    <span class="ruby-identifier">symbolize</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+    <span class="ruby-identifier">convert_special</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+    <span class="ruby-identifier">skip</span><span class="ruby-operator">:</span> <span class="ruby-value">:skip_return</span>,
+  )
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- sax_parse-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- sax_parse-method -->
+
+    
+      <div id="method-i-start_element" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start_element</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="start_element-source">
+            <pre><span class="ruby-comment"># File lib/sax-machine/handlers/sax_ox_handler.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">start_element</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-ivar">@element</span> = <span class="ruby-identifier">name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- start_element-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- start_element-method -->
+
+    
+      <div id="method-i-text" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">text</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="text-source">
+            <pre><span class="ruby-comment"># File lib/sax-machine/handlers/sax_ox_handler.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">text</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">_characters</span>(<span class="ruby-identifier">value</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">value</span>.<span class="ruby-identifier">empty?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- text-source -->
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="SAXOxHandler.html#method-i-cdata">cdata</a>
+        </div>
+        
+
+        
+      </div><!-- text-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-_reset_element" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_reset_element</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_reset_element-source">
+            <pre><span class="ruby-comment"># File lib/sax-machine/handlers/sax_ox_handler.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_reset_element</span>
+  <span class="ruby-ivar">@attrs</span> = {}
+  <span class="ruby-ivar">@element</span> = <span class="ruby-string">&quot;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- _reset_element-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- _reset_element-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

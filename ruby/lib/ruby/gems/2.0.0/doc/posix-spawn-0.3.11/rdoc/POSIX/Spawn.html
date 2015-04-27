@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module POSIX::Spawn - posix-spawn-0.3.11 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+<div id="table-of-contents">
+  <nav class="section">
+    <h3 class="section-header">Table of Contents</h3>
+    <ul>
+      <li><a href="#label-Environment">Environment</a>
+      <li><a href="#label-Command">Command</a>
+      <li><a href="#label-Options">Options</a>
+      <li><a href="#label-Spawn+Implementation">Spawn Implementation</a>
+    </ul>
+  </nav>
+</div>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/posix/spawn.rb
+    <li>lib/posix/spawn/child.rb
+    <li>lib/posix/spawn/version.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-i-60">#`</a>
+    
+    <li ><a href="#method-i-adjust_process_spawn_argv">#adjust_process_spawn_argv</a>
+    
+    <li ><a href="#method-i-default_file_reopen_info">#default_file_reopen_info</a>
+    
+    <li ><a href="#method-i-extract_process_spawn_arguments">#extract_process_spawn_arguments</a>
+    
+    <li ><a href="#method-i-fd-3F">#fd?</a>
+    
+    <li ><a href="#method-i-fd_to_io">#fd_to_io</a>
+    
+    <li ><a href="#method-i-flatten_process_spawn_options-21">#flatten_process_spawn_options!</a>
+    
+    <li ><a href="#method-i-fspawn">#fspawn</a>
+    
+    <li ><a href="#method-i-normalize_process_spawn_redirect_file_options-21">#normalize_process_spawn_redirect_file_options!</a>
+    
+    <li ><a href="#method-i-popen4">#popen4</a>
+    
+    <li ><a href="#method-i-pspawn">#pspawn</a>
+    
+    <li ><a href="#method-i-spawn">#spawn</a>
+    
+    <li ><a href="#method-i-system">#system</a>
+    
+    <li ><a href="#method-i-system_command_prefixes">#system_command_prefixes</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../COPYING.html">COPYING</a>
+  
+    <li class="file"><a href="../HACKING.html">HACKING</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../IO.html">IO</a>
+  
+    <li><a href="../POSIX.html">POSIX</a>
+  
+    <li><a href="../POSIX/Spawn.html">POSIX::Spawn</a>
+  
+    <li><a href="../POSIX/Spawn/Child.html">POSIX::Spawn::Child</a>
+  
+    <li><a href="../POSIX/Spawn/MaximumOutputExceeded.html">POSIX::Spawn::MaximumOutputExceeded</a>
+  
+    <li><a href="../POSIX/Spawn/TimeoutExceeded.html">POSIX::Spawn::TimeoutExceeded</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module POSIX::Spawn</h1>
+
+  <div id="description" class="description">
+    
+<p>The <a href="Spawn.html">POSIX::Spawn</a> module implements a compatible
+subset of Ruby 1.9&#39;s Process::spawn and related methods using the IEEE
+Std 1003.1 posix_spawn(2) system interfaces where available, or a pure Ruby
+fork/exec based implementation when not.</p>
+
+<p>In Ruby 1.9, a versatile new process spawning interface was added
+(Process::spawn) as the foundation for enhanced versions of existing
+process-related methods like Kernel#system, Kernel#`, and IO#popen. These
+methods are backward compatible with their Ruby 1.8 counterparts but
+support a large number of new options. The <a
+href="Spawn.html">POSIX::Spawn</a> module implements many of these methods
+with support for most of Ruby 1.9&#39;s features.</p>
+
+<p>The argument signatures for all of these methods follow a new convention,
+making it possible to take advantage of Process::spawn features:</p>
+
+<pre>spawn([env], command, [argv1, ...], [options])
+system([env], command, [argv1, ...], [options])
+popen([[env], command, [argv1, ...]], mode=&quot;r&quot;, [options])</pre>
+
+<p>The env, command, and options arguments are described below.</p>
+
+<h2 id="label-Environment">Environment<span><a href="#label-Environment">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>If a hash is given in the first argument (env), the child process&#39;s
+environment becomes a merge of the parent&#39;s and any modifications
+specified in the hash. When a value in env is nil, the variable is unset in
+the child:</p>
+
+<pre class="ruby"><span class="ruby-comment"># set FOO as BAR and unset BAZ.</span>
+<span class="ruby-identifier">spawn</span>({<span class="ruby-string">&quot;FOO&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;BAR&quot;</span>, <span class="ruby-string">&quot;BAZ&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">nil</span>}, <span class="ruby-string">&#39;echo&#39;</span>, <span class="ruby-string">&#39;hello world&#39;</span>)
+</pre>
+
+<h2 id="label-Command">Command<span><a href="#label-Command">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>The command and optional argvN string arguments specify the command to
+execute and any program arguments. When only command is given and includes
+a space character, the command text is executed by the system shell
+interpreter, as if by:</p>
+
+<pre>/bin/sh -c &#39;command&#39;</pre>
+
+<p>When command does not include a space character, or one or more argvN
+arguments are given, the command is executed as if by execve(2) with each
+argument forming the new program&#39;s argv.</p>
+
+<p>NOTE: Use of the shell variation is generally discouraged unless you indeed
+want to execute a shell program. Specifying an explicitly argv is typically
+more secure and less error prone in most cases.</p>
+
+<h2 id="label-Options">Options<span><a href="#label-Options">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>When a hash is given in the last argument (options), it specifies a current
+directory and zero or more fd redirects for the child process.</p>
+
+<p>The :chdir option specifies the current directory. Note that :chdir is not
+thread-safe on systems that provide posix_spawn(2), because it forces a
+temporary change of the working directory of the calling process.</p>
+
+<pre class="ruby"><span class="ruby-identifier">spawn</span>(<span class="ruby-identifier">command</span>, :<span class="ruby-identifier">chdir</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;/var/tmp&quot;</span>)
+</pre>
+
+<p>The :in, :out, :err, a Fixnum, an <a href="../IO.html">IO</a> object or an
+Array option specify fd redirection. For example, stderr can be merged into
+stdout as follows:</p>
+
+<pre class="ruby"><span class="ruby-identifier">spawn</span>(<span class="ruby-identifier">command</span>, :<span class="ruby-identifier">err</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">out</span>)
+<span class="ruby-identifier">spawn</span>(<span class="ruby-identifier">command</span>, <span class="ruby-value">2</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>)
+<span class="ruby-identifier">spawn</span>(<span class="ruby-identifier">command</span>, <span class="ruby-constant">STDERR</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">out</span>)
+<span class="ruby-identifier">spawn</span>(<span class="ruby-identifier">command</span>, <span class="ruby-constant">STDERR</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">STDOUT</span>)
+</pre>
+
+<p>The key is a fd in the newly spawned child process (stderr in this case).
+The value is a fd in the parent process (stdout in this case).</p>
+
+<p>You can also specify a filename for redirection instead of an fd:</p>
+
+<pre class="ruby"><span class="ruby-identifier">spawn</span>(<span class="ruby-identifier">command</span>, :<span class="ruby-keyword">in</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;/dev/null&quot;</span>)   <span class="ruby-comment"># read mode</span>
+<span class="ruby-identifier">spawn</span>(<span class="ruby-identifier">command</span>, :<span class="ruby-identifier">out</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;/dev/null&quot;</span>)  <span class="ruby-comment"># write mode</span>
+<span class="ruby-identifier">spawn</span>(<span class="ruby-identifier">command</span>, :<span class="ruby-identifier">err</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;log&quot;</span>)        <span class="ruby-comment"># write mode</span>
+<span class="ruby-identifier">spawn</span>(<span class="ruby-identifier">command</span>, <span class="ruby-value">3</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;/dev/null&quot;</span>)     <span class="ruby-comment"># read mode</span>
+</pre>
+
+<p>When redirecting to stdout or stderr, the files are opened in write mode;
+otherwise, read mode is used.</p>
+
+<p>It&#39;s also possible to control the open flags and file permissions
+directly by passing an array value:</p>
+
+<pre class="ruby"><span class="ruby-identifier">spawn</span>(<span class="ruby-identifier">command</span>, :<span class="ruby-keyword">in</span>=<span class="ruby-operator">&gt;</span>[<span class="ruby-string">&quot;file&quot;</span>])       <span class="ruby-comment"># read mode assumed</span>
+<span class="ruby-identifier">spawn</span>(<span class="ruby-identifier">command</span>, :<span class="ruby-keyword">in</span>=<span class="ruby-operator">&gt;</span>[<span class="ruby-string">&quot;file&quot;</span>, <span class="ruby-string">&quot;r&quot;</span>])  <span class="ruby-comment"># explicit read mode</span>
+<span class="ruby-identifier">spawn</span>(<span class="ruby-identifier">command</span>, :<span class="ruby-identifier">out=</span><span class="ruby-operator">&gt;</span>[<span class="ruby-string">&quot;log&quot;</span>, <span class="ruby-string">&quot;w&quot;</span>])  <span class="ruby-comment"># explicit write mode, 0644 assumed</span>
+<span class="ruby-identifier">spawn</span>(<span class="ruby-identifier">command</span>, :<span class="ruby-identifier">out=</span><span class="ruby-operator">&gt;</span>[<span class="ruby-string">&quot;log&quot;</span>, <span class="ruby-string">&quot;w&quot;</span>, <span class="ruby-value">0600</span>])
+<span class="ruby-identifier">spawn</span>(<span class="ruby-identifier">command</span>, :<span class="ruby-identifier">out=</span><span class="ruby-operator">&gt;</span>[<span class="ruby-string">&quot;log&quot;</span>, <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">APPEND</span> <span class="ruby-operator">|</span> <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">CREAT</span>, <span class="ruby-value">0600</span>])
+</pre>
+
+<p>The array is a [filename, open_mode, perms] tuple. open_mode can be a
+string or an integer. When open_mode is omitted or nil, File::RDONLY is
+assumed. The perms element should be an integer. When perms is omitted or
+nil, 0644 is assumed.</p>
+
+<p>The :close It&#39;s possible to direct an fd be closed in the child
+process.  This is important for implementing `popen`-style logic and other
+forms of IPC between processes using `IO.pipe`:</p>
+
+<pre class="ruby"><span class="ruby-identifier">rd</span>, <span class="ruby-identifier">wr</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">pipe</span>
+<span class="ruby-identifier">pid</span> = <span class="ruby-identifier">spawn</span>(<span class="ruby-string">&#39;echo&#39;</span>, <span class="ruby-string">&#39;hello world&#39;</span>, <span class="ruby-identifier">rd</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">close</span>, :<span class="ruby-identifier">stdout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">wr</span>)
+<span class="ruby-identifier">wr</span>.<span class="ruby-identifier">close</span>
+<span class="ruby-identifier">output</span> = <span class="ruby-identifier">rd</span>.<span class="ruby-identifier">read</span>
+<span class="ruby-constant">Process</span>.<span class="ruby-identifier">wait</span>(<span class="ruby-identifier">pid</span>)
+</pre>
+
+<h2 id="label-Spawn+Implementation"><a href="Spawn.html">Spawn</a> Implementation<span><a href="#label-Spawn+Implementation">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>The <a href="Spawn.html#method-i-spawn">#spawn</a> method uses the best
+available implementation given the current platform and Ruby version. In
+order of preference, they are:</p>
+
+<pre>1. The posix_spawn based C extension method (pspawn).
+2. Process::spawn when available (Ruby 1.9 only).
+3. A simple pure-Ruby fork/exec based spawn implementation compatible
+   with Ruby &gt;= 1.8.7.</pre>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="OFLAGS">OFLAGS
+        
+        <dd class="description"><p>Mapping of string open modes to integer oflag versions.</p>
+        
+      
+        <dt id="VERSION">VERSION
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-60" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">`</span><span
+            class="method-args">(cmd)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Executes a command in a subshell using the system&#39;s shell interpreter
+and returns anything written to the new process&#39;s stdout. This method
+is compatible with Kernel#`.</p>
+
+<p>Returns the String output of the command.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="60-source">
+            <pre><span class="ruby-comment"># File lib/posix/spawn.rb, line 279</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">`</span>(<span class="ruby-identifier">cmd</span>)
+  <span class="ruby-identifier">r</span>, <span class="ruby-identifier">w</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">pipe</span>
+  <span class="ruby-identifier">command_and_args</span> = <span class="ruby-identifier">system_command_prefixes</span> <span class="ruby-operator">+</span> [<span class="ruby-identifier">cmd</span>, {<span class="ruby-value">:out</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">w</span>, <span class="ruby-identifier">r</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:close</span>}]
+  <span class="ruby-identifier">pid</span> = <span class="ruby-identifier">spawn</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">command_and_args</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">pid</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">w</span>.<span class="ruby-identifier">close</span>
+    <span class="ruby-identifier">out</span> = <span class="ruby-identifier">r</span>.<span class="ruby-identifier">read</span>
+    <span class="ruby-operator">::</span><span class="ruby-constant">Process</span>.<span class="ruby-identifier">waitpid</span>(<span class="ruby-identifier">pid</span>)
+    <span class="ruby-identifier">out</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">ensure</span>
+  [<span class="ruby-identifier">r</span>, <span class="ruby-identifier">w</span>].<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">io</span><span class="ruby-operator">|</span> <span class="ruby-identifier">io</span>.<span class="ruby-identifier">close</span> <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- 60-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- 60-method -->
+
+    
+      <div id="method-i-fspawn" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fspawn</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Spawn.html">Spawn</a> a child process with a variety of options
+using a pure Ruby fork + exec. Supports the standard spawn interface as
+described in the <a href="Spawn.html">POSIX::Spawn</a> module
+documentation.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="fspawn-source">
+            <pre><span class="ruby-comment"># File lib/posix/spawn.rb, line 195</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fspawn</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">env</span>, <span class="ruby-identifier">argv</span>, <span class="ruby-identifier">options</span> = <span class="ruby-identifier">extract_process_spawn_arguments</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">valid_options</span> = [<span class="ruby-value">:chdir</span>, <span class="ruby-value">:unsetenv_others</span>, <span class="ruby-value">:pgroup</span>]
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">badopt</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">find</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>,<span class="ruby-identifier">val</span><span class="ruby-operator">|</span> <span class="ruby-operator">!</span><span class="ruby-identifier">fd?</span>(<span class="ruby-identifier">key</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">valid_options</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span>) }
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Invalid option: #{badopt[0].inspect}&quot;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-operator">!</span><span class="ruby-identifier">argv</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>) <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-identifier">argv</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">argv</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">size</span> <span class="ruby-operator">!=</span> <span class="ruby-value">2</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;Invalid command name&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">fork</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-comment"># handle FD =&gt; {FD, :close, [file,mode,perms]} options</span>
+      <span class="ruby-identifier">options</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">val</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">fd?</span>(<span class="ruby-identifier">key</span>)
+          <span class="ruby-identifier">key</span> = <span class="ruby-identifier">fd_to_io</span>(<span class="ruby-identifier">key</span>)
+
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">fd?</span>(<span class="ruby-identifier">val</span>)
+            <span class="ruby-identifier">val</span> = <span class="ruby-identifier">fd_to_io</span>(<span class="ruby-identifier">val</span>)
+            <span class="ruby-identifier">key</span>.<span class="ruby-identifier">reopen</span>(<span class="ruby-identifier">val</span>)
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:close_on_exec=</span>)
+              <span class="ruby-identifier">key</span>.<span class="ruby-identifier">close_on_exec</span> = <span class="ruby-keyword">false</span>
+              <span class="ruby-identifier">val</span>.<span class="ruby-identifier">close_on_exec</span> = <span class="ruby-keyword">false</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">val</span> <span class="ruby-operator">==</span> <span class="ruby-value">:close</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:close_on_exec=</span>)
+              <span class="ruby-identifier">key</span>.<span class="ruby-identifier">close_on_exec</span> = <span class="ruby-keyword">true</span>
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-identifier">key</span>.<span class="ruby-identifier">close</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>)
+            <span class="ruby-identifier">file</span>, <span class="ruby-identifier">mode_string</span>, <span class="ruby-identifier">perms</span> = <span class="ruby-operator">*</span><span class="ruby-identifier">val</span>
+            <span class="ruby-identifier">key</span>.<span class="ruby-identifier">reopen</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">file</span>, <span class="ruby-identifier">mode_string</span>, <span class="ruby-identifier">perms</span>))
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-comment"># setup child environment</span>
+      <span class="ruby-constant">ENV</span>.<span class="ruby-identifier">replace</span>({}) <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:unsetenv_others</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+      <span class="ruby-identifier">env</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-constant">ENV</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-identifier">v</span> }
+
+      <span class="ruby-comment"># { :chdir =&gt; &#39;/&#39; } in options means change into that dir</span>
+      <span class="ruby-operator">::</span><span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:chdir</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:chdir</span>]
+
+      <span class="ruby-comment"># { :pgroup =&gt; pgid } options</span>
+      <span class="ruby-identifier">pgroup</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:pgroup</span>]
+      <span class="ruby-identifier">pgroup</span> = <span class="ruby-value">0</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">pgroup</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+      <span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">setpgid</span>(<span class="ruby-value">0</span>, <span class="ruby-identifier">pgroup</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">pgroup</span>
+
+      <span class="ruby-comment"># do the deed</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-constant">RUBY_VERSION</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/\A1\.8/</span>
+        <span class="ruby-operator">::</span><span class="ruby-constant">Kernel</span><span class="ruby-operator">::</span><span class="ruby-identifier">exec</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">argv</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">argv_and_options</span> = <span class="ruby-identifier">argv</span> <span class="ruby-operator">+</span> [{<span class="ruby-value">:close_others=</span><span class="ruby-operator">&gt;</span><span class="ruby-keyword">false</span>}]
+        <span class="ruby-operator">::</span><span class="ruby-constant">Kernel</span><span class="ruby-operator">::</span><span class="ruby-identifier">exec</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">argv_and_options</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">ensure</span>
+      <span class="ruby-identifier">exit!</span>(<span class="ruby-value">127</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- fspawn-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- fspawn-method -->
+
+    
+      <div id="method-i-popen4" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">popen4</span><span
+            class="method-args">(*argv)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Spawn.html">Spawn</a> a child process with all standard <a
+href="../IO.html">IO</a> streams piped in and out of the spawning process.
+Supports the standard spawn interface as described in the <a
+href="Spawn.html">POSIX::Spawn</a> module documentation.</p>
+
+<p>Returns a [pid, stdin, stdout, stderr] tuple, where pid is the new
+process&#39;s pid, stdin is a writeable <a href="../IO.html">IO</a> object,
+and stdout / stderr are readable <a href="../IO.html">IO</a> objects. The
+caller should take care to close all <a href="../IO.html">IO</a> objects
+when finished and the child process&#39;s status must be collected by a
+call to Process::waitpid or equivalent.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="popen4-source">
+            <pre><span class="ruby-comment"># File lib/posix/spawn.rb, line 305</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">popen4</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">argv</span>)
+  <span class="ruby-comment"># create some pipes (see pipe(2) manual -- the ruby docs suck)</span>
+  <span class="ruby-identifier">ird</span>, <span class="ruby-identifier">iwr</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">pipe</span>
+  <span class="ruby-identifier">ord</span>, <span class="ruby-identifier">owr</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">pipe</span>
+  <span class="ruby-identifier">erd</span>, <span class="ruby-identifier">ewr</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">pipe</span>
+
+  <span class="ruby-comment"># spawn the child process with either end of pipes hooked together</span>
+  <span class="ruby-identifier">opts</span> =
+    ((<span class="ruby-identifier">argv</span>.<span class="ruby-identifier">pop</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">argv</span>[<span class="ruby-value">-1</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)) <span class="ruby-operator">||</span> {}).<span class="ruby-identifier">merge</span>(
+      <span class="ruby-comment"># redirect fds        # close other sides</span>
+      <span class="ruby-value">:in</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ird</span>,          <span class="ruby-identifier">iwr</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:close</span>,
+      <span class="ruby-value">:out</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">owr</span>,          <span class="ruby-identifier">ord</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:close</span>,
+      <span class="ruby-value">:err</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ewr</span>,          <span class="ruby-identifier">erd</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:close</span>
+    )
+  <span class="ruby-identifier">pid</span> = <span class="ruby-identifier">spawn</span>(<span class="ruby-operator">*</span>(<span class="ruby-identifier">argv</span> <span class="ruby-operator">+</span> [<span class="ruby-identifier">opts</span>]))
+
+  [<span class="ruby-identifier">pid</span>, <span class="ruby-identifier">iwr</span>, <span class="ruby-identifier">ord</span>, <span class="ruby-identifier">erd</span>]
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-comment"># we&#39;re in the parent, close child-side fds</span>
+  [<span class="ruby-identifier">ird</span>, <span class="ruby-identifier">owr</span>, <span class="ruby-identifier">ewr</span>].<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">fd</span><span class="ruby-operator">|</span> <span class="ruby-identifier">fd</span>.<span class="ruby-identifier">close</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">fd</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- popen4-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- popen4-method -->
+
+    
+      <div id="method-i-pspawn" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pspawn</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Spawn.html">Spawn</a> a child process with a variety of options
+using the posix_spawn(2) systems interfaces. Supports the standard spawn
+interface as described in the <a href="Spawn.html">POSIX::Spawn</a> module
+documentation.</p>
+
+<p>Raises NotImplementedError when the posix_spawn_ext module could not be
+loaded due to lack of platform support.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="pspawn-source">
+            <pre><span class="ruby-comment"># File lib/posix/spawn.rb, line 176</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pspawn</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">env</span>, <span class="ruby-identifier">argv</span>, <span class="ruby-identifier">options</span> = <span class="ruby-identifier">extract_process_spawn_arguments</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:_pspawn</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span> <span class="ruby-constant">JRUBY_VERSION</span>
+    <span class="ruby-comment"># On the JVM, changes made to the environment are not propagated down</span>
+    <span class="ruby-comment"># to C via get/setenv, so we have to fake it here.</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:unsetenv_others</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+      <span class="ruby-identifier">env</span> = <span class="ruby-constant">ENV</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">env</span>)
+      <span class="ruby-identifier">options</span>[<span class="ruby-value">:unsetenv_others</span>] = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">_pspawn</span>(<span class="ruby-identifier">env</span>, <span class="ruby-identifier">argv</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- pspawn-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- pspawn-method -->
+
+    
+      <div id="method-i-spawn" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">spawn</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Spawn.html">Spawn</a> a child process with a variety of options
+using the best available implementation for the current platform and Ruby
+version.</p>
+
+<p><a href="http://env">spawn(</a>, command, [argv1, …], [options])</p>
+
+<p>env     - Optional hash specifying the new process&#39;s environment.
+command - A string command name, or shell program, used to determine the</p>
+
+<pre>program to execute.</pre>
+
+<p>argvN   - Zero or more string program arguments (argv). options - Optional
+hash of operations to perform before executing the</p>
+
+<pre>new child process.</pre>
+
+<p>Returns the integer pid of the newly spawned process.</p>
+<dl class="rdoc-list note-list"><dt>Raises any number of Errno
+<dd>
+<p>exceptions on failure.</p>
+</dd></dl>
+          
+          
+
+          
+          <div class="method-source-code" id="spawn-source">
+            <pre><span class="ruby-comment"># File lib/posix/spawn.rb, line 160</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">spawn</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:_pspawn</span>)
+    <span class="ruby-identifier">pspawn</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-operator">::</span><span class="ruby-constant">Process</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:spawn</span>)
+    <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">spawn</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">fspawn</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- spawn-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- spawn-method -->
+
+    
+      <div id="method-i-system" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">system</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Executes a command and waits for it to complete. The command&#39;s exit
+status is available as $?. Supports the standard spawn interface as
+described in the <a href="Spawn.html">POSIX::Spawn</a> module
+documentation.</p>
+
+<p>This method is compatible with Kernel#system.</p>
+
+<p>Returns true if the command returns a zero exit status, or false for
+non-zero exit.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="system-source">
+            <pre><span class="ruby-comment"># File lib/posix/spawn.rb, line 265</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">system</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">pid</span> = <span class="ruby-identifier">spawn</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">pid</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span>.<span class="ruby-identifier">waitpid</span>(<span class="ruby-identifier">pid</span>)
+  <span class="ruby-identifier">$?</span>.<span class="ruby-identifier">exitstatus</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ENOENT</span>
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- system-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- system-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-adjust_process_spawn_argv" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">adjust_process_spawn_argv</span><span
+            class="method-args">(args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Converts the various supported command argument variations into a standard
+argv suitable for use with exec. This includes detecting commands to be run
+through the shell (single argument strings with spaces).</p>
+
+<p>The args array may follow any of these variations:</p>
+
+<p>&#39;true&#39;                     =&gt; [[&#39;true&#39;, &#39;true&#39;]]
+&#39;echo&#39;, &#39;hello&#39;, &#39;world&#39;   =&gt; [[&#39;echo&#39;,
+&#39;echo&#39;], &#39;hello&#39;, &#39;world&#39;] &#39;echo hello
+world&#39;         =&gt; [[&#39;/bin/sh&#39;, &#39;/bin/sh&#39;],
+&#39;-c&#39;, &#39;echo hello world&#39;]</p>
+<dl class="rdoc-list label-list"><dt>&#39;echo&#39;, &#39;fuuu&#39;], &#39;hello&#39;  =&gt; [[&#39;echo&#39;, &#39;fuuu&#39;], &#39;hello&#39;
+<dd>
+<p>Returns a [[cmdname, argv0], argv1, …] array.</p>
+</dd></dl>
+          
+          
+
+          
+          <div class="method-source-code" id="adjust_process_spawn_argv-source">
+            <pre><span class="ruby-comment"># File lib/posix/spawn.rb, line 531</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">adjust_process_spawn_argv</span>(<span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">=~</span> <span class="ruby-regexp">/[ |&gt;]/</span>
+    <span class="ruby-comment"># single string with these characters means run it through the shell</span>
+    <span class="ruby-identifier">command_and_args</span> = <span class="ruby-identifier">system_command_prefixes</span> <span class="ruby-operator">+</span> [<span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>]]
+    [<span class="ruby-operator">*</span><span class="ruby-identifier">command_and_args</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-operator">!</span><span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:to_ary</span>)
+    <span class="ruby-comment"># [argv0, argv1, ...]</span>
+    [[<span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>], <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>]], <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># [[cmdname, argv0], argv1, ...]</span>
+    <span class="ruby-identifier">args</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- adjust_process_spawn_argv-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- adjust_process_spawn_argv-method -->
+
+    
+      <div id="method-i-default_file_reopen_info" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_file_reopen_info</span><span
+            class="method-args">(fd, file)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The default [file, flags, mode] tuple for a given fd and filename. The
+default flags vary based on the what fd is being redirected. stdout and
+stderr default to write, while stdin and all other fds default to read.</p>
+
+<p>fd   - The file descriptor that is being redirected. This may be an <a
+href="../IO.html">IO</a></p>
+
+<pre>object, integer fd number, or :in, :out, :err for one of the standard
+streams.</pre>
+
+<p>file - The string path to the file that fd should be redirected to.</p>
+
+<p>Returns a [file, flags, mode] tuple.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_file_reopen_info-source">
+            <pre><span class="ruby-comment"># File lib/posix/spawn.rb, line 448</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_file_reopen_info</span>(<span class="ruby-identifier">fd</span>, <span class="ruby-identifier">file</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">fd</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:in</span>, <span class="ruby-constant">STDIN</span>, <span class="ruby-identifier">$stdin</span>, <span class="ruby-value">0</span>
+    [<span class="ruby-identifier">file</span>, <span class="ruby-string">&quot;r&quot;</span>, <span class="ruby-value">0644</span>]
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:out</span>, <span class="ruby-constant">STDOUT</span>, <span class="ruby-identifier">$stdout</span>, <span class="ruby-value">1</span>
+    [<span class="ruby-identifier">file</span>, <span class="ruby-string">&quot;w&quot;</span>, <span class="ruby-value">0644</span>]
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:err</span>, <span class="ruby-constant">STDERR</span>, <span class="ruby-identifier">$stderr</span>, <span class="ruby-value">2</span>
+    [<span class="ruby-identifier">file</span>, <span class="ruby-string">&quot;w&quot;</span>, <span class="ruby-value">0644</span>]
+  <span class="ruby-keyword">else</span>
+    [<span class="ruby-identifier">file</span>, <span class="ruby-string">&quot;r&quot;</span>, <span class="ruby-value">0644</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- default_file_reopen_info-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- default_file_reopen_info-method -->
+
+    
+      <div id="method-i-extract_process_spawn_arguments" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">extract_process_spawn_arguments</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Turns the various varargs incantations supported by Process::spawn into a
+simple [env, argv, options] tuple. This just makes life easier for the
+extension functions.</p>
+
+<p>The following method signature is supported:</p>
+
+<pre>Process::spawn([env], command, ..., [options])</pre>
+
+<p>The env and options hashes are optional. The command may be a variable
+number of strings or an Array full of strings that make up the new
+process&#39;s argv.</p>
+
+<p>Returns an [env, argv, options] tuple. All elements are guaranteed to be
+non-nil. When no env or options are given, empty hashes are returned.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="extract_process_spawn_arguments-source">
+            <pre><span class="ruby-comment"># File lib/posix/spawn.rb, line 355</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">extract_process_spawn_arguments</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-comment"># pop the options hash off the end if it&#39;s there</span>
+  <span class="ruby-identifier">options</span> =
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">-1</span>].<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:to_hash</span>)
+      <span class="ruby-identifier">args</span>.<span class="ruby-identifier">pop</span>.<span class="ruby-identifier">to_hash</span>
+    <span class="ruby-keyword">else</span>
+      {}
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">flatten_process_spawn_options!</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">normalize_process_spawn_redirect_file_options!</span>(<span class="ruby-identifier">options</span>)
+
+  <span class="ruby-comment"># shift the environ hash off the front if it&#39;s there and account for</span>
+  <span class="ruby-comment"># possible :env key in options hash.</span>
+  <span class="ruby-identifier">env</span> =
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:to_hash</span>)
+      <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span>.<span class="ruby-identifier">to_hash</span>
+    <span class="ruby-keyword">else</span>
+      {}
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">env</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:env</span>)) <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:env</span>)
+
+  <span class="ruby-comment"># remaining arguments are the argv supporting a number of variations.</span>
+  <span class="ruby-identifier">argv</span> = <span class="ruby-identifier">adjust_process_spawn_argv</span>(<span class="ruby-identifier">args</span>)
+
+  [<span class="ruby-identifier">env</span>, <span class="ruby-identifier">argv</span>, <span class="ruby-identifier">options</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- extract_process_spawn_arguments-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- extract_process_spawn_arguments-method -->
+
+    
+      <div id="method-i-fd-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fd?</span><span
+            class="method-args">(object)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether object is fd-like.</p>
+
+<p>Returns true if object is an instance of <a href="../IO.html">IO</a>,
+Fixnum &gt;= 0, or one of the the symbolic names :in, :out, or :err.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="fd-3F-source">
+            <pre><span class="ruby-comment"># File lib/posix/spawn.rb, line 465</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fd?</span>(<span class="ruby-identifier">object</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">object</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Fixnum</span>
+    <span class="ruby-identifier">object</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">0</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:in</span>, <span class="ruby-value">:out</span>, <span class="ruby-value">:err</span>, <span class="ruby-constant">STDIN</span>, <span class="ruby-constant">STDOUT</span>, <span class="ruby-constant">STDERR</span>, <span class="ruby-identifier">$stdin</span>, <span class="ruby-identifier">$stdout</span>, <span class="ruby-identifier">$stderr</span>, <span class="ruby-constant">IO</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">object</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:to_io</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">object</span>.<span class="ruby-identifier">to_io</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- fd-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- fd-3F-method -->
+
+    
+      <div id="method-i-fd_to_io" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fd_to_io</span><span
+            class="method-args">(object)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Convert a fd identifier to an <a href="../IO.html">IO</a> object.</p>
+
+<p>Returns nil or an instance of <a href="../IO.html">IO</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="fd_to_io-source">
+            <pre><span class="ruby-comment"># File lib/posix/spawn.rb, line 479</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fd_to_io</span>(<span class="ruby-identifier">object</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">object</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">STDIN</span>, <span class="ruby-constant">STDOUT</span>, <span class="ruby-constant">STDERR</span>, <span class="ruby-identifier">$stdin</span>, <span class="ruby-identifier">$stdout</span>, <span class="ruby-identifier">$stderr</span>
+    <span class="ruby-identifier">object</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:in</span>, <span class="ruby-value">0</span>
+    <span class="ruby-constant">STDIN</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:out</span>, <span class="ruby-value">1</span>
+    <span class="ruby-constant">STDOUT</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:err</span>, <span class="ruby-value">2</span>
+    <span class="ruby-constant">STDERR</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Fixnum</span>
+    <span class="ruby-identifier">object</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-constant">IO</span>.<span class="ruby-identifier">for_fd</span>(<span class="ruby-identifier">object</span>) <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">IO</span>
+    <span class="ruby-identifier">object</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">object</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:to_io</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">to_io</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- fd_to_io-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- fd_to_io-method -->
+
+    
+      <div id="method-i-flatten_process_spawn_options-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">flatten_process_spawn_options!</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Convert { [fd1, fd2, …] =&gt; (:close|fd) } options to individual keys,
+like: { fd1 =&gt; :close, fd2 =&gt; :close }. This just makes life easier
+for the spawn implementations.</p>
+
+<p>options - The options hash. This is modified in place.</p>
+
+<p>Returns the modified options hash.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="flatten_process_spawn_options-21-source">
+            <pre><span class="ruby-comment"># File lib/posix/spawn.rb, line 389</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">flatten_process_spawn_options!</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">options</span>.<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:to_ary</span>)
+      <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_ary</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">fd</span><span class="ruby-operator">|</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">fd</span>] = <span class="ruby-identifier">value</span> }
+      <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">key</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- flatten_process_spawn_options-21-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- flatten_process_spawn_options-21-method -->
+
+    
+      <div id="method-i-normalize_process_spawn_redirect_file_options-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">normalize_process_spawn_redirect_file_options!</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Convert variations of redirecting to a file to a standard tuple.</p>
+
+<p>:in   =&gt; &#39;/some/file&#39;   =&gt; [&#39;/some/file&#39;,
+&#39;r&#39;, 0644] :out  =&gt; &#39;/some/file&#39;   =&gt;
+[&#39;/some/file&#39;, &#39;w&#39;, 0644] :err  =&gt; &#39;/some/file&#39; 
+=&gt; [&#39;/some/file&#39;, &#39;w&#39;, 0644] STDIN =&gt;
+&#39;/some/file&#39;   =&gt; [&#39;/some/file&#39;, &#39;r&#39;, 0644]</p>
+
+<p>Returns the modified options hash.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="normalize_process_spawn_redirect_file_options-21-source">
+            <pre><span class="ruby-comment"># File lib/posix/spawn.rb, line 416</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">normalize_process_spawn_redirect_file_options!</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">options</span>.<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">fd?</span>(<span class="ruby-identifier">key</span>)
+
+    <span class="ruby-comment"># convert string and short array values to</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:to_str</span>)
+      <span class="ruby-identifier">value</span> = <span class="ruby-identifier">default_file_reopen_info</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:to_ary</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">3</span>
+      <span class="ruby-identifier">defaults</span> = <span class="ruby-identifier">default_file_reopen_info</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>[<span class="ruby-value">0</span>])
+      <span class="ruby-identifier">value</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">defaults</span>[<span class="ruby-identifier">value</span>.<span class="ruby-identifier">size</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">value</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># replace string open mode flag maybe and replace original value</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>
+      <span class="ruby-identifier">value</span>[<span class="ruby-value">1</span>] = <span class="ruby-constant">OFLAGS</span>[<span class="ruby-identifier">value</span>[<span class="ruby-value">1</span>]] <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:to_str</span>)
+      <span class="ruby-identifier">options</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">value</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- normalize_process_spawn_redirect_file_options-21-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- normalize_process_spawn_redirect_file_options-21-method -->
+
+    
+      <div id="method-i-system_command_prefixes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">system_command_prefixes</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Derives the shell command to use when running the spawn.</p>
+
+<p>On a Windows machine, this will yield:</p>
+
+<pre>[[&#39;cmd.exe&#39;, &#39;cmd.exe&#39;], &#39;/c&#39;]</pre>
+
+<p>Note: &#39;cmd.exe&#39; is used if the COMSPEC environment variable</p>
+
+<pre>is not specified. If you would like to use something other
+than &#39;cmd.exe&#39;, specify its path in ENV[&#39;COMSPEC&#39;]</pre>
+
+<p>On all other systems, this will yield:</p>
+
+<pre>[[&#39;/bin/sh&#39;, &#39;/bin/sh&#39;], &#39;-c&#39;]</pre>
+
+<p>Returns a platform-specific [[&lt;shell&gt;, &lt;shell&gt;],
+&lt;command-switch&gt;] array.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="system_command_prefixes-source">
+            <pre><span class="ruby-comment"># File lib/posix/spawn.rb, line 510</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">system_command_prefixes</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">RUBY_PLATFORM</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/(mswin|mingw|cygwin|bccwin)/</span>
+    <span class="ruby-identifier">sh</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;COMSPEC&#39;</span>] <span class="ruby-operator">||</span> <span class="ruby-string">&#39;cmd.exe&#39;</span>
+    [[<span class="ruby-identifier">sh</span>, <span class="ruby-identifier">sh</span>], <span class="ruby-string">&#39;/c&#39;</span>]
+  <span class="ruby-keyword">else</span>
+    [[<span class="ruby-string">&#39;/bin/sh&#39;</span>, <span class="ruby-string">&#39;/bin/sh&#39;</span>], <span class="ruby-string">&#39;-c&#39;</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- system_command_prefixes-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- system_command_prefixes-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

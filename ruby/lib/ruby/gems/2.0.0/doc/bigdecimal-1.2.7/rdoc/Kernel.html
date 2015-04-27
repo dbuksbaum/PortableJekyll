@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module Kernel - bigdecimal-1.2.7 Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>bigdecimal.c
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-i-BigDecimal">#BigDecimal</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./Makefile.html">Makefile</a>
+  
+    <li class="file"><a href="./README.html">README</a>
+  
+    <li class="file"><a href="./bigdecimal-i386-mingw32_def.html">bigdecimal-i386-mingw32.def</a>
+  
+    <li class="file"><a href="./depend.html">depend</a>
+  
+    <li class="file"><a href="./mkmf_log.html">mkmf.log</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./BigDecimal.html">BigDecimal</a>
+  
+    <li><a href="./BigMath.html">BigMath</a>
+  
+    <li><a href="./Float.html">Float</a>
+  
+    <li><a href="./Function.html">Function</a>
+  
+    <li><a href="./Integer.html">Integer</a>
+  
+    <li><a href="./Jacobian.html">Jacobian</a>
+  
+    <li><a href="./Kernel.html">Kernel</a>
+  
+    <li><a href="./LUSolve.html">LUSolve</a>
+  
+    <li><a href="./Newton.html">Newton</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./Rational.html">Rational</a>
+  
+    <li><a href="./RbConfig.html">RbConfig</a>
+  
+    <li><a href="./String.html">String</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module Kernel</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-BigDecimal" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">BigDecimal</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>See also <a href="BigDecimal.html#method-c-new">BigDecimal.new</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="BigDecimal-source">
+            <pre>static VALUE
+BigDecimal_global_new(int argc, VALUE *argv, VALUE self)
+{
+    ENTER(1);
+    Real *pv;
+
+    GUARD_OBJ(pv, BigDecimal_new(argc, argv));
+    if (ToValue(pv)) pv = VpCopy(NULL, pv);
+    pv-&gt;obj = TypedData_Wrap_Struct(rb_cBigDecimal, &amp;BigDecimal_data_type, pv);
+    return pv-&gt;obj;
+}</pre>
+          </div><!-- BigDecimal-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- BigDecimal-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
