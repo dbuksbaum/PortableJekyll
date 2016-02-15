@@ -1,2 +1,0 @@
-U:RDoc::Attr[iI"page_hooks:ETI"Jekyll::Site#page_hooks;FI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"6Instance variable to store the various page_hook ;TI"plugins that are loaded.;T:
-@fileI"lib/octopress-hooks.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Jekyll::Site;FcRDoc::NormalClass0

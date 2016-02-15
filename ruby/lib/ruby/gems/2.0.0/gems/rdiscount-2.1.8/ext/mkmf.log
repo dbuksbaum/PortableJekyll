@@ -41,7 +41,7 @@ checked program was:
 "gcc -o conftest.exe -ID:/Development/Blogs/Jekyll/PortableJekyll/ruby/include/ruby-2.0.0/i386-mingw32 -ID:/Development/Blogs/Jekyll/PortableJekyll/ruby/include/ruby-2.0.0/ruby/backward -ID:/Development/Blogs/Jekyll/PortableJekyll/ruby/include/ruby-2.0.0 -I. -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D_FILE_OFFSET_BITS=64   -O3 -fno-omit-frame-pointer -fno-fast-math -g -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration conftest.c  -L. -LD:/Development/Blogs/Jekyll/PortableJekyll/ruby/lib -L.      -lmsvcrt-ruby200  -lshell32 -lws2_32 -limagehlp -lshlwapi  "
 conftest.c: In function 't':
 conftest.c:8:1: warning: implicit declaration of function 'random' [-Wimplicit-function-declaration]
-C:\Users\david\AppData\Local\Temp\cc63j8N9.o: In function `t':
+C:\Users\david\AppData\Local\Temp\ccot2K8a.o: In function `t':
 D:\Development\Blogs\Jekyll\PortableJekyll\ruby\lib\ruby\gems\2.0.0\gems\rdiscount-2.1.8\ext/conftest.c:8: undefined reference to `random'
 collect2.exe: error: ld returned 1 exit status
 checked program was:
@@ -96,7 +96,7 @@ checked program was:
 "gcc -o conftest.exe -ID:/Development/Blogs/Jekyll/PortableJekyll/ruby/include/ruby-2.0.0/i386-mingw32 -ID:/Development/Blogs/Jekyll/PortableJekyll/ruby/include/ruby-2.0.0/ruby/backward -ID:/Development/Blogs/Jekyll/PortableJekyll/ruby/include/ruby-2.0.0 -I. -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D_FILE_OFFSET_BITS=64   -O3 -fno-omit-frame-pointer -fno-fast-math -g -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration conftest.c  -L. -LD:/Development/Blogs/Jekyll/PortableJekyll/ruby/lib -L.      -lmsvcrt-ruby200  -lshell32 -lws2_32 -limagehlp -lshlwapi  "
 conftest.c: In function 't':
 conftest.c:8:1: warning: implicit declaration of function 'srandom' [-Wimplicit-function-declaration]
-C:\Users\david\AppData\Local\Temp\ccAUHcxz.o: In function `t':
+C:\Users\david\AppData\Local\Temp\ccs2PqdN.o: In function `t':
 D:\Development\Blogs\Jekyll\PortableJekyll\ruby\lib\ruby\gems\2.0.0\gems\rdiscount-2.1.8\ext/conftest.c:8: undefined reference to `srandom'
 collect2.exe: error: ld returned 1 exit status
 checked program was:
